@@ -65,8 +65,8 @@ static List<CruiseLineConfig> CruiseLines = new()
 	),
 	new CruiseLineConfig(
 		Name: "Celebrity",
-		// vid=568 = Celebrity Cruises; mon=4/1/2026 as starting month
-		Url: "https://cs.cruise.com/cs/forms/CruiseResultPage.aspx?skin=1&phone=888-333-3116&pin=&token=&lid=en&did=1&mon=4%2f1%2f2026&vid=568&nr=y",
+		// vid=568 = Celebrity Cruises; mon=-1 → all months
+		Url: "https://cs.cruise.com/cs/forms/CruiseResultPage.aspx?skin=1&phone=888-333-3116&lid=en&did=1&vid=568&nr=y&mon=-1",
 		BalconyAlertPPD: 150m,
 		SuiteAlertPPD: 250m
 	),
