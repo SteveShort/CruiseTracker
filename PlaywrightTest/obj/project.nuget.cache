@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "ifB4r9B+qhk=",
+  "success": true,
+  "projectFilePath": "C:\\Dev\\Cruise Tracker\\PlaywrightTest\\PlaywrightTest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sshor\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+    "C:\\Users\\sshor\\.nuget\\packages\\microsoft.playwright\\1.58.0\\microsoft.playwright.1.58.0.nupkg.sha512",
+    "C:\\Users\\sshor\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\sshor\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\sshor\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\sshor\\.nuget\\packages\\system.text.json\\6.0.10\\system.text.json.6.0.10.nupkg.sha512"
+  ],
+  "logs": []
+}
