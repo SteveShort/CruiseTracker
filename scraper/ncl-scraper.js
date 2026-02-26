@@ -70,8 +70,18 @@ async function main() {
             const results = await scrapeShip(context, ship);
             allResults.push(...results);
             console.log(`   ✅ Collected ${results.length} FL sailings with prices`);
+            if (results.length === 0) {
+                console.warn(`   ⚠️ WARNING: 0 results for ${ship.name} — check if selectors broke!`);
+            }
         } catch (err) {
             console.error(`   ❌ Error: ${err.message}`);
+        }
+
+        // Random delay between ships (30-90s) to look human
+        if (shipsToScrape.indexOf(ship) < shipsToScrape.length - 1) {
+            const delay = 30 + Math.random() * 60;
+            console.log(`   ⏳ Waiting ${Math.round(delay)}s before next ship...`);
+            await new Promise(r => setTimeout(r, delay * 1000));
         }
     }
 
