@@ -23,7 +23,7 @@ static string SqlConnectionString = @"Server=STEVEOFFICEPC\ORACLE2SQL;Database=C
 // This __pa JWT cookie must be obtained from a browser session on disneycruise.disney.go.com
 // Open DevTools → Application → Cookies → copy the __pa value
 // It expires periodically — update it when FL Resident scraping fails
-static string DisneyPaCookie = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3NzE3OTQ3ODQsImFjY2Vzc190b2tlbiI6IjhkYjMxNjlmNTA1ODQ2NjQ4OGM4OWYxZmMwOWJkMGQyIiwidG9rZW5fdHlwZSI6IkJFQVJFUiIsImV4cGlyZXNfaW4iOiIyODgwMCJ9.4EM1nwyAmmpaLV_eoxjnpWQwzl_C3bOdiiZ3Bps1qjtktKyBHQIjOg_fxSasYGJWQ48qXZUIuTIFjZJpNN0WBg";	// Paste __pa cookie value here
+static string DisneyPaCookie = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3NzIwNjQyMzIsImFjY2Vzc190b2tlbiI6IjhlMTFjOTQ3MzI5NTQ4NjdhNmIxZWYwOThiMzYyMmUyIiwidG9rZW5fdHlwZSI6IkJFQVJFUiIsImV4cGlyZXNfaW4iOiIyODgwMCJ9.KU08-NAnqKarLLrwiXAPbhZerM9fjXt_-5tesk_JTgjBqS0eoEaf4eaPMuEsUxTJOnHiHTIQvaHiOZaNmImJbQ";	// Paste __pa cookie value here
 
 // ── Email (commented out for now) ──
 // static string SmtpHost     = "smtp.gmail.com";

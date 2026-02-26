@@ -14,18 +14,33 @@ class Program
         try {
             Console.WriteLine(@"[DOM Sniffer] Navigating to localhost:5050...");
             await page.GotoAsync("http://localhost:5050/");
-            await page.WaitForSelectorAsync(".deal-card", new() { Timeout = 30000 });
+            await page.WaitForSelectorAsync(".ship-filter", new() { Timeout = 30000 });
             
-            Console.WriteLine(@"[DOM Sniffer] Clicking first deal card...");
+            Console.WriteLine(@"[DOM Sniffer] Filtering to Disney Treasure...");
+            await page.ClickAsync(".filter-dropdown-btn");
+            await page.ClickAsync("label:has-text('Disney Treasure')");
+            await page.Keyboard.PressAsync("Escape");
+            
+            await page.WaitForTimeoutAsync(1500);
+            
+            Console.WriteLine(@"[DOM Sniffer] Expanding card...");
             var firstCard = page.Locator(".deal-card").First;
             await firstCard.ClickAsync();
             
-            // Wait for accordion and grid to render
-            await page.WaitForSelectorAsync(".restaurant-grid", new() { Timeout = 10000 });
-            await page.WaitForTimeoutAsync(2000); // Give it time to fetch and animate
+            await page.WaitForSelectorAsync(".accordion-item", new() { Timeout = 10000 });
+            await page.WaitForTimeoutAsync(1000); 
+
+            Console.WriteLine(@"[DOM Sniffer] Capturing screenshot of collapsed accordions...");
+            await page.ScreenshotAsync(new() { Path = @"c:\temp\treasure_card_dynamic_reports_collapsed.png", FullPage = false });
             
-            Console.WriteLine(@"[DOM Sniffer] Capturing screenshot...");
-            await page.ScreenshotAsync(new() { Path = @"c:\temp\restaurant_grid_4col.png", FullPage = false });
+            Console.WriteLine(@"[DOM Sniffer] Expanding Package Report...");
+            var packageHeader = page.Locator(".accordion-header >> text='Package Dining'");
+            await packageHeader.ClickAsync();
+            await page.WaitForTimeoutAsync(1000); 
+
+            Console.WriteLine(@"[DOM Sniffer] Capturing screenshot of expanded Package Report...");
+            await page.ScreenshotAsync(new() { Path = @"c:\temp\treasure_card_dynamic_reports.png", FullPage = false });
+
             Console.WriteLine(@"[DOM Sniffer] Done!");
             
         } catch (Exception ex) {
