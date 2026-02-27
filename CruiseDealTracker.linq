@@ -44,13 +44,8 @@ record CruiseLineConfig(
 
 static List<CruiseLineConfig> CruiseLines = new()
 {
-	new CruiseLineConfig(
-		Name: "Disney",
-		// No port filter (pid removed) → gets all departure ports
-		Url: "https://cs.cruise.com/cs/forms/CruiseResultPage.aspx?skin=1&phone=888-333-3116&lid=en&did=1&vid=582&nr=y&mon=-1",
-		BalconyAlertPPD: 300m,
-		SuiteAlertPPD: 500m
-	),
+	// Disney removed - Disney API scraper (disney-scraper.js) now provides
+	// direct pricing for all stateroom types from disneycruise.disney.go.com.
 	// Norwegian removed  NCL API scraper (ncl-scraper.js) now provides
 	// direct pricing for all stateroom types including real Haven prices.
 	new CruiseLineConfig(
@@ -378,6 +373,38 @@ async Task Main()
 			errors.Add((config.Name, ex.Message));
 		}
 	}
+
+	// -- Disney Standard Pricing (Node.js scraper) --
+	try
+	{
+		"\\n   Running Disney standard pricing scraper...".Dump();
+		var disneyPath = @"c:\Dev\Cruise Tracker\scraper\disney-scraper.js";
+		var dPsi = new System.Diagnostics.ProcessStartInfo
+		{
+			FileName = "node",
+			Arguments = $"\"{disneyPath}\""",
+			WorkingDirectory = Path.GetDirectoryName(disneyPath),
+			RedirectStandardOutput = true,
+			RedirectStandardError = true,
+			UseShellExecute = false,
+			CreateNoWindow = true,
+		};
+		using var dProc = System.Diagnostics.Process.Start(dPsi);
+		var dOutput = dProc.StandardOutput.ReadToEnd();
+		var dError = dProc.StandardError.ReadToEnd();
+		dProc.WaitForExit(TimeSpan.FromMinutes(10));
+
+		var dSummary = dOutput.Split('\n').LastOrDefault(l => l.Contains("Total:") || l.Contains("DB:"));
+		if (!string.IsNullOrWhiteSpace(dSummary)) $"   {dSummary.Trim()}".Dump();
+
+		if (dProc.ExitCode == 0) $"  Disney scraper completed successfully".Dump();
+		else
+		{
+			$"  Disney scraper exited with code {dProc.ExitCode}".Dump();
+			if (!string.IsNullOrWhiteSpace(dError)) $"   {dError.Trim().Substring(0, Math.Min(500, dError.Trim().Length))}".Dump();
+		}
+	}
+	catch (Exception ex) { $"  Disney scraper failed: {ex.Message}".Dump(); }
 
 	// -- Disney FL Resident Pricing (Node.js scraper) --
 	try
