@@ -44,17 +44,10 @@ record CruiseLineConfig(
 
 static List<CruiseLineConfig> CruiseLines = new()
 {
-	// Disney removed - Disney API scraper (disney-scraper.js) now provides
-	// direct pricing for all stateroom types from disneycruise.disney.go.com.
-	// Norwegian removed  NCL API scraper (ncl-scraper.js) now provides
-	// direct pricing for all stateroom types including real Haven prices.
-	new CruiseLineConfig(
-		Name: "Celebrity",
-		// vid=568 = Celebrity Cruises; mon=-1 → all months
-		Url: "https://cs.cruise.com/cs/forms/CruiseResultPage.aspx?skin=1&phone=888-333-3116&lid=en&did=1&vid=568&nr=y&mon=-1",
-		BalconyAlertPPD: 150m,
-		SuiteAlertPPD: 250m
-	),
+	// All cruise lines now use direct API scrapers instead of cruise.com:
+	// - Disney: disney-scraper.js (Disney API)
+	// - Norwegian: ncl-scraper.js (NCL API)
+	// - Celebrity: celebrity-scraper.js (Celebrity GraphQL API)
 };
 
 // Florida ports we care about (filter results to these)
@@ -490,6 +483,42 @@ async Task Main()
 	{
 		$"❌  NCL scraper failed: {ex.Message}".Dump();
 		"   💡 Make sure Node.js is installed and ncl-scraper.js exists".Dump();
+	}
+
+	// ── Celebrity Verified Prices (GraphQL scraper) ──
+	try
+	{
+		"\n🔍 Running Celebrity verified price scraper...".Dump();
+		var celScraperPath = @"c:\Dev\Cruise Tracker\scraper\celebrity-scraper.js";
+		var celProc = new Process
+		{
+			StartInfo = new ProcessStartInfo
+			{
+				FileName = "node",
+				Arguments = $"\"{celScraperPath}\"",
+				WorkingDirectory = Path.GetDirectoryName(celScraperPath),
+				RedirectStandardOutput = true,
+				RedirectStandardError = true,
+				UseShellExecute = false,
+				CreateNoWindow = true
+			}
+		};
+		celProc.Start();
+		var celOutput = celProc.StandardOutput.ReadToEnd();
+		var celError = celProc.StandardError.ReadToEnd();
+		celProc.WaitForExit();
+
+		if (!string.IsNullOrWhiteSpace(celOutput)) celOutput.Dump();
+		if (!string.IsNullOrWhiteSpace(celError)) $"Celebrity stderr: {celError}".Dump();
+
+		if (celProc.ExitCode == 0)
+			$"✅  Celebrity scraper completed successfully".Dump();
+		else
+			$"⚠️  Celebrity scraper exited with code {celProc.ExitCode}".Dump();
+	}
+	catch (Exception ex)
+	{
+		$"❌  Celebrity scraper failed: {ex.Message}".Dump();
 	}
 
 	// ── Check for deals per cruise line ──
