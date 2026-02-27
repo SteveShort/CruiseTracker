@@ -15,7 +15,12 @@ const stealth = require('puppeteer-extra-plugin-stealth');
 chromium.use(stealth());
 const fs = require('fs');
 const path = require('path');
+const sql = require('mssql/msnodesqlv8');
 
+// ── SQL Server Config (Windows Integrated Security via ODBC) ───────────
+const SQL_CONFIG = {
+    connectionString: 'Driver={ODBC Driver 17 for SQL Server};Server=STEVEOFFICEPC\\ORACLE2SQL;Database=CruiseTracker;Trusted_Connection=Yes;',
+};
 // ── CLI Args ───────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
 const HEADED = args.includes('--headed');
@@ -87,7 +92,7 @@ async function main() {
 
     await browser.close();
 
-    // Save results
+    // Save results to JSON
     if (allResults.length > 0) {
         const output = {
             scrapedAt: new Date().toISOString(),
@@ -96,6 +101,9 @@ async function main() {
         };
         fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2));
         console.log(`\n  💾 Saved ${allResults.length} results to ${OUTPUT_FILE}`);
+
+        // ── Save to SQL Server ──
+        await upsertToDatabase(allResults);
     }
 
     // Summary table
@@ -429,6 +437,150 @@ function parseNCLDate(text, year) {
     const m = text.match(/(\w{3})\s+(\d{1,2})/);
     if (!m || !months[m[1]]) return null;
     return `${year}-${months[m[1]]}-${m[2].padStart(2, '0')}`;
+}
+
+// ── Clean itinerary title ──────────────────────────────────────────────
+// Raw: "7-Day Caribbean Round-trip Miami: Great Stirrup Cay & Dominican RepublicMiami, Florida$1,698From$999PP/USDIncludes..."
+// Clean: "7-Day Caribbean Round-trip Miami: Great Stirrup Cay & Dominican Republic"
+function cleanItinerary(raw) {
+    if (!raw) return '';
+    // Remove everything from the first dollar sign onward
+    let text = raw.replace(/\$[\d,]+.*$/s, '').trim();
+    // Remove trailing port repetition (e.g. "RepublicMiami, Florida" → "Republic")
+    // Pattern: city name followed by ", State/Country"
+    text = text.replace(/(Miami|Orlando|Port Canaveral|Tampa|Fort Lauderdale|Jacksonville),?\s*(Florida|FL)?$/i, '').trim();
+    // Clean up any double spaces
+    text = text.replace(/\s{2,}/g, ' ');
+    return text;
+}
+
+// ── Extract departure port from card text ──────────────────────────────
+function extractPort(raw) {
+    if (!raw) return 'Unknown';
+    // Look for "Miami, Florida" or "Orlando (Port Canaveral), Florida" patterns
+    const portPatterns = [
+        /Orlando\s*\(Port Canaveral\)/i,
+        /Port Canaveral/i,
+        /Fort Lauderdale/i,
+        /Ft\.?\s*Lauderdale/i,
+        /Miami/i,
+        /Tampa/i,
+        /Jacksonville/i,
+    ];
+    for (const pat of portPatterns) {
+        const m = raw.match(pat);
+        if (m) {
+            // Normalize
+            const port = m[0];
+            if (/port canaveral/i.test(port) || /orlando/i.test(port)) return 'Port Canaveral';
+            if (/fort lauderdale|ft/i.test(port)) return 'Fort Lauderdale';
+            return port.charAt(0).toUpperCase() + port.slice(1);
+        }
+    }
+    return 'Unknown';
+}
+
+// ── Save to SQL Server CruiseTracker DB ────────────────────────────────
+async function upsertToDatabase(results) {
+    console.log('\n  🗄️  Connecting to SQL Server...');
+
+    let pool;
+    try {
+        pool = await new sql.ConnectionPool(SQL_CONFIG).connect();
+    } catch (err) {
+        console.error(`  ❌ DB connection failed: ${err.message}`);
+        console.log('  💡 Verified prices saved to JSON only. DB update skipped.');
+        return;
+    }
+
+    console.log('  ✅ Connected to CruiseTracker');
+
+    let upserted = 0, priceUpdated = 0;
+    const now = new Date();
+
+    for (const r of results) {
+        const itinerary = cleanItinerary(r.itinerary);
+        const port = extractPort(r.itinerary);
+        const balconyTotal = r.balconyPP ? r.balconyPP * 2 : 0;
+        const balconyPPD = (r.nights && r.nights > 0 && balconyTotal > 0)
+            ? Math.round(balconyTotal / r.nights * 100) / 100
+            : 0;
+
+        try {
+            // 1. MERGE into Cruises table (insert new / update existing)
+            await pool.request()
+                .input('line', sql.NVarChar, 'Norwegian')
+                .input('ship', sql.NVarChar, r.shipName)
+                .input('date', sql.Date, r.departureDate)
+                .input('itin', sql.NVarChar, itinerary)
+                .input('nights', sql.Int, r.nights || 0)
+                .input('port', sql.NVarChar, port)
+                .query(`
+                    MERGE Cruises AS tgt
+                    USING (SELECT @line AS CruiseLine, @ship AS ShipName, @date AS DepartureDate) AS src
+                       ON tgt.CruiseLine = src.CruiseLine AND tgt.ShipName = src.ShipName AND tgt.DepartureDate = src.DepartureDate
+                    WHEN MATCHED THEN
+                        UPDATE SET Itinerary = @itin, Nights = @nights, DeparturePort = @port
+                    WHEN NOT MATCHED THEN
+                        INSERT (CruiseLine, ShipName, DepartureDate, Itinerary, Nights, DeparturePort)
+                        VALUES (@line, @ship, @date, @itin, @nights, @port);
+                `);
+            upserted++;
+
+            // 2. Update verified prices on the latest PriceHistory row
+            const updateResult = await pool.request()
+                .input('line', sql.NVarChar, 'Norwegian')
+                .input('ship', sql.NVarChar, r.shipName)
+                .input('date', sql.Date, r.departureDate)
+                .input('vbp', sql.Decimal(10, 2), balconyTotal > 0 ? balconyTotal : null)
+                .input('vbpd', sql.Decimal(10, 2), balconyPPD > 0 ? balconyPPD : null)
+                .input('vat', sql.DateTime2, now)
+                .query(`
+                    UPDATE TOP (1) PriceHistory
+                    SET VerifiedBalconyPrice = @vbp,
+                        VerifiedBalconyPerDay = @vbpd,
+                        VerifiedAt = @vat
+                    WHERE CruiseLine = @line AND ShipName = @ship AND DepartureDate = @date
+                      AND Id = (
+                          SELECT TOP 1 Id FROM PriceHistory
+                          WHERE CruiseLine = @line AND ShipName = @ship AND DepartureDate = @date
+                          ORDER BY ScrapedAt DESC
+                      )
+                `);
+
+            // 3. If no PriceHistory row exists, INSERT one with verified prices
+            if (updateResult.rowsAffected[0] === 0 && r.balconyPP > 0) {
+                await pool.request()
+                    .input('line', sql.NVarChar, 'Norwegian')
+                    .input('ship', sql.NVarChar, r.shipName)
+                    .input('date', sql.Date, r.departureDate)
+                    .input('bp', sql.Decimal(10, 2), balconyTotal)
+                    .input('bpd', sql.Decimal(10, 2), balconyPPD)
+                    .input('vbp', sql.Decimal(10, 2), balconyTotal)
+                    .input('vbpd', sql.Decimal(10, 2), balconyPPD)
+                    .input('vat', sql.DateTime2, now)
+                    .query(`
+                        INSERT INTO PriceHistory
+                            (CruiseLine, ShipName, DepartureDate,
+                             InsidePrice, InsidePerDay, OceanviewPrice, OceanviewPerDay,
+                             BalconyPrice, BalconyPerDay, SuitePrice, SuitePerDay,
+                             VerifiedBalconyPrice, VerifiedBalconyPerDay, VerifiedAt)
+                        VALUES
+                            (@line, @ship, @date,
+                             0, 0, 0, 0,
+                             @bp, @bpd, 0, 0,
+                             @vbp, @vbpd, @vat)
+                    `);
+            }
+            priceUpdated++;
+        } catch (err) {
+            // Log but continue — don't let one bad row kill the whole run
+            console.error(`  ⚠️ DB error for ${r.shipName} ${r.departureDate}: ${err.message}`);
+        }
+    }
+
+    await pool.close();
+    console.log(`  📊 DB: ${upserted} cruises upserted, ${priceUpdated} price records updated`);
 }
 
 // ── Run ────────────────────────────────────────────────────────────────
