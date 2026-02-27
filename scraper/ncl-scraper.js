@@ -169,6 +169,7 @@ function buildSailingRecords(itinerary, pricingRooms) {
                 shipName: itinerary.shipName,
                 departureDate: dateKey.split('T')[0], // "2026-03-09"
                 itinerary: itinerary.title,
+                itineraryCode: itinerary.code,
                 nights: itinerary.duration,
                 port: itinerary.embarkPort,
                 endDate: room.sailEndDate?.split('T')[0] || null,
@@ -260,6 +261,7 @@ async function main() {
                     shipName: s.shipName,
                     departureDate: s.departureDate,
                     itinerary: s.itinerary,
+                    itineraryCode: s.itineraryCode,
                     nights: s.nights,
                     port: normalizePort(s.port),
                     insidePP: inside,
@@ -338,6 +340,7 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
                 .input('ship', sql.NVarChar, r.shipName)
                 .input('date', sql.Date, r.departureDate)
                 .input('itin', sql.NVarChar, r.itinerary)
+                .input('itinCode', sql.NVarChar, r.itineraryCode || null)
                 .input('nights', sql.Int, r.nights || 0)
                 .input('port', sql.NVarChar, r.port)
                 .query(`
@@ -345,10 +348,10 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
                     USING (SELECT @line AS CruiseLine, @ship AS ShipName, @date AS DepartureDate) AS src
                        ON tgt.CruiseLine = src.CruiseLine AND tgt.ShipName = src.ShipName AND tgt.DepartureDate = src.DepartureDate
                     WHEN MATCHED THEN
-                        UPDATE SET Itinerary = @itin, Nights = @nights, DeparturePort = @port
+                        UPDATE SET Itinerary = @itin, Nights = @nights, DeparturePort = @port, ItineraryCode = @itinCode
                     WHEN NOT MATCHED THEN
-                        INSERT (CruiseLine, ShipName, DepartureDate, Itinerary, Nights, DeparturePort)
-                        VALUES (@line, @ship, @date, @itin, @nights, @port);
+                        INSERT (CruiseLine, ShipName, DepartureDate, Itinerary, Nights, DeparturePort, ItineraryCode)
+                        VALUES (@line, @ship, @date, @itin, @nights, @port, @itinCode);
                 `);
             upserted++;
 
