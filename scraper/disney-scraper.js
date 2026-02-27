@@ -127,81 +127,53 @@ function makeHeaders(cookie) {
     };
 }
 
-// ── Step 1: Discover products ──────────────────────────────────────────
-async function fetchProducts(cookie) {
-    const products = [];
-    let pageNum = 1;
-    let totalPages = 1;
+// Known Disney ships that sail from Florida
+const FL_SHIPS = new Set([
+    'Disney Dream', 'Disney Fantasy', 'Disney Wish', 'Disney Treasure', 'Disney Destiny'
+]);
 
-    console.log('  🔍 Discovering Disney products...');
+// ── Step 1: Get a valid product ID (just page 1) ──────────────────────
+async function fetchFirstProduct(cookie) {
+    console.log('  🔍 Fetching product catalog (page 1 only)...');
 
-    while (pageNum <= totalPages) {
-        const payload = {
-            currency: 'USD', filters: [],
-            partyMix: PARTY_MIX, region: 'INTL', storeId: 'DCL',
-            affiliations: [],          // no FL Resident filter
-            page: pageNum, pageHistory: false,
-            includeAdvancedBookingPrices: true,
-            exploreMorePage: 1, exploreMorePageHistory: false,
-        };
+    const payload = {
+        currency: 'USD', filters: [],
+        partyMix: PARTY_MIX, region: 'INTL', storeId: 'DCL',
+        affiliations: [],
+        page: 1, pageHistory: false,
+        includeAdvancedBookingPrices: true,
+        exploreMorePage: 1, exploreMorePageHistory: false,
+    };
 
-        const resp = await fetch(PRODUCTS_URL, {
-            method: 'POST',
-            headers: makeHeaders(cookie),
-            body: JSON.stringify(payload),
-        });
+    const resp = await fetch(PRODUCTS_URL, {
+        method: 'POST',
+        headers: makeHeaders(cookie),
+        body: JSON.stringify(payload),
+    });
 
-        if (!resp.ok) {
-            if (resp.status === 401 || resp.status === 403) {
-                throw new Error(`Auth failed (${resp.status}) — cookie acquisition may have failed`);
-            }
-            throw new Error(`Products API returned ${resp.status}: ${resp.statusText}`);
+    if (!resp.ok) {
+        if (resp.status === 401 || resp.status === 403) {
+            throw new Error(`Auth failed (${resp.status})`);
         }
-
-        const data = await resp.json();
-        if (data.totalPages) totalPages = data.totalPages;
-        if (!data.products || data.products.length === 0) break;
-
-        for (const product of data.products) {
-            const productId = product.productId;
-            if (!productId) continue;
-
-            const itinId = product.productItineraryData?.itineraryId || '';
-            let shipName = '', nights = 0, itineraryName = '';
-
-            itineraryName = product.title || product.productName || product.productDisplayName || productId;
-            const departurePort = extractPort(product);
-
-            if (product.itineraries) {
-                for (const itin of product.itineraries) {
-                    if (itin.sailings) {
-                        for (const s of itin.sailings) {
-                            if (s.ship?.name) shipName = s.ship.name;
-                            if (s.numberOfNights) nights = s.numberOfNights;
-                            if (!departurePort && s.embarkPort?.name) { }
-                            if (shipName && nights > 0) break;
-                        }
-                    }
-                    if (shipName && nights > 0) break;
-                }
-            }
-
-            if (shipName && nights > 0 && !products.find(p => p.productId === productId)) {
-                const isFL = isFloridaProduct(product);
-                products.push({ productId, itineraryId: itinId, shipName, nights, itineraryName, departurePort, isFL });
-            }
-        }
-
-        console.log(`  📄 Products page ${pageNum}/${totalPages}: ${products.length} products collected`);
-        pageNum++;
-        if (pageNum <= totalPages) await sleep(500);
+        throw new Error(`Products API returned ${resp.status}: ${resp.statusText}`);
     }
 
-    // Filter to FL-only
-    const flProducts = products.filter(p => p.isFL);
-    const nonFL = products.length - flProducts.length;
-    console.log(`  ✅ Found ${flProducts.length} FL departure products (${nonFL} non-FL filtered out)`);
-    return flProducts;
+    const data = await resp.json();
+    if (!data.products || data.products.length === 0) {
+        throw new Error('No products returned');
+    }
+
+    // Grab first usable product for the sailings call
+    for (const product of data.products) {
+        if (product.productId) {
+            console.log(`  ✅ Using product: ${product.productId}`);
+            return {
+                productId: product.productId,
+                itineraryId: product.productItineraryData?.itineraryId || '',
+            };
+        }
+    }
+    throw new Error('No valid product found');
 }
 
 // ── Step 2: Fetch per-date pricing ─────────────────────────────────────
@@ -309,38 +281,22 @@ async function main() {
         return;
     }
 
-    // Step 1: Discover products
-    let products;
+    // Step 1: Get a valid product ID (single API call)
+    let product;
     try {
-        products = await fetchProducts(cookie);
+        product = await fetchFirstProduct(cookie);
     } catch (err) {
-        console.error(`  ❌ Discovery failed: ${err.message}`);
-        runErrors.push(`Discovery: ${err.message}`);
+        console.error(`  ❌ Product fetch failed: ${err.message}`);
+        runErrors.push(`Product: ${err.message}`);
         await recordRun(0, 0, runStartedAt, runErrors);
         return;
     }
 
-    if (products.length === 0) {
-        console.warn('  ⚠️ No Disney FL products found');
-        runErrors.push('No products found');
-        await recordRun(0, 0, runStartedAt, runErrors);
-        return;
-    }
-
-    // Build port/itinerary metadata from products, keyed by ship+nights
-    const portMap = {};
-    const itinMap = {};
-    for (const prod of products) {
-        const key = `${prod.shipName}|${prod.nights}`;
-        if (prod.departurePort && !portMap[key]) portMap[key] = prod.departurePort;
-        if (prod.itineraryName && !itinMap[key]) itinMap[key] = prod.itineraryName;
-    }
-
-    // Step 2: Fetch ALL sailings from a single product (Disney API returns all dates)
-    console.log(`\n  📅 Fetching all sailings (using product: ${products[0].productId})...`);
+    // Step 2: Fetch ALL sailings (Disney API returns all dates for any product)
+    console.log(`\n  📅 Fetching all sailings...`);
     let allSailings;
     try {
-        allSailings = await fetchSailings(cookie, products[0]);
+        allSailings = await fetchSailings(cookie, product);
         console.log(`  ✅ Got ${allSailings.length} raw sailings`);
     } catch (err) {
         console.error(`  ❌ Sailings fetch failed: ${err.message}`);
@@ -349,31 +305,12 @@ async function main() {
         return;
     }
 
-    // Parse all prices with a dummy product (we'll enrich with metadata after)
+    // Parse all prices
     const dummyProd = { shipName: '', nights: 0, itineraryName: '', departurePort: '' };
     const rawPrices = parseSailingPrices(dummyProd, allSailings);
 
-    // Enrich with port/itinerary metadata and filter to FL departures
-    const flShips = new Set(products.map(p => p.shipName));
-    const finalResults = [];
-    for (const r of rawPrices) {
-        if (!flShips.has(r.shipName)) continue; // Skip non-FL ships
-        const key = `${r.shipName}|${r.nights}`;
-        r.port = portMap[key] || '';
-        r.itinerary = itinMap[key] || '';
-        finalResults.push(r);
-    }
-
-    // Show sample
-    for (const r of finalResults.slice(0, 5)) {
-        const parts = [];
-        if (r.insidePerDay > 0) parts.push(`I:$${r.insidePerDay}`);
-        if (r.oceanviewPerDay > 0) parts.push(`O:$${r.oceanviewPerDay}`);
-        if (r.balconyPerDay > 0) parts.push(`V:$${r.balconyPerDay}`);
-        if (r.suitePerDay > 0) parts.push(`C:$${r.suitePerDay}`);
-        console.log(`    ${r.shipName.padEnd(18)} ${r.departureDate}  ${r.nights}N  ${parts.join('  ')}`);
-    }
-    if (finalResults.length > 5) console.log(`    ... +${finalResults.length - 5} more`);
+    // Filter to FL ships only
+    const finalResults = rawPrices.filter(r => FL_SHIPS.has(r.shipName));
 
     console.log(`\n  ── Total: ${finalResults.length} Disney FL sailings ──`);
 
@@ -438,13 +375,20 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
                 .input('sp', sql.Decimal(10, 2), r.suitePrice || 0)
                 .input('spd', sql.Decimal(10, 2), r.suitePerDay || 0)
                 .input('sat', sql.DateTime2, now)
+                .input('vbp', sql.Decimal(10, 2), r.balconyPrice > 0 ? r.balconyPrice : null)
+                .input('vbpd', sql.Decimal(10, 2), r.balconyPerDay > 0 ? r.balconyPerDay : null)
+                .input('vsp', sql.Decimal(10, 2), r.suitePrice > 0 ? r.suitePrice : null)
+                .input('vspd', sql.Decimal(10, 2), r.suitePerDay > 0 ? r.suitePerDay : null)
+                .input('vat', sql.DateTime2, now)
                 .query(`
                     UPDATE TOP (1) PriceHistory
                     SET InsidePrice = @ip, InsidePerDay = @ipd,
                         OceanviewPrice = @op, OceanviewPerDay = @opd,
                         BalconyPrice = @bp, BalconyPerDay = @bpd,
                         SuitePrice = @sp, SuitePerDay = @spd,
-                        ScrapedAt = @sat
+                        VerifiedBalconyPrice = @vbp, VerifiedBalconyPerDay = @vbpd,
+                        VerifiedSuitePrice = @vsp, VerifiedSuitePerDay = @vspd,
+                        VerifiedAt = @vat, ScrapedAt = @sat
                     WHERE CruiseLine = @line AND ShipName = @ship AND DepartureDate = @date
                       AND Id = (
                           SELECT TOP 1 Id FROM PriceHistory
@@ -470,15 +414,25 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
                     .input('sp', sql.Decimal(10, 2), r.suitePrice || 0)
                     .input('spd', sql.Decimal(10, 2), r.suitePerDay || 0)
                     .input('sat', sql.DateTime2, now)
+                    .input('vbp', sql.Decimal(10, 2), r.balconyPrice > 0 ? r.balconyPrice : null)
+                    .input('vbpd', sql.Decimal(10, 2), r.balconyPerDay > 0 ? r.balconyPerDay : null)
+                    .input('vsp', sql.Decimal(10, 2), r.suitePrice > 0 ? r.suitePrice : null)
+                    .input('vspd', sql.Decimal(10, 2), r.suitePerDay > 0 ? r.suitePerDay : null)
+                    .input('vat', sql.DateTime2, now)
                     .query(`
                         INSERT INTO PriceHistory
                             (CruiseLine, ShipName, DepartureDate,
                              InsidePrice, InsidePerDay, OceanviewPrice, OceanviewPerDay,
-                             BalconyPrice, BalconyPerDay, SuitePrice, SuitePerDay, ScrapedAt)
+                             BalconyPrice, BalconyPerDay, SuitePrice, SuitePerDay,
+                             VerifiedBalconyPrice, VerifiedBalconyPerDay,
+                             VerifiedSuitePrice, VerifiedSuitePerDay,
+                             VerifiedAt, ScrapedAt)
                         VALUES
                             (@line, @ship, @date,
                              @ip, @ipd, @op, @opd,
-                             @bp, @bpd, @sp, @spd, @sat)
+                             @bp, @bpd, @sp, @spd,
+                             @vbp, @vbpd, @vsp, @vspd,
+                             @vat, @sat)
                     `);
                 created++;
             }
