@@ -306,7 +306,7 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
 
     console.log('  ✅ Connected to CruiseTracker');
 
-    let upserted = 0, priceUpdated = 0;
+    let upserted = 0, inserted = 0;
     const now = new Date();
 
     for (const r of results) {
@@ -352,33 +352,8 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
                 `);
             upserted++;
 
-            // 2. Update verified prices on the latest PriceHistory row
-            const updateResult = await pool.request()
-                .input('line', sql.NVarChar, 'Norwegian')
-                .input('ship', sql.NVarChar, r.shipName)
-                .input('date', sql.Date, r.departureDate)
-                .input('vbp', sql.Decimal(10, 2), balconyTotal > 0 ? balconyTotal : null)
-                .input('vbpd', sql.Decimal(10, 2), balconyPPD > 0 ? balconyPPD : null)
-                .input('vsp', sql.Decimal(10, 2), havenTotal > 0 ? havenTotal : null)
-                .input('vspd', sql.Decimal(10, 2), havenPPD > 0 ? havenPPD : null)
-                .input('vat', sql.DateTime2, now)
-                .query(`
-                    UPDATE TOP (1) PriceHistory
-                    SET VerifiedBalconyPrice = @vbp,
-                        VerifiedBalconyPerDay = @vbpd,
-                        VerifiedSuitePrice = @vsp,
-                        VerifiedSuitePerDay = @vspd,
-                        VerifiedAt = @vat
-                    WHERE CruiseLine = @line AND ShipName = @ship AND DepartureDate = @date
-                      AND Id = (
-                          SELECT TOP 1 Id FROM PriceHistory
-                          WHERE CruiseLine = @line AND ShipName = @ship AND DepartureDate = @date
-                          ORDER BY ScrapedAt DESC
-                      )
-                `);
-
-            // 3. If no PriceHistory row exists, INSERT one with all prices
-            if (updateResult.rowsAffected[0] === 0 && (balconyTotal > 0 || insideTotal > 0)) {
+            // 2. Always INSERT a new PriceHistory row (for price tracking over time)
+            if (balconyTotal > 0 || insideTotal > 0) {
                 await pool.request()
                     .input('line', sql.NVarChar, 'Norwegian')
                     .input('ship', sql.NVarChar, r.shipName)
@@ -396,22 +371,24 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
                     .input('vsp', sql.Decimal(10, 2), havenTotal > 0 ? havenTotal : null)
                     .input('vspd', sql.Decimal(10, 2), havenPPD > 0 ? havenPPD : null)
                     .input('vat', sql.DateTime2, now)
+                    .input('sat', sql.DateTime2, now)
                     .query(`
                         INSERT INTO PriceHistory
                             (CruiseLine, ShipName, DepartureDate,
                              InsidePrice, InsidePerDay, OceanviewPrice, OceanviewPerDay,
                              BalconyPrice, BalconyPerDay, SuitePrice, SuitePerDay,
                              VerifiedBalconyPrice, VerifiedBalconyPerDay,
-                             VerifiedSuitePrice, VerifiedSuitePerDay, VerifiedAt)
+                             VerifiedSuitePrice, VerifiedSuitePerDay,
+                             VerifiedAt, ScrapedAt)
                         VALUES
                             (@line, @ship, @date,
                              @ip, @ipd, @op, @opd,
                              @bp, @bpd, @sp, @spd,
-                             @vbp, @vbpd,
-                             @vsp, @vspd, @vat)
+                             @vbp, @vbpd, @vsp, @vspd,
+                             @vat, @sat)
                     `);
+                inserted++;
             }
-            priceUpdated++;
         } catch (err) {
             // Log but continue — don't let one bad row kill the whole run
             console.error(`  ⚠️ DB error for ${r.shipName} ${r.departureDate}: ${err.message}`);
@@ -425,7 +402,7 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
             .input('started', sql.DateTime2, runStartedAt || new Date())
             .input('completed', sql.DateTime2, new Date())
             .input('found', sql.Int, results.length)
-            .input('updated', sql.Int, priceUpdated)
+            .input('updated', sql.Int, inserted)
             .input('errors', sql.NVarChar, runErrors.length > 0 ? runErrors.join('; ') : null)
             .input('status', sql.NVarChar, runErrors.length > 0 ? 'Partial' : 'Success')
             .query(`
@@ -449,7 +426,7 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
     }
 
     await pool.close();
-    console.log(`  📊 DB: ${upserted} cruises upserted, ${priceUpdated} price records updated`);
+    console.log(`  📊 DB: ${upserted} cruises upserted, ${inserted} price snapshots inserted`);
 }
 
 // ── Run ────────────────────────────────────────────────────────────────

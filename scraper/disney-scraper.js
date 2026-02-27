@@ -335,7 +335,7 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
     }
     console.log('  ✅ Connected to CruiseTracker');
 
-    let updated = 0, created = 0;
+    let inserted = 0;
     const now = new Date();
 
     for (const r of results) {
@@ -361,8 +361,8 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
                                    DeparturePort = COALESCE(NULLIF(@port,''), tgt.DeparturePort);
                 `);
 
-            // 2. Try UPDATE latest PriceHistory row
-            const result = await pool.request()
+            // 2. Always INSERT a new PriceHistory row (for price tracking over time)
+            await pool.request()
                 .input('line', sql.NVarChar, 'Disney')
                 .input('ship', sql.NVarChar, r.shipName)
                 .input('date', sql.Date, r.departureDate)
@@ -381,69 +381,29 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
                 .input('vspd', sql.Decimal(10, 2), r.suitePerDay > 0 ? r.suitePerDay : null)
                 .input('vat', sql.DateTime2, now)
                 .query(`
-                    UPDATE TOP (1) PriceHistory
-                    SET InsidePrice = @ip, InsidePerDay = @ipd,
-                        OceanviewPrice = @op, OceanviewPerDay = @opd,
-                        BalconyPrice = @bp, BalconyPerDay = @bpd,
-                        SuitePrice = @sp, SuitePerDay = @spd,
-                        VerifiedBalconyPrice = @vbp, VerifiedBalconyPerDay = @vbpd,
-                        VerifiedSuitePrice = @vsp, VerifiedSuitePerDay = @vspd,
-                        VerifiedAt = @vat, ScrapedAt = @sat
-                    WHERE CruiseLine = @line AND ShipName = @ship AND DepartureDate = @date
-                      AND Id = (
-                          SELECT TOP 1 Id FROM PriceHistory
-                          WHERE CruiseLine = @line AND ShipName = @ship AND DepartureDate = @date
-                          ORDER BY ScrapedAt DESC
-                      )
+                    INSERT INTO PriceHistory
+                        (CruiseLine, ShipName, DepartureDate,
+                         InsidePrice, InsidePerDay, OceanviewPrice, OceanviewPerDay,
+                         BalconyPrice, BalconyPerDay, SuitePrice, SuitePerDay,
+                         VerifiedBalconyPrice, VerifiedBalconyPerDay,
+                         VerifiedSuitePrice, VerifiedSuitePerDay,
+                         VerifiedAt, ScrapedAt)
+                    VALUES
+                        (@line, @ship, @date,
+                         @ip, @ipd, @op, @opd,
+                         @bp, @bpd, @sp, @spd,
+                         @vbp, @vbpd, @vsp, @vspd,
+                         @vat, @sat)
                 `);
-
-            if (result.rowsAffected[0] > 0) {
-                updated++;
-            } else {
-                // 3. No PriceHistory row — INSERT new one
-                await pool.request()
-                    .input('line', sql.NVarChar, 'Disney')
-                    .input('ship', sql.NVarChar, r.shipName)
-                    .input('date', sql.Date, r.departureDate)
-                    .input('ip', sql.Decimal(10, 2), r.insidePrice || 0)
-                    .input('ipd', sql.Decimal(10, 2), r.insidePerDay || 0)
-                    .input('op', sql.Decimal(10, 2), r.oceanviewPrice || 0)
-                    .input('opd', sql.Decimal(10, 2), r.oceanviewPerDay || 0)
-                    .input('bp', sql.Decimal(10, 2), r.balconyPrice || 0)
-                    .input('bpd', sql.Decimal(10, 2), r.balconyPerDay || 0)
-                    .input('sp', sql.Decimal(10, 2), r.suitePrice || 0)
-                    .input('spd', sql.Decimal(10, 2), r.suitePerDay || 0)
-                    .input('sat', sql.DateTime2, now)
-                    .input('vbp', sql.Decimal(10, 2), r.balconyPrice > 0 ? r.balconyPrice : null)
-                    .input('vbpd', sql.Decimal(10, 2), r.balconyPerDay > 0 ? r.balconyPerDay : null)
-                    .input('vsp', sql.Decimal(10, 2), r.suitePrice > 0 ? r.suitePrice : null)
-                    .input('vspd', sql.Decimal(10, 2), r.suitePerDay > 0 ? r.suitePerDay : null)
-                    .input('vat', sql.DateTime2, now)
-                    .query(`
-                        INSERT INTO PriceHistory
-                            (CruiseLine, ShipName, DepartureDate,
-                             InsidePrice, InsidePerDay, OceanviewPrice, OceanviewPerDay,
-                             BalconyPrice, BalconyPerDay, SuitePrice, SuitePerDay,
-                             VerifiedBalconyPrice, VerifiedBalconyPerDay,
-                             VerifiedSuitePrice, VerifiedSuitePerDay,
-                             VerifiedAt, ScrapedAt)
-                        VALUES
-                            (@line, @ship, @date,
-                             @ip, @ipd, @op, @opd,
-                             @bp, @bpd, @sp, @spd,
-                             @vbp, @vbpd, @vsp, @vspd,
-                             @vat, @sat)
-                    `);
-                created++;
-            }
+            inserted++;
         } catch (err) {
             console.error(`  ⚠️ DB error for ${r.shipName} ${r.departureDate}: ${err.message}`);
         }
     }
 
-    console.log(`  📊 DB: ${updated} updated, ${created} new sailings created`);
+    console.log(`  📊 DB: ${inserted} price snapshots inserted`);
 
-    await recordRunToDb(pool, results.length, updated + created, runStartedAt, runErrors);
+    await recordRunToDb(pool, results.length, inserted, runStartedAt, runErrors);
     await pool.close();
 }
 
