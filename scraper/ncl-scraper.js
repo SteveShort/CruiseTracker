@@ -21,6 +21,52 @@ const sql = require('mssql/msnodesqlv8');
 const SQL_CONFIG = {
     connectionString: 'Driver={ODBC Driver 17 for SQL Server};Server=STEVEOFFICEPC\\ORACLE2SQL;Database=CruiseTracker;Trusted_Connection=Yes;',
 };
+
+// ── Logging ────────────────────────────────────────────────────────────
+const LOG_DIR = path.join(__dirname, 'logs');
+const LOG_KEEP_DAYS = 7;
+
+function setupLogging() {
+    if (!fs.existsSync(LOG_DIR)) fs.mkdirSync(LOG_DIR, { recursive: true });
+
+    // Rotate: delete logs older than LOG_KEEP_DAYS
+    const cutoff = Date.now() - LOG_KEEP_DAYS * 24 * 60 * 60 * 1000;
+    for (const f of fs.readdirSync(LOG_DIR)) {
+        const fp = path.join(LOG_DIR, f);
+        try {
+            if (fs.statSync(fp).mtimeMs < cutoff) fs.unlinkSync(fp);
+        } catch (_) { }
+    }
+
+    const today = new Date().toISOString().slice(0, 10);
+    const logFile = path.join(LOG_DIR, `ncl-${today}.log`);
+    const logStream = fs.createWriteStream(logFile, { flags: 'a' });
+
+    const origLog = console.log;
+    const origWarn = console.warn;
+    const origError = console.error;
+
+    const ts = () => new Date().toISOString().slice(11, 19);
+
+    console.log = (...args) => {
+        const msg = args.join(' ');
+        origLog(msg);
+        logStream.write(`[${ts()}] ${msg}\n`);
+    };
+    console.warn = (...args) => {
+        const msg = args.join(' ');
+        origWarn(msg);
+        logStream.write(`[${ts()}] WARN: ${msg}\n`);
+    };
+    console.error = (...args) => {
+        const msg = args.join(' ');
+        origError(msg);
+        logStream.write(`[${ts()}] ERROR: ${msg}\n`);
+    };
+
+    return logStream;
+}
+
 // ── CLI Args ───────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
 const HEADED = args.includes('--headed');
@@ -45,6 +91,10 @@ const FLORIDA_PORTS = ['miami', 'port canaveral', 'orlando', 'tampa', 'fort laud
 
 // ── Main ───────────────────────────────────────────────────────────────
 async function main() {
+    const logStream = setupLogging();
+    const runStartedAt = new Date();
+    const runErrors = [];
+
     console.log('╔══════════════════════════════════════════════════════════╗');
     console.log('║  NCL Verified Price Scraper (Florida ports)             ║');
     console.log('╚══════════════════════════════════════════════════════════╝');
@@ -80,6 +130,7 @@ async function main() {
             }
         } catch (err) {
             console.error(`   ❌ Error: ${err.message}`);
+            runErrors.push(`${ship.name}: ${err.message}`);
         }
 
         // Random delay between ships (30-90s) to look human
@@ -101,10 +152,10 @@ async function main() {
         };
         fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2));
         console.log(`\n  💾 Saved ${allResults.length} results to ${OUTPUT_FILE}`);
-
-        // ── Save to SQL Server ──
-        await upsertToDatabase(allResults);
     }
+
+    // ── Save to SQL Server (prices + scraper run tracking) ──
+    await upsertToDatabase(allResults, runStartedAt, runErrors);
 
     // Summary table
     console.log('\n══════════════════════════════════════════════════════════');
@@ -481,7 +532,7 @@ function extractPort(raw) {
 }
 
 // ── Save to SQL Server CruiseTracker DB ────────────────────────────────
-async function upsertToDatabase(results) {
+async function upsertToDatabase(results, runStartedAt, runErrors = []) {
     console.log('\n  🗄️  Connecting to SQL Server...');
 
     let pool;
@@ -577,6 +628,36 @@ async function upsertToDatabase(results) {
             // Log but continue — don't let one bad row kill the whole run
             console.error(`  ⚠️ DB error for ${r.shipName} ${r.departureDate}: ${err.message}`);
         }
+    }
+
+    // ── Record scraper run in ScraperRuns table ──
+    try {
+        await pool.request()
+            .input('name', sql.NVarChar, 'NCL')
+            .input('started', sql.DateTime2, runStartedAt || new Date())
+            .input('completed', sql.DateTime2, new Date())
+            .input('found', sql.Int, results.length)
+            .input('updated', sql.Int, priceUpdated)
+            .input('errors', sql.NVarChar, runErrors.length > 0 ? runErrors.join('; ') : null)
+            .input('status', sql.NVarChar, runErrors.length > 0 ? 'Partial' : 'Success')
+            .query(`
+                IF OBJECT_ID('ScraperRuns', 'U') IS NULL
+                    CREATE TABLE ScraperRuns (
+                        Id INT IDENTITY(1,1) PRIMARY KEY,
+                        ScraperName NVARCHAR(50) NOT NULL,
+                        StartedAt DATETIME2 NOT NULL,
+                        CompletedAt DATETIME2 NOT NULL,
+                        SailingsFound INT NOT NULL DEFAULT 0,
+                        SailingsUpdated INT NOT NULL DEFAULT 0,
+                        Errors NVARCHAR(MAX) NULL,
+                        Status NVARCHAR(20) NOT NULL DEFAULT 'Success'
+                    );
+                INSERT INTO ScraperRuns (ScraperName, StartedAt, CompletedAt, SailingsFound, SailingsUpdated, Errors, Status)
+                VALUES (@name, @started, @completed, @found, @updated, @errors, @status);
+            `);
+        console.log('  📋 Scraper run recorded to ScraperRuns table');
+    } catch (err) {
+        console.error(`  ⚠️ Failed to record scraper run: ${err.message}`);
     }
 
     await pool.close();
