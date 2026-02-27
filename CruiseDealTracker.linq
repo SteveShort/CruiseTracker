@@ -301,6 +301,20 @@ async Task Main()
 
 	EnsureDatabase();
 
+	// -- Flag departed sailings (departure date has passed) --
+	try
+	{
+		using (var conn = new System.Data.SqlClient.SqlConnection(SqlConnectionString))
+		{
+			conn.Open();
+			var flagCmd = new System.Data.SqlClient.SqlCommand(
+				@"UPDATE Cruises SET IsDeparted = 1 WHERE DepartureDate < CAST(GETDATE() AS DATE) AND IsDeparted = 0", conn);
+			var flagged = flagCmd.ExecuteNonQuery();
+			if (flagged > 0) $"   Flagged {flagged} departed sailing(s)".Dump();
+		}
+	}
+	catch (Exception ex) { $"   Warning: Could not flag departed sailings: {ex.Message}".Dump(); }
+
 	var allCruises = new List<CruiseRecord>();
 	var errors = new List<(string Line, string Error)>();
 
