@@ -327,6 +327,10 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
         const suitePPD = (r.nights && r.nights > 0 && suiteTotal > 0)
             ? Math.round(suiteTotal / r.nights * 100) / 100 : 0;
 
+        const havenTotal = r.havenPP ? r.havenPP * 2 : 0;
+        const havenPPD = (r.nights && r.nights > 0 && havenTotal > 0)
+            ? Math.round(havenTotal / r.nights * 100) / 100 : 0;
+
         try {
             // 1. MERGE into Cruises table (insert new / update existing)
             await pool.request()
@@ -355,11 +359,15 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
                 .input('date', sql.Date, r.departureDate)
                 .input('vbp', sql.Decimal(10, 2), balconyTotal > 0 ? balconyTotal : null)
                 .input('vbpd', sql.Decimal(10, 2), balconyPPD > 0 ? balconyPPD : null)
+                .input('vsp', sql.Decimal(10, 2), havenTotal > 0 ? havenTotal : null)
+                .input('vspd', sql.Decimal(10, 2), havenPPD > 0 ? havenPPD : null)
                 .input('vat', sql.DateTime2, now)
                 .query(`
                     UPDATE TOP (1) PriceHistory
                     SET VerifiedBalconyPrice = @vbp,
                         VerifiedBalconyPerDay = @vbpd,
+                        VerifiedSuitePrice = @vsp,
+                        VerifiedSuitePerDay = @vspd,
                         VerifiedAt = @vat
                     WHERE CruiseLine = @line AND ShipName = @ship AND DepartureDate = @date
                       AND Id = (
@@ -385,18 +393,22 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
                     .input('spd', sql.Decimal(10, 2), suitePPD > 0 ? suitePPD : 0)
                     .input('vbp', sql.Decimal(10, 2), balconyTotal > 0 ? balconyTotal : null)
                     .input('vbpd', sql.Decimal(10, 2), balconyPPD > 0 ? balconyPPD : null)
+                    .input('vsp', sql.Decimal(10, 2), havenTotal > 0 ? havenTotal : null)
+                    .input('vspd', sql.Decimal(10, 2), havenPPD > 0 ? havenPPD : null)
                     .input('vat', sql.DateTime2, now)
                     .query(`
                         INSERT INTO PriceHistory
                             (CruiseLine, ShipName, DepartureDate,
                              InsidePrice, InsidePerDay, OceanviewPrice, OceanviewPerDay,
                              BalconyPrice, BalconyPerDay, SuitePrice, SuitePerDay,
-                             VerifiedBalconyPrice, VerifiedBalconyPerDay, VerifiedAt)
+                             VerifiedBalconyPrice, VerifiedBalconyPerDay,
+                             VerifiedSuitePrice, VerifiedSuitePerDay, VerifiedAt)
                         VALUES
                             (@line, @ship, @date,
                              @ip, @ipd, @op, @opd,
                              @bp, @bpd, @sp, @spd,
-                             @vbp, @vbpd, @vat)
+                             @vbp, @vbpd,
+                             @vsp, @vspd, @vat)
                     `);
             }
             priceUpdated++;
