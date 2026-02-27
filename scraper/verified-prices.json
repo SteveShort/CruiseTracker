@@ -5,8 +5,8 @@
     "itinerary": "4-Day Bahamas Round-Trip Miami: Great Stirrup Cay & Nassau",
     "nights": 4,
     "port": "Miami",
-    "insidePP": 459,
-    "oceanviewPP": 479,
+    "insidePP": null,
+    "oceanviewPP": null,
     "balconyPP": null,
     "suitePP": null,
     "havenPP": 1429
@@ -19,8 +19,8 @@
     "port": "Miami",
     "insidePP": 829,
     "oceanviewPP": 859,
-    "balconyPP": 889,
-    "suitePP": 969,
+    "balconyPP": 1019,
+    "suitePP": null,
     "havenPP": 1629
   },
   {
@@ -41,10 +41,10 @@
     "itinerary": "4-Day Bahamas Round-Trip Miami: Great Stirrup Cay & Nassau",
     "nights": 4,
     "port": "Miami",
-    "insidePP": 479,
-    "oceanviewPP": 549,
-    "balconyPP": 649,
-    "suitePP": 789,
+    "insidePP": 509,
+    "oceanviewPP": 569,
+    "balconyPP": 709,
+    "suitePP": 809,
     "havenPP": 1769
   },
   {
@@ -55,9 +55,9 @@
     "port": "Miami",
     "insidePP": 419,
     "oceanviewPP": 469,
-    "balconyPP": 539,
-    "suitePP": 599,
-    "havenPP": 1239
+    "balconyPP": 514,
+    "suitePP": 562,
+    "havenPP": 1114
   },
   {
     "shipName": "Norwegian Getaway",
@@ -67,9 +67,9 @@
     "port": "Miami",
     "insidePP": 419,
     "oceanviewPP": 469,
-    "balconyPP": 539,
-    "suitePP": 599,
-    "havenPP": 1389
+    "balconyPP": 514,
+    "suitePP": 562,
+    "havenPP": 1264
   },
   {
     "shipName": "Norwegian Getaway",
@@ -79,9 +79,9 @@
     "port": "Miami",
     "insidePP": 429,
     "oceanviewPP": 499,
-    "balconyPP": 609,
-    "suitePP": 639,
-    "havenPP": 1449
+    "balconyPP": 584,
+    "suitePP": 602,
+    "havenPP": 1324
   },
   {
     "shipName": "Norwegian Getaway",
@@ -91,9 +91,9 @@
     "port": "Miami",
     "insidePP": 429,
     "oceanviewPP": 499,
-    "balconyPP": 569,
-    "suitePP": 639,
-    "havenPP": 1519
+    "balconyPP": 544,
+    "suitePP": 602,
+    "havenPP": 1394
   },
   {
     "shipName": "Norwegian Getaway",
@@ -103,9 +103,9 @@
     "port": "Miami",
     "insidePP": 469,
     "oceanviewPP": 519,
-    "balconyPP": 599,
-    "suitePP": 679,
-    "havenPP": 1609
+    "balconyPP": 574,
+    "suitePP": 642,
+    "havenPP": 1484
   },
   {
     "shipName": "Norwegian Getaway",
@@ -115,9 +115,9 @@
     "port": "Miami",
     "insidePP": 519,
     "oceanviewPP": 589,
-    "balconyPP": 669,
-    "suitePP": 709,
-    "havenPP": 1619
+    "balconyPP": 644,
+    "suitePP": 672,
+    "havenPP": 1494
   },
   {
     "shipName": "Norwegian Getaway",
@@ -127,9 +127,9 @@
     "port": "Miami",
     "insidePP": 579,
     "oceanviewPP": 649,
-    "balconyPP": 729,
-    "suitePP": 749,
-    "havenPP": 1629
+    "balconyPP": 704,
+    "suitePP": 712,
+    "havenPP": 1504
   },
   {
     "shipName": "Norwegian Getaway",
@@ -139,9 +139,9 @@
     "port": "Miami",
     "insidePP": 589,
     "oceanviewPP": 659,
-    "balconyPP": 739,
-    "suitePP": 789,
-    "havenPP": 1729
+    "balconyPP": 714,
+    "suitePP": 752,
+    "havenPP": 1604
   },
   {
     "shipName": "Norwegian Getaway",
@@ -151,9 +151,9 @@
     "port": "Miami",
     "insidePP": 599,
     "oceanviewPP": 669,
-    "balconyPP": 749,
-    "suitePP": 799,
-    "havenPP": 1809
+    "balconyPP": 724,
+    "suitePP": 762,
+    "havenPP": 1684
   },
   {
     "shipName": "Norwegian Getaway",
@@ -163,9 +163,9 @@
     "port": "Miami",
     "insidePP": 649,
     "oceanviewPP": 719,
-    "balconyPP": 799,
-    "suitePP": 839,
-    "havenPP": 1799
+    "balconyPP": 774,
+    "suitePP": 802,
+    "havenPP": 1674
   },
   {
     "shipName": "Norwegian Getaway",
@@ -175,9 +175,9 @@
     "port": "Miami",
     "insidePP": 679,
     "oceanviewPP": 749,
-    "balconyPP": 829,
-    "suitePP": 879,
-    "havenPP": 1819
+    "balconyPP": 804,
+    "suitePP": 812,
+    "havenPP": 1614
   },
   {
     "shipName": "Norwegian Getaway",
@@ -187,9 +187,9 @@
     "port": "Miami",
     "insidePP": 679,
     "oceanviewPP": 749,
-    "balconyPP": 829,
-    "suitePP": 879,
-    "havenPP": 1809
+    "balconyPP": 804,
+    "suitePP": 822,
+    "havenPP": 1684
   },
   {
     "shipName": "Norwegian Getaway",
@@ -199,9 +199,9 @@
     "port": "Miami",
     "insidePP": 679,
     "oceanviewPP": 749,
-    "balconyPP": 829,
-    "suitePP": 849,
-    "havenPP": 1939
+    "balconyPP": 804,
+    "suitePP": 812,
+    "havenPP": 1814
   },
   {
     "shipName": "Norwegian Getaway",
@@ -211,9 +211,9 @@
     "port": "Miami",
     "insidePP": 679,
     "oceanviewPP": 749,
-    "balconyPP": 829,
-    "suitePP": 879,
-    "havenPP": 1929
+    "balconyPP": 804,
+    "suitePP": 822,
+    "havenPP": 1804
   },
   {
     "shipName": "Norwegian Getaway",
@@ -223,9 +223,9 @@
     "port": "Miami",
     "insidePP": 679,
     "oceanviewPP": 749,
-    "balconyPP": 829,
-    "suitePP": 879,
-    "havenPP": 1929
+    "balconyPP": 804,
+    "suitePP": 842,
+    "havenPP": 1804
   },
   {
     "shipName": "Norwegian Getaway",
@@ -235,9 +235,9 @@
     "port": "Miami",
     "insidePP": 659,
     "oceanviewPP": 729,
-    "balconyPP": 809,
-    "suitePP": 869,
-    "havenPP": 1919
+    "balconyPP": 784,
+    "suitePP": 832,
+    "havenPP": 1794
   },
   {
     "shipName": "Norwegian Getaway",
@@ -245,11 +245,11 @@
     "itinerary": "4-Day Bahamas Round-Trip Miami: Great Stirrup Cay & Nassau",
     "nights": 4,
     "port": "Miami",
-    "insidePP": 629,
-    "oceanviewPP": 699,
-    "balconyPP": 779,
-    "suitePP": 829,
-    "havenPP": 1879
+    "insidePP": 609,
+    "oceanviewPP": 679,
+    "balconyPP": 734,
+    "suitePP": 772,
+    "havenPP": 1684
   },
   {
     "shipName": "Norwegian Getaway",
@@ -259,9 +259,9 @@
     "port": "Miami",
     "insidePP": 569,
     "oceanviewPP": 659,
-    "balconyPP": 729,
-    "suitePP": 779,
-    "havenPP": 1949
+    "balconyPP": 704,
+    "suitePP": 742,
+    "havenPP": 1824
   },
   {
     "shipName": "Norwegian Getaway",
@@ -269,10 +269,10 @@
     "itinerary": "4-Day Bahamas Round-Trip Miami: Great Stirrup Cay & Nassau",
     "nights": 4,
     "port": "Miami",
-    "insidePP": 399,
+    "insidePP": 419,
     "oceanviewPP": 449,
-    "balconyPP": 509,
-    "suitePP": 569,
+    "balconyPP": 549,
+    "suitePP": 609,
     "havenPP": 1349
   },
   {
@@ -283,9 +283,9 @@
     "port": "Miami",
     "insidePP": 399,
     "oceanviewPP": 449,
-    "balconyPP": 509,
-    "suitePP": 539,
-    "havenPP": 1369
+    "balconyPP": 484,
+    "suitePP": 502,
+    "havenPP": 1244
   },
   {
     "shipName": "Norwegian Getaway",
@@ -295,9 +295,9 @@
     "port": "Miami",
     "insidePP": 479,
     "oceanviewPP": 559,
-    "balconyPP": 629,
-    "suitePP": 679,
-    "havenPP": 1879
+    "balconyPP": 604,
+    "suitePP": 642,
+    "havenPP": 1754
   },
   {
     "shipName": "Norwegian Getaway",
@@ -307,9 +307,9 @@
     "port": "Miami",
     "insidePP": 479,
     "oceanviewPP": 559,
-    "balconyPP": 629,
-    "suitePP": 679,
-    "havenPP": 1879
+    "balconyPP": 604,
+    "suitePP": 642,
+    "havenPP": 1754
   },
   {
     "shipName": "Norwegian Getaway",
@@ -319,9 +319,9 @@
     "port": "Miami",
     "insidePP": 459,
     "oceanviewPP": 529,
-    "balconyPP": 609,
-    "suitePP": 659,
-    "havenPP": 1859
+    "balconyPP": 584,
+    "suitePP": 622,
+    "havenPP": 1734
   },
   {
     "shipName": "Norwegian Getaway",
@@ -331,9 +331,9 @@
     "port": "Miami",
     "insidePP": 459,
     "oceanviewPP": 529,
-    "balconyPP": 609,
-    "suitePP": 659,
-    "havenPP": 1919
+    "balconyPP": 584,
+    "suitePP": 622,
+    "havenPP": 1794
   },
   {
     "shipName": "Norwegian Getaway",
@@ -343,9 +343,9 @@
     "port": "Miami",
     "insidePP": 459,
     "oceanviewPP": 529,
-    "balconyPP": 609,
-    "suitePP": 659,
-    "havenPP": 1859
+    "balconyPP": 584,
+    "suitePP": 622,
+    "havenPP": 1734
   },
   {
     "shipName": "Norwegian Getaway",
@@ -355,9 +355,9 @@
     "port": "Miami",
     "insidePP": 429,
     "oceanviewPP": 509,
-    "balconyPP": 579,
-    "suitePP": 629,
-    "havenPP": 1919
+    "balconyPP": 554,
+    "suitePP": 592,
+    "havenPP": 1734
   },
   {
     "shipName": "Norwegian Getaway",
@@ -367,9 +367,9 @@
     "port": "Miami",
     "insidePP": 449,
     "oceanviewPP": 509,
-    "balconyPP": 579,
-    "suitePP": 629,
-    "havenPP": 1919
+    "balconyPP": 554,
+    "suitePP": 592,
+    "havenPP": 1734
   },
   {
     "shipName": "Norwegian Getaway",
@@ -379,9 +379,9 @@
     "port": "Miami",
     "insidePP": 449,
     "oceanviewPP": 509,
-    "balconyPP": 579,
-    "suitePP": 629,
-    "havenPP": 1909
+    "balconyPP": 554,
+    "suitePP": 592,
+    "havenPP": 1784
   },
   {
     "shipName": "Norwegian Getaway",
@@ -391,9 +391,9 @@
     "port": "Miami",
     "insidePP": 449,
     "oceanviewPP": 509,
-    "balconyPP": 579,
-    "suitePP": 629,
-    "havenPP": 1909
+    "balconyPP": 554,
+    "suitePP": 592,
+    "havenPP": 1724
   },
   {
     "shipName": "Norwegian Getaway",
@@ -751,21 +751,9 @@
     "port": "Miami",
     "insidePP": 509,
     "oceanviewPP": 579,
-    "balconyPP": 659,
-    "suitePP": 709,
-    "havenPP": 1859
-  },
-  {
-    "shipName": "Norwegian Getaway",
-    "departureDate": "2026-03-06",
-    "itinerary": "3-Day Bahamas Round-Trip Miami: Great Stirrup Cay & Nassau",
-    "nights": 3,
-    "port": "Miami",
-    "insidePP": 449,
-    "oceanviewPP": null,
-    "balconyPP": null,
-    "suitePP": null,
-    "havenPP": null
+    "balconyPP": 634,
+    "suitePP": 672,
+    "havenPP": 1734
   },
   {
     "shipName": "Norwegian Getaway",
@@ -787,9 +775,9 @@
     "port": "Miami",
     "insidePP": 389,
     "oceanviewPP": 449,
-    "balconyPP": 529,
-    "suitePP": 579,
-    "havenPP": 1039
+    "balconyPP": 504,
+    "suitePP": 542,
+    "havenPP": 914
   },
   {
     "shipName": "Norwegian Getaway",
@@ -799,9 +787,9 @@
     "port": "Miami",
     "insidePP": 409,
     "oceanviewPP": 469,
-    "balconyPP": 539,
-    "suitePP": 599,
-    "havenPP": 1049
+    "balconyPP": 514,
+    "suitePP": 562,
+    "havenPP": 924
   },
   {
     "shipName": "Norwegian Getaway",
@@ -811,9 +799,9 @@
     "port": "Miami",
     "insidePP": 409,
     "oceanviewPP": 469,
-    "balconyPP": 539,
-    "suitePP": 609,
-    "havenPP": 1199
+    "balconyPP": 514,
+    "suitePP": 572,
+    "havenPP": 1074
   },
   {
     "shipName": "Norwegian Getaway",
@@ -823,9 +811,9 @@
     "port": "Miami",
     "insidePP": 429,
     "oceanviewPP": 489,
-    "balconyPP": 549,
-    "suitePP": 609,
-    "havenPP": 1289
+    "balconyPP": 524,
+    "suitePP": 572,
+    "havenPP": 1164
   },
   {
     "shipName": "Norwegian Getaway",
@@ -835,9 +823,9 @@
     "port": "Miami",
     "insidePP": 439,
     "oceanviewPP": 499,
-    "balconyPP": 569,
-    "suitePP": 629,
-    "havenPP": 1489
+    "balconyPP": 544,
+    "suitePP": 592,
+    "havenPP": 1364
   },
   {
     "shipName": "Norwegian Getaway",
@@ -847,9 +835,9 @@
     "port": "Miami",
     "insidePP": 459,
     "oceanviewPP": 519,
-    "balconyPP": 579,
-    "suitePP": 629,
-    "havenPP": 1299
+    "balconyPP": 554,
+    "suitePP": 592,
+    "havenPP": 1174
   },
   {
     "shipName": "Norwegian Getaway",
@@ -859,9 +847,9 @@
     "port": "Miami",
     "insidePP": 509,
     "oceanviewPP": 579,
-    "balconyPP": 629,
-    "suitePP": 679,
-    "havenPP": 1539
+    "balconyPP": 604,
+    "suitePP": 642,
+    "havenPP": 1414
   },
   {
     "shipName": "Norwegian Getaway",
@@ -871,9 +859,9 @@
     "port": "Miami",
     "insidePP": 509,
     "oceanviewPP": 579,
-    "balconyPP": 629,
-    "suitePP": 679,
-    "havenPP": 1439
+    "balconyPP": 604,
+    "suitePP": 642,
+    "havenPP": 1314
   },
   {
     "shipName": "Norwegian Getaway",
@@ -883,9 +871,9 @@
     "port": "Miami",
     "insidePP": 529,
     "oceanviewPP": 579,
-    "balconyPP": 649,
-    "suitePP": 689,
-    "havenPP": 1459
+    "balconyPP": 624,
+    "suitePP": 652,
+    "havenPP": 1334
   },
   {
     "shipName": "Norwegian Getaway",
@@ -895,9 +883,9 @@
     "port": "Miami",
     "insidePP": 549,
     "oceanviewPP": 589,
-    "balconyPP": 649,
-    "suitePP": 699,
-    "havenPP": 1469
+    "balconyPP": 624,
+    "suitePP": 662,
+    "havenPP": 1344
   },
   {
     "shipName": "Norwegian Getaway",
@@ -907,9 +895,9 @@
     "port": "Miami",
     "insidePP": 579,
     "oceanviewPP": 629,
-    "balconyPP": 679,
-    "suitePP": 729,
-    "havenPP": 1559
+    "balconyPP": 654,
+    "suitePP": 692,
+    "havenPP": 1434
   },
   {
     "shipName": "Norwegian Getaway",
@@ -919,9 +907,9 @@
     "port": "Miami",
     "insidePP": 609,
     "oceanviewPP": 659,
-    "balconyPP": 709,
-    "suitePP": 759,
-    "havenPP": 1469
+    "balconyPP": 684,
+    "suitePP": 692,
+    "havenPP": 1344
   },
   {
     "shipName": "Norwegian Getaway",
@@ -931,9 +919,9 @@
     "port": "Miami",
     "insidePP": 609,
     "oceanviewPP": 659,
-    "balconyPP": 709,
-    "suitePP": 759,
-    "havenPP": 1569
+    "balconyPP": 684,
+    "suitePP": 702,
+    "havenPP": 1444
   },
   {
     "shipName": "Norwegian Getaway",
@@ -943,9 +931,9 @@
     "port": "Miami",
     "insidePP": 609,
     "oceanviewPP": 659,
-    "balconyPP": 709,
-    "suitePP": 759,
-    "havenPP": 1699
+    "balconyPP": 684,
+    "suitePP": 702,
+    "havenPP": 1574
   },
   {
     "shipName": "Norwegian Getaway",
@@ -955,9 +943,9 @@
     "port": "Miami",
     "insidePP": 589,
     "oceanviewPP": 669,
-    "balconyPP": 709,
-    "suitePP": 729,
-    "havenPP": 1509
+    "balconyPP": 684,
+    "suitePP": 692,
+    "havenPP": 1384
   },
   {
     "shipName": "Norwegian Getaway",
@@ -965,11 +953,11 @@
     "itinerary": "3-Day Bahamas Round-Trip Miami: Great Stirrup Cay & Nassau",
     "nights": 3,
     "port": "Miami",
-    "insidePP": 529,
-    "oceanviewPP": 579,
-    "balconyPP": 629,
-    "suitePP": 679,
-    "havenPP": 1679
+    "insidePP": 509,
+    "oceanviewPP": 559,
+    "balconyPP": 584,
+    "suitePP": 622,
+    "havenPP": 1494
   },
   {
     "shipName": "Norwegian Getaway",
@@ -977,11 +965,11 @@
     "itinerary": "3-Day Bahamas Round-Trip Miami: Great Stirrup Cay & Nassau",
     "nights": 3,
     "port": "Miami",
-    "insidePP": 509,
-    "oceanviewPP": 559,
-    "balconyPP": 609,
-    "suitePP": 659,
-    "havenPP": 1589
+    "insidePP": 499,
+    "oceanviewPP": 539,
+    "balconyPP": 564,
+    "suitePP": 602,
+    "havenPP": 1414
   },
   {
     "shipName": "Norwegian Getaway",
@@ -991,9 +979,9 @@
     "port": "Miami",
     "insidePP": 479,
     "oceanviewPP": 529,
-    "balconyPP": 579,
-    "suitePP": 629,
-    "havenPP": 1669
+    "balconyPP": 554,
+    "suitePP": 592,
+    "havenPP": 1544
   },
   {
     "shipName": "Norwegian Getaway",
@@ -1003,9 +991,9 @@
     "port": "Miami",
     "insidePP": 379,
     "oceanviewPP": 439,
-    "balconyPP": 509,
-    "suitePP": 569,
-    "havenPP": 1129
+    "balconyPP": 484,
+    "suitePP": 532,
+    "havenPP": 1004
   },
   {
     "shipName": "Norwegian Getaway",
@@ -1015,9 +1003,9 @@
     "port": "Miami",
     "insidePP": 459,
     "oceanviewPP": 509,
-    "balconyPP": 559,
-    "suitePP": 609,
-    "havenPP": 1479
+    "balconyPP": 534,
+    "suitePP": 572,
+    "havenPP": 1354
   },
   {
     "shipName": "Norwegian Getaway",
@@ -1027,21 +1015,9 @@
     "port": "Miami",
     "insidePP": 459,
     "oceanviewPP": 509,
-    "balconyPP": 559,
-    "suitePP": 609,
-    "havenPP": 1519
-  },
-  {
-    "shipName": "Norwegian Getaway",
-    "departureDate": "2026-09-11",
-    "itinerary": "3-Day Bahamas Round-Trip Miami: Great Stirrup Cay & Nassau",
-    "nights": 3,
-    "port": "Miami",
-    "insidePP": 429,
-    "oceanviewPP": 479,
-    "balconyPP": 529,
-    "suitePP": 579,
-    "havenPP": 1469
+    "balconyPP": 534,
+    "suitePP": 572,
+    "havenPP": 1394
   },
   {
     "shipName": "Norwegian Getaway",
@@ -1051,9 +1027,9 @@
     "port": "Miami",
     "insidePP": 429,
     "oceanviewPP": 479,
-    "balconyPP": 529,
-    "suitePP": 579,
-    "havenPP": 1469
+    "balconyPP": 504,
+    "suitePP": 542,
+    "havenPP": 1344
   },
   {
     "shipName": "Norwegian Getaway",
@@ -1063,9 +1039,9 @@
     "port": "Miami",
     "insidePP": 429,
     "oceanviewPP": 479,
-    "balconyPP": 529,
-    "suitePP": 579,
-    "havenPP": 1619
+    "balconyPP": 504,
+    "suitePP": 542,
+    "havenPP": 1494
   },
   {
     "shipName": "Norwegian Getaway",
@@ -1075,21 +1051,9 @@
     "port": "Miami",
     "insidePP": 409,
     "oceanviewPP": 459,
-    "balconyPP": 509,
-    "suitePP": 559,
-    "havenPP": 1519
-  },
-  {
-    "shipName": "Norwegian Getaway",
-    "departureDate": "2026-10-09",
-    "itinerary": "3-Day Bahamas Round-Trip Miami: Great Stirrup Cay & Nassau",
-    "nights": 3,
-    "port": "Miami",
-    "insidePP": 409,
-    "oceanviewPP": 459,
-    "balconyPP": 509,
-    "suitePP": 559,
-    "havenPP": 1519
+    "balconyPP": 484,
+    "suitePP": 522,
+    "havenPP": 1344
   },
   {
     "shipName": "Norwegian Getaway",
@@ -1099,9 +1063,9 @@
     "port": "Miami",
     "insidePP": 409,
     "oceanviewPP": 459,
-    "balconyPP": 509,
-    "suitePP": 559,
-    "havenPP": 1669
+    "balconyPP": 484,
+    "suitePP": 522,
+    "havenPP": 1494
   },
   {
     "shipName": "Norwegian Getaway",
@@ -1123,9 +1087,33 @@
     "port": "Miami",
     "insidePP": 389,
     "oceanviewPP": 449,
-    "balconyPP": 519,
-    "suitePP": 569,
-    "havenPP": 1159
+    "balconyPP": 494,
+    "suitePP": 532,
+    "havenPP": 1034
+  },
+  {
+    "shipName": "Norwegian Getaway",
+    "departureDate": "2026-09-11",
+    "itinerary": "3-Day Bahamas Round-Trip Miami: Great Stirrup Cay & Nassau",
+    "nights": 3,
+    "port": "Miami",
+    "insidePP": 429,
+    "oceanviewPP": 479,
+    "balconyPP": 504,
+    "suitePP": 542,
+    "havenPP": 1344
+  },
+  {
+    "shipName": "Norwegian Getaway",
+    "departureDate": "2026-10-09",
+    "itinerary": "3-Day Bahamas Round-Trip Miami: Great Stirrup Cay & Nassau",
+    "nights": 3,
+    "port": "Miami",
+    "insidePP": 409,
+    "oceanviewPP": 459,
+    "balconyPP": 484,
+    "suitePP": 522,
+    "havenPP": 1344
   },
   {
     "shipName": "Norwegian Getaway",
@@ -1493,10 +1481,10 @@
     "itinerary": "3-Day Bahamas Round-trip Miami: Great Stirrup Cay",
     "nights": 3,
     "port": "Miami",
-    "insidePP": 399,
-    "oceanviewPP": 419,
-    "balconyPP": 449,
-    "suitePP": 499,
+    "insidePP": 479,
+    "oceanviewPP": 499,
+    "balconyPP": 529,
+    "suitePP": 569,
     "havenPP": 1219
   },
   {
@@ -1505,21 +1493,9 @@
     "itinerary": "3-Day Bahamas Round-trip Miami: Great Stirrup Cay",
     "nights": 3,
     "port": "Miami",
-    "insidePP": 349,
-    "oceanviewPP": 379,
-    "balconyPP": 409,
-    "suitePP": 429,
-    "havenPP": null
-  },
-  {
-    "shipName": "Norwegian Prima",
-    "departureDate": "2026-03-08",
-    "itinerary": "7-Day Caribbean Round-trip Orlando (Port Canaveral): Great Stirrup Cay & Cozumel",
-    "nights": 7,
-    "port": "Port Canaveral",
-    "insidePP": null,
-    "oceanviewPP": null,
-    "balconyPP": null,
+    "insidePP": 399,
+    "oceanviewPP": 429,
+    "balconyPP": 479,
     "suitePP": null,
     "havenPP": null
   },
@@ -1530,10 +1506,10 @@
     "nights": 7,
     "port": "Port Canaveral",
     "insidePP": 879,
-    "oceanviewPP": 979,
+    "oceanviewPP": null,
     "balconyPP": 1279,
     "suitePP": null,
-    "havenPP": null
+    "havenPP": 3279
   },
   {
     "shipName": "Norwegian Prima",
@@ -1567,9 +1543,9 @@
     "port": "Port Canaveral",
     "insidePP": 849,
     "oceanviewPP": 1049,
-    "balconyPP": 1229,
-    "suitePP": null,
-    "havenPP": 2919
+    "balconyPP": 1179,
+    "suitePP": 1399,
+    "havenPP": 2669
   },
   {
     "shipName": "Norwegian Encore",
@@ -1577,10 +1553,10 @@
     "itinerary": "7-Day Western Caribbean Round-Trip Miami: Harvest Caye, Cozumel & Roatan",
     "nights": 7,
     "port": "Miami",
-    "insidePP": 839,
-    "oceanviewPP": 879,
-    "balconyPP": 1019,
-    "suitePP": 1079,
+    "insidePP": null,
+    "oceanviewPP": null,
+    "balconyPP": 1001,
+    "suitePP": null,
     "havenPP": null
   },
   {
@@ -1589,11 +1565,11 @@
     "itinerary": "7-Day Western Caribbean Round-Trip Miami: Harvest Caye, Cozumel & Roatan",
     "nights": 7,
     "port": "Miami",
-    "insidePP": 709,
-    "oceanviewPP": 799,
-    "balconyPP": 899,
-    "suitePP": 979,
-    "havenPP": 2699
+    "insidePP": 679,
+    "oceanviewPP": 829,
+    "balconyPP": 881,
+    "suitePP": 932,
+    "havenPP": 2449
   },
   {
     "shipName": "Norwegian Encore",
@@ -1601,11 +1577,23 @@
     "itinerary": "7-Day Western Caribbean Round-Trip Miami: Harvest Caye, Cozumel & Roatan",
     "nights": 7,
     "port": "Miami",
-    "insidePP": 699,
-    "oceanviewPP": 929,
-    "balconyPP": 1029,
-    "suitePP": 1079,
-    "havenPP": 2949
+    "insidePP": 679,
+    "oceanviewPP": 949,
+    "balconyPP": 949,
+    "suitePP": 1024,
+    "havenPP": 2629
+  },
+  {
+    "shipName": "Norwegian Joy",
+    "departureDate": "2026-03-06",
+    "itinerary": "7-Day Caribbean Round-trip Orlando: Great Stirrup Cay & Dominican Republic",
+    "nights": 7,
+    "port": "Port Canaveral",
+    "insidePP": null,
+    "oceanviewPP": null,
+    "balconyPP": 1169,
+    "suitePP": null,
+    "havenPP": null
   },
   {
     "shipName": "Norwegian Joy",
@@ -1613,11 +1601,11 @@
     "itinerary": "7-Day Caribbean Round-trip Orlando: Great Stirrup Cay & Dominican Republic",
     "nights": 7,
     "port": "Port Canaveral",
-    "insidePP": 879,
+    "insidePP": 929,
     "oceanviewPP": 979,
-    "balconyPP": 1149,
-    "suitePP": 1279,
-    "havenPP": 2479
+    "balconyPP": 1179,
+    "suitePP": 1299,
+    "havenPP": 2629
   },
   {
     "shipName": "Norwegian Joy",
@@ -1638,7 +1626,7 @@
     "nights": 7,
     "port": "Miami",
     "insidePP": 1059,
-    "oceanviewPP": 1409,
+    "oceanviewPP": 1459,
     "balconyPP": 1689,
     "suitePP": 2129,
     "havenPP": 5089
@@ -1663,7 +1651,7 @@
     "port": "Miami",
     "insidePP": 1109,
     "oceanviewPP": 1359,
-    "balconyPP": 1509,
+    "balconyPP": 1559,
     "suitePP": 2009,
     "havenPP": 5109
   },
@@ -1713,7 +1701,7 @@
     "oceanviewPP": 1439,
     "balconyPP": 1619,
     "suitePP": 1909,
-    "havenPP": 4709
+    "havenPP": 4809
   },
   {
     "shipName": "Norwegian Luna",
@@ -1805,9 +1793,9 @@
     "itinerary": "7-Day Caribbean Round-trip Miami: Great Stirrup Cay & Dominican Republic",
     "nights": 7,
     "port": "Miami",
-    "insidePP": 1359,
-    "oceanviewPP": 1629,
-    "balconyPP": 1849,
+    "insidePP": 1389,
+    "oceanviewPP": 1669,
+    "balconyPP": 1889,
     "suitePP": 2319,
     "havenPP": 4609
   },
@@ -1817,8 +1805,8 @@
     "itinerary": "7-Day Caribbean Round-trip Miami: Great Stirrup Cay & Dominican Republic",
     "nights": 7,
     "port": "Miami",
-    "insidePP": 1359,
-    "oceanviewPP": 1539,
+    "insidePP": 1389,
+    "oceanviewPP": 1589,
     "balconyPP": 1789,
     "suitePP": 2249,
     "havenPP": 4429
@@ -1913,11 +1901,11 @@
     "itinerary": "7-Day Caribbean Round-trip Miami: Great Stirrup Cay & Dominican Republic",
     "nights": 7,
     "port": "Miami",
-    "insidePP": 1009,
+    "insidePP": 969,
     "oceanviewPP": 1109,
-    "balconyPP": 1439,
-    "suitePP": 2039,
-    "havenPP": 4409
+    "balconyPP": 1409,
+    "suitePP": 1989,
+    "havenPP": 4269
   },
   {
     "shipName": "Norwegian Luna",
@@ -1986,7 +1974,7 @@
     "nights": 7,
     "port": "Miami",
     "insidePP": 1109,
-    "oceanviewPP": 1479,
+    "oceanviewPP": 1499,
     "balconyPP": 1689,
     "suitePP": 2209,
     "havenPP": 5189
@@ -2249,11 +2237,11 @@
     "itinerary": "7-Day Caribbean Round-trip Miami: Great Stirrup Cay & Dominican Republic",
     "nights": 7,
     "port": "Miami",
-    "insidePP": 999,
+    "insidePP": 1099,
     "oceanviewPP": 1299,
-    "balconyPP": 1399,
-    "suitePP": 2129,
-    "havenPP": 4999
+    "balconyPP": 1559,
+    "suitePP": 2229,
+    "havenPP": null
   },
   {
     "shipName": "Norwegian Aqua",
@@ -2263,9 +2251,9 @@
     "port": "Miami",
     "insidePP": 999,
     "oceanviewPP": 1129,
-    "balconyPP": 1379,
-    "suitePP": null,
-    "havenPP": null
+    "balconyPP": 1449,
+    "suitePP": 1679,
+    "havenPP": 3349
   },
   {
     "shipName": "Norwegian Aqua",
@@ -2277,7 +2265,7 @@
     "oceanviewPP": 1229,
     "balconyPP": 1479,
     "suitePP": 1749,
-    "havenPP": 3379
+    "havenPP": 4759
   },
   {
     "shipName": "Norwegian Aqua",
@@ -2564,7 +2552,7 @@
     "insidePP": 809,
     "oceanviewPP": 879,
     "balconyPP": 1129,
-    "suitePP": null,
+    "suitePP": 1429,
     "havenPP": null
   },
   {
@@ -2573,11 +2561,11 @@
     "itinerary": "7-Day Caribbean Round-trip Orlando (Port Canaveral): Great Stirrup Cay & Cozumel",
     "nights": 7,
     "port": "Port Canaveral",
-    "insidePP": 949,
-    "oceanviewPP": 1169,
-    "balconyPP": 1349,
-    "suitePP": 1609,
-    "havenPP": 3359
+    "insidePP": 899,
+    "oceanviewPP": 1119,
+    "balconyPP": 1269,
+    "suitePP": 1474,
+    "havenPP": 2919
   },
   {
     "shipName": "Norwegian Prima",
@@ -2587,9 +2575,9 @@
     "port": "Port Canaveral",
     "insidePP": 969,
     "oceanviewPP": 1199,
-    "balconyPP": 1449,
-    "suitePP": 1799,
-    "havenPP": 3519
+    "balconyPP": 1399,
+    "suitePP": 1724,
+    "havenPP": 3269
   },
   {
     "shipName": "Norwegian Prima",
@@ -2599,9 +2587,9 @@
     "port": "Port Canaveral",
     "insidePP": 1149,
     "oceanviewPP": 1429,
-    "balconyPP": 1529,
-    "suitePP": 2269,
-    "havenPP": 3349
+    "balconyPP": 1479,
+    "suitePP": 2194,
+    "havenPP": 3099
   },
   {
     "shipName": "Norwegian Prima",
@@ -2611,9 +2599,9 @@
     "port": "Port Canaveral",
     "insidePP": 1149,
     "oceanviewPP": 1429,
-    "balconyPP": 1599,
-    "suitePP": 2149,
-    "havenPP": 3399
+    "balconyPP": 1549,
+    "suitePP": 2074,
+    "havenPP": 3149
   },
   {
     "shipName": "Norwegian Prima",
@@ -2623,9 +2611,9 @@
     "port": "Port Canaveral",
     "insidePP": 1099,
     "oceanviewPP": 1299,
-    "balconyPP": 1499,
-    "suitePP": 1899,
-    "havenPP": 3409
+    "balconyPP": 1449,
+    "suitePP": 1824,
+    "havenPP": 3159
   },
   {
     "shipName": "Norwegian Prima",
@@ -2635,9 +2623,9 @@
     "port": "Port Canaveral",
     "insidePP": 1249,
     "oceanviewPP": 1399,
-    "balconyPP": 1579,
-    "suitePP": 1699,
-    "havenPP": 3099
+    "balconyPP": 1529,
+    "suitePP": 1624,
+    "havenPP": 2849
   },
   {
     "shipName": "Norwegian Prima",
@@ -2647,9 +2635,9 @@
     "port": "Port Canaveral",
     "insidePP": 1049,
     "oceanviewPP": 1299,
-    "balconyPP": 1499,
-    "suitePP": 1909,
-    "havenPP": 3599
+    "balconyPP": 1449,
+    "suitePP": 1834,
+    "havenPP": 3349
   },
   {
     "shipName": "Norwegian Prima",
@@ -2659,9 +2647,9 @@
     "port": "Port Canaveral",
     "insidePP": 949,
     "oceanviewPP": 1179,
-    "balconyPP": 1599,
-    "suitePP": 1809,
-    "havenPP": 3319
+    "balconyPP": 1549,
+    "suitePP": 1734,
+    "havenPP": 3069
   },
   {
     "shipName": "Norwegian Prima",
@@ -2671,9 +2659,9 @@
     "port": "Port Canaveral",
     "insidePP": 899,
     "oceanviewPP": 1049,
-    "balconyPP": 1329,
-    "suitePP": 1729,
-    "havenPP": 3639
+    "balconyPP": 1279,
+    "suitePP": 1654,
+    "havenPP": 3389
   },
   {
     "shipName": "Norwegian Prima",
@@ -2683,9 +2671,9 @@
     "port": "Port Canaveral",
     "insidePP": 929,
     "oceanviewPP": 1049,
-    "balconyPP": 1349,
-    "suitePP": 1879,
-    "havenPP": 3549
+    "balconyPP": 1299,
+    "suitePP": 1804,
+    "havenPP": 3299
   },
   {
     "shipName": "Norwegian Prima",
@@ -2695,9 +2683,9 @@
     "port": "Port Canaveral",
     "insidePP": 979,
     "oceanviewPP": 1199,
-    "balconyPP": 1379,
-    "suitePP": 1919,
-    "havenPP": 3289
+    "balconyPP": 1329,
+    "suitePP": 1844,
+    "havenPP": 3039
   },
   {
     "shipName": "Norwegian Prima",
@@ -2707,9 +2695,9 @@
     "port": "Port Canaveral",
     "insidePP": 1109,
     "oceanviewPP": 1299,
-    "balconyPP": 1549,
-    "suitePP": 2049,
-    "havenPP": 3749
+    "balconyPP": 1499,
+    "suitePP": 1974,
+    "havenPP": 3499
   },
   {
     "shipName": "Norwegian Prima",
@@ -2719,9 +2707,9 @@
     "port": "Port Canaveral",
     "insidePP": 1049,
     "oceanviewPP": 1229,
-    "balconyPP": 1549,
-    "suitePP": 2059,
-    "havenPP": 3579
+    "balconyPP": 1499,
+    "suitePP": 1984,
+    "havenPP": 3329
   },
   {
     "shipName": "Norwegian Joy",
@@ -2741,11 +2729,11 @@
     "itinerary": "3-Day Bahamas Round-trip Miami: Great Stirrup Cay & Nassau",
     "nights": 3,
     "port": "Miami",
-    "insidePP": 499,
+    "insidePP": 479,
     "oceanviewPP": 599,
-    "balconyPP": 719,
-    "suitePP": 799,
-    "havenPP": 2499
+    "balconyPP": 699,
+    "suitePP": 779,
+    "havenPP": 2449
   },
   {
     "shipName": "Norwegian Joy",
@@ -2753,11 +2741,11 @@
     "itinerary": "3-Day Bahamas Round-trip Miami: Great Stirrup Cay & Nassau",
     "nights": 3,
     "port": "Miami",
-    "insidePP": 449,
-    "oceanviewPP": 509,
+    "insidePP": 439,
+    "oceanviewPP": 499,
     "balconyPP": 619,
-    "suitePP": 669,
-    "havenPP": 1529
+    "suitePP": 649,
+    "havenPP": 1489
   },
   {
     "shipName": "Norwegian Joy",
@@ -3109,18 +3097,6 @@
   },
   {
     "shipName": "Norwegian Dawn",
-    "departureDate": "2026-03-01",
-    "itinerary": "7-Day Western Caribbean from Tampa",
-    "nights": 7,
-    "port": "Tampa",
-    "insidePP": 629,
-    "oceanviewPP": null,
-    "balconyPP": null,
-    "suitePP": null,
-    "havenPP": null
-  },
-  {
-    "shipName": "Norwegian Dawn",
     "departureDate": "2026-03-08",
     "itinerary": "7-Day Western Caribbean from Tampa",
     "nights": 7,
@@ -3138,7 +3114,7 @@
     "nights": 7,
     "port": "Tampa",
     "insidePP": 929,
-    "oceanviewPP": 1069,
+    "oceanviewPP": 1059,
     "balconyPP": null,
     "suitePP": 1709,
     "havenPP": null
@@ -3186,21 +3162,9 @@
     "nights": 7,
     "port": "Port Canaveral",
     "insidePP": 1149,
-    "oceanviewPP": 1229,
-    "balconyPP": 1459,
+    "oceanviewPP": null,
+    "balconyPP": null,
     "suitePP": null,
-    "havenPP": null
-  },
-  {
-    "shipName": "Norwegian Star",
-    "departureDate": "2026-03-02",
-    "itinerary": "10-Day Caribbean Round-Trip Tampa: Curacao, Aruba & Dominican Republic",
-    "nights": 10,
-    "port": "Tampa",
-    "insidePP": 679,
-    "oceanviewPP": 1399,
-    "balconyPP": 1949,
-    "suitePP": 2349,
     "havenPP": null
   },
   {
@@ -3211,8 +3175,8 @@
     "port": "Tampa",
     "insidePP": null,
     "oceanviewPP": null,
-    "balconyPP": null,
-    "suitePP": null,
+    "balconyPP": 2429,
+    "suitePP": 1999,
     "havenPP": null
   },
   {
@@ -3222,7 +3186,7 @@
     "nights": 10,
     "port": "Tampa",
     "insidePP": 969,
-    "oceanviewPP": 1209,
+    "oceanviewPP": 1309,
     "balconyPP": 1569,
     "suitePP": 1739,
     "havenPP": null
@@ -3234,8 +3198,8 @@
     "nights": 7,
     "port": "Miami",
     "insidePP": null,
-    "oceanviewPP": null,
-    "balconyPP": 1399,
+    "oceanviewPP": 1359,
+    "balconyPP": 1401,
     "suitePP": null,
     "havenPP": null
   },
@@ -3281,11 +3245,11 @@
     "itinerary": "4-Day Bahamas Round-trip Miami: Great Stirrup Cay & Nassau",
     "nights": 4,
     "port": "Miami",
-    "insidePP": 959,
-    "oceanviewPP": 1029,
-    "balconyPP": 1159,
-    "suitePP": 1299,
-    "havenPP": 3529
+    "insidePP": 1009,
+    "oceanviewPP": 1059,
+    "balconyPP": 1179,
+    "suitePP": 1319,
+    "havenPP": 3439
   },
   {
     "shipName": "Norwegian Joy",
@@ -3449,11 +3413,11 @@
     "itinerary": "4-Day Bahamas Round-trip Miami: Great Stirrup Cay & Nassau",
     "nights": 4,
     "port": "Miami",
-    "insidePP": 709,
-    "oceanviewPP": 779,
-    "balconyPP": 919,
-    "suitePP": 969,
-    "havenPP": 2159
+    "insidePP": 699,
+    "oceanviewPP": 799,
+    "balconyPP": 899,
+    "suitePP": 949,
+    "havenPP": 2099
   },
   {
     "shipName": "Norwegian Joy",
@@ -3655,7 +3619,7 @@
     "port": "Jacksonville",
     "insidePP": 699,
     "oceanviewPP": 739,
-    "balconyPP": 1029,
+    "balconyPP": null,
     "suitePP": null,
     "havenPP": null
   },
@@ -3666,9 +3630,9 @@
     "nights": 4,
     "port": "Jacksonville",
     "insidePP": 569,
-    "oceanviewPP": 609,
+    "oceanviewPP": 649,
     "balconyPP": 949,
-    "suitePP": 1079,
+    "suitePP": 1089,
     "havenPP": null
   },
   {
@@ -3678,10 +3642,10 @@
     "nights": 7,
     "port": "Miami",
     "insidePP": 879,
-    "oceanviewPP": 949,
-    "balconyPP": 1049,
-    "suitePP": 1129,
-    "havenPP": 2749
+    "oceanviewPP": 929,
+    "balconyPP": 979,
+    "suitePP": 1004,
+    "havenPP": 2499
   },
   {
     "shipName": "Norwegian Escape",
@@ -3689,11 +3653,11 @@
     "itinerary": "7-Day Caribbean Round-Trip Miami: Harvest Caye, Cozumel & Roatan",
     "nights": 7,
     "port": "Miami",
-    "insidePP": 779,
-    "oceanviewPP": 949,
-    "balconyPP": 999,
-    "suitePP": 1099,
-    "havenPP": 2649
+    "insidePP": 799,
+    "oceanviewPP": 899,
+    "balconyPP": 899,
+    "suitePP": 974,
+    "havenPP": 2249
   },
   {
     "shipName": "Norwegian Escape",
@@ -3703,9 +3667,9 @@
     "port": "Miami",
     "insidePP": 869,
     "oceanviewPP": 1009,
-    "balconyPP": 1059,
-    "suitePP": 1149,
-    "havenPP": 2679
+    "balconyPP": 1009,
+    "suitePP": 1074,
+    "havenPP": 2429
   },
   {
     "shipName": "Norwegian Escape",
@@ -3715,9 +3679,9 @@
     "port": "Miami",
     "insidePP": 819,
     "oceanviewPP": 959,
-    "balconyPP": 1049,
-    "suitePP": 1179,
-    "havenPP": 2599
+    "balconyPP": 999,
+    "suitePP": 1104,
+    "havenPP": 2349
   },
   {
     "shipName": "Norwegian Escape",
@@ -3727,9 +3691,9 @@
     "port": "Miami",
     "insidePP": 919,
     "oceanviewPP": 979,
-    "balconyPP": 1079,
-    "suitePP": 1179,
-    "havenPP": 2829
+    "balconyPP": 1029,
+    "suitePP": 1104,
+    "havenPP": 2579
   },
   {
     "shipName": "Norwegian Escape",
@@ -3739,9 +3703,9 @@
     "port": "Miami",
     "insidePP": 919,
     "oceanviewPP": 1049,
-    "balconyPP": 1099,
-    "suitePP": 1149,
-    "havenPP": 2669
+    "balconyPP": 1049,
+    "suitePP": 1054,
+    "havenPP": 2449
   },
   {
     "shipName": "Norwegian Escape",
@@ -3751,9 +3715,9 @@
     "port": "Miami",
     "insidePP": 899,
     "oceanviewPP": 1029,
-    "balconyPP": 1129,
-    "suitePP": 1189,
-    "havenPP": 2529
+    "balconyPP": 1079,
+    "suitePP": 1114,
+    "havenPP": 2279
   },
   {
     "shipName": "Norwegian Escape",
@@ -3763,9 +3727,9 @@
     "port": "Miami",
     "insidePP": 899,
     "oceanviewPP": 1029,
-    "balconyPP": 1099,
-    "suitePP": 1169,
-    "havenPP": 2579
+    "balconyPP": 1049,
+    "suitePP": 1094,
+    "havenPP": 2329
   },
   {
     "shipName": "Norwegian Escape",
@@ -3775,9 +3739,9 @@
     "port": "Miami",
     "insidePP": 929,
     "oceanviewPP": 1029,
-    "balconyPP": 1099,
-    "suitePP": 1189,
-    "havenPP": 2849
+    "balconyPP": 1049,
+    "suitePP": 1114,
+    "havenPP": 2599
   },
   {
     "shipName": "Norwegian Escape",
@@ -3787,9 +3751,9 @@
     "port": "Miami",
     "insidePP": 869,
     "oceanviewPP": 949,
-    "balconyPP": 1099,
-    "suitePP": 1169,
-    "havenPP": 2599
+    "balconyPP": 1049,
+    "suitePP": 1094,
+    "havenPP": 2349
   },
   {
     "shipName": "Norwegian Escape",
@@ -3799,9 +3763,9 @@
     "port": "Miami",
     "insidePP": 889,
     "oceanviewPP": 1029,
-    "balconyPP": 1069,
-    "suitePP": 1119,
-    "havenPP": 2599
+    "balconyPP": 1019,
+    "suitePP": 1044,
+    "havenPP": 2349
   },
   {
     "shipName": "Norwegian Escape",
@@ -3811,9 +3775,9 @@
     "port": "Miami",
     "insidePP": 989,
     "oceanviewPP": 1069,
-    "balconyPP": 1049,
-    "suitePP": 1139,
-    "havenPP": 3079
+    "balconyPP": 999,
+    "suitePP": 1064,
+    "havenPP": 2829
   },
   {
     "shipName": "Norwegian Star",
@@ -3821,8 +3785,8 @@
     "itinerary": "4-Day Bahamas Round-trip Tampa: Great Stirrup Cay & Key West",
     "nights": 4,
     "port": "Tampa",
-    "insidePP": 669,
-    "oceanviewPP": 739,
+    "insidePP": 719,
+    "oceanviewPP": null,
     "balconyPP": 1019,
     "suitePP": 1199,
     "havenPP": null
@@ -3833,11 +3797,11 @@
     "itinerary": "4-Day Bahamas Round-trip Miami: Great Stirrup Cay & Nassau",
     "nights": 4,
     "port": "Miami",
-    "insidePP": 559,
-    "oceanviewPP": 609,
-    "balconyPP": 659,
-    "suitePP": 1059,
-    "havenPP": 2129
+    "insidePP": 539,
+    "oceanviewPP": 589,
+    "balconyPP": 639,
+    "suitePP": 999,
+    "havenPP": 2019
   },
   {
     "shipName": "Norwegian Joy",
@@ -3845,11 +3809,11 @@
     "itinerary": "7-Day Caribbean Round-trip Orlando: Tortola & Dominican Republic",
     "nights": 7,
     "port": "Port Canaveral",
-    "insidePP": 699,
-    "oceanviewPP": 839,
-    "balconyPP": 979,
-    "suitePP": 1049,
-    "havenPP": 2779
+    "insidePP": 719,
+    "oceanviewPP": 879,
+    "balconyPP": 1029,
+    "suitePP": null,
+    "havenPP": 2859
   },
   {
     "shipName": "Norwegian Gem",
@@ -3895,9 +3859,9 @@
     "port": "Port Canaveral",
     "insidePP": 979,
     "oceanviewPP": 1149,
-    "balconyPP": 1279,
-    "suitePP": 1749,
-    "havenPP": 2999
+    "balconyPP": 1229,
+    "suitePP": 1674,
+    "havenPP": 2749
   },
   {
     "shipName": "Norwegian Prima",
@@ -3907,9 +3871,9 @@
     "port": "Port Canaveral",
     "insidePP": 979,
     "oceanviewPP": 1149,
-    "balconyPP": 1349,
-    "suitePP": 1579,
-    "havenPP": 3179
+    "balconyPP": 1299,
+    "suitePP": 1504,
+    "havenPP": 2929
   },
   {
     "shipName": "Norwegian Prima",
@@ -3919,9 +3883,9 @@
     "port": "Port Canaveral",
     "insidePP": 1199,
     "oceanviewPP": 1299,
-    "balconyPP": 1679,
-    "suitePP": 1989,
-    "havenPP": 3149
+    "balconyPP": 1629,
+    "suitePP": 1904,
+    "havenPP": 2899
   },
   {
     "shipName": "Norwegian Prima",
@@ -3931,9 +3895,9 @@
     "port": "Port Canaveral",
     "insidePP": 1109,
     "oceanviewPP": 1229,
-    "balconyPP": 1479,
-    "suitePP": 1659,
-    "havenPP": 3379
+    "balconyPP": 1429,
+    "suitePP": 1584,
+    "havenPP": 3129
   },
   {
     "shipName": "Norwegian Prima",
@@ -3943,9 +3907,9 @@
     "port": "Port Canaveral",
     "insidePP": 1129,
     "oceanviewPP": 1259,
-    "balconyPP": 1419,
-    "suitePP": 2219,
-    "havenPP": 3269
+    "balconyPP": 1369,
+    "suitePP": 2144,
+    "havenPP": 3019
   },
   {
     "shipName": "Norwegian Prima",
@@ -3955,9 +3919,9 @@
     "port": "Port Canaveral",
     "insidePP": 1129,
     "oceanviewPP": 1279,
-    "balconyPP": 1609,
-    "suitePP": 2129,
-    "havenPP": 3459
+    "balconyPP": 1559,
+    "suitePP": 2054,
+    "havenPP": 3209
   },
   {
     "shipName": "Norwegian Prima",
@@ -3967,9 +3931,9 @@
     "port": "Port Canaveral",
     "insidePP": 1229,
     "oceanviewPP": 1379,
-    "balconyPP": 1559,
-    "suitePP": 1979,
-    "havenPP": 3609
+    "balconyPP": 1509,
+    "suitePP": 1904,
+    "havenPP": 3359
   },
   {
     "shipName": "Norwegian Prima",
@@ -3979,9 +3943,9 @@
     "port": "Port Canaveral",
     "insidePP": 1179,
     "oceanviewPP": 1279,
-    "balconyPP": 1609,
-    "suitePP": 1749,
-    "havenPP": 3509
+    "balconyPP": 1559,
+    "suitePP": 1674,
+    "havenPP": 3259
   },
   {
     "shipName": "Norwegian Prima",
@@ -3991,9 +3955,9 @@
     "port": "Port Canaveral",
     "insidePP": 959,
     "oceanviewPP": 1159,
-    "balconyPP": 1509,
-    "suitePP": 1839,
-    "havenPP": 3349
+    "balconyPP": 1459,
+    "suitePP": 1764,
+    "havenPP": 3099
   },
   {
     "shipName": "Norwegian Prima",
@@ -4003,9 +3967,9 @@
     "port": "Port Canaveral",
     "insidePP": 989,
     "oceanviewPP": 1079,
-    "balconyPP": 1379,
-    "suitePP": 1789,
-    "havenPP": 3449
+    "balconyPP": 1329,
+    "suitePP": 1714,
+    "havenPP": 3199
   },
   {
     "shipName": "Norwegian Prima",
@@ -4015,9 +3979,9 @@
     "port": "Port Canaveral",
     "insidePP": 929,
     "oceanviewPP": 1029,
-    "balconyPP": 1329,
-    "suitePP": 1849,
-    "havenPP": 3559
+    "balconyPP": 1279,
+    "suitePP": 1774,
+    "havenPP": 3309
   },
   {
     "shipName": "Norwegian Prima",
@@ -4027,9 +3991,9 @@
     "port": "Port Canaveral",
     "insidePP": 929,
     "oceanviewPP": 1079,
-    "balconyPP": 1329,
-    "suitePP": 1859,
-    "havenPP": 3569
+    "balconyPP": 1279,
+    "suitePP": 1784,
+    "havenPP": 3319
   },
   {
     "shipName": "Norwegian Prima",
@@ -4039,9 +4003,9 @@
     "port": "Port Canaveral",
     "insidePP": 979,
     "oceanviewPP": 1329,
-    "balconyPP": 1479,
-    "suitePP": 2029,
-    "havenPP": 3439
+    "balconyPP": 1429,
+    "suitePP": 1954,
+    "havenPP": 3189
   },
   {
     "shipName": "Norwegian Prima",
@@ -4051,9 +4015,9 @@
     "port": "Port Canaveral",
     "insidePP": 1029,
     "oceanviewPP": 1209,
-    "balconyPP": 1529,
-    "suitePP": 2149,
-    "havenPP": 4019
+    "balconyPP": 1479,
+    "suitePP": 2074,
+    "havenPP": 3769
   },
   {
     "shipName": "Norwegian Prima",
@@ -4063,9 +4027,9 @@
     "port": "Port Canaveral",
     "insidePP": 1149,
     "oceanviewPP": 1399,
-    "balconyPP": 1629,
-    "suitePP": 2159,
-    "havenPP": 4099
+    "balconyPP": 1579,
+    "suitePP": 2084,
+    "havenPP": 3849
   },
   {
     "shipName": "Norwegian Aqua",
@@ -4861,26 +4825,14 @@
   },
   {
     "shipName": "Norwegian Jewel",
-    "departureDate": "2026-03-15",
-    "itinerary": "11-Day Panama Canal Round-trip Miami: Mexico, Costa Rica & Belize",
-    "nights": 11,
-    "port": "Miami",
-    "insidePP": 1349,
-    "oceanviewPP": 1709,
-    "balconyPP": null,
-    "suitePP": null,
-    "havenPP": null
-  },
-  {
-    "shipName": "Norwegian Jewel",
     "departureDate": "2026-03-04",
     "itinerary": "11-Day Panama Canal Round-trip Miami: Mexico, Costa Rica & Belize",
     "nights": 11,
     "port": "Miami",
-    "insidePP": 1499,
-    "oceanviewPP": 1669,
-    "balconyPP": 2619,
-    "suitePP": 3289,
+    "insidePP": null,
+    "oceanviewPP": null,
+    "balconyPP": null,
+    "suitePP": null,
     "havenPP": null
   },
   {
@@ -4901,7 +4853,7 @@
     "itinerary": "7-Day Caribbean Round-trip Miami: Harvest Caye, Cozumel & Roatan",
     "nights": 7,
     "port": "Miami",
-    "insidePP": 949,
+    "insidePP": 999,
     "oceanviewPP": 1399,
     "balconyPP": 1499,
     "suitePP": 2299,
@@ -5012,7 +4964,7 @@
     "insidePP": 1219,
     "oceanviewPP": 1229,
     "balconyPP": 1419,
-    "suitePP": 2309,
+    "suitePP": 2209,
     "havenPP": 4509
   },
   {
@@ -5168,8 +5120,8 @@
     "insidePP": 1109,
     "oceanviewPP": 1199,
     "balconyPP": 1349,
-    "suitePP": 2039,
-    "havenPP": 4079
+    "suitePP": 1989,
+    "havenPP": 3949
   },
   {
     "shipName": "Norwegian Aqua",
@@ -5180,8 +5132,8 @@
     "insidePP": 1009,
     "oceanviewPP": 1149,
     "balconyPP": 1349,
-    "suitePP": 1949,
-    "havenPP": 3779
+    "suitePP": 1899,
+    "havenPP": 3659
   },
   {
     "shipName": "Norwegian Aqua",
@@ -5502,10 +5454,10 @@
     "nights": 5,
     "port": "Port Canaveral",
     "insidePP": 719,
-    "oceanviewPP": 809,
-    "balconyPP": 969,
-    "suitePP": 1059,
-    "havenPP": 2769
+    "oceanviewPP": 769,
+    "balconyPP": 944,
+    "suitePP": 1022,
+    "havenPP": 2644
   },
   {
     "shipName": "Norwegian Getaway",
@@ -5767,9 +5719,9 @@
     "port": "Miami",
     "insidePP": 549,
     "oceanviewPP": 679,
-    "balconyPP": 769,
-    "suitePP": 819,
-    "havenPP": 2009
+    "balconyPP": 744,
+    "suitePP": 782,
+    "havenPP": 1884
   },
   {
     "shipName": "Norwegian Getaway",
@@ -5887,8 +5839,8 @@
     "port": "Tampa",
     "insidePP": 659,
     "oceanviewPP": 679,
-    "balconyPP": 879,
-    "suitePP": 1319,
+    "balconyPP": 829,
+    "suitePP": 1244,
     "havenPP": null
   },
   {
@@ -5899,7 +5851,7 @@
     "port": "Miami",
     "insidePP": 839,
     "oceanviewPP": 949,
-    "balconyPP": 1169,
+    "balconyPP": 1179,
     "suitePP": 1279,
     "havenPP": 4919
   },
@@ -6043,9 +5995,9 @@
     "port": "Port Canaveral",
     "insidePP": 519,
     "oceanviewPP": 549,
-    "balconyPP": 599,
-    "suitePP": 779,
-    "havenPP": 1619
+    "balconyPP": 574,
+    "suitePP": 742,
+    "havenPP": 1494
   },
   {
     "shipName": "Norwegian Luna",
@@ -6187,7 +6139,7 @@
     "port": "Jacksonville",
     "insidePP": 669,
     "oceanviewPP": 769,
-    "balconyPP": 1029,
+    "balconyPP": 1049,
     "suitePP": 1309,
     "havenPP": null
   },
@@ -6321,7 +6273,7 @@
     "oceanviewPP": 849,
     "balconyPP": 1389,
     "suitePP": 1579,
-    "havenPP": 3749
+    "havenPP": 4649
   },
   {
     "shipName": "Norwegian Gem",
@@ -6345,7 +6297,7 @@
     "oceanviewPP": 1229,
     "balconyPP": 1679,
     "suitePP": 1709,
-    "havenPP": 5859
+    "havenPP": 6199
   },
   {
     "shipName": "Norwegian Gem",
@@ -6427,9 +6379,9 @@
     "port": "Miami",
     "insidePP": 1019,
     "oceanviewPP": 1169,
-    "balconyPP": 1329,
-    "suitePP": null,
-    "havenPP": null
+    "balconyPP": 1319,
+    "suitePP": 2069,
+    "havenPP": 4889
   },
   {
     "shipName": "Norwegian Gem",
@@ -7104,6 +7056,18 @@
     "havenPP": 4499
   },
   {
+    "shipName": "Norwegian Getaway",
+    "departureDate": "2026-12-31",
+    "itinerary": "7-Day Caribbean Round-trip Orlando: Great Stirrup Cay & Dominican Republic",
+    "nights": 7,
+    "port": "Port Canaveral",
+    "insidePP": 1399,
+    "oceanviewPP": 1499,
+    "balconyPP": 1969,
+    "suitePP": 2159,
+    "havenPP": 5069
+  },
+  {
     "shipName": "Norwegian Epic",
     "departureDate": "2027-04-18",
     "itinerary": "14-Day Transatlantic From Orlando To Barcelona",
@@ -7113,19 +7077,7 @@
     "oceanviewPP": null,
     "balconyPP": 2299,
     "suitePP": 2489,
-    "havenPP": 6799
-  },
-  {
-    "shipName": "Norwegian Getaway",
-    "departureDate": "2026-12-31",
-    "itinerary": "7-Day Caribbean Round-trip Orlando: Great Stirrup Cay & Dominican Republic",
-    "nights": 7,
-    "port": "Port Canaveral",
-    "insidePP": 1419,
-    "oceanviewPP": 1569,
-    "balconyPP": 1969,
-    "suitePP": 2159,
-    "havenPP": 5069
+    "havenPP": 6709
   },
   {
     "shipName": "Norwegian Aura",
@@ -7145,10 +7097,10 @@
     "itinerary": "16-Day Panama Canal from Miami to San Diego: Mexico & Costa Rica",
     "nights": 16,
     "port": "Miami",
-    "insidePP": 2029,
-    "oceanviewPP": 2079,
+    "insidePP": 1999,
+    "oceanviewPP": 2049,
     "balconyPP": 3819,
-    "suitePP": 4189,
+    "suitePP": 4129,
     "havenPP": null
   },
   {
@@ -7194,7 +7146,7 @@
     "nights": 13,
     "port": "Tampa",
     "insidePP": 669,
-    "oceanviewPP": 719,
+    "oceanviewPP": 699,
     "balconyPP": 949,
     "suitePP": 1269,
     "havenPP": null
@@ -7209,7 +7161,7 @@
     "oceanviewPP": 929,
     "balconyPP": 1419,
     "suitePP": 1499,
-    "havenPP": 5599
+    "havenPP": 6029
   },
   {
     "shipName": "Norwegian Sun",
@@ -7218,9 +7170,9 @@
     "nights": 12,
     "port": "Miami",
     "insidePP": 2899,
-    "oceanviewPP": 3109,
-    "balconyPP": 4259,
-    "suitePP": 6399,
+    "oceanviewPP": 3079,
+    "balconyPP": 4069,
+    "suitePP": 6339,
     "havenPP": null
   },
   {
@@ -7280,7 +7232,7 @@
     "insidePP": 759,
     "oceanviewPP": 819,
     "balconyPP": 1079,
-    "suitePP": 1199,
+    "suitePP": 1169,
     "havenPP": null
   },
   {
@@ -7496,8 +7448,8 @@
     "insidePP": 1299,
     "oceanviewPP": 1349,
     "balconyPP": 1549,
-    "suitePP": 2179,
-    "havenPP": 8599
+    "suitePP": 2149,
+    "havenPP": 6299
   },
   {
     "shipName": "Norwegian Joy",
@@ -7509,7 +7461,7 @@
     "oceanviewPP": 2399,
     "balconyPP": 3299,
     "suitePP": 3599,
-    "havenPP": 13499
+    "havenPP": 7199
   },
   {
     "shipName": "Norwegian Joy",
@@ -7541,11 +7493,11 @@
     "itinerary": "10-Day Caribbean Round-Trip Miami: Curacao, Aruba & Dominican Republic",
     "nights": 10,
     "port": "Miami",
-    "insidePP": 1089,
-    "oceanviewPP": 1119,
+    "insidePP": 1079,
+    "oceanviewPP": 1139,
     "balconyPP": 2159,
-    "suitePP": 2309,
-    "havenPP": 6469
+    "suitePP": 2349,
+    "havenPP": 6579
   },
   {
     "shipName": "Norwegian Jewel",
@@ -7557,7 +7509,7 @@
     "oceanviewPP": 1469,
     "balconyPP": 2639,
     "suitePP": 2739,
-    "havenPP": null
+    "havenPP": 8789
   },
   {
     "shipName": "Norwegian Jewel",
@@ -7617,7 +7569,7 @@
     "oceanviewPP": 1449,
     "balconyPP": 1649,
     "suitePP": 2199,
-    "havenPP": 8699
+    "havenPP": 6409
   },
   {
     "shipName": "Norwegian Sun",
@@ -7626,8 +7578,8 @@
     "nights": 12,
     "port": "Miami",
     "insidePP": 2069,
-    "oceanviewPP": 2149,
-    "balconyPP": 3489,
+    "oceanviewPP": 2119,
+    "balconyPP": 3439,
     "suitePP": 6189,
     "havenPP": null
   },
@@ -7637,11 +7589,11 @@
     "itinerary": "18-Day Panama Canal from Miami to San Francisco: Colombia, Mexico, Costa Rica & Guatemala",
     "nights": 18,
     "port": "Miami",
-    "insidePP": 1769,
+    "insidePP": 1719,
     "oceanviewPP": 1869,
-    "balconyPP": 2139,
-    "suitePP": 2699,
-    "havenPP": 9979
+    "balconyPP": 2029,
+    "suitePP": 2774,
+    "havenPP": 9729
   },
   {
     "shipName": "Norwegian Encore",
@@ -7649,11 +7601,11 @@
     "itinerary": "22-Day Panama Canal from Miami: Mexico & Costa Rica",
     "nights": 22,
     "port": "Miami",
-    "insidePP": 1799,
+    "insidePP": 1719,
     "oceanviewPP": 1979,
-    "balconyPP": 2139,
-    "suitePP": 2979,
-    "havenPP": 9249
+    "balconyPP": 2029,
+    "suitePP": 2924,
+    "havenPP": 8999
   },
   {
     "shipName": "Norwegian Epic",
@@ -7661,11 +7613,11 @@
     "itinerary": "7-Day Caribbean Round-trip Orlando: Great Stirrup Cay, Jamaica, Grand Cayman & Cozumel",
     "nights": 7,
     "port": "Port Canaveral",
-    "insidePP": 829,
+    "insidePP": 819,
     "oceanviewPP": null,
     "balconyPP": 1209,
-    "suitePP": 1449,
-    "havenPP": 3359
+    "suitePP": 1409,
+    "havenPP": 3289
   },
   {
     "shipName": "Norwegian Epic",
@@ -7673,11 +7625,11 @@
     "itinerary": "7-Day Caribbean Round-trip Orlando: Great Stirrup Cay, Jamaica, Grand Cayman & Cozumel",
     "nights": 7,
     "port": "Port Canaveral",
-    "insidePP": 909,
+    "insidePP": 929,
     "oceanviewPP": null,
     "balconyPP": 1499,
     "suitePP": 1619,
-    "havenPP": 3909
+    "havenPP": 3839
   },
   {
     "shipName": "Norwegian Epic",
@@ -7688,8 +7640,8 @@
     "insidePP": 779,
     "oceanviewPP": 1219,
     "balconyPP": 1269,
-    "suitePP": 1399,
-    "havenPP": 3399
+    "suitePP": 1369,
+    "havenPP": 3319
   },
   {
     "shipName": "Norwegian Epic",
@@ -7745,11 +7697,11 @@
     "itinerary": "7-Day Caribbean Round-trip Orlando: Great Stirrup Cay, Jamaica, Grand Cayman & Cozumel",
     "nights": 7,
     "port": "Port Canaveral",
-    "insidePP": 869,
+    "insidePP": 859,
     "oceanviewPP": 1169,
     "balconyPP": 1219,
-    "suitePP": 1409,
-    "havenPP": 3809
+    "suitePP": 1379,
+    "havenPP": 3709
   },
   {
     "shipName": "Norwegian Epic",
@@ -7772,8 +7724,8 @@
     "insidePP": 839,
     "oceanviewPP": 1169,
     "balconyPP": 1219,
-    "suitePP": 1399,
-    "havenPP": 3459
+    "suitePP": 1369,
+    "havenPP": 3369
   },
   {
     "shipName": "Norwegian Epic",
@@ -7784,7 +7736,7 @@
     "insidePP": 829,
     "oceanviewPP": null,
     "balconyPP": 1259,
-    "suitePP": 1399,
+    "suitePP": 1369,
     "havenPP": 3259
   },
   {
@@ -7818,7 +7770,7 @@
     "nights": 7,
     "port": "Port Canaveral",
     "insidePP": 939,
-    "oceanviewPP": 1289,
+    "oceanviewPP": null,
     "balconyPP": 1339,
     "suitePP": 1629,
     "havenPP": 4409
@@ -8143,9 +8095,9 @@
     "port": "Port Canaveral",
     "insidePP": 509,
     "oceanviewPP": 599,
-    "balconyPP": 659,
-    "suitePP": 739,
-    "havenPP": 1849
+    "balconyPP": 634,
+    "suitePP": 702,
+    "havenPP": 1724
   },
   {
     "shipName": "Norwegian Getaway",
@@ -8311,9 +8263,9 @@
     "port": "Port Canaveral",
     "insidePP": 719,
     "oceanviewPP": 849,
-    "balconyPP": 919,
-    "suitePP": 1389,
-    "havenPP": 2389
+    "balconyPP": 894,
+    "suitePP": 1352,
+    "havenPP": 2264
   },
   {
     "shipName": "Norwegian Jewel",
@@ -8326,6 +8278,18 @@
     "balconyPP": 879,
     "suitePP": 979,
     "havenPP": 2599
+  },
+  {
+    "shipName": "Norwegian Jewel",
+    "departureDate": "2027-01-18",
+    "itinerary": "4-Day Caribbean Round-trip Miami",
+    "nights": 4,
+    "port": "Miami",
+    "insidePP": 499,
+    "oceanviewPP": 549,
+    "balconyPP": 849,
+    "suitePP": 979,
+    "havenPP": 2549
   },
   {
     "shipName": "Norwegian Escape",
@@ -8503,9 +8467,9 @@
     "port": "Miami",
     "insidePP": 739,
     "oceanviewPP": 889,
-    "balconyPP": 1019,
-    "suitePP": 1139,
-    "havenPP": 3039
+    "balconyPP": 969,
+    "suitePP": 1064,
+    "havenPP": 2789
   },
   {
     "shipName": "Norwegian Sun",
@@ -8514,9 +8478,9 @@
     "nights": 11,
     "port": "Miami",
     "insidePP": 1699,
-    "oceanviewPP": 1809,
-    "balconyPP": 2479,
-    "suitePP": 3749,
+    "oceanviewPP": 1779,
+    "balconyPP": 2429,
+    "suitePP": 3689,
     "havenPP": null
   },
   {
@@ -8575,8 +8539,8 @@
     "port": "Miami",
     "insidePP": 1849,
     "oceanviewPP": 1989,
-    "balconyPP": 2589,
-    "suitePP": 4089,
+    "balconyPP": 2539,
+    "suitePP": 4019,
     "havenPP": null
   },
   {
@@ -8645,11 +8609,11 @@
     "itinerary": "5-Day Caribbean Round-trip Miami: Great Stirrup Cay & Dominican Republic",
     "nights": 5,
     "port": "Miami",
-    "insidePP": 649,
-    "oceanviewPP": 719,
-    "balconyPP": 1169,
-    "suitePP": 1279,
-    "havenPP": 3889
+    "insidePP": 619,
+    "oceanviewPP": 689,
+    "balconyPP": 1119,
+    "suitePP": 1249,
+    "havenPP": 4079
   },
   {
     "shipName": "Norwegian Aqua",
@@ -8682,9 +8646,9 @@
     "nights": 3,
     "port": "Miami",
     "insidePP": 449,
-    "oceanviewPP": 509,
+    "oceanviewPP": 499,
     "balconyPP": 539,
-    "suitePP": 709,
+    "suitePP": 729,
     "havenPP": 2199
   },
   {
@@ -8705,10 +8669,10 @@
     "itinerary": "5-Day Bahamas Round-Trip Jacksonville",
     "nights": 5,
     "port": "Jacksonville",
-    "insidePP": 629,
+    "insidePP": 649,
     "oceanviewPP": 709,
-    "balconyPP": 1029,
-    "suitePP": 1079,
+    "balconyPP": 1059,
+    "suitePP": 1129,
     "havenPP": null
   },
   {
@@ -8717,10 +8681,10 @@
     "itinerary": "5-Day Bahamas Round-Trip Jacksonville",
     "nights": 5,
     "port": "Jacksonville",
-    "insidePP": 639,
+    "insidePP": 649,
     "oceanviewPP": 719,
-    "balconyPP": 1009,
-    "suitePP": 1099,
+    "balconyPP": 1029,
+    "suitePP": 1089,
     "havenPP": null
   },
   {
@@ -9365,11 +9329,11 @@
     "itinerary": "Orlando Cruisetour",
     "nights": 10,
     "port": "Port Canaveral",
-    "insidePP": 1998,
-    "oceanviewPP": 2218,
-    "balconyPP": 2398,
-    "suitePP": 2658,
-    "havenPP": 4408
+    "insidePP": 1948,
+    "oceanviewPP": 2168,
+    "balconyPP": 2318,
+    "suitePP": 2523,
+    "havenPP": 3968
   },
   {
     "shipName": "Norwegian Prima",
@@ -9379,9 +9343,9 @@
     "port": "Port Canaveral",
     "insidePP": 2018,
     "oceanviewPP": 2248,
-    "balconyPP": 2498,
-    "suitePP": 2848,
-    "havenPP": 4568
+    "balconyPP": 2448,
+    "suitePP": 2773,
+    "havenPP": 4318
   },
   {
     "shipName": "Norwegian Prima",
@@ -9391,9 +9355,9 @@
     "port": "Port Canaveral",
     "insidePP": 2198,
     "oceanviewPP": 2478,
-    "balconyPP": 2578,
-    "suitePP": 3318,
-    "havenPP": 4398
+    "balconyPP": 2528,
+    "suitePP": 3243,
+    "havenPP": 4148
   },
   {
     "shipName": "Norwegian Prima",
@@ -9403,9 +9367,9 @@
     "port": "Port Canaveral",
     "insidePP": 2198,
     "oceanviewPP": 2478,
-    "balconyPP": 2648,
-    "suitePP": 3198,
-    "havenPP": 4448
+    "balconyPP": 2598,
+    "suitePP": 3123,
+    "havenPP": 4198
   },
   {
     "shipName": "Norwegian Prima",
@@ -9415,9 +9379,9 @@
     "port": "Port Canaveral",
     "insidePP": 2148,
     "oceanviewPP": 2348,
-    "balconyPP": 2548,
-    "suitePP": 2948,
-    "havenPP": 4458
+    "balconyPP": 2498,
+    "suitePP": 2873,
+    "havenPP": 4208
   },
   {
     "shipName": "Norwegian Prima",
@@ -9427,9 +9391,9 @@
     "port": "Port Canaveral",
     "insidePP": 2298,
     "oceanviewPP": 2448,
-    "balconyPP": 2628,
-    "suitePP": 2748,
-    "havenPP": 4148
+    "balconyPP": 2578,
+    "suitePP": 2673,
+    "havenPP": 3898
   },
   {
     "shipName": "Norwegian Prima",
@@ -9439,9 +9403,9 @@
     "port": "Port Canaveral",
     "insidePP": 2098,
     "oceanviewPP": 2348,
-    "balconyPP": 2548,
-    "suitePP": 2958,
-    "havenPP": 4648
+    "balconyPP": 2498,
+    "suitePP": 2883,
+    "havenPP": 4398
   },
   {
     "shipName": "Norwegian Prima",
@@ -9451,9 +9415,9 @@
     "port": "Port Canaveral",
     "insidePP": 1998,
     "oceanviewPP": 2228,
-    "balconyPP": 2648,
-    "suitePP": 2858,
-    "havenPP": 4368
+    "balconyPP": 2598,
+    "suitePP": 2783,
+    "havenPP": 4118
   },
   {
     "shipName": "Norwegian Prima",
@@ -9463,9 +9427,9 @@
     "port": "Port Canaveral",
     "insidePP": 1948,
     "oceanviewPP": 2098,
-    "balconyPP": 2378,
-    "suitePP": 2778,
-    "havenPP": 4688
+    "balconyPP": 2328,
+    "suitePP": 2703,
+    "havenPP": 4438
   },
   {
     "shipName": "Norwegian Prima",
@@ -9475,9 +9439,9 @@
     "port": "Port Canaveral",
     "insidePP": 1978,
     "oceanviewPP": 2098,
-    "balconyPP": 2398,
-    "suitePP": 2928,
-    "havenPP": 4598
+    "balconyPP": 2348,
+    "suitePP": 2853,
+    "havenPP": 4348
   },
   {
     "shipName": "Norwegian Prima",
@@ -9487,9 +9451,9 @@
     "port": "Port Canaveral",
     "insidePP": 2028,
     "oceanviewPP": 2248,
-    "balconyPP": 2428,
-    "suitePP": 2968,
-    "havenPP": 4338
+    "balconyPP": 2378,
+    "suitePP": 2893,
+    "havenPP": 4088
   },
   {
     "shipName": "Norwegian Prima",
@@ -9499,9 +9463,9 @@
     "port": "Port Canaveral",
     "insidePP": 2158,
     "oceanviewPP": 2348,
-    "balconyPP": 2598,
-    "suitePP": 3098,
-    "havenPP": 4798
+    "balconyPP": 2548,
+    "suitePP": 3023,
+    "havenPP": 4548
   },
   {
     "shipName": "Norwegian Prima",
@@ -9511,9 +9475,9 @@
     "port": "Port Canaveral",
     "insidePP": 2098,
     "oceanviewPP": 2278,
-    "balconyPP": 2598,
-    "suitePP": 3108,
-    "havenPP": 4628
+    "balconyPP": 2548,
+    "suitePP": 3033,
+    "havenPP": 4378
   },
   {
     "shipName": "Norwegian Prima",
@@ -9523,9 +9487,9 @@
     "port": "Port Canaveral",
     "insidePP": 2248,
     "oceanviewPP": 2348,
-    "balconyPP": 2728,
-    "suitePP": 3028,
-    "havenPP": 4198
+    "balconyPP": 2678,
+    "suitePP": 2953,
+    "havenPP": 3948
   },
   {
     "shipName": "Norwegian Prima",
@@ -9535,9 +9499,9 @@
     "port": "Port Canaveral",
     "insidePP": 2158,
     "oceanviewPP": 2278,
-    "balconyPP": 2528,
-    "suitePP": 2708,
-    "havenPP": 4428
+    "balconyPP": 2478,
+    "suitePP": 2633,
+    "havenPP": 4178
   },
   {
     "shipName": "Norwegian Prima",
@@ -9547,9 +9511,9 @@
     "port": "Port Canaveral",
     "insidePP": 2178,
     "oceanviewPP": 2308,
-    "balconyPP": 2468,
-    "suitePP": 3268,
-    "havenPP": 4318
+    "balconyPP": 2418,
+    "suitePP": 3193,
+    "havenPP": 4068
   },
   {
     "shipName": "Norwegian Prima",
@@ -9559,9 +9523,9 @@
     "port": "Port Canaveral",
     "insidePP": 2178,
     "oceanviewPP": 2328,
-    "balconyPP": 2658,
-    "suitePP": 3178,
-    "havenPP": 4508
+    "balconyPP": 2608,
+    "suitePP": 3103,
+    "havenPP": 4258
   },
   {
     "shipName": "Norwegian Prima",
@@ -9571,9 +9535,9 @@
     "port": "Port Canaveral",
     "insidePP": 2278,
     "oceanviewPP": 2428,
-    "balconyPP": 2608,
-    "suitePP": 3028,
-    "havenPP": 4658
+    "balconyPP": 2558,
+    "suitePP": 2953,
+    "havenPP": 4408
   },
   {
     "shipName": "Norwegian Prima",
@@ -9583,9 +9547,9 @@
     "port": "Port Canaveral",
     "insidePP": 2228,
     "oceanviewPP": 2328,
-    "balconyPP": 2658,
-    "suitePP": 2798,
-    "havenPP": 4558
+    "balconyPP": 2608,
+    "suitePP": 2723,
+    "havenPP": 4308
   },
   {
     "shipName": "Norwegian Prima",
@@ -9595,9 +9559,9 @@
     "port": "Port Canaveral",
     "insidePP": 2008,
     "oceanviewPP": 2208,
-    "balconyPP": 2558,
-    "suitePP": 2888,
-    "havenPP": 4398
+    "balconyPP": 2508,
+    "suitePP": 2813,
+    "havenPP": 4148
   },
   {
     "shipName": "Norwegian Prima",
@@ -9607,9 +9571,9 @@
     "port": "Port Canaveral",
     "insidePP": 2038,
     "oceanviewPP": 2128,
-    "balconyPP": 2428,
-    "suitePP": 2838,
-    "havenPP": 4498
+    "balconyPP": 2378,
+    "suitePP": 2763,
+    "havenPP": 4248
   },
   {
     "shipName": "Norwegian Prima",
@@ -9619,9 +9583,9 @@
     "port": "Port Canaveral",
     "insidePP": 1978,
     "oceanviewPP": 2078,
-    "balconyPP": 2378,
-    "suitePP": 2898,
-    "havenPP": 4608
+    "balconyPP": 2328,
+    "suitePP": 2823,
+    "havenPP": 4358
   },
   {
     "shipName": "Norwegian Prima",
@@ -9631,9 +9595,9 @@
     "port": "Port Canaveral",
     "insidePP": 1978,
     "oceanviewPP": 2128,
-    "balconyPP": 2378,
-    "suitePP": 2908,
-    "havenPP": 4618
+    "balconyPP": 2328,
+    "suitePP": 2833,
+    "havenPP": 4368
   },
   {
     "shipName": "Norwegian Prima",
@@ -9643,9 +9607,9 @@
     "port": "Port Canaveral",
     "insidePP": 2028,
     "oceanviewPP": 2378,
-    "balconyPP": 2528,
-    "suitePP": 3078,
-    "havenPP": 4488
+    "balconyPP": 2478,
+    "suitePP": 3003,
+    "havenPP": 4238
   },
   {
     "shipName": "Norwegian Prima",
@@ -9655,9 +9619,9 @@
     "port": "Port Canaveral",
     "insidePP": 2078,
     "oceanviewPP": 2258,
-    "balconyPP": 2578,
-    "suitePP": 3198,
-    "havenPP": 5068
+    "balconyPP": 2528,
+    "suitePP": 3123,
+    "havenPP": 4818
   },
   {
     "shipName": "Norwegian Prima",
@@ -9667,9 +9631,9 @@
     "port": "Port Canaveral",
     "insidePP": 2198,
     "oceanviewPP": 2448,
-    "balconyPP": 2678,
-    "suitePP": 3208,
-    "havenPP": 5148
+    "balconyPP": 2628,
+    "suitePP": 3133,
+    "havenPP": 4898
   },
   {
     "shipName": "Norwegian Escape",
@@ -9762,10 +9726,10 @@
     "nights": 8,
     "port": "Port Canaveral",
     "insidePP": 1768,
-    "oceanviewPP": 1858,
-    "balconyPP": 2018,
-    "suitePP": 2108,
-    "havenPP": 3818
+    "oceanviewPP": 1818,
+    "balconyPP": 1993,
+    "suitePP": 2071,
+    "havenPP": 3693
   },
   {
     "shipName": "Norwegian Getaway",
@@ -9821,8 +9785,8 @@
     "itinerary": "Orlando Cruisetour",
     "nights": 10,
     "port": "Port Canaveral",
-    "insidePP": 2468,
-    "oceanviewPP": 2618,
+    "insidePP": 2448,
+    "oceanviewPP": 2548,
     "balconyPP": 3018,
     "suitePP": 3208,
     "havenPP": 6118
@@ -9845,11 +9809,11 @@
     "itinerary": "Orlando Cruisetour",
     "nights": 10,
     "port": "Port Canaveral",
-    "insidePP": 1878,
+    "insidePP": 1868,
     "oceanviewPP": null,
     "balconyPP": 2258,
-    "suitePP": 2498,
-    "havenPP": 4408
+    "suitePP": 2458,
+    "havenPP": 4338
   },
   {
     "shipName": "Norwegian Epic",
@@ -9857,11 +9821,11 @@
     "itinerary": "Orlando Cruisetour",
     "nights": 10,
     "port": "Port Canaveral",
-    "insidePP": 1958,
+    "insidePP": 1978,
     "oceanviewPP": null,
     "balconyPP": 2548,
     "suitePP": 2668,
-    "havenPP": 4958
+    "havenPP": 4888
   },
   {
     "shipName": "Norwegian Epic",
@@ -9872,8 +9836,8 @@
     "insidePP": 1828,
     "oceanviewPP": 2268,
     "balconyPP": 2318,
-    "suitePP": 2448,
-    "havenPP": 4448
+    "suitePP": 2418,
+    "havenPP": 4368
   },
   {
     "shipName": "Norwegian Epic",
@@ -9931,9 +9895,9 @@
     "port": "Port Canaveral",
     "insidePP": 1558,
     "oceanviewPP": 1648,
-    "balconyPP": 1708,
-    "suitePP": 1788,
-    "havenPP": 2898
+    "balconyPP": 1683,
+    "suitePP": 1751,
+    "havenPP": 2773
   },
   {
     "shipName": "Norwegian Getaway",
@@ -9955,8 +9919,8 @@
     "port": "Port Canaveral",
     "insidePP": 1768,
     "oceanviewPP": 1898,
-    "balconyPP": 1968,
-    "suitePP": 2438,
-    "havenPP": 3438
+    "balconyPP": 1943,
+    "suitePP": 2401,
+    "havenPP": 3313
   }
 ]

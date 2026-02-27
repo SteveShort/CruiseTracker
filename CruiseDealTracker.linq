@@ -19,11 +19,6 @@
 // SQL Server connection
 static string SqlConnectionString = @"Server=STEVEOFFICEPC\ORACLE2SQL;Database=CruiseTracker;Integrated Security=True;TrustServerCertificate=True;";
 
-// ── Disney FL Resident API ──
-// This __pa JWT cookie must be obtained from a browser session on disneycruise.disney.go.com
-// Open DevTools → Application → Cookies → copy the __pa value
-// It expires periodically — update it when FL Resident scraping fails
-static string DisneyPaCookie = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3NzIwNjQyMzIsImFjY2Vzc190b2tlbiI6IjhlMTFjOTQ3MzI5NTQ4NjdhNmIxZWYwOThiMzYyMmUyIiwidG9rZW5fdHlwZSI6IkJFQVJFUiIsImV4cGlyZXNfaW4iOiIyODgwMCJ9.KU08-NAnqKarLLrwiXAPbhZerM9fjXt_-5tesk_JTgjBqS0eoEaf4eaPMuEsUxTJOnHiHTIQvaHiOZaNmImJbQ";	// Paste __pa cookie value here
 
 // ── Email (commented out for now) ──
 // static string SmtpHost     = "smtp.gmail.com";
@@ -370,111 +365,43 @@ async Task Main()
 		}
 	}
 
-	// ── Disney FL Resident Pricing ──
-	if (!string.IsNullOrWhiteSpace(DisneyPaCookie))
+	// -- Disney FL Resident Pricing (Node.js scraper) --
+	try
 	{
-		try
+		"\\n  Running Disney FL Resident pricing scraper...".Dump();
+		var flScraperPath = @"c:\Dev\Cruise Tracker\scraper\disney-fl-scraper.js";
+		var flPsi = new System.Diagnostics.ProcessStartInfo
 		{
-			$"\n🏷️  Scraping Disney FL Resident pricing...".Dump();
-			var flPrices = await ScrapeDisneyFLResidentPricingAsync();
-			if (flPrices.Count > 0)
-			{
-				// First clear any stale FL Resident data
-				using (var conn = new System.Data.SqlClient.SqlConnection(SqlConnectionString))
-				{
-					conn.Open();
-					using var clearCmd = new System.Data.SqlClient.SqlCommand(
-						"UPDATE PriceHistory SET FLResBalconyPrice=NULL, FLResBalconyPerDay=NULL, FLResSuitePrice=NULL, FLResSuitePerDay=NULL WHERE CruiseLine='Disney' AND FLResBalconyPrice IS NOT NULL", conn);
-					var cleared = clearCmd.ExecuteNonQuery();
-					if (cleared > 0) $"   🧹  Cleared stale FL Resident data from {cleared} records".Dump();
-				}
+			FileName = "node",
+			Arguments = $"\"{flScraperPath}\""",
+			WorkingDirectory = Path.GetDirectoryName(flScraperPath),
+			RedirectStandardOutput = true,
+			RedirectStandardError = true,
+			UseShellExecute = false,
+			CreateNoWindow = true,
+		};
+		using var flProc = System.Diagnostics.Process.Start(flPsi);
+		var flOutput = flProc.StandardOutput.ReadToEnd();
+		var flErrorOutput = flProc.StandardError.ReadToEnd();
+		flProc.WaitForExit(TimeSpan.FromMinutes(10));
 
-				var matched = 0;
-				allCruises = allCruises.Select(c =>
-				{
-					if (c.CruiseLine != "Disney") return c;
-					var key = (c.ShipName, c.DepartureDate);
-					if (flPrices.TryGetValue(key, out var fl))
-					{
-						matched++;
-						return c with {
-							FLResBalconyPrice = fl.BalconyPrice,
-							FLResBalconyPerDay = fl.BalconyPerDay,
-							FLResSuitePrice = fl.SuitePrice,
-							FLResSuitePerDay = fl.SuitePerDay
-						};
-					}
-					return c;
-				}).ToList();
-				$"✅  Applied FL Resident pricing to {matched} Disney sailings (from {flPrices.Count} dated offers)".Dump();
+		var flSummary = flOutput.Split('\n')
+			.LastOrDefault(l => l.Contains("Total:") || l.Contains("DB:"));
+		if (!string.IsNullOrWhiteSpace(flSummary))
+			$"   {flSummary.Trim()}".Dump();
 
-				// Write exact-date FL Resident prices to DB
-				using (var conn = new System.Data.SqlClient.SqlConnection(SqlConnectionString))
-				{
-					conn.Open();
-					var dbUpdated = 0;
-					foreach (var kv in flPrices)
-					{
-						var shipName = kv.Key.Item1;
-						var depDate = kv.Key.Item2;
-						var fl = kv.Value;
-						var sql = @"UPDATE PriceHistory SET 
-							FLResBalconyPrice = @bp, FLResBalconyPerDay = @bpd,
-							FLResSuitePrice = @sp, FLResSuitePerDay = @spd
-							WHERE ShipName = @ship AND DepartureDate = @depDate AND CruiseLine = 'Disney'";
-						using var cmd = new System.Data.SqlClient.SqlCommand(sql, conn);
-						cmd.Parameters.AddWithValue("@bp", fl.BalconyPrice > 0 ? fl.BalconyPrice : (object)DBNull.Value);
-						cmd.Parameters.AddWithValue("@bpd", fl.BalconyPerDay > 0 ? fl.BalconyPerDay : (object)DBNull.Value);
-						cmd.Parameters.AddWithValue("@sp", fl.SuitePrice > 0 ? fl.SuitePrice : (object)DBNull.Value);
-						cmd.Parameters.AddWithValue("@spd", fl.SuitePerDay > 0 ? fl.SuitePerDay : (object)DBNull.Value);
-						cmd.Parameters.AddWithValue("@ship", shipName);
-						cmd.Parameters.AddWithValue("@depDate", depDate);
-						dbUpdated += cmd.ExecuteNonQuery();
-					}
-					$"✅  Updated {dbUpdated} DB records with exact-date FL Resident pricing".Dump();
-
-					// Diagnostic: compare FL Resident vs regular prices
-					var compareSql = @"SELECT c.ShipName, c.DepartureDate, c.Nights,
-						p.BalconyPerDay AS RegularPPD, p.FLResBalconyPerDay AS FLResPPD,
-						CASE WHEN p.FLResBalconyPerDay < p.BalconyPerDay THEN 'CHEAPER'
-						     WHEN p.FLResBalconyPerDay = p.BalconyPerDay THEN 'SAME'
-						     ELSE 'MORE EXPENSIVE' END AS Comparison
-						FROM PriceHistory p
-						INNER JOIN Cruises c ON p.CruiseLine = c.CruiseLine AND p.ShipName = c.ShipName AND p.DepartureDate = c.DepartureDate
-						WHERE p.CruiseLine = 'Disney' AND p.FLResBalconyPerDay IS NOT NULL
-						ORDER BY c.DepartureDate";
-					using var cmpCmd = new System.Data.SqlClient.SqlCommand(compareSql, conn);
-					using var reader = cmpCmd.ExecuteReader();
-					$"\n   📊  FL Resident vs Regular Price Comparison:".Dump();
-					$"   {"Ship",-20} {"Date",-12} {"Nts",3} {"Regular",10} {"FL Res",10} {"Result",15}".Dump();
-					$"   {new string('─', 75)}".Dump();
-					while (reader.Read())
-					{
-						var ship = reader.GetString(0);
-						var date = reader.GetDateTime(1).ToString("MMM dd");
-						var nts = reader.GetInt32(2);
-						var regPpd = reader.IsDBNull(3) ? "N/A" : $"${reader.GetDecimal(3):N0}/ppd";
-						var flPpd = $"${reader.GetDecimal(4):N0}/ppd";
-						var cmp = reader.GetString(5);
-						$"   {ship,-20} {date,-12} {nts,3} {regPpd,10} {flPpd,10} {cmp,15}".Dump();
-					}
-				}
-			}
-			else
-			{
-				"⚠️  No FL Resident prices returned (cookie may be expired)".Dump();
-			}
-		}
-		catch (Exception ex)
+		if (flProc.ExitCode == 0)
+			$"  Disney FL Resident scraper completed successfully".Dump();
+		else
 		{
-			$"❌  FL Resident scrape failed: {ex.Message}".Dump();
-			"   💡 To fix: Open disneycruise.disney.go.com in browser → DevTools → Application → Cookies → copy __pa value → paste into DisneyPaCookie".Dump();
+			$"  Disney FL Resident scraper exited with code {flProc.ExitCode}".Dump();
+			if (!string.IsNullOrWhiteSpace(flErrorOutput))
+				$"   {flErrorOutput.Trim().Substring(0, Math.Min(500, flErrorOutput.Trim().Length))}".Dump();
 		}
 	}
-	else
+	catch (Exception ex)
 	{
-		"⏭️  Skipping FL Resident pricing (no DisneyPaCookie configured)".Dump();
-		"   💡 To enable: Open disneycruise.disney.go.com → DevTools → Application → Cookies → copy __pa value → paste into DisneyPaCookie".Dump();
+		$"  Disney FL Resident scraper failed: {ex.Message}".Dump();
 	}
 
 	if (allCruises.Count > 0)
@@ -833,225 +760,6 @@ async Task<List<CruiseRecord>> ScrapeCruisesAsync(CruiseLineConfig config)
 	return allCruisesFromPages;
 }
 
-// ════════════════════════════════════════════════════════════════════════
-//  DISNEY FL RESIDENT API
-// ════════════════════════════════════════════════════════════════════════
-
-record FLResidentPricing(decimal BalconyPrice, decimal BalconyPerDay, decimal SuitePrice, decimal SuitePerDay);
-
-async Task<Dictionary<(string ShipName, DateTime Date), FLResidentPricing>> ScrapeDisneyFLResidentPricingAsync()
-{
-	var results = new Dictionary<(string, DateTime), FLResidentPricing>();
-
-	using var handler = new HttpClientHandler
-	{
-		AutomaticDecompression = System.Net.DecompressionMethods.GZip
-			| System.Net.DecompressionMethods.Deflate
-			| System.Net.DecompressionMethods.Brotli,
-		UseCookies = true,
-		CookieContainer = new System.Net.CookieContainer(),
-	};
-
-	handler.CookieContainer.Add(
-		new Uri("https://disneycruise.disney.go.com"),
-		new System.Net.Cookie("__pa", DisneyPaCookie));
-
-	using var client = new HttpClient(handler);
-	client.DefaultRequestHeaders.Add("User-Agent",
-		"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36");
-	client.DefaultRequestHeaders.Add("Accept", "application/json, text/plain, */*");
-	client.DefaultRequestHeaders.Add("Accept-Language", "en-US");
-	client.DefaultRequestHeaders.Add("Origin", "https://disneycruise.disney.go.com");
-	client.DefaultRequestHeaders.Add("Referer", "https://disneycruise.disney.go.com/cruises-destinations/list/?offer=FL_RESIDENT");
-	client.DefaultRequestHeaders.Add("x-conversation-id", Guid.NewGuid().ToString());
-	client.DefaultRequestHeaders.Add("x-correlation-id", Guid.NewGuid().ToString());
-	client.DefaultRequestHeaders.Add("x-disney-internal-is-cast", "false");
-	client.DefaultRequestHeaders.Add("x-use-voyage-svc", "true");
-
-	// Shared party/affiliation payload fields — 2 adults only (matches cruise.com for price comparison)
-	object[] partyMix = new[] { new Dictionary<string, object> {
-		["accessible"] = false, ["adultCount"] = 2, ["childCount"] = 0,
-		["nonAdultAges"] = Array.Empty<object>(),
-		["partyMixId"] = "0"
-	}};
-	object[] affiliations = new[] { new Dictionary<string, object> { ["affiliationType"] = "FL_RESIDENT" } };
-
-	// ── Step 1: Collect productId + itineraryId from available-products ──
-	var productInfos = new List<(string ProductId, string ItineraryId, string ShipName, int Nights)>();
-	var pageNum = 1;
-	var totalPages = 1;
-
-	while (pageNum <= totalPages)
-	{
-		var payload = new Dictionary<string, object>
-		{
-			["currency"] = "USD", ["filters"] = Array.Empty<object>(),
-			["partyMix"] = partyMix, ["region"] = "INTL", ["storeId"] = "DCL",
-			["affiliations"] = affiliations, ["page"] = pageNum, ["pageHistory"] = false,
-			["includeAdvancedBookingPrices"] = true, ["exploreMorePage"] = 1,
-			["exploreMorePageHistory"] = false,
-			["promoCode"] = "FLR;entityType=marketing-offer;destination=dcl"
-		};
-
-		var json = JsonSerializer.Serialize(payload);
-		var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-		var response = await client.PostAsync(
-			"https://disneycruise.disney.go.com/dcl-apps-productavail-vas/available-products/", content);
-
-		if (!response.IsSuccessStatusCode)
-		{
-			$"   ⚠️  Disney API error page {pageNum}: {response.StatusCode}".Dump();
-			break;
-		}
-
-		var responseJson = await response.Content.ReadAsStringAsync();
-		using var doc = JsonDocument.Parse(responseJson);
-		var root = doc.RootElement;
-
-		if (root.TryGetProperty("totalPages", out var tp)) totalPages = tp.GetInt32();
-		if (!root.TryGetProperty("products", out var products)) break;
-
-		foreach (var product in products.EnumerateArray())
-		{
-			var productId = product.TryGetProperty("productId", out var pidProp) ? pidProp.GetString() ?? "" : "";
-			if (string.IsNullOrEmpty(productId)) continue;
-
-			// Get itineraryId from productItineraryData
-			var itinId = "";
-			if (product.TryGetProperty("productItineraryData", out var pidData) &&
-			    pidData.TryGetProperty("itineraryId", out var iidProp))
-				itinId = iidProp.GetString() ?? "";
-
-			if (!product.TryGetProperty("itineraries", out var itineraries)) continue;
-			foreach (var itin in itineraries.EnumerateArray())
-			{
-				var shipName = "";
-				var nights = 0;
-				if (itin.TryGetProperty("sailings", out var sailings))
-				{
-					foreach (var s in sailings.EnumerateArray())
-					{
-						if (s.TryGetProperty("ship", out var shipObj) && shipObj.ValueKind == JsonValueKind.Object
-							&& shipObj.TryGetProperty("name", out var snProp))
-							shipName = snProp.GetString() ?? "";
-						if (s.TryGetProperty("numberOfNights", out var nnProp) && nnProp.TryGetInt32(out var nnv))
-							nights = nnv;
-						if (!string.IsNullOrEmpty(shipName) && nights > 0) break;
-					}
-				}
-
-				if (!string.IsNullOrEmpty(shipName) && nights > 0 &&
-				    !productInfos.Any(p => p.ProductId == productId))
-					productInfos.Add((productId, itinId, shipName, nights));
-			}
-		}
-
-		$"   📄  Products page {pageNum}/{totalPages}: {productInfos.Count} products collected".Dump();
-		pageNum++;
-		if (pageNum <= totalPages) await Task.Delay(500);
-	}
-
-	$"   🔍  Found {productInfos.Count} FL Resident products, fetching exact dates...".Dump();
-
-	// ── Step 2: Call available-sailings for each product to get dates ──
-	foreach (var pi in productInfos)
-	{
-		var payload = new Dictionary<string, object>
-		{
-			["currency"] = "USD", ["filters"] = Array.Empty<object>(),
-			["partyMix"] = partyMix, ["region"] = "INTL", ["storeId"] = "DCL",
-			["affiliations"] = affiliations,
-			["productId"] = pi.ProductId,
-			["promoCode"] = "FLR;entityType=marketing-offer;destination=dcl",
-			["includeAdvancedBookingPrices"] = true,
-		};
-		if (!string.IsNullOrEmpty(pi.ItineraryId))
-			payload["itineraryId"] = pi.ItineraryId;
-
-		var json = JsonSerializer.Serialize(payload);
-		var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-		var response = await client.PostAsync(
-			"https://disneycruise.disney.go.com/dcl-apps-productavail-vas/available-sailings/", content);
-
-		if (!response.IsSuccessStatusCode)
-		{
-			$"   ⚠️  Sailings error for {pi.ProductId}: {response.StatusCode}".Dump();
-			continue;
-		}
-
-		var respJson = await response.Content.ReadAsStringAsync();
-		using var sdoc = JsonDocument.Parse(respJson);
-		var sroot = sdoc.RootElement;
-
-		if (!sroot.TryGetProperty("sailings", out JsonElement sailingsList))
-			continue;
-
-		var countBefore = results.Count;
-		foreach (var sailing in sailingsList.EnumerateArray())
-		{
-
-			// Get departure date — available-sailings uses sailDateFrom
-			var dateStr = "";
-			if (sailing.TryGetProperty("sailDateFrom", out var sdf)) dateStr = sdf.GetString() ?? "";
-			else if (sailing.TryGetProperty("departureDate", out var dd)) dateStr = dd.GetString() ?? "";
-			else if (sailing.TryGetProperty("sailDate", out var sd)) dateStr = sd.GetString() ?? "";
-			if (string.IsNullOrEmpty(dateStr)) continue;
-			if (!DateTime.TryParse(dateStr, CultureInfo.InvariantCulture, DateTimeStyles.None, out var depDate))
-				continue;
-
-			// Get ship name from this sailing (not product-level — each date has its own ship)
-			var sailShipName = pi.ShipName;
-			if (sailing.TryGetProperty("ship", out var shipObj) && shipObj.ValueKind == JsonValueKind.Object
-				&& shipObj.TryGetProperty("name", out var snProp))
-				sailShipName = snProp.GetString() ?? sailShipName;
-
-			var sailNights = pi.Nights;
-			if (sailing.TryGetProperty("numberOfNights", out var nn2) && nn2.TryGetInt32(out var nnv2))
-				sailNights = nnv2;
-
-			// Parse prices from travelParties["0"]
-			if (!sailing.TryGetProperty("travelParties", out var tpObj)) continue;
-			if (!tpObj.TryGetProperty("0", out var party0)) continue;
-
-			decimal bestBalcony = 0, bestSuite = 0;
-			foreach (var stateroom in party0.EnumerateArray())
-			{
-				if (!stateroom.TryGetProperty("available", out var avail) || !avail.GetBoolean()) continue;
-				var stType = stateroom.TryGetProperty("stateroomType", out var stProp) ? stProp.GetString() ?? "" : "";
-
-				decimal adultPrice = 0;
-				if (stateroom.TryGetProperty("price", out var price) &&
-				    price.TryGetProperty("breakdownByGuest", out var bbg) &&
-				    bbg.TryGetProperty("1", out var guest1) &&
-				    guest1.TryGetProperty("total", out var g1Total))
-					adultPrice = g1Total.GetDecimal();
-				if (adultPrice <= 0) continue;
-
-				if (stType.Contains("VERANDAH", StringComparison.OrdinalIgnoreCase))
-				{ if (bestBalcony == 0 || adultPrice < bestBalcony) bestBalcony = adultPrice; }
-				else if (stType.Contains("CONCIERGE", StringComparison.OrdinalIgnoreCase))
-				{ if (bestSuite == 0 || adultPrice < bestSuite) bestSuite = adultPrice; }
-			}
-
-			if (bestBalcony > 0 || bestSuite > 0)
-			{
-				var effNights = sailNights > 0 ? sailNights : 1;
-				results[(sailShipName, depDate.Date)] = new FLResidentPricing(
-					bestBalcony, bestBalcony > 0 ? Math.Round(bestBalcony / effNights, 2) : 0,
-					bestSuite, bestSuite > 0 ? Math.Round(bestSuite / effNights, 2) : 0);
-			}
-		}
-
-		var newSailings = results.Count - countBefore;
-		$"   📄  {pi.ShipName} {pi.Nights}N ({pi.ProductId}): +{newSailings} sailings (total {results.Count})".Dump();
-		await Task.Delay(300);
-	}
-
-	$"   🏷️  Total FL Resident sailings with exact dates: {results.Count}".Dump();
-	foreach (var kv in results.OrderBy(k => k.Key.Item2))
-		$"      {kv.Key.Item1} {kv.Key.Item2:MMM dd, yyyy} → Verandah ${kv.Value.BalconyPrice:N0}/pp (${kv.Value.BalconyPerDay:N0}/ppd)".Dump();
-	return results;
-}
 
 #region ── Parsing Helpers ────────────────────────────────────────────────
 
