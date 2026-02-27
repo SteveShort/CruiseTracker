@@ -488,6 +488,47 @@ async Task Main()
 		$"\n💾  Saved {allCruises.Count} cruise records to database.".Dump();
 	}
 
+	// ── NCL Verified Prices (Playwright scraper) ──
+	try
+	{
+		"\n🔍 Running NCL verified price scraper...".Dump();
+		var scraperPath = @"c:\Dev\Cruise Tracker\scraper\ncl-scraper.js";
+		var psi = new System.Diagnostics.ProcessStartInfo
+		{
+			FileName = "node",
+			Arguments = $"\"{scraperPath}\"",
+			WorkingDirectory = Path.GetDirectoryName(scraperPath),
+			RedirectStandardOutput = true,
+			RedirectStandardError = true,
+			UseShellExecute = false,
+			CreateNoWindow = true,
+		};
+		using var proc = System.Diagnostics.Process.Start(psi);
+		var output = proc.StandardOutput.ReadToEnd();
+		var errorOutput = proc.StandardError.ReadToEnd();
+		proc.WaitForExit(TimeSpan.FromMinutes(30));
+
+		// Show summary line from output
+		var summaryLine = output.Split('\n')
+			.LastOrDefault(l => l.Contains("Total:") || l.Contains("DB:") || l.Contains("sailings verified"));
+		if (!string.IsNullOrWhiteSpace(summaryLine))
+			$"   {summaryLine.Trim()}".Dump();
+
+		if (proc.ExitCode == 0)
+			$"✅  NCL scraper completed successfully".Dump();
+		else
+		{
+			$"⚠️  NCL scraper exited with code {proc.ExitCode}".Dump();
+			if (!string.IsNullOrWhiteSpace(errorOutput))
+				$"   {errorOutput.Trim().Substring(0, Math.Min(500, errorOutput.Trim().Length))}".Dump();
+		}
+	}
+	catch (Exception ex)
+	{
+		$"❌  NCL scraper failed: {ex.Message}".Dump();
+		"   💡 Make sure Node.js is installed and ncl-scraper.js exists".Dump();
+	}
+
 	// ── Check for deals per cruise line ──
 	"\n── 🔔 Deal Alerts ──".Dump();
 	foreach (var config in CruiseLines)
