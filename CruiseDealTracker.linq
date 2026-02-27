@@ -56,13 +56,8 @@ static List<CruiseLineConfig> CruiseLines = new()
 		BalconyAlertPPD: 300m,
 		SuiteAlertPPD: 500m
 	),
-	new CruiseLineConfig(
-		Name: "Norwegian",
-		// vid=624 = Norwegian Cruise Line; no pid filter → all departure ports
-		Url: "https://cs.cruise.com/cs/forms/CruiseResultPage.aspx?skin=1&phone=888-333-3116&lid=en&did=1&vid=624&nr=y&mon=-1",
-		BalconyAlertPPD: 150m,
-		SuiteAlertPPD: 250m   // Suite = Haven proxy for NCL
-	),
+	// Norwegian removed  NCL API scraper (ncl-scraper.js) now provides
+	// direct pricing for all stateroom types including real Haven prices.
 	new CruiseLineConfig(
 		Name: "Celebrity",
 		// vid=568 = Celebrity Cruises; mon=-1 → all months
