@@ -58,8 +58,9 @@ function initAppModeToggle() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ appMode: btn.dataset.appmode })
             }).catch(() => { });
+            // Reset filter UI before reloading (don't call clearAllFilters — it triggers applyDashboardFilters on stale data)
+            resetFiltersForModeSwitch();
             updateModeUI();
-            clearAllFilters();
             loadDashboard(); // full reload with new mode
         });
     });
@@ -427,6 +428,68 @@ function getDynamicDiningScore(c, mode) {
         }
     }
     return 0;
+}
+
+// Reset filter selections when switching between Family/Adult modes.
+// Unlike clearAllFilters(), this does NOT call applyDashboardFilters() since
+// loadDashboard() will re-fetch data and apply filters after the mode switch.
+function resetFiltersForModeSwitch() {
+    // Uncheck all dropdown selections
+    document.querySelectorAll('#dashFilterLinePanel input[type="checkbox"]').forEach(cb => { cb.checked = false; });
+    const lineToggle = document.querySelector('#lineDropdown .dropdown-toggle');
+    if (lineToggle) lineToggle.childNodes[0].textContent = 'All Lines ';
+
+    document.querySelectorAll('#dashFilterShipPanel input[type="checkbox"]').forEach(cb => { cb.checked = false; });
+    const shipToggle = document.querySelector('#shipDropdown .dropdown-toggle');
+    if (shipToggle) shipToggle.childNodes[0].textContent = 'All Ships ';
+
+    document.querySelectorAll('#dashFilterPortPanel input[type="checkbox"]').forEach(cb => { cb.checked = false; });
+    const portToggle = document.querySelector('#portDropdown .dropdown-toggle');
+    if (portToggle) portToggle.childNodes[0].textContent = 'All Ports ';
+
+    document.querySelectorAll('#dashFilterNightsPanel input[type="checkbox"]').forEach(cb => { cb.checked = false; });
+    const nightsToggle = document.querySelector('#nightsDropdown .dropdown-toggle');
+    if (nightsToggle) nightsToggle.childNodes[0].textContent = 'Any Nights ';
+
+    // Reset sliders
+    const ppdSlider = document.getElementById('dashFilterMaxPpd');
+    ppdSlider.value = ppdSlider.max;
+    document.getElementById('dashFilterMaxPpdLabel').textContent = 'Max';
+    const totalSlider = document.getElementById('dashFilterMaxTotal');
+    totalSlider.value = totalSlider.max;
+    document.getElementById('dashFilterMaxTotalLabel').textContent = 'Max';
+
+    // Reset other selects
+    document.getElementById('dashFilterStars').value = '0';
+    document.getElementById('dashFilterSuiteLevel').value = '';
+
+    // Reset toggles to defaults
+    document.getElementById('dashFilterHideSoldOut').checked = true;
+    document.getElementById('dashFilterKidsOnly').checked = false;
+    document.getElementById('dashFilterShipWithinShip').checked = false;
+    document.getElementById('dashFilterFLResident').checked = false;
+    document.getElementById('dashFilterTransatlantic').checked = false;
+    document.getElementById('dashFilterNoConflicts').checked = false;
+
+    // Reset month picker
+    monthPickerStart = null;
+    monthPickerEnd = null;
+    const monthPanel = document.getElementById('dashFilterMonthPanel');
+    if (monthPanel) {
+        monthPanel.querySelectorAll('.month-cell').forEach(cell => {
+            cell.classList.remove('selected', 'in-range', 'range-start', 'range-end');
+        });
+    }
+    const monthToggle = document.querySelector('#monthPickerDropdown .dropdown-toggle');
+    if (monthToggle) monthToggle.childNodes[0].textContent = 'Any Months ';
+
+    // Reset dining mode to Main
+    const modeToggle = document.getElementById('diningModeToggle');
+    if (modeToggle) {
+        modeToggle.querySelectorAll('.dining-mode-btn').forEach(b => b.classList.remove('active'));
+        const mainBtn = modeToggle.querySelector('[data-mode="main"]');
+        if (mainBtn) mainBtn.classList.add('active');
+    }
 }
 
 function clearAllFilters() {
