@@ -14,8 +14,8 @@ let calViewYear = new Date().getFullYear();
 let calViewMonth = new Date().getMonth();
 
 // ?"??"? Init ?"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"?
-document.addEventListener('DOMContentLoaded', () => {
-    initAppModeToggle();
+document.addEventListener('DOMContentLoaded', async () => {
+    await initAppModeToggle();
     initTabs();
     initDashboardFilters();
     initCruiseFilters();
@@ -34,19 +34,19 @@ function getAppMode() {
     return document.querySelector('.app-mode-btn.active')?.dataset.appmode || 'family';
 }
 
-function initAppModeToggle() {
+async function initAppModeToggle() {
     const toggle = document.getElementById('appModeToggle');
     if (!toggle) return;
-    // Restore saved mode from server
-    fetch('/api/settings').then(r => r.json()).then(s => {
+    // Restore saved mode from server (awaited so loadDashboard uses the correct mode)
+    try {
+        const s = await fetch('/api/settings').then(r => r.json());
         if (s.appMode && s.appMode !== getAppMode()) {
             toggle.querySelectorAll('.app-mode-btn').forEach(b => b.classList.remove('active'));
             const target = toggle.querySelector(`[data-appmode="${s.appMode}"]`);
             if (target) target.classList.add('active');
-            updateModeUI();
-            loadDashboard(); // reload with correct mode
         }
-    }).catch(() => { });
+    } catch { /* settings unavailable, use HTML default */ }
+    updateModeUI();
     toggle.querySelectorAll('.app-mode-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             if (btn.classList.contains('active')) return;
