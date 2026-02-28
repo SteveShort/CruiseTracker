@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruise Deal Tracker — Dashboard</title>
+    <meta name="description"
+        content="Track cruise prices from Disney and Norwegian Cruise Line with real-time deal alerts">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <span class="header-icon">🚢</span>
+                <div>
+                    <h1>Cruise Deal Tracker</h1>
+                </div>
+            </div>
+            <div class="header-meta">
+                <div>Last scraped: <span class="last-scrape" id="lastScrape">—</span></div>
+                <div id="scraperHealth" style="font-size:.85em;opacity:.8"></div>
+                <div id="totalCount">Loading...</div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs" id="navTabs">
+            <button class="nav-tab active" data-tab="dashboard">
+                📊 Dashboard
+            </button>
+            <button class="nav-tab" data-tab="cruises">
+                🗓️ All Cruises <span class="badge" id="cruiseBadge">0</span>
+            </button>
+            <button class="nav-tab" data-tab="ships">
+                🚢 Ship Reference
+            </button>
+            <button class="nav-tab" data-tab="calendar">
+                📅 Family Calendar
+            </button>
+        </nav>
+
+        <!-- ═══ DASHBOARD TAB ═══ -->
+        <div class="tab-content active" id="tab-dashboard">
+            <!-- Stats Cards -->
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-card accent-blue">
+                    <div class="stat-icon">🗓️</div>
+                    <div class="stat-value" id="statSailings">—</div>
+                    <div class="stat-label">Upcoming Sailings</div>
+                </div>
+                <div class="stat-card accent-teal">
+                    <div class="stat-icon">🚢</div>
+                    <div class="stat-value" id="statShips">—</div>
+                    <div class="stat-label">Ships Tracked</div>
+                </div>
+                <div class="stat-card accent-green">
+                    <div class="stat-icon">🏖️</div>
+                    <div class="stat-value" id="statBalcony">—</div>
+                    <div class="stat-label">Best Balcony $/ppd</div>
+                </div>
+                <div class="stat-card accent-purple">
+                    <div class="stat-icon">👑</div>
+                    <div class="stat-value" id="statSuite">—</div>
+                    <div class="stat-label">Best Suite $/ppd</div>
+                </div>
+            </div>
+
+            <!-- Dashboard Filters -->
+            <div class="filters-bar">
+                <div class="filter-group">
+                    <label>Cruise Line</label>
+                    <div class="checkbox-dropdown" id="lineDropdown">
+                        <button class="dropdown-toggle" type="button">All Lines <span
+                                class="dropdown-arrow">▾</span></button>
+                        <div class="dropdown-panel" id="dashFilterLinePanel"></div>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label>Ship</label>
+                    <div class="checkbox-dropdown" id="shipDropdown">
+                        <button class="dropdown-toggle" type="button">All Ships <span
+                                class="dropdown-arrow">▾</span></button>
+                        <div class="dropdown-panel" id="dashFilterShipPanel"></div>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label>Port</label>
+                    <div class="checkbox-dropdown" id="portDropdown">
+                        <button class="dropdown-toggle" type="button">All Ports <span
+                                class="dropdown-arrow">▾</span></button>
+                        <div class="dropdown-panel" id="dashFilterPortPanel"></div>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label>Nights</label>
+                    <div class="checkbox-dropdown" id="nightsDropdown">
+                        <button class="dropdown-toggle" type="button">Any Nights <span
+                                class="dropdown-arrow">▾</span></button>
+                        <div class="dropdown-panel" id="dashFilterNightsPanel">
+                            <label class="dropdown-item"><input type="checkbox" value="0-4"> <span>0–4
+                                    nights</span></label>
+                            <label class="dropdown-item"><input type="checkbox" value="5-8"> <span>5–8
+                                    nights</span></label>
+                            <label class="dropdown-item"><input type="checkbox" value="9+"> <span>9+
+                                    nights</span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label>Max Balcony $/ppd</label>
+                    <div class="slider-filter">
+                        <input type="range" id="dashFilterMaxPpd" min="0" max="1000" value="1000" step="10">
+                        <span class="slider-value" id="dashFilterMaxPpdLabel">Max</span>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label>Max Total Cost</label>
+                    <div class="slider-filter">
+                        <input type="range" id="dashFilterMaxTotal" min="0" max="30000" value="30000" step="500">
+                        <span class="slider-value" id="dashFilterMaxTotalLabel">Max</span>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label>Value</label>
+                    <select class="filter-select" id="dashFilterStars">
+                        <option value="0">Any</option>
+                        <option value="5">★★★★★</option>
+                        <option value="4">★★★★ &amp; Up</option>
+                        <option value="3">★★★ &amp; Up</option>
+                        <option value="2">★★ &amp; Up</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Months</label>
+                    <div class="checkbox-dropdown" id="monthPickerDropdown">
+                        <button class="dropdown-toggle" type="button">Any Months <span
+                                class="dropdown-arrow">▾</span></button>
+                        <div class="dropdown-panel month-picker-panel" id="dashFilterMonthPanel"></div>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label>Suite Level</label>
+                    <select class="filter-select" id="dashFilterSuiteLevel">
+                        <option value="">Any</option>
+                        <option value="The Haven">The Haven</option>
+                        <option value="Haven Suites">Haven Suites</option>
+                        <option value="The Retreat">The Retreat</option>
+                        <option value="Concierge">Concierge</option>
+                        <option value="None">None</option>
+                    </select>
+                </div>
+                <div class="filter-group filter-toggle">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="dashFilterHideSoldOut" checked>
+                        <span class="toggle-text">Hide sold out</span>
+                    </label>
+                </div>
+                <div class="filter-group filter-toggle">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="dashFilterKidsOnly" checked>
+                        <span class="toggle-text">👧 Kids area only</span>
+                    </label>
+                </div>
+                <div class="filter-group filter-toggle">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="dashFilterShipWithinShip">
+                        <span class="toggle-text">🚢 Ship-within-a-Ship</span>
+                    </label>
+                </div>
+                <div class="filter-group filter-toggle">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="dashFilterFLResident">
+                        <span class="toggle-text">🏷️ FL Resident only</span>
+                    </label>
+                </div>
+
+                <div class="filter-group filter-toggle">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="dashFilterTransatlantic">
+                        <span class="toggle-text">🌊 Display Transatlantic</span>
+                    </label>
+                </div>
+                <div class="filter-group filter-toggle">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="dashFilterNoConflicts">
+                        <span class="toggle-text">📅 Hide schedule conflicts</span>
+                    </label>
+                </div>
+                <button class="clear-filters-btn" id="clearFiltersBtn" onclick="clearAllFilters()"
+                    title="Reset all filters">✕ Clear</button>
+                <span class="result-count" id="dashResultCount"></span>
+            </div>
+
+            <!-- Dining Mode Toggle -->
+            <div class="dining-mode-section">
+                <div class="dining-mode-toggle" id="diningModeToggle">
+                    <button class="dining-mode-btn active" data-mode="main"
+                        title="Value based on included main dining room food quality">🍽️ Main</button>
+                    <button class="dining-mode-btn" data-mode="package"
+                        title="Value based on specialty dining package quality + added cost">🎫 Package</button>
+                    <button class="dining-mode-btn" data-mode="suite"
+                        title="Value based on suite-exclusive dining quality + estimated suite price">👑 Suite</button>
+                </div>
+            </div>
+
+            <!-- Value Weights -->
+            <div class="value-weights-section">
+                <button class="value-weights-toggle" id="valueWeightsToggle">⚖️ Value Weights <span
+                        class="toggle-arrow">▾</span></button>
+                <div class="value-weights-panel" id="valueWeightsPanel">
+                    <div class="weight-slider-group">
+                        <div class="weight-slider">
+                            <label class="weight-label">🧒 Kids</label>
+                            <input type="range" min="0" max="100" value="30" class="vertical-slider" id="weightKids"
+                                orient="vertical">
+                            <span class="weight-value" id="weightKidsVal">30</span>
+                        </div>
+                        <div class="weight-slider">
+                            <label class="weight-label">🚢 Ship</label>
+                            <input type="range" min="0" max="100" value="30" class="vertical-slider" id="weightShip"
+                                orient="vertical">
+                            <span class="weight-value" id="weightShipVal">30</span>
+                        </div>
+                        <div class="weight-slider">
+                            <label class="weight-label">🍽️ Dining</label>
+                            <input type="range" min="0" max="100" value="30" class="vertical-slider" id="weightDining"
+                                orient="vertical">
+                            <span class="weight-value" id="weightDiningVal">30</span>
+                        </div>
+                        <div class="weight-slider">
+                            <label class="weight-label">💰 Price</label>
+                            <input type="range" min="0" max="100" value="35" class="vertical-slider" id="weightPrice"
+                                orient="vertical">
+                            <span class="weight-value" id="weightPriceVal">35</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Family Options -->
+            <div class="deals-section">
+                <div class="section-title">🎯 Our Options
+                    <button class="info-badge-btn" id="valueInfoBtn" title="How is Value calculated?">ℹ️ Value
+                        Calc</button>
+                    <span class="section-subtitle" id="dashSortLabel">ranked by best balcony value</span>
+                    <select class="filter-select dash-order-by" id="dashOrderBy">
+                        <option value="value" selected>Order by Value</option>
+                        <option value="pricepd">Order by Price Per Day</option>
+                    </select>
+                </div>
+                <div id="dealsContainer">
+                    <div class="loading">
+                        <div class="spinner"></div> Loading deals...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ CRUISES TAB ═══ -->
+        <div class="tab-content" id="tab-cruises">
+            <div class="filters-bar">
+                <div class="filter-group">
+                    <label>Cruise Line</label>
+                    <select class="filter-select" id="filterLine">
+                        <option value="">All Lines</option>
+                        <option value="Disney">Disney</option>
+                        <option value="Norwegian">Norwegian</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Ship</label>
+                    <input class="filter-input" id="filterShip" type="text" placeholder="Search ship...">
+                </div>
+                <div class="filter-group">
+                    <label>Port</label>
+                    <input class="filter-input" id="filterPort" type="text" placeholder="Search port...">
+                </div>
+                <div class="filter-group">
+                    <label>Nights</label>
+                    <select class="filter-select" id="filterNights">
+                        <option value="">Any</option>
+                        <option value="1-3">1–3 nights</option>
+                        <option value="4-5">4–5 nights</option>
+                        <option value="6-7">6–7 nights</option>
+                        <option value="8+">8+ nights</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Max Balcony $/ppd</label>
+                    <input class="filter-input" id="filterMaxPrice" type="number" placeholder="e.g. 300" min="0"
+                        step="10">
+                </div>
+                <div class="filter-group">
+                    <label>Suite Level</label>
+                    <select class="filter-select" id="filterSuiteLevel">
+                        <option value="">Any</option>
+                        <option value="The Haven">The Haven</option>
+                        <option value="Haven Suites">Haven Suites</option>
+                        <option value="The Retreat">The Retreat</option>
+                        <option value="Concierge">Concierge</option>
+                        <option value="None">None</option>
+                    </select>
+                </div>
+                <div class="filter-group filter-toggle">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="filterHideSoldOut" checked>
+                        <span class="toggle-text">Hide sold out ($0)</span>
+                    </label>
+                </div>
+                <div class="filter-group filter-toggle">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="filterShipWithinShip">
+                        <span class="toggle-text">🚢 Ship-within-a-Ship only</span>
+                    </label>
+                </div>
+                <span class="result-count" id="resultCount"></span>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="data-table" id="cruiseTable">
+                    <thead>
+                        <tr>
+                            <th data-sort="line">Line <span class="sort-icon">↕</span></th>
+                            <th data-sort="ship">Ship <span class="sort-icon">↕</span></th>
+                            <th>Class</th>
+                            <th data-sort="departureDate">Departs <span class="sort-icon">↕</span></th>
+                            <th>Port</th>
+                            <th data-sort="nights">Nights <span class="sort-icon">↕</span></th>
+                            <th>Itinerary</th>
+                            <th data-sort="balcony">Balcony <span class="sort-icon">↕</span></th>
+                            <th data-sort="suite">Suite <span class="sort-icon">↕</span></th>
+                            <th>Suite Level</th>
+                            <th>Kids</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="cruiseTableBody">
+                        <tr>
+                            <td colspan="12" class="loading">
+                                <div class="spinner"></div> Loading cruises...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ═══ SHIPS TAB ═══ -->
+        <div class="tab-content" id="tab-ships">
+            <div class="filters-bar">
+                <div class="filter-group">
+                    <label>Line</label>
+                    <div class="checkbox-dropdown" id="refLineDropdown">
+                        <button class="dropdown-toggle" type="button">All Lines <span
+                                class="dropdown-arrow">▾</span></button>
+                        <div class="dropdown-panel" id="filterShipLinePanel"></div>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label>Suite Level</label>
+                    <select class="filter-select" id="filterShipSuiteLevel">
+                        <option value="">Any</option>
+                        <option value="The Haven">The Haven</option>
+                        <option value="Haven Suites">Haven Suites</option>
+                        <option value="The Retreat">The Retreat</option>
+                        <option value="Concierge">Concierge</option>
+                        <option value="None">None</option>
+                    </select>
+                </div>
+            </div>
+            <div class="ships-grid" id="shipsGrid">
+                <div class="loading">
+                    <div class="spinner"></div> Loading ships...
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ CALENDAR TAB ═══ -->
+        <div class="tab-content" id="tab-calendar">
+            <div class="calendar-header">
+                <button class="cal-nav-btn" id="calPrev">◀</button>
+                <h2 class="cal-month-title" id="calTitle">February 2026</h2>
+                <button class="cal-nav-btn" id="calNext">▶</button>
+                <button class="cal-today-btn" id="calToday">Today</button>
+            </div>
+
+            <div class="cal-legend">
+                <span class="cal-legend-item"><span class="cal-dot work"></span> Amy's Work</span>
+                <span class="cal-legend-item"><span class="cal-dot travel"></span> Travel</span>
+            </div>
+
+            <div class="cal-grid" id="calGrid">
+                <div class="cal-day-header">Sun</div>
+                <div class="cal-day-header">Mon</div>
+                <div class="cal-day-header">Tue</div>
+                <div class="cal-day-header">Wed</div>
+                <div class="cal-day-header">Thu</div>
+                <div class="cal-day-header">Fri</div>
+                <div class="cal-day-header">Sat</div>
+            </div>
+
+            <!-- Add Event Form -->
+            <div class="cal-add-form">
+                <h3>Add Event</h3>
+                <div class="cal-form-row">
+                    <div class="cal-form-group">
+                        <label>Type</label>
+                        <select id="calEventType" class="filter-select">
+                            <option value="work">🟣 Amy's Work</option>
+                            <option value="travel">🔵 Travel</option>
+                        </select>
+                    </div>
+                    <div class="cal-form-group">
+                        <label>Title</label>
+                        <input type="text" id="calEventTitle" class="filter-input" placeholder="e.g. BR 7-7 #3">
+                    </div>
+                    <div class="cal-form-group">
+                        <label>Start Date</label>
+                        <input type="date" id="calEventStart" class="filter-input">
+                    </div>
+                    <div class="cal-form-group">
+                        <label>End Date</label>
+                        <input type="date" id="calEventEnd" class="filter-input">
+                    </div>
+                    <button class="cal-add-btn" id="calAddBtn">+ Add</button>
+                </div>
+            </div>
+
+            <!-- Event List -->
+            <div class="cal-event-list" id="calEventList"></div>
+        </div>
+    </div>
+
+    <!-- Price History Modal -->
+    <div class="modal-overlay" id="priceModalOverlay">
+        <div class="modal price-modal">
+            <button class="modal-close" id="modalClose">✕</button>
+            <h2 id="modalShipName">Price History</h2>
+            <div class="modal-meta" id="modalDates"></div>
+            <div class="modal-meta" id="modalRoomLabel"></div>
+            <div class="modal-chart-container">
+                <canvas id="priceChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Value Info Modal -->
+    <div class="modal-overlay" id="valueInfoModal">
+        <div class="modal info-modal">
+            <button class="modal-close" id="valueInfoClose">✕</button>
+            <h2>How is Value calculated?</h2>
+            <div class="info-content">
+                <p>The "Value Score" (0-100) uniquely measures what kind of experience you are getting for
+                    the price. It evaluates your chosen weights scaling against the custom 0-100 rubric for each ship.
+                </p>
+                <div class="info-metric"><strong>🧒 Kids Score:</strong> Reflects age-appropriate programming,
+                    splash pads, and childcare capabilities.</div>
+                <div class="info-metric"><strong>🚢 Ship Score:</strong> Reflects the modernization, layout,
+                    crowds, and physical aesthetic of the vessel itself.</div>
+                <div class="info-metric mb-large"><strong>💰 Price Score:</strong> Evaluates the overall nightly pricing
+                    specifically comparing to the most expensive competing deal inside your custom filters.</div>
+
+                <h3 class="info-highlight">🍽️ The Dining Formula</h3>
+                <p>Because a massive percentage of your experience heavily leans on what you eat, the
+                    dining score dynamically shifts depending on which mode you click above:</p>
+                <ul>
+                    <li><strong>Main Mode:</strong> Ranks the ship simply on its Main Dining Room (free
+                        food).</li>
+                    <li><strong>Package Mode:</strong> Simulates buying a specialty dining package. It maps
+                        how many 'unique' high-end restaurants the ship has (e.g. strict cap of 2 nights on Disney, up
+                        to 7 on NCL) and dynamically averages that across your cruise. If you run out of unique top-tier
+                        restaurants on a long cruise, your remaining nights fall back into the Main Dining Room!</li>
+                    <li><strong>Suite Mode:</strong> Accounts for suite-exclusive dining venues natively
+                        bridging the gap with your estimated suite room costs.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js?v=20260227j"></script>
+</body>
+
+</html>

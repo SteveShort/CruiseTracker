@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="publish\**" />
+    <Content Remove="publish_old\**" />
+    <None Remove="publish\**" />
+    <None Remove="publish_old\**" />
+    <Compile Remove="CruiseDashboard.Tests\**" />
+    <Content Remove="CruiseDashboard.Tests\**" />
+    <None Remove="CruiseDashboard.Tests\**" />
+  </ItemGroup>
+
+</Project>
