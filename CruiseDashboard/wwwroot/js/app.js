@@ -59,6 +59,7 @@ function initAppModeToggle() {
                 body: JSON.stringify({ appMode: btn.dataset.appmode })
             }).catch(() => { });
             updateModeUI();
+            clearAllFilters();
             loadDashboard(); // full reload with new mode
         });
     });
