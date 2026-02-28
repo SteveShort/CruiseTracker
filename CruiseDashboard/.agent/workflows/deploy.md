@@ -20,5 +20,5 @@ dotnet test "c:\Dev\Cruise Tracker\CruiseDashboard\CruiseDashboard.Tests" --logg
 
 4. Push to GitHub
 ```powershell
-git -C "c:\Dev\Cruise Tracker\CruiseDashboard" add -A; git -C "c:\Dev\Cruise Tracker\CruiseDashboard" commit -m "Deploy update"; git -C "c:\Dev\Cruise Tracker\CruiseDashboard" push
+git -C "c:\Dev\Cruise Tracker" add -A; git -C "c:\Dev\Cruise Tracker" commit -m "Deploy update"; git -C "c:\Dev\Cruise Tracker" push
 ```
