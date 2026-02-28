@@ -375,7 +375,7 @@ async Task Main()
 		var dPsi = new System.Diagnostics.ProcessStartInfo
 		{
 			FileName = "node",
-			Arguments = $"\"{disneyPath}\""",
+			Arguments = $"\"{disneyPath}\"",
 			WorkingDirectory = Path.GetDirectoryName(disneyPath),
 			RedirectStandardOutput = true,
 			RedirectStandardError = true,
@@ -407,7 +407,7 @@ async Task Main()
 		var flPsi = new System.Diagnostics.ProcessStartInfo
 		{
 			FileName = "node",
-			Arguments = $"\"{flScraperPath}\""",
+			Arguments = $"\"{flScraperPath}\"",
 			WorkingDirectory = Path.GetDirectoryName(flScraperPath),
 			RedirectStandardOutput = true,
 			RedirectStandardError = true,

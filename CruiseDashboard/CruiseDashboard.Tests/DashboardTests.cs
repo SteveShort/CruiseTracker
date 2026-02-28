@@ -392,4 +392,36 @@ public class DashboardTests : PageTest
         Assert.That(pastDeals, Is.Empty,
             $"Deals API returned {pastDeals.Count} past-date cruises: {string.Join("; ", pastDeals.Take(5))}");
     }
+
+    /// <summary>
+    /// Verifies the LINQPad scraper script compiles successfully to prevent silent scheduled task failures.
+    /// </summary>
+    [Test]
+    public void Scraper_ScriptCompilesSuccessfully()
+    {
+        var scriptPath = @"c:\Dev\Cruise Tracker\CruiseDealTracker.linq";
+        var lprunPath = @"C:\Program Files\LINQPad8\lprun8.exe";
+
+        Assert.That(File.Exists(scriptPath), Is.True, "Scraper script not found");
+        Assert.That(File.Exists(lprunPath), Is.True, "LINQPad compiler not found");
+
+        var psi = new System.Diagnostics.ProcessStartInfo
+        {
+            FileName = lprunPath,
+            Arguments = $"-compileonly \"{scriptPath}\"",
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+            CreateNoWindow = true
+        };
+
+        using var process = System.Diagnostics.Process.Start(psi);
+        process.WaitForExit();
+
+        var output = process.StandardOutput.ReadToEnd();
+        var error = process.StandardError.ReadToEnd();
+
+        Assert.That(process.ExitCode, Is.EqualTo(0), 
+            $"Compiler failed with exit code {process.ExitCode}.\nOutput: {output}\nError: {error}");
+    }
 }

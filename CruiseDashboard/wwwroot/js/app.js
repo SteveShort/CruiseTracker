@@ -175,8 +175,8 @@ async function loadDashboard() {
                 const parts = stats.scraperHealth.map(sh => {
                     const completedAt = new Date(sh.completedAt);
                     const hoursAgo = Math.round((Date.now() - completedAt.getTime()) / 3600000);
-                    const isHealthy = sh.status === 'Success' && hoursAgo < 48;
-                    const isStale = hoursAgo >= 48;
+                    const isHealthy = sh.status === 'Success' && hoursAgo < 24;
+                    const isStale = hoursAgo >= 24;
                     const dot = isHealthy ? '🟢' : (sh.status !== 'Success' ? '🔴' : (isStale ? '🟡' : '🟢'));
                     const timeStr = hoursAgo < 24 ? `${hoursAgo}h ago` : `${Math.round(hoursAgo / 24)}d ago`;
                     const label = labels[sh.scraperName] || sh.scraperName;
@@ -190,8 +190,8 @@ async function loadDashboard() {
             const sh = stats.scraperHealth;
             const completedAt = new Date(sh.completedAt);
             const hoursAgo = Math.round((Date.now() - completedAt.getTime()) / 3600000);
-            const isHealthy = sh.status === 'Success' && hoursAgo < 48;
-            const isStale = hoursAgo >= 48;
+            const isHealthy = sh.status === 'Success' && hoursAgo < 24;
+            const isStale = hoursAgo >= 24;
             const dot = isHealthy ? '🟢' : isStale ? '🟡' : '🔴';
             const timeStr = hoursAgo < 24 ? `${hoursAgo}h ago` : `${Math.round(hoursAgo / 24)}d ago`;
             const el = document.getElementById('scraperHealth');
