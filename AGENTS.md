@@ -1,7 +1,7 @@
 # Cruise Tracker — AI Project Brief
 
 ## What This App Does
-A family cruise planning dashboard that scrapes pricing from NCL, Celebrity, and Disney cruise lines, stores historical prices in SQL Server, and renders a filterable dashboard for comparing cruise deals. The goal is finding the best family cruise value across all three lines, factoring in kids programs, ship quality, dining, and price. Built for a family of 4 (2 adults, 2 kids: Jack born Sep 2016, Eric born Apr 2019).
+A family cruise planning dashboard that scrapes pricing from NCL, Celebrity, Disney, Oceania, and Regent cruise lines, stores historical prices in SQL Server, and renders a filterable dashboard for comparing cruise deals. Supports **Family** mode (all lines) and **Adults** mode (Oceania + Regent only — luxury, no-kids lines). Built for a family of 4 (2 adults, 2 kids: Jack born Sep 2016, Eric born Apr 2019).
 
 ## Architecture Overview
 
@@ -14,7 +14,7 @@ c:\Dev\Cruise Tracker\                  ← single git repo
 ├── CruiseDealTracker.linq              ← LINQPad exploration script
 │
 ├── CruiseDashboard\                    ← ASP.NET 8 Minimal API + static frontend
-│   ├── Program.cs                      ← API endpoints, ship data, restaurants (726 lines)
+│   ├── Program.cs                      ← API endpoints, ship data, restaurants (~804 lines)
 │   ├── CruiseDashboard.csproj
 │   ├── Deploy.ps1                      ← deployment script (used by scheduled task)
 │   ├── RegisterDeploy.ps1              ← registers deploy scheduled task
@@ -23,7 +23,7 @@ c:\Dev\Cruise Tracker\                  ← single git repo
 │   ├── dashboard-settings.json         ← persisted UI settings (value bonuses etc)
 │   ├── .agent/workflows/deploy.md      ← AI deploy workflow
 │   ├── wwwroot/
-│   │   ├── js/app.js                   ← all dashboard JS logic (2181 lines)
+│   │   ├── js/app.js                   ← all dashboard JS logic (~2300 lines)
 │   │   ├── css/style.css               ← dark theme CSS (2860 lines)
 │   │   ├── index.html                  ← single-page app (520 lines)
 │   │   └── img/                        ← cruise line SVG logos
@@ -35,6 +35,8 @@ c:\Dev\Cruise Tracker\                  ← single git repo
     ├── celebrity-scraper.js            ← Celebrity pricing via GraphQL (419 lines)
     ├── disney-scraper.js               ← Disney standard pricing via API (442 lines)
     ├── disney-fl-scraper.js            ← Disney FL resident pricing (534 lines)
+    ├── oceania-scraper.js              ← Oceania pricing via REST API
+    ├── regent-scraper.js               ← Regent pricing via REST API
     ├── config.json                     ← scraper configuration
     ├── package.json                    ← Node.js dependencies
     └── logs/                           ← scraper log files (gitignored)
@@ -47,10 +49,24 @@ c:\Dev\Cruise Tracker\                  ← single git repo
 | **Dashboard URL** | `http://localhost:5050` |
 | **IIS Site** | CruiseDashboard on port 5050 |
 | **SQL Server** | `STEVEOFFICEPC\ORACLE2SQL`, Database: `CruiseTracker` |
-| **SQL Auth** | Windows Integrated (Trusted_Connection) |
-| **Connection String** | `Driver={ODBC Driver 17 for SQL Server};Server=STEVEOFFICEPC\\ORACLE2SQL;Database=CruiseTracker;Trusted_Connection=Yes;` |
 | **Test command** | `dotnet test` from `CruiseDashboard\CruiseDashboard.Tests` |
 | **Git** | Single repo at `c:\Dev\Cruise Tracker` (no submodules) |
+
+### SQL Authentication (Two Methods)
+
+The project uses **two different SQL auth methods** — be aware of which one to use:
+
+| Method | When to Use | Command |
+|--------|-------------|----------|
+| **Windows Integrated** (`-E`) | Direct DB admin: schema changes, bulk data ops, granting permissions | `sqlcmd -S "STEVEOFFICEPC\ORACLE2SQL" -d CruiseTracker -E -Q "..."` |
+| **SQL User** (`CruiseDashboard`) | Used by the ASP.NET app at runtime. Has SELECT + INSERT + UPDATE + DELETE on all tables | `sqlcmd -S "STEVEOFFICEPC\ORACLE2SQL" -d CruiseTracker -U CruiseDashboard -P "Cruise2026!Tracker" -Q "..."` |
+
+> **⚠️ Important**: The app's connection string in `Program.cs` uses the SQL user auth, NOT Windows auth. If a table needs new permissions, grant them via Windows auth first:
+> ```powershell
+> sqlcmd -S "STEVEOFFICEPC\ORACLE2SQL" -d CruiseTracker -E -Q "GRANT SELECT, INSERT, UPDATE, DELETE ON [TableName] TO CruiseDashboard;"
+> ```
+
+> **⚠️ sqlcmd gotcha**: Large multi-statement queries via sqlcmd can hang. Break into smaller batches or use PowerShell `Invoke-RestMethod` against the API instead.
 
 ## ⚠️ Deployment — MUST USE SCHEDULED TASK
 
@@ -120,15 +136,49 @@ All endpoints defined in `CruiseDashboard/Program.cs` using ASP.NET Minimal API 
 - `CalendarEvent` — Id, StartDate, EndDate, Type, Title
 - `RestaurantData` — Id, ShipName, Name, Type, Cuisine, Score, Why
 
-### Ship Reference Data — Lines 19-222
-25+ ships hardcoded in a `Dictionary<string, ShipInfo>`. Each entry has: cruise line, ship class, year built, last renovated, gross tonnage, passenger capacity, has kids programs, kids club description, suite tier name, suite multiplier, water features, notes, and 6 numeric scores (Kids, Ship, MainDining, PackageDining, SuiteDining, DiningPackageCostPerDay).
+### Ship Reference Data — Lines 19-290
+40+ ships hardcoded in a `Dictionary<string, ShipInfo>`. Each entry has: category (`"family"` or `"adult"`), cruise line, ship class, year built, last renovated, gross tonnage, passenger capacity, has kids programs, kids club description, suite tier name, suite multiplier, water features, notes, and 6 numeric scores (Kids, Ship, MainDining, PackageDining, SuiteDining, DiningPackageCostPerDay).
 
-Ships are grouped by line: **Disney** (Magic, Fantasy, Dream, Wish, Treasure, Destiny), **Norwegian** (Prima, Aqua, Aura, Bliss, Encore, Escape, Getaway, Breakaway, Joy, Jade, Sun, Sky), **Celebrity** (Edge, Apex, Beyond, Ascent, Xcel, Eclipse, Equinox, Solstice, Reflection, Silhouette, Constellation, Millennium, Seeker, Compass, Wanderer, Roamer, Boundless).
+Ships are grouped by line:
+- **Disney** (Magic, Fantasy, Dream, Wish, Treasure, Destiny)
+- **Norwegian** (Prima, Viva, Aqua, Luna, Aura, Encore, Bliss, Joy, Escape, Getaway, Breakaway, Epic, Gem, Jewel, Jade, Pearl, Dawn, Star, Sun, Sky, Spirit, Pride of America)
+- **Celebrity** (Edge, Apex, Beyond, Ascent, Xcel, Eclipse, Equinox, Solstice, Reflection, Silhouette, Constellation, Summit, Millennium, Infinity, Flora, Seeker, Compass, Wanderer, Roamer, Boundless)
+- **Oceania** (Vista, Allura, Marina, Riviera, Sirena, Insignia, Nautica, Regatta, Sonesta) — category: `"adult"`
+- **Regent** (Splendor, Grandeur, Mariner, Navigator, Voyager, Prestige) — category: `"adult"`
+
+### App Mode System (Family / Adults)
+- **Family mode** (`appMode=family`): Shows all cruise lines — Disney, Norwegian, Celebrity, FL Resident
+- **Adults mode** (`appMode=adult`): Restricts to adult-only lines — Oceania, Regent (eventually Virgin)
+- Mode is really just a **preset line filter** — controlled by `LinesForMode(appMode)` in Program.cs
+- Mode persisted via `dashboard-settings.json` and restored on page load via `GET /api/settings`
+- When mode switches: `resetFiltersForModeSwitch()` clears all filter UI, then `updateModeUI()` adjusts visibility (hides Kids Area Only toggle, renames Calendar tab, etc.)
+- In adult mode: kids score badge (🧒), "No Kids Program" badges, and Kids Area Only toggle are all hidden
 
 ### Restaurant System
 - Restaurants loaded from `Restaurants` SQL table at startup into `allRestaurants` dictionary
-- Automatically computes per-ship dining scores from restaurant data
-- When a restaurant score is updated via PUT, the dining scores are recalculated in memory
+- Automatically computes per-ship dining scores from restaurant data:
+  - **MainDiningScore** = max score of `Type='Included'` restaurants
+  - **PackageDiningScore** = average of top 3 `Type='Specialty/Paid'` restaurants
+  - **SuiteDiningScore** = max score of `Type='Suite-Exclusive'` restaurants
+- When a restaurant score is updated via `PUT /api/restaurants/{id}`, the dining scores are recalculated in memory. No restart needed.
+- **New restaurants inserted directly to DB** are NOT picked up until app restart (deploy). The in-memory cache is only loaded at startup.
+
+### Bulk Restaurant Score Updates
+The fastest approach for updating many restaurant scores:
+```powershell
+# 1. Get current IDs
+sqlcmd -S "STEVEOFFICEPC\ORACLE2SQL" -d CruiseTracker -E -Q "SELECT Id, ShipName, Name, Score FROM Restaurants WHERE ShipName = 'Norwegian Luna' ORDER BY Score DESC" -s "|" -W
+
+# 2. Update existing scores via the API (recalculates dining scores automatically)
+$body = @{Score=93; Why=""} | ConvertTo-Json
+Invoke-RestMethod -Uri "http://localhost:5050/api/restaurants/318" -Method Put -ContentType 'application/json' -Body $body
+
+# 3. Insert NEW restaurants via SQL (API doesn't have an insert endpoint)
+sqlcmd -S "STEVEOFFICEPC\ORACLE2SQL" -d CruiseTracker -U CruiseDashboard -P "Cruise2026!Tracker" -Q "INSERT INTO Restaurants (ShipName,Name,Type,Cuisine,Score,Why) VALUES ('Norwegian Luna','Onda by Scarpetta','Specialty/Paid','Modern Italian',93,'');"
+
+# 4. Redeploy to reload in-memory cache with new inserts
+schtasks /Run /TN "CruiseDashboardDeploy"
+```
 
 ---
 
@@ -403,9 +453,12 @@ dotnet test CruiseDashboard\CruiseDashboard.Tests --logger "console;verbosity=de
 4. **Test failures after schema changes** — if you add/remove DB columns, the API mapping in `Program.cs` must match
 5. **Port 5050** — the dashboard runs on port 5050, not the default 5000
 6. **Price sliders** — slider ranges are fixed in HTML; reset to max when switching modes
-7. **Encoding** — `app.js` uses UTF-8; use `\u25BE` for arrow characters in template literals, not raw Unicode
+7. **Encoding / grep** — `app.js` uses UTF-8 with emoji. **`grep_search` does NOT work reliably on `app.js`** due to encoding. Use `view_file_outline` to find functions by name, then `view_file` with line ranges to read code. Use `view_code_item` only if the function name is simple ASCII.
 8. **Ship not found** — if a scraper finds a new ship not in the `ships` dictionary, `LookupShip()` returns null and scores degrade to defaults. Add new ships to the dictionary in `Program.cs`
-9. **Restaurant score recalc** — when updating a restaurant via `PUT /api/restaurants/{id}`, the server recalculates the ship's aggregate dining scores in memory. No restart needed
+9. **Restaurant score recalc** — when updating via `PUT /api/restaurants/{id}`, the server recalculates aggregate dining scores in memory. No restart needed. But **new inserts to the DB require a deploy/restart** to refresh the in-memory cache.
 10. **Calendar persistence** — `calendar-events.json` is in the project root, tracked by git. Don't delete it during deploys
 11. **Settings persistence** — `dashboard-settings.json` stores value bonuses server-side. Created automatically on first POST
 12. **Scraper cookies** — Disney scrapers need fresh `__pa` cookies via Playwright. If Playwright browsers aren't installed, run `npx playwright install chromium`
+13. **Mode switch race condition** — `initAppModeToggle()` is `async` and must be `await`ed before `loadDashboard()`. The saved mode comes from `/api/settings` and if not awaited, the page loads with the HTML default ("family") before the async fetch completes.
+14. **Filter reset on mode switch** — use `resetFiltersForModeSwitch()` (NOT `clearAllFilters()`) when switching modes. `clearAllFilters()` calls `applyDashboardFilters()` which runs on stale data and re-enables Kids Area Only.
+15. **SQL auth confusion** — the app uses SQL user auth (`CruiseDashboard`), but direct admin queries need Windows auth (`-E`). See the "SQL Authentication" section above for details.
