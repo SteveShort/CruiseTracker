@@ -1124,7 +1124,13 @@ function renderSingleCard(c, i) {
 
     // FL Resident pricing helpers - only show when FL price is actually cheaper
     const hasFLBal = c.flResBalconyPerDay && c.flResBalconyPerDay > 0 && c.balconyPerDay && c.flResBalconyPerDay < c.balconyPerDay;
-    const hasFLSuite = c.flResSuitePerDay && c.flResSuitePerDay > 0 && c.suitePerDay && c.flResSuitePerDay < c.suitePerDay;
+
+    const displaySuitePpd = (c.verifiedSuitePerDay && c.verifiedSuitePerDay > 0) ? c.verifiedSuitePerDay : c.suitePerDay;
+    const displaySuiteTotal = (c.verifiedSuitePrice && c.verifiedSuitePrice > 0) ? c.verifiedSuitePrice : c.suitePrice;
+    const displayFlSuitePpd = (c.flResVerifiedSuitePerDay && c.flResVerifiedSuitePerDay > 0) ? c.flResVerifiedSuitePerDay : c.flResSuitePerDay;
+    const displayFlSuiteTotal = (c.flResVerifiedSuitePrice && c.flResVerifiedSuitePrice > 0) ? c.flResVerifiedSuitePrice : c.flResSuitePrice;
+
+    const hasFLSuite = displayFlSuitePpd && displayFlSuitePpd > 0 && displaySuitePpd && displayFlSuitePpd < displaySuitePpd;
     const hasFLRes = hasFLBal || hasFLSuite;
 
     // Booking link
@@ -1155,15 +1161,15 @@ function renderSingleCard(c, i) {
     if (hasFLSuite) {
         suitePriceHtml = `<div class="price-col suite fl-res-price">
                 <span class="price-label">${suiteLabel}</span>
-                <span class="price-ppd-regular">${fmtPpd(c.suitePerDay)}<span class="ppd-suffix">/ppd</span></span>
-                <span class="price-ppd fl-res">${fmtPpd(c.flResSuitePerDay)}<span class="ppd-suffix">/ppd</span></span>
-                <span class="price-total fl-res">${fmtTotal(c.flResSuitePrice)}</span>
+                <span class="price-ppd-regular">${fmtPpd(displaySuitePpd)}<span class="ppd-suffix">/ppd</span></span>
+                <span class="price-ppd fl-res">${fmtPpd(displayFlSuitePpd)}<span class="ppd-suffix">/ppd</span></span>
+                <span class="price-total fl-res">${fmtTotal(displayFlSuiteTotal)}</span>
             </div>`;
     } else {
         suitePriceHtml = `<div class="price-col suite">
                 <span class="price-label">${suiteLabel}</span>
-                <span class="price-ppd">${fmtPpd(c.suitePerDay)}<span class="ppd-suffix">/ppd</span></span>
-                <span class="price-total">${fmtTotal(c.suitePrice)}</span>
+                <span class="price-ppd">${fmtPpd(displaySuitePpd)}<span class="ppd-suffix">/ppd</span></span>
+                <span class="price-total">${fmtTotal(displaySuiteTotal)}</span>
             </div>`;
     }
 

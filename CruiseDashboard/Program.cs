@@ -432,12 +432,12 @@ app.MapGet("/api/cruises", async (string? line, string? ship, string? port, stri
         SELECT
             c.CruiseLine, c.ShipName, c.Itinerary, c.ItineraryCode, c.DepartureDate, c.Nights, c.DeparturePort, c.Ports,
             p.InsidePrice, p.InsidePerDay, p.OceanviewPrice, p.OceanviewPerDay,
-            p.BalconyPrice, p.BalconyPerDay, p.SuitePrice, p.SuitePerDay, p.ScrapedAt,
+            p.BalconyPrice, p.BalconyPerDay, p.SuitePrice, p.SuitePerDay, p.VerifiedSuitePrice, p.VerifiedSuitePerDay, p.ScrapedAt,
             fl.FLResBalconyPrice, fl.FLResBalconyPerDay, fl.FLResSuitePrice, fl.FLResSuitePerDay, fl.FLResScrapedAt
         FROM Cruises c
         OUTER APPLY (
             SELECT TOP 1 ph.InsidePrice, ph.InsidePerDay, ph.OceanviewPrice, ph.OceanviewPerDay,
-                   ph.BalconyPrice, ph.BalconyPerDay, ph.SuitePrice, ph.SuitePerDay, ph.ScrapedAt
+                   ph.BalconyPrice, ph.BalconyPerDay, ph.SuitePrice, ph.SuitePerDay, ph.VerifiedSuitePrice, ph.VerifiedSuitePerDay, ph.ScrapedAt
             FROM PriceHistory ph
             WHERE ph.CruiseLine = c.CruiseLine AND ph.ShipName = c.ShipName AND ph.DepartureDate = c.DepartureDate
             ORDER BY ph.ScrapedAt DESC
@@ -454,7 +454,7 @@ app.MapGet("/api/cruises", async (string? line, string? ship, string? port, stri
     // Suite mode: exclude cruises with no suite pricing at all
     if (string.Equals(mode, "suite", StringComparison.OrdinalIgnoreCase))
     {
-        sql += " AND ISNULL(p.SuitePerDay, 0) > 0";
+        sql += " AND (ISNULL(p.SuitePerDay, 0) > 0 OR ISNULL(p.VerifiedSuitePerDay, 0) > 0)";
     }
 
     // App mode: filter by cruise line category
@@ -507,6 +507,8 @@ app.MapGet("/api/cruises", async (string? line, string? ship, string? port, stri
             InsidePerDay = (decimal?)(r.InsidePerDay),
             OceanviewPrice = (decimal?)(r.OceanviewPrice),
             OceanviewPerDay = (decimal?)(r.OceanviewPerDay),
+            VerifiedSuitePrice = (decimal?)(r.VerifiedSuitePrice),
+            VerifiedSuitePerDay = (decimal?)(r.VerifiedSuitePerDay),
             FLResBalconyPrice = (decimal?)(r.FLResBalconyPrice),
             FLResBalconyPerDay = (decimal?)(r.FLResBalconyPerDay),
             FLResSuitePrice = (decimal?)(r.FLResSuitePrice),
@@ -649,10 +651,10 @@ app.MapGet("/api/deals", async () =>
     var rows = await conn.QueryAsync<dynamic>(@"
         SELECT
             c.CruiseLine, c.ShipName, c.Itinerary, c.DepartureDate, c.Nights, c.DeparturePort,
-            p.BalconyPrice, p.BalconyPerDay, p.SuitePrice, p.SuitePerDay
+            p.BalconyPrice, p.BalconyPerDay, p.SuitePrice, p.SuitePerDay, p.VerifiedSuitePrice, p.VerifiedSuitePerDay
         FROM Cruises c
         OUTER APPLY (
-            SELECT TOP 1 ph.BalconyPrice, ph.BalconyPerDay, ph.SuitePrice, ph.SuitePerDay
+            SELECT TOP 1 ph.BalconyPrice, ph.BalconyPerDay, ph.SuitePrice, ph.SuitePerDay, ph.VerifiedSuitePrice, ph.VerifiedSuitePerDay
             FROM PriceHistory ph
             WHERE ph.CruiseLine = c.CruiseLine AND ph.ShipName = c.ShipName AND ph.DepartureDate = c.DepartureDate
             ORDER BY ph.ScrapedAt DESC
@@ -666,7 +668,7 @@ app.MapGet("/api/deals", async () =>
         if (!thresholds.ContainsKey(line)) return false;
         var (bThresh, sThresh) = thresholds[line];
         var bpd = (decimal?)(r.BalconyPerDay) ?? 999999;
-        var spd = (decimal?)(r.SuitePerDay) ?? 999999;
+        var spd = (decimal?)(r.VerifiedSuitePerDay) ?? (decimal?)(r.SuitePerDay) ?? 999999;
         return bpd <= bThresh || spd <= sThresh;
     }).Select(r =>
     {
@@ -674,7 +676,8 @@ app.MapGet("/api/deals", async () =>
         var line = (string)r.CruiseLine;
         var (bThresh, sThresh) = thresholds[line];
         var bpd = (decimal?)(r.BalconyPerDay);
-        var spd = (decimal?)(r.SuitePerDay);
+        var spd = (decimal?)(r.VerifiedSuitePerDay) ?? (decimal?)(r.SuitePerDay);
+        var sPrice = (decimal?)(r.VerifiedSuitePrice) ?? (decimal?)(r.SuitePrice);
         return new
         {
             CruiseLine = line,
@@ -687,7 +690,7 @@ app.MapGet("/api/deals", async () =>
             DeparturePort = (string)(r.DeparturePort ?? ""),
             BalconyPrice = (decimal?)(r.BalconyPrice),
             BalconyPerDay = bpd,
-            SuitePrice = (decimal?)(r.SuitePrice),
+            SuitePrice = sPrice,
             SuitePerDay = spd,
             IsBalconyDeal = bpd.HasValue && bpd <= bThresh,
             IsSuiteDeal = spd.HasValue && spd <= sThresh,
