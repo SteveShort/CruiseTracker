@@ -1148,7 +1148,7 @@ function renderSingleCard(c, i) {
                 <div class="deal-top-row">
                     ${cruiseLineIcon(c.cruiseLine)}
                     <div class="deal-ship-info">
-                        <div class="deal-ship-name">${escHtml(c.shipName)} <span class="ship-class-tag">${escHtml(c.shipClass)}</span><span class="ship-year-tag">${c.yearBuilt ? c.yearBuilt : ''}${c.lastRenovated && c.lastRenovated !== 'None' ? ', rev ' + c.lastRenovated : ''}</span> <span class="rating-badge kids" title="Kids">🧒${c.kidsScore || '?'}</span> <span class="rating-badge ship" title="Ship">🚢${c.shipScore || '?'}</span> ${diningBadgesHtml}</div>
+                        <div class="deal-ship-name">${escHtml(c.shipName)} <span class="ship-class-tag">${escHtml(c.shipClass)}</span><span class="ship-year-tag">${c.yearBuilt ? c.yearBuilt : ''}${c.lastRenovated && c.lastRenovated !== 'None' ? ', rev ' + c.lastRenovated : ''}</span> ${getAppMode() !== 'adult' ? `<span class="rating-badge kids" title="Kids">🧒${c.kidsScore || '?'}</span>` : ''} <span class="rating-badge ship" title="Ship">🚢${c.shipScore || '?'}</span> ${diningBadgesHtml}</div>
                         <div class="deal-dates">
                             <span class="date-range">&#x1F4C5; ${dateRange}</span>
                             <span class="deal-nights">${c.nights} nights</span>
@@ -1171,7 +1171,7 @@ function renderSingleCard(c, i) {
                         ${flResBadge}
 
                         ${suiteBadge(c.suiteName)}
-                        ${kidsClubBadges(c.cruiseLine, c.departureDate, c.hasKids)}
+                        ${getAppMode() !== 'adult' ? kidsClubBadges(c.cruiseLine, c.departureDate, c.hasKids) : ''}
                     </div>
                 </div>
                 <div class="deal-expand-hint">&#x25BE;</div>
