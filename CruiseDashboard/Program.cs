@@ -314,19 +314,21 @@ foreach (var shipName in ships.Keys.ToList())
 }
 
 // GET /api/stats — Dashboard summary numbers
-app.MapGet("/api/stats", async () =>
+app.MapGet("/api/stats", async (string? appMode) =>
 {
     using var conn = new SqlConnection(connectionString);
+    var modeLines = LinesForMode(appMode);
+    var lineFilter = string.Join(",", modeLines.Select(l => $"'{l}'"));
     var totalSailings = await conn.ExecuteScalarAsync<int>(
-        "SELECT COUNT(*) FROM Cruises WHERE DepartureDate >= CAST(GETDATE() AS DATE)");
+        $"SELECT COUNT(*) FROM Cruises WHERE DepartureDate >= CAST(GETDATE() AS DATE) AND CruiseLine IN ({lineFilter})");
 
-    var stats = await conn.QueryFirstOrDefaultAsync<dynamic>(@"
+    var stats = await conn.QueryFirstOrDefaultAsync<dynamic>($@"
         ;WITH LatestPrices AS (
             SELECT ph.ShipName, ph.BalconyPerDay, ph.SuitePerDay,
                    ROW_NUMBER() OVER (PARTITION BY ph.CruiseLine, ph.ShipName, ph.DepartureDate ORDER BY ph.ScrapedAt DESC) AS rn
             FROM PriceHistory ph
             INNER JOIN Cruises c ON c.CruiseLine = ph.CruiseLine AND c.ShipName = ph.ShipName AND c.DepartureDate = ph.DepartureDate
-            WHERE c.DepartureDate >= CAST(GETDATE() AS DATE)
+            WHERE c.DepartureDate >= CAST(GETDATE() AS DATE) AND c.CruiseLine IN ({lineFilter})
         )
         SELECT
             COUNT(DISTINCT ShipName) AS Ships,
@@ -336,7 +338,7 @@ app.MapGet("/api/stats", async () =>
         WHERE rn = 1");
 
     var latestScrape = await conn.ExecuteScalarAsync<DateTime?>(
-        "SELECT MAX(ScrapedAt) FROM PriceHistory");
+        $"SELECT MAX(ScrapedAt) FROM PriceHistory WHERE CruiseLine IN ({lineFilter})");
 
     // Scraper health: latest run per scraper from ScraperRuns table
     object? scraperHealth = null;

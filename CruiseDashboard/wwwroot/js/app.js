@@ -103,7 +103,7 @@ async function loadDashboard() {
         const mode = getDiningMode();
         const appMode = getAppMode();
         const [stats, cruises, ships, filterOpts, calEvts] = await Promise.all([
-            fetch('/api/stats').then(r => r.json()),
+            fetch(`/api/stats?appMode=${appMode}`).then(r => r.json()),
             fetch(`/api/cruises?mode=${mode}&appMode=${appMode}`).then(r => r.json()),
             fetch('/api/ships').then(r => r.json()),
             fetch(`/api/filter-options?appMode=${appMode}`).then(r => r.json()),
