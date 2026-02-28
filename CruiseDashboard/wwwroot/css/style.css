@@ -2809,3 +2809,52 @@ body::before {
     letter-spacing: 0.1em;
     margin-right: 4px;
 }
+
+/* ── Cruise Line Value Bonus ───────────────────────────────────────── */
+.line-bonus-section {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.line-bonus-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+.line-bonus-grid {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 6px 10px;
+    align-items: center;
+}
+
+.line-bonus-header {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+
+.line-bonus-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.line-bonus-select {
+    width: 60px;
+    padding: 2px 4px;
+    font-size: 0.75rem;
+    background: var(--surface-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}

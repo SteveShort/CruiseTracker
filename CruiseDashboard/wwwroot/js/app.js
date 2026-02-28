@@ -208,6 +208,25 @@ function initValueWeightSliders() {
         });
     });
 
+    // Cruise line value bonus dropdowns — populate -30 to +30 (step 5)
+    document.querySelectorAll('.line-bonus-select').forEach(sel => {
+        sel.innerHTML = '';
+        for (let v = -30; v <= 30; v += 5) {
+            const opt = document.createElement('option');
+            opt.value = v;
+            opt.textContent = (v > 0 ? '+' : '') + v;
+            sel.appendChild(opt);
+        }
+        // Restore from localStorage
+        const saved = localStorage.getItem('bonus_' + sel.id);
+        if (saved !== null) sel.value = saved;
+        else sel.value = '0';
+        sel.addEventListener('change', () => {
+            localStorage.setItem('bonus_' + sel.id, sel.value);
+            applyDashboardFilters();
+        });
+    });
+
     // Dining mode toggle - re-fetch data from API with mode parameter
     const modeToggle = document.getElementById('diningModeToggle');
     if (modeToggle) {
@@ -795,10 +814,13 @@ function computeValueStars(cruises) {
         const price = effectivePpd(c) || maxPrice;
         let priceScore = 100 * (1 - (price - minPrice) / priceRange);
 
-        // Disney bonus: +15 to price score so they aren't penalized for premium pricing
-        // Disabled in suite mode — Disney has no suite dining tier, so the bonus would inflate rankings unfairly
-        if (c.cruiseLine === 'Disney' && mode !== 'suite') {
-            priceScore = Math.min(100, priceScore + 15);
+        // Configurable per-line value bonus
+        const bonusSuffix = (mode === 'suite') ? 'Suite' : 'Main';
+        const lineName = c.cruiseLine;
+        const bonusEl = document.getElementById('bonus' + lineName + bonusSuffix);
+        const lineBonus = bonusEl ? parseInt(bonusEl.value) || 0 : 0;
+        if (lineBonus !== 0) {
+            priceScore = Math.max(0, Math.min(100, priceScore + lineBonus));
         }
 
         // Weighted score
