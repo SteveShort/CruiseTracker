@@ -2858,3 +2858,40 @@ body::before {
     cursor: pointer;
     text-align: center;
 }
+
+/* ── App Mode Toggle (Family / Adults) ── */
+.app-mode-toggle {
+    display: flex;
+    gap: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+}
+
+.app-mode-btn {
+    padding: 6px 16px;
+    border: none;
+    background: var(--card-bg);
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: .9rem;
+    font-weight: 500;
+    transition: all .2s;
+    white-space: nowrap;
+}
+
+.app-mode-btn:hover {
+    background: rgba(255, 255, 255, .08);
+}
+
+.app-mode-btn.active[data-appmode="family"] {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    color: #fff;
+    font-weight: 600;
+}
+
+.app-mode-btn.active[data-appmode="adult"] {
+    background: linear-gradient(135deg, #d97706, #b45309);
+    color: #fff;
+    font-weight: 600;
+}

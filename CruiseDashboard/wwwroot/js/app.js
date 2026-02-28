@@ -15,6 +15,7 @@ let calViewMonth = new Date().getMonth();
 
 // ?"??"? Init ?"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"??"?
 document.addEventListener('DOMContentLoaded', () => {
+    initAppModeToggle();
     initTabs();
     initDashboardFilters();
     initCruiseFilters();
@@ -24,6 +25,42 @@ document.addEventListener('DOMContentLoaded', () => {
     initInfoModal();
     loadDashboard();
 });
+
+// ================================================================
+//  APP MODE (Family / Adults)
+// ================================================================
+
+function getAppMode() {
+    return document.querySelector('.app-mode-btn.active')?.dataset.appmode || 'family';
+}
+
+function initAppModeToggle() {
+    const toggle = document.getElementById('appModeToggle');
+    if (!toggle) return;
+    // Restore saved mode from server
+    fetch('/api/settings').then(r => r.json()).then(s => {
+        if (s.appMode && s.appMode !== getAppMode()) {
+            toggle.querySelectorAll('.app-mode-btn').forEach(b => b.classList.remove('active'));
+            const target = toggle.querySelector(`[data-appmode="${s.appMode}"]`);
+            if (target) target.classList.add('active');
+            loadDashboard(); // reload with correct mode
+        }
+    }).catch(() => { });
+    toggle.querySelectorAll('.app-mode-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (btn.classList.contains('active')) return;
+            toggle.querySelectorAll('.app-mode-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            // Save mode
+            fetch('/api/settings', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ appMode: btn.dataset.appmode })
+            }).catch(() => { });
+            loadDashboard(); // full reload with new mode
+        });
+    });
+}
 
 // ================================================================
 //  MODALS & INFO
@@ -64,11 +101,12 @@ function initTabs() {
 async function loadDashboard() {
     try {
         const mode = getDiningMode();
+        const appMode = getAppMode();
         const [stats, cruises, ships, filterOpts, calEvts] = await Promise.all([
             fetch('/api/stats').then(r => r.json()),
-            fetch('/api/cruises?mode=' + mode).then(r => r.json()),
+            fetch(`/api/cruises?mode=${mode}&appMode=${appMode}`).then(r => r.json()),
             fetch('/api/ships').then(r => r.json()),
-            fetch('/api/filter-options').then(r => r.json()),
+            fetch(`/api/filter-options?appMode=${appMode}`).then(r => r.json()),
             fetch('/api/calendar-events').then(r => r.json()),
         ]);
 
