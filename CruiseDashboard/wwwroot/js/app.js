@@ -43,6 +43,7 @@ function initAppModeToggle() {
             toggle.querySelectorAll('.app-mode-btn').forEach(b => b.classList.remove('active'));
             const target = toggle.querySelector(`[data-appmode="${s.appMode}"]`);
             if (target) target.classList.add('active');
+            updateModeUI();
             loadDashboard(); // reload with correct mode
         }
     }).catch(() => { });
@@ -57,9 +58,24 @@ function initAppModeToggle() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ appMode: btn.dataset.appmode })
             }).catch(() => { });
+            updateModeUI();
             loadDashboard(); // full reload with new mode
         });
     });
+    updateModeUI();
+}
+
+// Adjust UI elements based on app mode (hide family-specific filters in adult mode)
+function updateModeUI() {
+    const isAdult = getAppMode() === 'adult';
+    const kidsToggle = document.getElementById('dashFilterKidsOnly');
+    if (kidsToggle) {
+        if (isAdult) kidsToggle.checked = false;
+        kidsToggle.closest('label')?.style.setProperty('display', isAdult ? 'none' : '');
+    }
+    // Update calendar tab label
+    const calTab = document.querySelector('[data-tab="calendar"]');
+    if (calTab) calTab.innerHTML = isAdult ? '📅 Calendar' : '📅 Family Calendar';
 }
 
 // ================================================================

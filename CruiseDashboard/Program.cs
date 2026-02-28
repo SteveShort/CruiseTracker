@@ -258,6 +258,32 @@ var ships = new Dictionary<string, ShipInfo>(StringComparer.OrdinalIgnoreCase)
         "None", "Oceania Suite", 2.5m,
         "Pool, terrace", "Allura-class; planned 2027 debut",
         0, 85, 92, 92, 95, 0m),
+
+    // REGENT SEVEN SEAS (ultra-luxury, all-suite, all-inclusive)        SuiteName    Mult KidsR ShipR  MainDin PkgDin SuiteDin PkgCost
+    ["Seven Seas Explorer"] = new("adult", "Regent", "Seven Seas Explorer", "Explorer", 2016, "None", 55254, 750, false,
+        "None", "Regent Suite", 4.0m,
+        "Pool, spa", "All-suite, all-inclusive ultra-luxury; 375 suites",
+        0, 92, 95, 95, 97, 0m),
+    ["Seven Seas Splendor"] = new("adult", "Regent", "Seven Seas Splendor", "Explorer", 2020, "None", 55254, 750, false,
+        "None", "Regent Suite", 4.0m,
+        "Pool, spa", "Sister to Explorer; all-suite, all-inclusive",
+        0, 93, 95, 95, 97, 0m),
+    ["Seven Seas Grandeur"] = new("adult", "Regent", "Seven Seas Grandeur", "Explorer", 2023, "None", 55254, 750, false,
+        "None", "Regent Suite", 4.0m,
+        "Pool, spa", "Newest Explorer-class; all-suite ultra-luxury",
+        0, 94, 96, 96, 98, 0m),
+    ["Seven Seas Mariner"] = new("adult", "Regent", "Seven Seas Mariner", "Mariner", 2001, "2020", 48075, 700, false,
+        "None", "Master Suite", 3.5m,
+        "Pool, spa", "First all-suite, all-balcony cruise ship; world voyages",
+        0, 86, 92, 92, 95, 0m),
+    ["Seven Seas Navigator"] = new("adult", "Regent", "Seven Seas Navigator", "Navigator", 1999, "2020", 33000, 490, false,
+        "None", "Master Suite", 3.5m,
+        "Pool, spa", "Intimate luxury; 245 suites; world voyages",
+        0, 82, 90, 90, 93, 0m),
+    ["Seven Seas Prestige"] = new("adult", "Regent", "Seven Seas Prestige", "Explorer", 2026, "None", 55254, 750, false,
+        "None", "Regent Suite", 4.0m,
+        "Pool, spa", "Explorer-class; planned 2026 debut; all-suite",
+        0, 94, 96, 96, 98, 0m),
 };
 
 ShipInfo? LookupShip(string name)
