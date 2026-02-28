@@ -139,7 +139,10 @@ async function loadDashboard() {
         // Ship Reference tab multi-selects
         populateCheckboxDropdown('filterShipLinePanel', filterOpts.lines, 'Lines');
 
-        initCheckboxDropdowns();
+        if (!window._checkboxDropdownsInitialized) {
+            initCheckboxDropdowns();
+            window._checkboxDropdownsInitialized = true;
+        }
         // Wire up nights panel checkboxes
         document.querySelectorAll('#dashFilterNightsPanel input').forEach(cb => {
             cb.addEventListener('change', () => {
@@ -290,7 +293,8 @@ function initValueWeightSliders() {
                 const mode = btn.dataset.mode;
                 // Re-fetch cruises with mode parameter for server-side filtering
                 try {
-                    const cruises = await fetch('/api/cruises?mode=' + mode).then(r => r.json());
+                    const appMode = getAppMode();
+                    const cruises = await fetch(`/api/cruises?mode=${mode}&appMode=${appMode}`).then(r => r.json());
                     allCruises = cruises;
                 } catch (err) {
                     console.error('Failed to re-fetch cruises:', err);
