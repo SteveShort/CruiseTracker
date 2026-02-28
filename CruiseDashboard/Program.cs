@@ -674,6 +674,37 @@ app.MapPut("/api/calendar-events/{id}", (string id, CalendarEvent evt) =>
     return Results.Ok(calendarEvents[idx]);
 });
 
+// ── Settings persistence (JSON file) ──────────────────────────────────
+var settingsPath = Path.Combine(env.ContentRootPath, "dashboard-settings.json");
+
+Dictionary<string, object> LoadSettings()
+{
+    if (!File.Exists(settingsPath)) return new Dictionary<string, object>();
+    var json = File.ReadAllText(settingsPath);
+    return System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, object>>(json)
+        ?? new Dictionary<string, object>();
+}
+
+void SaveSettings(Dictionary<string, object> settings)
+{
+    var json = System.Text.Json.JsonSerializer.Serialize(settings,
+        new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
+    File.WriteAllText(settingsPath, json);
+}
+
+app.MapGet("/api/settings", () => Results.Ok(LoadSettings()));
+
+app.MapPost("/api/settings", async (HttpRequest request) =>
+{
+    var body = await System.Text.Json.JsonSerializer.DeserializeAsync<Dictionary<string, object>>(request.Body);
+    if (body == null) return Results.BadRequest();
+    var settings = LoadSettings();
+    foreach (var kvp in body)
+        settings[kvp.Key] = kvp.Value;
+    SaveSettings(settings);
+    return Results.Ok(settings);
+});
+
 app.Run();
 
 // ── Records ─────────────────────────────────────────────────────────────

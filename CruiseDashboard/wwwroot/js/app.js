@@ -217,15 +217,14 @@ function initValueWeightSliders() {
             opt.textContent = (v > 0 ? '+' : '') + v;
             sel.appendChild(opt);
         }
-        // Restore from localStorage
-        const saved = localStorage.getItem('bonus_' + sel.id);
-        if (saved !== null) sel.value = saved;
-        else sel.value = '0';
+        sel.value = '0';
         sel.addEventListener('change', () => {
-            localStorage.setItem('bonus_' + sel.id, sel.value);
+            saveLineBonuses();
             applyDashboardFilters();
         });
     });
+    // Load saved bonuses from server
+    loadLineBonuses();
 
     // Dining mode toggle - re-fetch data from API with mode parameter
     const modeToggle = document.getElementById('diningModeToggle');
@@ -960,6 +959,35 @@ function buildBookingUrl(c) {
         return 'https://disneycruise.disney.go.com/cruises-destinations/list/';
     }
     return null;
+}
+
+async function loadLineBonuses() {
+    try {
+        const resp = await fetch('/api/settings');
+        if (!resp.ok) return;
+        const settings = await resp.json();
+        document.querySelectorAll('.line-bonus-select').forEach(sel => {
+            if (settings[sel.id] !== undefined) sel.value = settings[sel.id];
+        });
+    } catch { /* ignore */ }
+}
+
+let _bonusSaveTimer;
+function saveLineBonuses() {
+    clearTimeout(_bonusSaveTimer);
+    _bonusSaveTimer = setTimeout(async () => {
+        const data = {};
+        document.querySelectorAll('.line-bonus-select').forEach(sel => {
+            data[sel.id] = parseInt(sel.value) || 0;
+        });
+        try {
+            await fetch('/api/settings', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+        } catch { /* ignore */ }
+    }, 300);
 }
 function renderSingleCard(c, i) {
     const depDate = new Date(c.departureDate + 'T00:00:00');
