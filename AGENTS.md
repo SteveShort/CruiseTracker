@@ -1,27 +1,43 @@
 # Cruise Tracker — AI Project Brief
 
 ## What This App Does
-A family cruise planning dashboard that scrapes pricing from NCL, Celebrity, and Disney cruise lines, stores historical prices, and renders a filterable dashboard for comparing cruise deals. The goal is finding the best family cruise value across all three lines, factoring in kids programs, ship quality, dining, and price.
+A family cruise planning dashboard that scrapes pricing from NCL, Celebrity, and Disney cruise lines, stores historical prices in SQL Server, and renders a filterable dashboard for comparing cruise deals. The goal is finding the best family cruise value across all three lines, factoring in kids programs, ship quality, dining, and price. Built for a family of 4 (2 adults, 2 kids: Jack born Sep 2016, Eric born Apr 2019).
 
-## Architecture
+## Architecture Overview
 
 ```
-c:\Dev\Cruise Tracker\
-├── CruiseDashboard\          ← ASP.NET 8 Minimal API + static frontend
-│   ├── Program.cs            ← API endpoints, ship data, SQL queries
-│   ├── wwwroot\
-│   │   ├── js\app.js         ← All dashboard JS (filters, cards, charts, value scoring)
-│   │   ├── css\style.css     ← Dark theme CSS
-│   │   └── index.html        ← Single-page app
-│   ├── Deploy.ps1            ← Deployment script (used by scheduled task)
-│   └── CruiseDashboard.Tests\
-│       └── DashboardTests.cs ← Playwright-based NUnit integration tests
-├── scraper\
-│   ├── ncl-scraper.js        ← NCL pricing via internal JSON APIs
-│   ├── disney-scraper.js     ← Disney pricing via API
-│   ├── disney-fl-scraper.js  ← Disney FL resident pricing
-│   └── celebrity-scraper.js  ← Celebrity pricing via GraphQL
-└── RunScraper.ps1            ← Nightly scraper orchestration
+c:\Dev\Cruise Tracker\                  ← single git repo
+├── AGENTS.md                           ← this file
+├── .gitignore
+├── RunScraper.ps1                      ← nightly scraper orchestration
+├── RegisterTask.ps1                    ← registers Windows scheduled task
+├── CruiseDealTracker.linq              ← LINQPad exploration script
+│
+├── CruiseDashboard\                    ← ASP.NET 8 Minimal API + static frontend
+│   ├── Program.cs                      ← API endpoints, ship data, restaurants (726 lines)
+│   ├── CruiseDashboard.csproj
+│   ├── Deploy.ps1                      ← deployment script (used by scheduled task)
+│   ├── RegisterDeploy.ps1              ← registers deploy scheduled task
+│   ├── setup-iis.ps1                   ← IIS site configuration
+│   ├── calendar-events.json            ← persisted family calendar data
+│   ├── dashboard-settings.json         ← persisted UI settings (value bonuses etc)
+│   ├── .agent/workflows/deploy.md      ← AI deploy workflow
+│   ├── wwwroot/
+│   │   ├── js/app.js                   ← all dashboard JS logic (2181 lines)
+│   │   ├── css/style.css               ← dark theme CSS (2860 lines)
+│   │   ├── index.html                  ← single-page app (520 lines)
+│   │   └── img/                        ← cruise line SVG logos
+│   └── CruiseDashboard.Tests/
+│       └── DashboardTests.cs           ← 11 Playwright NUnit integration tests
+│
+└── scraper\
+    ├── ncl-scraper.js                  ← NCL pricing via REST API (437 lines)
+    ├── celebrity-scraper.js            ← Celebrity pricing via GraphQL (419 lines)
+    ├── disney-scraper.js               ← Disney standard pricing via API (442 lines)
+    ├── disney-fl-scraper.js            ← Disney FL resident pricing (534 lines)
+    ├── config.json                     ← scraper configuration
+    ├── package.json                    ← Node.js dependencies
+    └── logs/                           ← scraper log files (gitignored)
 ```
 
 ## Critical Environment Details
@@ -32,6 +48,7 @@ c:\Dev\Cruise Tracker\
 | **IIS Site** | CruiseDashboard on port 5050 |
 | **SQL Server** | `STEVEOFFICEPC\ORACLE2SQL`, Database: `CruiseTracker` |
 | **SQL Auth** | Windows Integrated (Trusted_Connection) |
+| **Connection String** | `Driver={ODBC Driver 17 for SQL Server};Server=STEVEOFFICEPC\\ORACLE2SQL;Database=CruiseTracker;Trusted_Connection=Yes;` |
 | **Test command** | `dotnet test` from `CruiseDashboard\CruiseDashboard.Tests` |
 | **Git** | Single repo at `c:\Dev\Cruise Tracker` (no submodules) |
 
@@ -44,56 +61,351 @@ c:\Dev\Cruise Tracker\
 schtasks /Run /TN "CruiseDashboardDeploy"
 ```
 
-The task runs `Deploy.ps1` which: builds → stops IIS site → kills w3wp → swaps publish folder → restarts IIS.
+The task runs `Deploy.ps1` which: builds to temp dir → stops IIS site → kills w3wp → swaps publish folder → restarts IIS.
 
 **Monitor deploy status:**
 ```powershell
-# Write status file before triggering
 Set-Content c:\temp\cruise-deploy-status.txt "PENDING"
 schtasks /Run /TN "CruiseDashboardDeploy"
-# Wait and check
 Start-Sleep 25; Get-Content c:\temp\cruise-deploy-status.txt
 ```
 
 ## Cache Busting
-The `index.html` references `app.js` with a version query string:
+`index.html` references `app.js` with a version query string:
 ```html
-<script src="js/app.js?v=20260227j"></script>
+<script src="js/app.js?v=20260227L"></script>
 ```
-**Bump this version** whenever you modify `app.js` so browsers don't serve stale JS.
+**Bump this version** whenever you modify `app.js` or `style.css` so browsers don't serve stale files.
 
-## Key Conventions
+---
 
-### Frontend (app.js)
-- `getDiningMode()` returns `'main'`, `'package'`, or `'suite'` — controls which prices display
-- `computeValueStars()` scores cruises 0-100 using weighted kids/ship/dining/price components
-- `effectivePpd(c)` returns the price-per-day for the current mode
-- `applyDashboardFilters()` is the main re-render function — call after any filter/mode change
-- `renderSingleCard()` builds card HTML — one card per cruise sailing
-- Cards are clickable to expand (shows price chart, dining reports, mini calendar)
+## API Endpoints (Program.cs)
 
-### Backend (Program.cs)
-- Ship data is hardcoded in a `Dictionary<string, ShipInfo>` — add new ships here
-- `/api/cruises` — main endpoint, returns all non-departed cruises with latest prices
-- `/api/price-history/{line}/{ship}/{date}` — historical price data for charts
-- Suite mode filter (`?mode=suite`) excludes cruises without suite pricing server-side
+All endpoints defined in `CruiseDashboard/Program.cs` using ASP.NET Minimal API pattern.
 
-### Database Tables
-- `Cruises` — one row per sailing (CruiseLine + ShipName + DepartureDate = PK)
-- `PriceHistory` — price snapshots over time (new row each scraper run)
-- `ScraperRuns` — scraper execution log
+### Data Endpoints
+| Method | Path | Description | Lines |
+|--------|------|-------------|-------|
+| GET | `/api/stats` | Dashboard summary: total sailings, cheapest PPD, ship count, scraper health | 278-337 |
+| GET | `/api/filter-options` | Distinct cruise lines, ship names, and ports for dropdowns | 340-351 |
+| GET | `/api/cruises` | Main data endpoint — all future cruises with latest prices + ship info. Params: `line`, `ship`, `port`, `sortBy`, `sortDir`, `mode` | 353-448 |
+| GET | `/api/deals` | Cruises below alert thresholds (Disney: $300 balcony/$500 suite, NCL: $150/$250) | 561-622 |
+| GET | `/api/price-history/{line}/{ship}/{date}` | Historical price snapshots for a specific sailing | 524-555 |
+| GET | `/api/ships` | Full fleet reference — all ships sorted by line then year | 556-558 |
+| GET | `/api/restaurants/{shipName}` | Restaurant data for a specific ship | 476-481 |
 
-### Scrapers
-- All scrapers use `mssql/msnodesqlv8` with Windows auth
-- NCL scraper stores `ItineraryCode` for deep booking links
-- Run individual scraper: `node ncl-scraper.js` (optionally `--ship "Norwegian Aqua"`)
-- Run all: `powershell RunScraper.ps1`
+### Mutation Endpoints
+| Method | Path | Description | Lines |
+|--------|------|-------------|-------|
+| PUT | `/api/ship-rating/{shipName}` | Update kids/ship/dining scores for a ship (in-memory) | 451-475 |
+| PUT | `/api/restaurants/{id}` | Update a restaurant score/reason (DB + memory cache + recalc) | 483-521 |
+
+### Calendar Endpoints
+| Method | Path | Description | Lines |
+|--------|------|-------------|-------|
+| GET | `/api/calendar-events` | Fetch all family calendar events | 633-634 |
+| POST | `/api/calendar-events` | Create a new calendar event | 636-642 |
+| PUT | `/api/calendar-events/{id}` | Update an existing event | 668-675 |
+| DELETE | `/api/calendar-events/{id}` | Delete an event | 660-666 |
+
+### Settings Endpoints
+| Method | Path | Description | Lines |
+|--------|------|-------------|-------|
+| GET | `/api/settings` | Read dashboard settings (line bonuses, etc.) | 695 |
+| POST | `/api/settings` | Merge-update settings (partial updates supported) | 697-706 |
+
+### Records (Data Types) — Lines 711-725
+- `ShipInfo` — Line, Name, Class, Year, Tonnage, Capacity, Kids programs, Suite tiers, Dining scores, etc.
+- `RatingUpdate` — KidsScore, ShipScore, MainDiningScore, PackageDiningScore, SuiteDiningScore
+- `CalendarEvent` — Id, StartDate, EndDate, Type, Title
+- `RestaurantData` — Id, ShipName, Name, Type, Cuisine, Score, Why
+
+### Ship Reference Data — Lines 19-222
+25+ ships hardcoded in a `Dictionary<string, ShipInfo>`. Each entry has: cruise line, ship class, year built, last renovated, gross tonnage, passenger capacity, has kids programs, kids club description, suite tier name, suite multiplier, water features, notes, and 6 numeric scores (Kids, Ship, MainDining, PackageDining, SuiteDining, DiningPackageCostPerDay).
+
+Ships are grouped by line: **Disney** (Magic, Fantasy, Dream, Wish, Treasure, Destiny), **Norwegian** (Prima, Aqua, Aura, Bliss, Encore, Escape, Getaway, Breakaway, Joy, Jade, Sun, Sky), **Celebrity** (Edge, Apex, Beyond, Ascent, Xcel, Eclipse, Equinox, Solstice, Reflection, Silhouette, Constellation, Millennium, Seeker, Compass, Wanderer, Roamer, Boundless).
+
+### Restaurant System
+- Restaurants loaded from `Restaurants` SQL table at startup into `allRestaurants` dictionary
+- Automatically computes per-ship dining scores from restaurant data
+- When a restaurant score is updated via PUT, the dining scores are recalculated in memory
+
+---
+
+## Frontend (app.js) — Function Catalog
+
+### Initialization & Loading (Lines 1-149)
+| Function | Line | Purpose |
+|----------|------|---------|
+| `DOMContentLoaded` handler | 5-30 | Calls all init functions on page load |
+| `initInfoModal()` | 32-43 | Sets up the "How is Value calculated?" info modal |
+| `initTabs()` | 49-58 | Tab switching (Dashboard, All Cruises, Ship Reference, Calendar) |
+| `loadDashboard()` | 64-149 | Fetches `/api/stats`, `/api/cruises`, `/api/filter-options`, `/api/ships`, populates everything |
+
+### Dashboard Filters (Lines 168-606)
+| Function | Line | Purpose |
+|----------|------|---------|
+| `initDashboardFilters()` | 168-190 | Wire up filter change handlers |
+| `initValueWeightSliders()` | 192-255 | Initialize weight sliders + line bonus dropdowns + localStorage restore |
+| `getDiningMode()` | 257-260 | Returns `'main'`, `'package'`, or `'suite'` from toggle state |
+| `hasValidPrice(c)` | 262-266 | Check if cruise has valid price for current mode |
+| `clearAllFilters()` | 373-428 | Reset all filter controls to defaults |
+| `cruiseLineIcon(line)` | 430-438 | Returns emoji icon for cruise line |
+| `populateCheckboxDropdown()` | 440-453 | Build checkbox list inside dropdown panel |
+| `updateDropdownLabel()` | 455-467 | Update dropdown button text based on selections |
+| `getCheckedValues()` | 469-472 | Get array of checked values from dropdown |
+| `initCheckboxDropdowns()` | 474-492 | Set up click-outside-to-close for dropdowns |
+| `initMonthPicker()` | 500-559 | Month range picker with drag-to-select |
+| `renderMonthPickerState()` | 561-581 | Render month grid highlighting |
+| `updateMonthPickerLabel()` | 583-606 | Update month picker button text |
+| `applyDashboardFilters()` | 608-753 | **Main re-render function** — filters, sorts, computes values, renders cards |
+| `updateFilteredStats()` | 755-765 | Update "showing X of Y" counter |
+
+### Kids Club System (Lines 267-328)
+| Function | Line | Purpose |
+|----------|------|---------|
+| `OUR_KIDS` constant | 268-271 | Array with Jack (Sep 2016) and Eric (Apr 2019) birthdays |
+| `ageOnDate(birthday, date)` | 274-279 | Calculate age on a specific date |
+| `kidsClubAssignment()` | 281-321 | Determine which kids club each child goes to per cruise line |
+| `kidsClubBadges()` | 323-328 | Render HTML badges showing kids club placement |
+
+### Dining Score System (Lines 330-371)
+| Function | Line | Purpose |
+|----------|------|---------|
+| `getDynamicDiningScore(c, mode)` | 330-371 | Returns dining score based on mode (main/package/suite) using ship data |
+
+### Value Scoring (Lines 770-857)
+| Function | Line | Purpose |
+|----------|------|---------|
+| `computeValueStars(cruises)` | 771-843 | **Core value algorithm** — weighted score from kids/ship/dining/price with configurable per-line bonuses |
+| `effectivePpd(c)` [nested] | 781-790 | Get effective price-per-day for current mode |
+| `renderStars(rating)` | 845-857 | Render star rating HTML (0.5-5.0 stars) |
+
+### Card Rendering (Lines 862-1196)
+| Function | Line | Purpose |
+|----------|------|---------|
+| `fmtPpd(val)` | 863-866 | Format price-per-day as `$XXX` |
+| `fmtTotal(val)` | 868-871 | Format total price as `$X,XXX` |
+| `renderDashboardCards(cruises)` | 877-891 | Paginated card rendering (25 per page) |
+| `appendShowMoreButton()` | 893-920 | "Show More" pagination button |
+| `buildBookingUrl(c)` | 941-962 | Build cruise line booking URL (NCL deep link, Celebrity/Disney search) |
+| `loadLineBonuses()` | 964-973 | Fetch saved bonuses from `GET /api/settings` |
+| `saveLineBonuses()` | 976-991 | Debounced save to `POST /api/settings` |
+| `renderSingleCard(c, i)` | 992-1123 | **Full card HTML** — price display, kids badges, value stars, booking link |
+| `toggleDealExpand(cardId)` | 1125-1196 | Expand/collapse card — loads price chart + dining reports + mini calendar |
+
+### Price Charts (Lines 1198-1254)
+| Function | Line | Purpose |
+|----------|------|---------|
+| `loadInlineChart()` | 1198-1246 | Fetch price history and render Chart.js line chart |
+| `toggleChartDataset()` | 1248-1254 | Toggle balcony/suite dataset visibility |
+
+### Dining Reports (Lines 1259-1425)
+| Function | Line | Purpose |
+|----------|------|---------|
+| `loadDiningReportsHtml()` | 1260-1389 | Fetch restaurants and build accordion sections |
+| `renderRestaurantGroup()` | 1391-1410 | Render grouped restaurant cards |
+| `getScoreColorStyle()` | 1412-1425 | Color-code restaurant scores (green/yellow/red) |
+
+### Mini Calendar (Lines 1430-1484)
+| Function | Line | Purpose |
+|----------|------|---------|
+| `generateMiniCalendar()` | 1431-1444 | Generate calendar HTML for cruise departure/return range |
+| `renderMiniMonth()` | 1446-1484 | Render one month grid with highlighted cruise dates |
+
+### All Cruises Table (Lines 1489-1621)
+| Function | Line | Purpose |
+|----------|------|---------|
+| `initCruiseFilters()` | 1490-1502 | Table-specific filter handlers |
+| `applyFilters()` | 1504-1540 | Filter and re-render the cruises table |
+| `initTableSort()` | 1542-1557 | Column header sort click handlers |
+| `renderCruises(cruises)` | 1559-1611 | Render HTML table rows for all cruises |
+| `priceClass(ppd, line, type)` | 1613-1621 | CSS class for price cell coloring |
+
+### Ship Reference (Lines 1626-1802)
+| Function | Line | Purpose |
+|----------|------|---------|
+| `applyShipFilters()` | 1627-1634 | Filter ship cards by line and suite level |
+| `loadDiningDetails()` | 1637-1655 | Fetch and cache restaurant data for a ship |
+| `autoResizeTextarea()` | 1657-1660 | Auto-resize textarea for dining notes |
+| `renderDiningDetails()` | 1662-1692 | Render editable restaurant score cards |
+| `renderShips(ships)` | 1694-1748 | Render ship reference cards with editable scores |
+| `updateShipRating()` | 1750-1775 | Save ship rating change via `PUT /api/ship-rating` |
+| `updateRestaurantScore()` | 1777-1802 | Save restaurant score change via `PUT /api/restaurants` |
+
+### Price History Modal (Lines 1807-1892)
+| Function | Line | Purpose |
+|----------|------|---------|
+| `initModal()` | 1808-1825 | Initialize price history popup modal |
+| `closeModal()` | 1827-1830 | Close modal |
+| `showPriceHistory()` | 1832-1892 | Fetch and chart price history in modal |
+
+### Booking URLs (Lines 921-962)
+| Constant | Line | Purpose |
+|----------|------|---------|
+| `NCL_SHIP_CODES` | 922-932 | Ship name → NCL URL code mapping |
+| `NCL_PORT_CODES` | 933-939 | Port name → NCL URL code mapping |
+| `buildBookingUrl(c)` | 941-962 | Returns deep link URL per cruise line |
+
+### Family Calendar (Lines 1952-2181)
+| Function | Line | Purpose |
+|----------|------|---------|
+| `initCalendar()` | 1953-1976 | Calendar tab initialization with month navigation |
+| `renderCalendar()` | 1978-2038 | Render month grid with event markers |
+| `calStartAdd(dateStr)` | 2040-2047 | Open add-event popup for a date |
+| `openCalPopup()` | 2049-2086 | Open event editing popup |
+| `closeCalPopup()` | 2088-2090 | Close popup |
+| `updateCalendarEvent()` | 2092-2111 | Save event via `PUT /api/calendar-events` |
+| `renderEventList()` | 2113-2148 | Render sidebar event list |
+| `saveCalendarEvent()` | 2150-2170 | Create event via `POST /api/calendar-events` |
+| `deleteCalendarEvent()` | 2172-2180 | Delete event via `DELETE /api/calendar-events` |
+
+### Helpers (Lines 1897-1944)
+| Function | Line | Purpose |
+|----------|------|---------|
+| `suiteBadge(name)` | 1898-1902 | Render suite tier badge |
+| `formatShortDate(d)` | 1904-1906 | Format as "Mar 15" |
+| `formatDateStr(dateStr)` | 1908-1912 | Parse ISO date string to formatted date |
+| `formatDate(d)` | 1914-1916 | Format Date object |
+| `formatTime(d)` | 1918-1920 | Format time portion |
+| `truncate(str, len)` | 1922-1925 | Truncate string with ellipsis |
+| `escHtml(str)` | 1927-1932 | Escape HTML entities |
+| `escAttr(str)` | 1934-1936 | Escape attribute entities |
+| `debounce(fn, ms)` | 1938-1944 | Debounce function calls |
+
+---
+
+## HTML Structure (index.html) — 4 Tabs
+
+### Header (Lines 17-29)
+- App title, last scrape time, scraper health indicator, total sailing count
+
+### Navigation Tabs (Lines 32-45)
+1. **📊 Dashboard** (`tab-dashboard`) — main view
+2. **🗓️ All Cruises** (`tab-cruises`) — table view
+3. **🚢 Ship Reference** (`tab-ships`) — fleet data
+4. **📅 Family Calendar** (`tab-calendar`) — event calendar
+
+### Dashboard Tab (Lines 47-298)
+- **Stats Grid** (Lines 49-72): 4 stat cards — Total Sailings, Ships, Best Balcony PPD, Best Suite PPD
+- **Filters Bar** (Lines 73-196): Cruise Line, Ship, Port, Nights (checkbox dropdowns), Max PPD slider, Max Total slider, Month range picker, Suite Level, Kids-only toggle, Ship-within-ship toggle, Transatlantic toggle
+- **Dining Mode Toggle** (Lines 198-210): Main / 📦 Package / 👑 Suite buttons
+- **Value Weights** (Lines 211-243): Collapsible panel with Kids/Ship/Dining/Price sliders (0-100)
+- **Deals Container** (Lines 280-298): Paginated cruise cards
+
+### All Cruises Tab (Lines 299-388)
+- Filter bar with Line/Ship/Port selects
+- Sortable table with all pricing columns
+
+### Ship Reference Tab (Lines 390-454)
+- Filter bar with Line dropdown and Suite Level filter
+- **Line Bonus Section** (Lines 412-444): Per-line value bonus dropdowns (Norwegian, Celebrity, Disney × Main/Suite, -30 to +30)
+- Ships grid with editable score cards
+
+### Calendar Tab (Lines 456-513)
+- Month navigation (prev/next/today)
+- Color-coded event legend (Amy's Work, Steve's Work, Kids Off, Family Plans)
+- Calendar grid with clickable day cells
+- Event list sidebar
+- Add/edit event popup
+
+---
+
+## Database (SQL Server: CruiseTracker)
+
+### Tables
+| Table | Purpose | Key Columns |
+|-------|---------|-------------|
+| `Cruises` | One row per sailing | CruiseLine, ShipName, DepartureDate (PK), Itinerary, ItineraryCode, Nights, DeparturePort, Ports, IsDeparted |
+| `PriceHistory` | Price snapshots per scraper run | CruiseLine, ShipName, DepartureDate, ScrapedAt, InsidePrice/PerDay, OceanviewPrice/PerDay, BalconyPrice/PerDay, SuitePrice/PerDay, HavenPrice/PerDay, FLResBalconyPrice/PerDay, FLResSuitePrice/PerDay |
+| `ScraperRuns` | Scraper execution log | ScraperName, StartedAt, CompletedAt, SailingsFound, SailingsUpdated, Status, Errors |
+| `Restaurants` | Restaurant data per ship | Id, ShipName, Name, Type (Included/Specialty/Suite), Cuisine, Score (0-100), Why |
+
+### File-Based Storage
+| File | Purpose | Read By |
+|------|---------|---------|
+| `calendar-events.json` | Family calendar events | Program.cs `/api/calendar-events` |
+| `dashboard-settings.json` | UI settings (line bonuses) | Program.cs `/api/settings` |
+| `scraper/*.json` | Scraper output snapshots | Scrapers (gitignored, not authoritative — DB is the source) |
+
+---
+
+## Scrapers
+
+All scrapers are Node.js scripts using `mssql/msnodesqlv8` for SQL Server with Windows auth. Each follows the same pattern: fetch data → parse → upsert to DB → record run in ScraperRuns.
+
+### NCL Scraper (`ncl-scraper.js`, 437 lines)
+- **API**: REST — `ncl.com/api/v2/vacations/search` (discovery) + `/api/vacations/sailings/{code}` (pricing)
+- **Flow**: Discover FL-departing itineraries → fetch per-itinerary sailings → extract Inside/OV/Balcony/Suite/Haven pricing → MERGE upsert
+- **Special**: Captures `itineraryCode` for deep booking links
+- **CLI**: `node ncl-scraper.js [--ship "Norwegian Aqua"]`
+- **Key functions**: `fetchAllItineraries()` → `fetchSailings(code)` → `buildSailingRecords()` → `upsertToDatabase()`
+
+### Celebrity Scraper (`celebrity-scraper.js`, 419 lines)
+- **API**: GraphQL — `celebritycruises.com/graphql`
+- **Flow**: Paginated GraphQL cruise search → extract stateroom class pricing → MERGE upsert
+- **Key functions**: `fetchPage(skip)` → `parsePricing(stateroomClassPricing, nights)` → `upsertToDb()`
+
+### Disney Scraper (`disney-scraper.js`, 442 lines)
+- **API**: REST — `disneycruise.disney.go.com` (requires `__pa` cookie via Playwright)
+- **Flow**: Acquire cookie via headless browser → fetch products → fetch sailings per ship → parse pricing → MERGE upsert
+- **Special**: Needs Playwright for cookie acquisition (PerimeterX bot protection)
+- **Key functions**: `acquireCookie()` → `fetchFirstProduct()` → `fetchSailings()` → `parseSailingPrices()` → `upsertToDatabase()`
+
+### Disney FL Resident Scraper (`disney-fl-scraper.js`, 534 lines)
+- **API**: Same as Disney but with FL_RESIDENT affiliation
+- **Flow**: Same as Disney scraper but fetches FL resident discounted pricing
+- **Stores to**: `FLResBalconyPrice`, `FLResSuitePrice` columns in PriceHistory
+- **Key functions**: Same pattern, with `AFFILIATIONS = [{ affiliationType: 'FL_RESIDENT' }]`
+
+### Running Scrapers
+```powershell
+# Individual
+node scraper/ncl-scraper.js
+node scraper/celebrity-scraper.js
+node scraper/disney-scraper.js
+node scraper/disney-fl-scraper.js
+
+# All via orchestration script
+powershell RunScraper.ps1
+```
+
+---
+
+## Tests (DashboardTests.cs) — 11 Playwright NUnit Tests
+
+| Test | What It Validates |
+|------|-------------------|
+| `Dashboard_LoadsAndShowsSailingCount` | Sailing count stat card matches rendered card count |
+| `Dashboard_ShowsCruiseCards` | Cards render with result-count label |
+| `Dashboard_FilterReducesCardCount` | Disney filter reduces cards vs unfiltered |
+| `Dashboard_StatCardsShowRealData` | All 4 stat cards show real values, not "—" |
+| `Api_CruisesReturnsData` | `/api/cruises` returns non-empty JSON with expected fields |
+| `Api_AllCruisesHaveKnownShipData` | All cruises have recognized ship class + ratings |
+| `Api_CruisesNeverReturnsPastDepartures` | No departed cruises in API response |
+| `Api_SuiteModeExcludesNoSuiteSailings` | `mode=suite` filters out cruises without suite pricing |
+| `Api_SuiteModeReturnsFewerResults` | Suite mode returns fewer results than default |
+| `Api_DealsNeverReturnsPastDepartures` | `/api/deals` never returns past departures |
+| `Calendar_TabRendersGrid` | Calendar tab renders day cells and event list |
+
+**Run tests:**
+```powershell
+dotnet test CruiseDashboard\CruiseDashboard.Tests --logger "console;verbosity=detailed"
+```
+
+---
 
 ## Common Gotchas
-1. **Forgotten cache bust** — if JS changes don't appear, bump the `?v=` in index.html
+
+1. **Forgotten cache bust** — if JS/CSS changes don't appear, bump the `?v=` in `index.html`
 2. **IIS file locks** — always use the scheduled task deploy, never manual file copy
 3. **Suite mode** — many cruises lack suite pricing; the API filters these out in suite mode
-4. **Test failures after schema changes** — if you add/remove DB columns, the API mapping in Program.cs must match or tests will fail with 500 errors
+4. **Test failures after schema changes** — if you add/remove DB columns, the API mapping in `Program.cs` must match
 5. **Port 5050** — the dashboard runs on port 5050, not the default 5000
 6. **Price sliders** — slider ranges are fixed in HTML; reset to max when switching modes
-7. **Encoding** — app.js uses UTF-8; be careful with emoji/Unicode characters in template literals
+7. **Encoding** — `app.js` uses UTF-8; use `\u25BE` for arrow characters in template literals, not raw Unicode
+8. **Ship not found** — if a scraper finds a new ship not in the `ships` dictionary, `LookupShip()` returns null and scores degrade to defaults. Add new ships to the dictionary in `Program.cs`
+9. **Restaurant score recalc** — when updating a restaurant via `PUT /api/restaurants/{id}`, the server recalculates the ship's aggregate dining scores in memory. No restart needed
+10. **Calendar persistence** — `calendar-events.json` is in the project root, tracked by git. Don't delete it during deploys
+11. **Settings persistence** — `dashboard-settings.json` stores value bonuses server-side. Created automatically on first POST
+12. **Scraper cookies** — Disney scrapers need fresh `__pa` cookies via Playwright. If Playwright browsers aren't installed, run `npx playwright install chromium`
