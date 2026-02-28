@@ -1,0 +1,25 @@
+# Build output
+bin/
+obj/
+publish/
+publish_old/
+
+# Node
+node_modules/
+
+# IDE
+.vs/
+*.user
+*.suo
+
+# Debug / temp files
+debug-*.png
+test_output.txt
+*.trx
+
+# Scraper output (auto-generated, not source)
+scraper/verified-prices.json
+scraper/celebrity-prices.json
+scraper/disney-prices.json
+scraper/fl-resident-prices.json
+scraper/logs/
