@@ -149,7 +149,7 @@ async function fetchPage(skip, qualifiers) {
 }
 
 // -- Parse pricing from stateroom classes --
-function parsePricing(stateroomClassPricing, nights) {
+function parsePricing(stateroomClassPricing, nights, guestCount = 2) {
     const prices = {
         insidePrice: 0, insidePerDay: 0,
         oceanviewPrice: 0, oceanviewPerDay: 0,
@@ -164,8 +164,8 @@ function parsePricing(stateroomClassPricing, nights) {
         const ppPrice = cat.price?.value || 0;  // per-person price
         if (ppPrice <= 0) continue;
 
-        // Convert to 2-person total and per-day
-        const total2 = Math.round(ppPrice * 2 * 100) / 100;
+        // Convert to N-person total and per-day (2 for adult, 4 for family)
+        const total2 = Math.round(ppPrice * guestCount * 100) / 100;
         const perDay = nights > 0 ? Math.round(total2 / nights * 100) / 100 : 0;
 
         switch (classId) {
@@ -206,7 +206,7 @@ function formatShipName(raw) {
 }
 
 // -- Flatten into individual sailings with pricing --
-function flattenCruises(allCruises) {
+function flattenCruises(allCruises, guestCount = 2) {
     const results = [];
     for (const cruise of allCruises) {
         const itin = cruise.masterSailing?.itinerary;
@@ -222,7 +222,7 @@ function flattenCruises(allCruises) {
             const sailDate = sailing.sailDate;
             if (!sailDate) continue;
 
-            const prices = parsePricing(sailing.stateroomClassPricing, nights);
+            const prices = parsePricing(sailing.stateroomClassPricing, nights, guestCount);
 
             // Skip if no pricing at all
             if (prices.insidePrice === 0 && prices.balconyPrice === 0 &&
@@ -296,8 +296,8 @@ async function main() {
         console.warn('  Failed to get family prices, proceeding with only adult prices');
     }
 
-    const adultResults = flattenCruises(adultCruises);
-    const familyResults = flattenCruises(familyCruises);
+    const adultResults = flattenCruises(adultCruises, 2);
+    const familyResults = flattenCruises(familyCruises, 4);
 
     const results = adultResults.map(adult => {
         const fam = familyResults.find(f => f.shipName === adult.shipName && f.departureDate === adult.departureDate);

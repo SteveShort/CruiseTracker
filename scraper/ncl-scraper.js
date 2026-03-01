@@ -178,9 +178,9 @@ function buildSailingRecords(itinerary, pricingRooms) {
             };
         }
 
-        // Map stateroom type to price (per-person combined = includes tax)
+        // Map stateroom type to price (per-person, includes taxes/port fees but NOT Free at Sea gratuities)
         const type = room.stateroomType;
-        const price = room.combinedPrice || null;
+        const price = room.combinedPrice || null;  // = cruise fare + gov taxes + port charges
         const status = room.status;
 
         if (price && status === 'AVAILABLE') {
