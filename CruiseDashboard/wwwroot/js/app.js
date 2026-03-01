@@ -929,29 +929,37 @@ function computeValueStars(cruises) {
         return bal; // main mode
     }
 
-    // Gather effective prices for normalization
-    const prices = cruises
-        .map(c => effectivePpd(c))
-        .filter(p => p && p > 0);
-
-    if (prices.length === 0) {
-        cruises.forEach(c => { c._valueStars = 3; c._valueScore = 50; });
-        return;
-    }
-
-    const minPrice = Math.min(...prices);
-    const maxPrice = Math.max(...prices);
-    const priceRange = maxPrice - minPrice || 1;
+    // The new value algorithm uses absolute thresholds rather than dynamic maxPrice
+    // to prevent $2,000 extreme luxury suites from compressing the 0-100 scale for normal sailings.
+    const PPD_CAP = (mode === 'suite') ? 1200 : 400; // Above this, Price Score inherently decays to 0
+    const TOTAL_CAP = (mode === 'suite') ? 8400 : 2800; // Expected week vacation cost cap
 
     cruises.forEach(c => {
-        // Individual quality scores (0-100 each)
+        // 1. Individual quality scores (0-100 each)
         const kidsScore = c.kidsScore || 50;
         const shipScore = c.shipScore || 50;
         const diningScore = getDynamicDiningScore(c, mode);
 
-        // Price: lower = better -> 0-100
-        const price = effectivePpd(c) || maxPrice;
-        let priceScore = 100 * (1 - (price - minPrice) / priceRange);
+        // 2. Price Score: 75% PPD / 25% Total Cost
+        const ppdVal = effectivePpd(c) || PPD_CAP;
+
+        let totalVal = 0;
+        if (mode === 'suite') {
+            totalVal = c.suitePrice && c.suitePrice > 0 ? c.suitePrice : PPD_CAP * (c.nights || 7);
+        } else {
+            // Balcony prices are per person; multiply by 4 for family total
+            const bp = (c.balconyPrice && c.balconyPrice > 0) ? c.balconyPrice : 0;
+            totalVal = bp > 0 ? bp : PPD_CAP * (c.nights || 7);
+            if (mode === 'package') {
+                totalVal += (c.diningPackageCostPerDay || 0) * (c.nights || 7) * 4;
+            }
+        }
+
+        // Calculate mapped scores (0 to 100), clamping below 0
+        const ppdScore = Math.max(0, 100 * (1 - (ppdVal / PPD_CAP)));
+        const totalScore = Math.max(0, 100 * (1 - (totalVal / TOTAL_CAP)));
+
+        let priceScore = (ppdScore * 0.75) + (totalScore * 0.25);
 
         // Configurable per-line value bonus
         const bonusSuffix = (mode === 'suite') ? 'Suite' : 'Main';
@@ -962,8 +970,21 @@ function computeValueStars(cruises) {
             priceScore = Math.max(0, Math.min(100, priceScore + lineBonus));
         }
 
-        // Weighted score
-        const valueScore = (kidsW * kidsScore + shipW * shipScore + diningW * diningScore + priceW * priceScore) / totalW;
+        // 3. Weighted Base Score
+        let valueScore = (kidsW * kidsScore + shipW * shipScore + diningW * diningScore + priceW * priceScore) / totalW;
+
+        // 4. Vacation Sweet Spot Curve
+        // 7 nights is optimal (1.0). 3-4 nights or 12+ nights suffer slight penalties 
+        // to prevent extreme short/long sailings from dominating strictly due to PPD/Total anomalies.
+        const n = c.nights || 7;
+        let lengthMulti = 1.0;
+        if (n === 7) lengthMulti = 1.0;
+        else if (n === 6 || n === 8) lengthMulti = 0.98;
+        else if (n === 5 || n === 9) lengthMulti = 0.96;
+        else if (n === 4 || n >= 10 && n <= 11) lengthMulti = 0.92;
+        else if (n <= 3 || n >= 12) lengthMulti = 0.85;
+
+        valueScore = valueScore * lengthMulti;
 
         // Map to 0.5-5.0 stars
         let stars;
@@ -976,6 +997,7 @@ function computeValueStars(cruises) {
         else if (valueScore >= 48) stars = 2.0;
         else if (valueScore >= 40) stars = 1.5;
         else stars = 1.0;
+
         c._valueStars = stars;
         c._valueScoreRaw = valueScore; // full precision for sorting
         c._valueScore = Math.round(valueScore); // rounded for display
