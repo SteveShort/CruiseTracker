@@ -929,79 +929,189 @@ function computeValueStars(cruises) {
         return bal; // main mode
     }
 
-    // The new value algorithm uses absolute thresholds rather than dynamic maxPrice
-    // to prevent $2,000 extreme luxury suites from compressing the 0-100 scale for normal sailings.
-    const PPD_CAP = (mode === 'suite') ? 1200 : 400; // Above this, Price Score inherently decays to 0
-    const TOTAL_CAP = (mode === 'suite') ? 8400 : 2800; // Expected week vacation cost cap
+    // A. Percentile-Based Price Scoring
+    // Instead of mapping prices linearly against a fixed cap, we rank each cruise
+    // by percentile within the filtered set. The cheapest cruise scores ~100,
+    // the most expensive scores ~0, with proper spread in between.
 
+    // C. Total Cost Weight Curve
+    // If user sets price weight very high, they care more about the final out-of-pocket total.
+    // Base: 75% PPD / 25% Total. If priceW is 100, shift to 50/50.
+    const priceWeightPct = priceW / 100; // 0 to 1
+    const totalCostFactor = 0.25 + (0.25 * priceWeightPct); // ranges from 0.25 to 0.50
+    const ppdFactor = 1.0 - totalCostFactor; // ranges from 0.75 to 0.50
+
+    // Check if the user is explicitly filtering for nights (to disable sweet spot penalty)
+    const nightsChecked = Array.from(document.getElementById('dashFilterNightsPanel').querySelectorAll('input:checked')).map(cb => cb.value);
+    const hasNightsFilter = nightsChecked.length > 0;
+
+    // --- Pass 1: Collect all effective PPDs and total costs for percentile ranking ---
+    const ppdValues = [];
+    const totalValues = [];
+    cruises.forEach(c => {
+        const ppd = effectivePpd(c);
+        if (ppd > 0) ppdValues.push(ppd);
+
+        let tv = 0;
+        if (mode === 'suite') {
+            tv = c.suitePrice && c.suitePrice > 0 ? c.suitePrice : 0;
+        } else {
+            const bp = (c.balconyPrice && c.balconyPrice > 0) ? c.balconyPrice : 0;
+            tv = bp;
+            if (mode === 'package' && bp > 0) {
+                tv += (c.diningPackageCostPerDay || 0) * (c.nights || 7) * 4;
+            }
+        }
+        if (tv > 0) totalValues.push(tv);
+    });
+
+    // Sort ascending (cheapest first = highest percentile rank)
+    ppdValues.sort((a, b) => a - b);
+    totalValues.sort((a, b) => a - b);
+
+    // Helper: find percentile rank (0-100, where 100 = cheapest)
+    function percentileScore(val, sortedArr) {
+        if (sortedArr.length === 0 || val <= 0) return 50; // no data fallback
+        // Binary search for position
+        let lo = 0, hi = sortedArr.length;
+        while (lo < hi) {
+            const mid = (lo + hi) >> 1;
+            if (sortedArr[mid] < val) lo = mid + 1;
+            else hi = mid;
+        }
+        // lo = number of values strictly less than val
+        // Percentile = how many are MORE expensive = (items above us) / total
+        return 100 * (1 - lo / sortedArr.length);
+    }
+
+    // --- Pass 2: Score each cruise ---
     cruises.forEach(c => {
         // 1. Individual quality scores (0-100 each)
-        const kidsScore = c.kidsScore || 50;
+        let kidsScore = c.kidsScore || 50;
+
+        // D. Age-Dynamic Kids Scoring
+        // Adjust score based on the ages of OUR_KIDS at the time of sailing.
+        if (c.hasKids && c.kidsScore) {
+            const depDate = new Date(c.departureDate + 'T00:00:00');
+            const ages = OUR_KIDS.map(k => ageOnDate(k.birthday, depDate));
+            const avgAge = ages.reduce((a, b) => a + b, 0) / ages.length;
+
+            // Heuristic tweaks: Disney is best for young kids, NCL/Royal better for older
+            if (c.cruiseLine === 'Disney') {
+                if (avgAge > 11) kidsScore -= 5; // Slight penalty for older kids on Disney
+            } else if (c.cruiseLine === 'Norwegian' || c.cruiseLine === 'Royal Caribbean') {
+                if (avgAge > 8) kidsScore += 3;  // Slight bonus for older kids on ships with big slides/tracks
+            }
+            kidsScore = Math.max(0, Math.min(100, kidsScore));
+        }
+
         const shipScore = c.shipScore || 50;
         const diningScore = getDynamicDiningScore(c, mode);
 
-        // 2. Price Score: 75% PPD / 25% Total Cost
-        const ppdVal = effectivePpd(c) || PPD_CAP;
+        // E. Diminishing Returns on Quality Scores
+        // Compress scores above 80 so the gap between 88 and 98 matters less
+        // than the gap between 50 and 60. This prevents any single ship from
+        // monopolizing results just by maxing quality sub-scores.
+        function diminish(score) {
+            if (score <= 80) return score;
+            // Map the 80-100 band: compress using square root scaling
+            const excess = (score - 80) / 20; // 0.0 to 1.0
+            return 80 + 10 * Math.sqrt(excess);  // 80 → 80, 85 → 85, 90 → 87, 95 → 89, 98 → 89.5, 100 → 90
+        }
+        kidsScore = diminish(kidsScore);
+        const adjShipScore = diminish(shipScore);
+        const adjDiningScore = diminish(diningScore);
 
+        // 2. Price Score (Percentile-based)
+        const ppdVal = effectivePpd(c);
         let totalVal = 0;
         if (mode === 'suite') {
-            totalVal = c.suitePrice && c.suitePrice > 0 ? c.suitePrice : PPD_CAP * (c.nights || 7);
+            totalVal = c.suitePrice && c.suitePrice > 0 ? c.suitePrice : 0;
         } else {
-            // Balcony prices are per person; multiply by 4 for family total
             const bp = (c.balconyPrice && c.balconyPrice > 0) ? c.balconyPrice : 0;
-            totalVal = bp > 0 ? bp : PPD_CAP * (c.nights || 7);
-            if (mode === 'package') {
+            totalVal = bp;
+            if (mode === 'package' && bp > 0) {
                 totalVal += (c.diningPackageCostPerDay || 0) * (c.nights || 7) * 4;
             }
         }
 
-        // Calculate mapped scores (0 to 100), clamping below 0
-        const ppdScore = Math.max(0, 100 * (1 - (ppdVal / PPD_CAP)));
-        const totalScore = Math.max(0, 100 * (1 - (totalVal / TOTAL_CAP)));
+        const ppdScore = percentileScore(ppdVal, ppdValues);
+        const totalScore = percentileScore(totalVal, totalValues);
 
-        let priceScore = (ppdScore * 0.75) + (totalScore * 0.25);
+        let priceScore = (ppdScore * ppdFactor) + (totalScore * totalCostFactor);
 
-        // Configurable per-line value bonus
+        // 3. Weighted Base Score
+        let valueScore = (kidsW * kidsScore + shipW * adjShipScore + diningW * adjDiningScore + priceW * priceScore) / totalW;
+
+        // Configurable per-line value bonus (applied to final score for maximum impact)
         const bonusSuffix = (mode === 'suite') ? 'Suite' : 'Main';
         const lineName = c.cruiseLine;
         const bonusEl = document.getElementById('bonus' + lineName + bonusSuffix);
         const lineBonus = bonusEl ? parseInt(bonusEl.value) || 0 : 0;
         if (lineBonus !== 0) {
-            priceScore = Math.max(0, Math.min(100, priceScore + lineBonus));
+            valueScore = Math.max(0, Math.min(100, valueScore + lineBonus));
         }
 
-        // 3. Weighted Base Score
-        let valueScore = (kidsW * kidsScore + shipW * shipScore + diningW * diningScore + priceW * priceScore) / totalW;
-
         // 4. Vacation Sweet Spot Curve
-        // 7 nights is optimal (1.0). 3-4 nights or 12+ nights suffer slight penalties 
-        // to prevent extreme short/long sailings from dominating strictly due to PPD/Total anomalies.
-        const n = c.nights || 7;
-        let lengthMulti = 1.0;
-        if (n === 7) lengthMulti = 1.0;
-        else if (n === 6 || n === 8) lengthMulti = 0.98;
-        else if (n === 5 || n === 9) lengthMulti = 0.96;
-        else if (n === 4 || n >= 10 && n <= 11) lengthMulti = 0.92;
-        else if (n <= 3 || n >= 12) lengthMulti = 0.85;
+        // B. Smart Sweet Spot Penalties: Only apply if there is no explicit nights filter.
+        if (!hasNightsFilter) {
+            const n = c.nights || 7;
+            let lengthMulti = 1.0;
+            if (n === 7) lengthMulti = 1.0;
+            else if (n === 6 || n === 8) lengthMulti = 0.98;
+            else if (n === 5 || n === 9) lengthMulti = 0.96;
+            else if (n === 4 || n >= 10 && n <= 11) lengthMulti = 0.92;
+            else if (n <= 3 || n >= 12) lengthMulti = 0.75;
 
-        valueScore = valueScore * lengthMulti;
+            valueScore = valueScore * lengthMulti;
+        }
 
-        // Map to 0.5-5.0 stars
-        let stars;
-        if (valueScore >= 95) stars = 5.0;
-        else if (valueScore >= 88) stars = 4.5;
-        else if (valueScore >= 80) stars = 4.0;
-        else if (valueScore >= 72) stars = 3.5;
-        else if (valueScore >= 64) stars = 3.0;
-        else if (valueScore >= 56) stars = 2.5;
-        else if (valueScore >= 48) stars = 2.0;
-        else if (valueScore >= 40) stars = 1.5;
-        else stars = 1.0;
+        // F. Departure Proximity Bonus
+        // Cruises departing soon at good prices are genuine last-minute deals.
+        // Give a small boost to sailings within 45 days of today.
+        if (c.departureDate) {
+            const depDate = new Date(c.departureDate + 'T00:00:00');
+            const today = new Date();
+            const daysOut = Math.max(0, (depDate - today) / (1000 * 60 * 60 * 24));
+            if (daysOut <= 21) {
+                valueScore *= 1.08; // 8% boost for last-minute (≤3 weeks)
+            } else if (daysOut <= 45) {
+                valueScore *= 1.05; // 5% boost for near-term (≤6 weeks)
+            }
+        }
+        valueScore = Math.min(100, valueScore); // Cap at 100
 
-        c._valueStars = stars;
         c._valueScoreRaw = valueScore; // full precision for sorting
         c._valueScore = Math.round(valueScore); // rounded for display
     });
+
+    // 5. Relative Star Mapping
+    // Map stars based on where each cruise falls within the computed set,
+    // so every scenario produces a natural 1-5★ distribution.
+    if (cruises.length > 0) {
+        const scores = cruises.map(c => c._valueScoreRaw);
+        const minS = Math.min(...scores);
+        const maxS = Math.max(...scores);
+        const range = maxS - minS || 1; // avoid /0
+
+        cruises.forEach(c => {
+            // Normalize to 0-100 within this set
+            const normalized = 100 * (c._valueScoreRaw - minS) / range;
+
+            let stars;
+            if (normalized >= 90) stars = 5.0;
+            else if (normalized >= 78) stars = 4.5;
+            else if (normalized >= 65) stars = 4.0;
+            else if (normalized >= 52) stars = 3.5;
+            else if (normalized >= 40) stars = 3.0;
+            else if (normalized >= 28) stars = 2.5;
+            else if (normalized >= 16) stars = 2.0;
+            else if (normalized >= 8) stars = 1.5;
+            else stars = 1.0;
+
+            c._valueStars = stars;
+        });
+    }
 }
 
 function renderStars(rating) {
