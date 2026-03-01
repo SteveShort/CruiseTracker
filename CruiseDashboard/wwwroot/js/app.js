@@ -243,6 +243,7 @@ function initDashboardFilters() {
     ['dashFilterSuiteLevel', 'dashOrderBy'].forEach(id => {
         document.getElementById(id).addEventListener('change', applyDashboardFilters);
     });
+    const debouncedFilter = debounce(applyDashboardFilters, 200);
     // Sliders
     ['dashFilterMaxPpd', 'dashFilterMaxTotal'].forEach(id => {
         const slider = document.getElementById(id);
@@ -251,7 +252,7 @@ function initDashboardFilters() {
             const val = parseInt(slider.value);
             const max = parseInt(slider.max);
             labelEl.textContent = val >= max ? 'Max' : '$' + val.toLocaleString();
-            debounce(applyDashboardFilters, 200)();
+            debouncedFilter();
         });
     });
     // Star filter dropdown
@@ -272,13 +273,14 @@ function initValueWeightSliders() {
             toggle.classList.toggle('active');
         });
     }
+    const debouncedFilter = debounce(applyDashboardFilters, 150);
     ['weightKids', 'weightShip', 'weightDining', 'weightPrice'].forEach(id => {
         const slider = document.getElementById(id);
         const label = document.getElementById(id + 'Val');
         if (!slider || !label) return;
         slider.addEventListener('input', () => {
             label.textContent = slider.value;
-            debounce(applyDashboardFilters, 150)();
+            debouncedFilter();
         });
     });
 
@@ -875,7 +877,7 @@ function applyDashboardFilters() {
         }
     } else {
         const priceFn = mode === 'suite'
-            ? (c => c.suitePerDay || 99999)
+            ? (c => (c.verifiedSuitePerDay && c.verifiedSuitePerDay > 0) ? c.verifiedSuitePerDay : (c.suitePerDay || 99999))
             : (c => c.balconyPerDay || 99999);
         filtered.sort((a, b) => (b._valueScoreRaw || 0) - (a._valueScoreRaw || 0) || priceFn(a) - priceFn(b));
         sortLabel.textContent = mode === 'suite' ? 'ranked by best suite value' : 'ranked by best balcony value';
@@ -921,7 +923,8 @@ function computeValueStars(cruises) {
         if (mode === 'package') {
             return bal > 0 ? bal + (c.diningPackageCostPerDay || 0) : 0;
         } else if (mode === 'suite') {
-            return (c.suitePerDay && c.suitePerDay > 0) ? c.suitePerDay : 0;
+            const suitePpd = (c.verifiedSuitePerDay && c.verifiedSuitePerDay > 0) ? c.verifiedSuitePerDay : c.suitePerDay;
+            return (suitePpd && suitePpd > 0) ? suitePpd : 0;
         }
         return bal; // main mode
     }
