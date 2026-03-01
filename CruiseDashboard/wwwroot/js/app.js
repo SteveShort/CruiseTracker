@@ -273,7 +273,7 @@ function initValueWeightSliders() {
             toggle.classList.toggle('active');
         });
     }
-    const debouncedFilter = debounce(applyDashboardFilters, 150);
+    const debouncedFilter = debounce(() => { _valueDirty = true; applyDashboardFilters(); }, 300);
     ['weightKids', 'weightShip', 'weightDining', 'weightPrice'].forEach(id => {
         const slider = document.getElementById(id);
         const label = document.getElementById(id + 'Val');
@@ -296,6 +296,7 @@ function initValueWeightSliders() {
         sel.value = '0';
         sel.addEventListener('change', () => {
             saveLineBonuses();
+            _valueDirty = true;
             applyDashboardFilters();
         });
     });
@@ -325,6 +326,7 @@ function initValueWeightSliders() {
                 const totalSlider = document.getElementById('dashFilterMaxTotal');
                 totalSlider.value = totalSlider.max;
                 document.getElementById('dashFilterMaxTotalLabel').textContent = 'Max';
+                _valueDirty = true;
                 applyDashboardFilters();
             });
         });
@@ -844,8 +846,14 @@ function applyDashboardFilters() {
         });
     }
 
-    // Compute value stars for filtered set
-    computeValueStars(filtered);
+    // Compute value stars for filtered set (only if weights/bonuses/mode changed)
+    if (_valueDirty) {
+        computeValueStars(filtered);
+        _valueDirty = false;
+    } else if (!filtered[0]?._valueScoreRaw) {
+        // First load or mode switch — always compute
+        computeValueStars(filtered);
+    }
 
     // Star filter - apply AFTER value computation
     const minStars = parseInt(document.getElementById('dashFilterStars').value || '0');
@@ -907,6 +915,17 @@ function updateFilteredStats(filtered) {
 //  VALUE SCORE & STAR RATING
 // ================================================================
 
+// Track whether value scores need recomputing (weights/bonuses/mode changed)
+let _valueDirty = true;
+
+// E. Diminishing Returns on Quality Scores (hoisted for performance)
+// Compress scores above 80 so the gap between 88 and 98 matters less
+function diminishScore(score) {
+    if (score <= 80) return score;
+    const excess = (score - 80) / 20;
+    return 80 + 10 * Math.sqrt(excess);
+}
+
 function computeValueStars(cruises) {
     // Read slider weights (0-100 each)
     const kidsW = parseInt(document.getElementById('weightKids')?.value ?? 30);
@@ -916,6 +935,7 @@ function computeValueStars(cruises) {
     const totalW = kidsW + shipW + diningW + priceW || 1; // avoid /0
 
     const mode = getDiningMode();
+    const _computeToday = new Date(); // Cache once per computation, not per-cruise
 
     // Compute effective price per day for each cruise based on mode
     function effectivePpd(c) {
@@ -1008,19 +1028,10 @@ function computeValueStars(cruises) {
         const shipScore = c.shipScore || 50;
         const diningScore = getDynamicDiningScore(c, mode);
 
-        // E. Diminishing Returns on Quality Scores
-        // Compress scores above 80 so the gap between 88 and 98 matters less
-        // than the gap between 50 and 60. This prevents any single ship from
-        // monopolizing results just by maxing quality sub-scores.
-        function diminish(score) {
-            if (score <= 80) return score;
-            // Map the 80-100 band: compress using square root scaling
-            const excess = (score - 80) / 20; // 0.0 to 1.0
-            return 80 + 10 * Math.sqrt(excess);  // 80 → 80, 85 → 85, 90 → 87, 95 → 89, 98 → 89.5, 100 → 90
-        }
-        kidsScore = diminish(kidsScore);
-        const adjShipScore = diminish(shipScore);
-        const adjDiningScore = diminish(diningScore);
+        // Apply diminishing returns (function hoisted outside loop for perf)
+        kidsScore = diminishScore(kidsScore);
+        const adjShipScore = diminishScore(shipScore);
+        const adjDiningScore = diminishScore(diningScore);
 
         // 2. Price Score (Percentile-based)
         const ppdVal = effectivePpd(c);
@@ -1071,8 +1082,7 @@ function computeValueStars(cruises) {
         // Give a small boost to sailings within 45 days of today.
         if (c.departureDate) {
             const depDate = new Date(c.departureDate + 'T00:00:00');
-            const today = new Date();
-            const daysOut = Math.max(0, (depDate - today) / (1000 * 60 * 60 * 24));
+            const daysOut = Math.max(0, (depDate - _computeToday) / 86400000);
             if (daysOut <= 21) {
                 valueScore *= 1.08; // 8% boost for last-minute (≤3 weeks)
             } else if (daysOut <= 45) {
