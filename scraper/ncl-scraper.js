@@ -173,6 +173,7 @@ function buildSailingRecords(itinerary, pricingRooms) {
                 nights: itinerary.duration,
                 port: itinerary.embarkPort,
                 endDate: room.sailEndDate?.split('T')[0] || null,
+                sailId: room.sailId || null,
                 prices: {},
             };
         }
@@ -247,9 +248,37 @@ async function main() {
             const pricingRooms = await fetchSailings(itin.code);
             const sailings = buildSailingRecords(itin, pricingRooms);
 
-            console.log(`    📅 ${sailings.length} sailing dates found`);
+            console.log(`    📅 ${sailings.length} sailing dates found. Fetching family pricing...`);
+
+            // Fetch ALL family prices for this itinerary in one request
+            let familyPricingRooms = [];
+            try {
+                // Polite delay + random jitter for family fetch (300-800ms)
+                await sleep(300 + Math.random() * 500);
+                const famUrl = `https://www.ncl.com/api/vacations/sailings/${itin.code}?guests=4`;
+                const res = await fetch(famUrl, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+                    }
+                });
+                if (res.ok) {
+                    const fdata = await res.json();
+                    familyPricingRooms = fdata.pricingStateRooms || [];
+                }
+            } catch (ferr) {
+                // ignore failures to keep moving
+            }
 
             for (const s of sailings) {
+                let familyPrices = {};
+                if (s.sailId) {
+                    const frooms = familyPricingRooms.filter(r => r.sailId === s.sailId && r.status === 'AVAILABLE' && r.combinedPrice);
+                    for (const fr of frooms) {
+                        familyPrices[fr.stateroomType] = fr.combinedPrice;
+                    }
+                }
+
                 const prices = s.prices;
                 const balcony = prices.BALCONY || null;
                 const inside = prices.INSIDE || null;
@@ -269,6 +298,11 @@ async function main() {
                     balconyPP: balcony,
                     suitePP: suite,
                     havenPP: haven,
+                    fInside: familyPrices.INSIDE || null,
+                    fOceanview: familyPrices.OCEANVIEW || null,
+                    fBalcony: familyPrices.BALCONY || null,
+                    fSuite: familyPrices.MINISUITE || null,
+                    fHaven: familyPrices.HAVEN || null,
                 });
             }
         } catch (err) {
@@ -333,6 +367,18 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
         const havenPPD = (r.nights && r.nights > 0 && havenTotal > 0)
             ? Math.round(havenTotal / r.nights * 100) / 100 : 0;
 
+        // Family totals (NCL combinedPrice is per person. 4 guests = mul by 4)
+        const fInsideTotal = r.fInside ? r.fInside * 4 : 0;
+        const fInsidePPD = (r.nights && r.nights > 0 && fInsideTotal > 0) ? Math.round(fInsideTotal / r.nights * 100) / 100 : 0;
+        const fOceanviewTotal = r.fOceanview ? r.fOceanview * 4 : 0;
+        const fOceanviewPPD = (r.nights && r.nights > 0 && fOceanviewTotal > 0) ? Math.round(fOceanviewTotal / r.nights * 100) / 100 : 0;
+        const fBalconyTotal = r.fBalcony ? r.fBalcony * 4 : 0;
+        const fBalconyPPD = (r.nights && r.nights > 0 && fBalconyTotal > 0) ? Math.round(fBalconyTotal / r.nights * 100) / 100 : 0;
+        const fSuiteTotal = r.fSuite ? r.fSuite * 4 : 0;
+        const fSuitePPD = (r.nights && r.nights > 0 && fSuiteTotal > 0) ? Math.round(fSuiteTotal / r.nights * 100) / 100 : 0;
+        const fHavenTotal = r.fHaven ? r.fHaven * 4 : 0;
+        const fHavenPPD = (r.nights && r.nights > 0 && fHavenTotal > 0) ? Math.round(fHavenTotal / r.nights * 100) / 100 : 0;
+
         try {
             // 1. MERGE into Cruises table (insert new / update existing)
             await pool.request()
@@ -375,6 +421,17 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
                     .input('vspd', sql.Decimal(10, 2), havenPPD > 0 ? havenPPD : null)
                     .input('vat', sql.DateTime2, now)
                     .input('sat', sql.DateTime2, now)
+                    // Family
+                    .input('fip', sql.Decimal(10, 2), fInsideTotal > 0 ? fInsideTotal : null)
+                    .input('fipd', sql.Decimal(10, 2), fInsidePPD > 0 ? fInsidePPD : null)
+                    .input('fop', sql.Decimal(10, 2), fOceanviewTotal > 0 ? fOceanviewTotal : null)
+                    .input('fopd', sql.Decimal(10, 2), fOceanviewPPD > 0 ? fOceanviewPPD : null)
+                    .input('fbp', sql.Decimal(10, 2), fBalconyTotal > 0 ? fBalconyTotal : null)
+                    .input('fbpd', sql.Decimal(10, 2), fBalconyPPD > 0 ? fBalconyPPD : null)
+                    .input('fsp', sql.Decimal(10, 2), fSuiteTotal > 0 ? fSuiteTotal : null)
+                    .input('fspd', sql.Decimal(10, 2), fSuitePPD > 0 ? fSuitePPD : null)
+                    .input('fvsp', sql.Decimal(10, 2), fHavenTotal > 0 ? fHavenTotal : null)
+                    .input('fvspd', sql.Decimal(10, 2), fHavenPPD > 0 ? fHavenPPD : null)
                     .query(`
                         INSERT INTO PriceHistory
                             (CruiseLine, ShipName, DepartureDate,
@@ -382,12 +439,18 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
                              BalconyPrice, BalconyPerDay, SuitePrice, SuitePerDay,
                              VerifiedBalconyPrice, VerifiedBalconyPerDay,
                              VerifiedSuitePrice, VerifiedSuitePerDay,
+                             FamilyInsidePrice, FamilyInsidePerDay, FamilyOceanviewPrice, FamilyOceanviewPerDay,
+                             FamilyBalconyPrice, FamilyBalconyPerDay, FamilySuitePrice, FamilySuitePerDay,
+                             FamilyVerifiedSuitePrice, FamilyVerifiedSuitePerDay,
                              VerifiedAt, ScrapedAt)
                         VALUES
                             (@line, @ship, @date,
                              @ip, @ipd, @op, @opd,
                              @bp, @bpd, @sp, @spd,
                              @vbp, @vbpd, @vsp, @vspd,
+                             @fip, @fipd, @fop, @fopd,
+                             @fbp, @fbpd, @fsp, @fspd,
+                             @fvsp, @fvspd,
                              @vat, @sat)
                     `);
                 inserted++;

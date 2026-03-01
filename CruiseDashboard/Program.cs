@@ -349,12 +349,19 @@ app.MapGet("/api/stats", async (string? appMode) =>
         $"SELECT COUNT(*) FROM Cruises WHERE DepartureDate >= CAST(GETDATE() AS DATE) AND CruiseLine IN ({lineFilter})");
 
     var stats = await conn.QueryFirstOrDefaultAsync<dynamic>($@"
-        ;WITH LatestPrices AS (
+        ;WITH LatestScrapes AS (
+            SELECT CruiseLine, MAX(ScrapedAt) as MaxScrapedAt
+            FROM PriceHistory
+            WHERE CruiseLine IN ({lineFilter})
+            GROUP BY CruiseLine
+        ),
+        LatestPrices AS (
             SELECT ph.ShipName, ph.BalconyPerDay, ph.SuitePerDay,
                    ROW_NUMBER() OVER (PARTITION BY ph.CruiseLine, ph.ShipName, ph.DepartureDate ORDER BY ph.ScrapedAt DESC) AS rn
             FROM PriceHistory ph
             INNER JOIN Cruises c ON c.CruiseLine = ph.CruiseLine AND c.ShipName = ph.ShipName AND c.DepartureDate = ph.DepartureDate
             WHERE c.DepartureDate >= CAST(GETDATE() AS DATE) AND c.CruiseLine IN ({lineFilter})
+              AND ph.ScrapedAt > DATEADD(hour, -36, (SELECT MaxScrapedAt FROM LatestScrapes ls WHERE ls.CruiseLine = c.CruiseLine))
         )
         SELECT
             COUNT(DISTINCT ShipName) AS Ships,
@@ -429,15 +436,24 @@ app.MapGet("/api/cruises", async (string? line, string? ship, string? port, stri
 {
     using var conn = new SqlConnection(connectionString);
     var sql = @"
+        WITH LatestScrapes AS (
+            SELECT CruiseLine, MAX(ScrapedAt) as MaxScrapedAt
+            FROM PriceHistory
+            GROUP BY CruiseLine
+        )
         SELECT
             c.CruiseLine, c.ShipName, c.Itinerary, c.ItineraryCode, c.DepartureDate, c.Nights, c.DeparturePort, c.Ports,
             p.InsidePrice, p.InsidePerDay, p.OceanviewPrice, p.OceanviewPerDay,
             p.BalconyPrice, p.BalconyPerDay, p.SuitePrice, p.SuitePerDay, p.VerifiedSuitePrice, p.VerifiedSuitePerDay, p.ScrapedAt,
+            p.FamilyInsidePrice, p.FamilyInsidePerDay, p.FamilyOceanviewPrice, p.FamilyOceanviewPerDay,
+            p.FamilyBalconyPrice, p.FamilyBalconyPerDay, p.FamilySuitePrice, p.FamilySuitePerDay, p.FamilyVerifiedSuitePrice, p.FamilyVerifiedSuitePerDay,
             fl.FLResBalconyPrice, fl.FLResBalconyPerDay, fl.FLResSuitePrice, fl.FLResSuitePerDay, fl.FLResScrapedAt
         FROM Cruises c
         OUTER APPLY (
             SELECT TOP 1 ph.InsidePrice, ph.InsidePerDay, ph.OceanviewPrice, ph.OceanviewPerDay,
-                   ph.BalconyPrice, ph.BalconyPerDay, ph.SuitePrice, ph.SuitePerDay, ph.VerifiedSuitePrice, ph.VerifiedSuitePerDay, ph.ScrapedAt
+                   ph.BalconyPrice, ph.BalconyPerDay, ph.SuitePrice, ph.SuitePerDay, ph.VerifiedSuitePrice, ph.VerifiedSuitePerDay, ph.ScrapedAt,
+                   ph.FamilyInsidePrice, ph.FamilyInsidePerDay, ph.FamilyOceanviewPrice, ph.FamilyOceanviewPerDay,
+                   ph.FamilyBalconyPrice, ph.FamilyBalconyPerDay, ph.FamilySuitePrice, ph.FamilySuitePerDay, ph.FamilyVerifiedSuitePrice, ph.FamilyVerifiedSuitePerDay
             FROM PriceHistory ph
             WHERE ph.CruiseLine = c.CruiseLine AND ph.ShipName = c.ShipName AND ph.DepartureDate = c.DepartureDate
             ORDER BY ph.ScrapedAt DESC
@@ -449,7 +465,12 @@ app.MapGet("/api/cruises", async (string? line, string? ship, string? port, stri
               AND (ph2.FLResBalconyPrice IS NOT NULL OR ph2.FLResSuitePrice IS NOT NULL)
             ORDER BY ph2.ScrapedAt DESC
         ) fl
-        WHERE c.IsDeparted = 0 AND c.DepartureDate >= CAST(GETDATE() AS DATE)";
+        WHERE c.IsDeparted = 0 AND c.DepartureDate >= CAST(GETDATE() AS DATE)
+          AND (
+              p.ScrapedAt > DATEADD(hour, -36, (SELECT MaxScrapedAt FROM LatestScrapes ls WHERE ls.CruiseLine = c.CruiseLine))
+              OR 
+              fl.FLResScrapedAt > DATEADD(hour, -36, (SELECT MaxScrapedAt FROM LatestScrapes ls WHERE ls.CruiseLine = c.CruiseLine))
+          )";
 
     // Suite mode: exclude cruises with no suite pricing at all
     if (string.Equals(mode, "suite", StringComparison.OrdinalIgnoreCase))
@@ -509,6 +530,16 @@ app.MapGet("/api/cruises", async (string? line, string? ship, string? port, stri
             OceanviewPerDay = (decimal?)(r.OceanviewPerDay),
             VerifiedSuitePrice = (decimal?)(r.VerifiedSuitePrice),
             VerifiedSuitePerDay = (decimal?)(r.VerifiedSuitePerDay),
+            FamilyInsidePrice = (decimal?)(r.FamilyInsidePrice),
+            FamilyInsidePerDay = (decimal?)(r.FamilyInsidePerDay),
+            FamilyOceanviewPrice = (decimal?)(r.FamilyOceanviewPrice),
+            FamilyOceanviewPerDay = (decimal?)(r.FamilyOceanviewPerDay),
+            FamilyBalconyPrice = (decimal?)(r.FamilyBalconyPrice),
+            FamilyBalconyPerDay = (decimal?)(r.FamilyBalconyPerDay),
+            FamilySuitePrice = (decimal?)(r.FamilySuitePrice),
+            FamilySuitePerDay = (decimal?)(r.FamilySuitePerDay),
+            FamilyVerifiedSuitePrice = (decimal?)(r.FamilyVerifiedSuitePrice),
+            FamilyVerifiedSuitePerDay = (decimal?)(r.FamilyVerifiedSuitePerDay),
             FLResBalconyPrice = (decimal?)(r.FLResBalconyPrice),
             FLResBalconyPerDay = (decimal?)(r.FLResBalconyPerDay),
             FLResSuitePrice = (decimal?)(r.FLResSuitePrice),
@@ -608,7 +639,10 @@ app.MapGet("/api/price-history/{cruiseLine}/{shipName}/{departureDate}", async (
     var rows = await conn.QueryAsync<dynamic>(@"
         SELECT ScrapedAt, BalconyPrice, BalconyPerDay, SuitePrice, SuitePerDay,
                InsidePrice, InsidePerDay, OceanviewPrice, OceanviewPerDay,
-               FLResBalconyPrice, FLResBalconyPerDay, FLResSuitePrice, FLResSuitePerDay
+               FLResBalconyPrice, FLResBalconyPerDay, FLResSuitePrice, FLResSuitePerDay,
+               FamilyInsidePrice, FamilyInsidePerDay, FamilyOceanviewPrice, FamilyOceanviewPerDay,
+               FamilyBalconyPrice, FamilyBalconyPerDay, FamilySuitePrice, FamilySuitePerDay,
+               FamilyVerifiedSuitePrice, FamilyVerifiedSuitePerDay
         FROM PriceHistory
         WHERE CruiseLine = @cruiseLine AND ShipName = @shipName AND DepartureDate = @departureDate
         ORDER BY ScrapedAt ASC",
@@ -629,6 +663,16 @@ app.MapGet("/api/price-history/{cruiseLine}/{shipName}/{departureDate}", async (
         FLResBalconyPerDay = (decimal?)r.FLResBalconyPerDay,
         FLResSuitePrice = (decimal?)r.FLResSuitePrice,
         FLResSuitePerDay = (decimal?)r.FLResSuitePerDay,
+        FamilyInsidePrice = (decimal?)r.FamilyInsidePrice,
+        FamilyInsidePerDay = (decimal?)r.FamilyInsidePerDay,
+        FamilyOceanviewPrice = (decimal?)r.FamilyOceanviewPrice,
+        FamilyOceanviewPerDay = (decimal?)r.FamilyOceanviewPerDay,
+        FamilyBalconyPrice = (decimal?)r.FamilyBalconyPrice,
+        FamilyBalconyPerDay = (decimal?)r.FamilyBalconyPerDay,
+        FamilySuitePrice = (decimal?)r.FamilySuitePrice,
+        FamilySuitePerDay = (decimal?)r.FamilySuitePerDay,
+        FamilyVerifiedSuitePrice = (decimal?)r.FamilyVerifiedSuitePrice,
+        FamilyVerifiedSuitePerDay = (decimal?)r.FamilyVerifiedSuitePerDay,
     }));
 });
 

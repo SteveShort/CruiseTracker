@@ -128,6 +128,21 @@ async function loadDashboard() {
             fetch('/api/calendar-events').then(r => r.json()),
         ]);
 
+        if (appMode === 'family') {
+            cruises.forEach(c => {
+                c.balconyPrice = c.familyBalconyPrice || c.balconyPrice;
+                c.balconyPerDay = c.familyBalconyPerDay || c.balconyPerDay;
+                c.suitePrice = c.familySuitePrice || c.suitePrice;
+                c.suitePerDay = c.familySuitePerDay || c.suitePerDay;
+                c.insidePrice = c.familyInsidePrice || c.insidePrice;
+                c.insidePerDay = c.familyInsidePerDay || c.insidePerDay;
+                c.oceanviewPrice = c.familyOceanviewPrice || c.oceanviewPrice;
+                c.oceanviewPerDay = c.familyOceanviewPerDay || c.oceanviewPerDay;
+                c.verifiedSuitePrice = c.familyVerifiedSuitePrice || c.verifiedSuitePrice;
+                c.verifiedSuitePerDay = c.familyVerifiedSuitePerDay || c.verifiedSuitePerDay;
+            });
+        }
+
         allCruises = cruises;
         allShips = ships;
         calendarEvents = calEvts;
@@ -762,8 +777,8 @@ function applyDashboardFilters() {
         if (mode === 'suite') {
             filtered = filtered.filter(c => c.suitePrice && c.suitePrice > 0 && c.suitePrice <= maxTotal);
         } else {
-            // Total for 2 guests
-            filtered = filtered.filter(c => c.balconyPrice && c.balconyPrice > 0 && (c.balconyPrice * 2) <= maxTotal);
+            // Total for all guests in room (2 or 4 depending on mode)
+            filtered = filtered.filter(c => c.balconyPrice && c.balconyPrice > 0 && c.balconyPrice <= maxTotal);
         }
     }
 
@@ -989,7 +1004,7 @@ function fmtPpd(val) {
 
 function fmtTotal(val) {
     if (!val || val <= 0) return '';
-    return '$' + Math.round(val * 2).toLocaleString();
+    return '$' + Math.round(val).toLocaleString();
 }
 
 const CARDS_PER_PAGE = 25;
@@ -1203,9 +1218,10 @@ function renderSingleCard(c, i) {
 
     // Build mode-adjusted price column
     let modePriceHtml = '';
+    const guestCounts = getAppMode() === 'family' ? 4 : 2;
     if (mode === 'package' && c.diningPackageCostPerDay > 0 && c.balconyPerDay > 0) {
         const pkgPpd = c.balconyPerDay + c.diningPackageCostPerDay;
-        const pkgTotal = c.balconyPrice ? c.balconyPrice + (c.diningPackageCostPerDay * (c.nights || 7) * 2) : null;
+        const pkgTotal = c.balconyPrice ? c.balconyPrice + (c.diningPackageCostPerDay * (c.nights || 7) * guestCounts) : null;
         modePriceHtml = `<div class="price-col package-price">
                 <span class="price-label">🎫 +$${c.diningPackageCostPerDay}/ppd</span>
                 <span class="price-ppd">${fmtPpd(pkgPpd)}<span class="ppd-suffix">/ppd</span></span>

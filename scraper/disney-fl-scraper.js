@@ -271,16 +271,16 @@ function parseSailingPrices(product, sailings) {
             if (!stateroom.available) continue;
             const stType = (stateroom.stateroomType || '').toUpperCase();
 
-            let adultPrice = 0;
+            let roomTotal = 0;
             try {
-                adultPrice = stateroom.price?.breakdownByGuest?.['1']?.total || 0;
+                roomTotal = stateroom.price?.summary?.total || 0;
             } catch (_) { }
-            if (adultPrice <= 0) continue;
+            if (roomTotal <= 0) continue;
 
             if (stType.includes('VERANDAH')) {
-                if (bestBalcony === 0 || adultPrice < bestBalcony) bestBalcony = adultPrice;
+                if (bestBalcony === 0 || roomTotal < bestBalcony) bestBalcony = roomTotal;
             } else if (stType.includes('CONCIERGE')) {
-                if (bestSuite === 0 || adultPrice < bestSuite) bestSuite = adultPrice;
+                if (bestSuite === 0 || roomTotal < bestSuite) bestSuite = roomTotal;
             }
         }
 

@@ -112,12 +112,13 @@ const HEADERS = {
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 // -- Fetch sailings page --
-async function fetchPage(skip) {
+async function fetchPage(skip, qualifiers) {
     const body = {
         operationName: 'cruiseSearch_CruisesRiver',
         variables: {
             enableNewCasinoExperience: true,
             filters: `voyageType:OCEAN;${FL_PORT_FILTER}`,
+            qualifiers: qualifiers,
             sort: { by: 'SAILDATE' },
             pagination: { count: PAGE_SIZE, skip },
         },
@@ -204,47 +205,8 @@ function formatShipName(raw) {
         .join(' ');
 }
 
-// -- Main --
-async function main() {
-    console.log('===========================================================');
-    console.log('  Celebrity Cruises Verified Price Scraper                  ');
-    console.log('===========================================================');
-
-    const runStartedAt = new Date();
-    const runErrors = [];
-
-    // Step 1: Paginate through all FL sailings
-    console.log(`  Fetching Celebrity FL sailings (ports: ${FL_PORTS.join(', ')})...`);
-    const allCruises = [];
-    let skip = 0;
-    let totalCount = 0;
-    let pageNum = 0;
-
-    try {
-        do {
-            pageNum++;
-            const data = await fetchPage(skip);
-            totalCount = data.total || totalCount;
-
-            if (!data.cruises || data.cruises.length === 0) break;
-            allCruises.push(...data.cruises);
-
-            console.log(`  Page ${pageNum}: ${allCruises.length}/${totalCount} cruise products`);
-            skip += PAGE_SIZE;
-            if (skip < totalCount) await sleep(500);
-        } while (skip < totalCount);
-    } catch (err) {
-        console.error(`  API error: ${err.message}`);
-        runErrors.push(`API: ${err.message}`);
-        if (allCruises.length === 0) {
-            await recordRun(0, 0, runStartedAt, runErrors);
-            return;
-        }
-    }
-
-    console.log(`  Got ${allCruises.length} cruise products`);
-
-    // Step 2: Flatten into individual sailings with pricing
+// -- Flatten into individual sailings with pricing --
+function flattenCruises(allCruises) {
     const results = [];
     for (const cruise of allCruises) {
         const itin = cruise.masterSailing?.itinerary;
@@ -276,6 +238,81 @@ async function main() {
             });
         }
     }
+    return results;
+}
+
+// -- Main --
+async function main() {
+    console.log('===========================================================');
+    console.log('  Celebrity Cruises Verified Price Scraper                  ');
+    console.log('===========================================================');
+
+    const runStartedAt = new Date();
+    const runErrors = [];
+
+    async function fetchAll(qualifiers) {
+        const allCruises = [];
+        let skip = 0;
+        let totalCount = 0;
+        let pageNum = 0;
+
+        try {
+            do {
+                pageNum++;
+                const data = await fetchPage(skip, qualifiers);
+                totalCount = data.total || totalCount;
+
+                if (!data.cruises || data.cruises.length === 0) break;
+                allCruises.push(...data.cruises);
+
+                console.log(`  Page ${pageNum}: ${allCruises.length}/${totalCount} cruise products`);
+                skip += PAGE_SIZE;
+                if (skip < totalCount) await sleep(500);
+            } while (skip < totalCount);
+        } catch (err) {
+            console.error(`  API error: ${err.message}`);
+            runErrors.push(`API: ${err.message}`);
+            if (allCruises.length === 0) throw err;
+        }
+        return allCruises;
+    }
+
+    console.log(`  Fetching Celebrity FL sailings for 2 Adults...`);
+    let adultCruises = [];
+    try {
+        adultCruises = await fetchAll('');
+        console.log(`  Got ${adultCruises.length} cruise products (Adult)`);
+    } catch {
+        await recordRun(0, 0, runStartedAt, runErrors);
+        return;
+    }
+
+    console.log(`\n  Fetching Celebrity FL sailings for Family (2A+2K)...`);
+    let familyCruises = [];
+    try {
+        familyCruises = await fetchAll('offers:accessible:false,guestAges:30,30,8,10');
+        console.log(`  Got ${familyCruises.length} cruise products (Family)`);
+    } catch {
+        console.warn('  Failed to get family prices, proceeding with only adult prices');
+    }
+
+    const adultResults = flattenCruises(adultCruises);
+    const familyResults = flattenCruises(familyCruises);
+
+    const results = adultResults.map(adult => {
+        const fam = familyResults.find(f => f.shipName === adult.shipName && f.departureDate === adult.departureDate);
+        return {
+            ...adult,
+            familyInsidePrice: fam?.insidePrice || 0,
+            familyInsidePerDay: fam?.insidePerDay || 0,
+            familyOceanviewPrice: fam?.oceanviewPrice || 0,
+            familyOceanviewPerDay: fam?.oceanviewPerDay || 0,
+            familyBalconyPrice: fam?.balconyPrice || 0,
+            familyBalconyPerDay: fam?.balconyPerDay || 0,
+            familySuitePrice: fam?.suitePrice || 0,
+            familySuitePerDay: fam?.suitePerDay || 0,
+        };
+    });
 
     // Show sample
     for (const r of results.slice(0, 5)) {
@@ -357,6 +394,18 @@ async function upsertToDb(results, runStartedAt, runErrors) {
                 .input('vsp', sql.Decimal(10, 2), r.suitePrice > 0 ? r.suitePrice : null)
                 .input('vspd', sql.Decimal(10, 2), r.suitePerDay > 0 ? r.suitePerDay : null)
                 .input('vat', sql.DateTime2, now)
+
+                // Family columns
+                .input('fip', sql.Decimal(10, 2), r.familyInsidePrice || 0)
+                .input('fipd', sql.Decimal(10, 2), r.familyInsidePerDay || 0)
+                .input('fop', sql.Decimal(10, 2), r.familyOceanviewPrice || 0)
+                .input('fopd', sql.Decimal(10, 2), r.familyOceanviewPerDay || 0)
+                .input('fbp', sql.Decimal(10, 2), r.familyBalconyPrice || 0)
+                .input('fbpd', sql.Decimal(10, 2), r.familyBalconyPerDay || 0)
+                .input('fsp', sql.Decimal(10, 2), r.familySuitePrice || 0)
+                .input('fspd', sql.Decimal(10, 2), r.familySuitePerDay || 0)
+                .input('fvsp', sql.Decimal(10, 2), r.familySuitePrice > 0 ? r.familySuitePrice : null)
+                .input('fvspd', sql.Decimal(10, 2), r.familySuitePerDay > 0 ? r.familySuitePerDay : null)
                 .query(`
                     INSERT INTO PriceHistory
                         (CruiseLine, ShipName, DepartureDate,
@@ -364,12 +413,18 @@ async function upsertToDb(results, runStartedAt, runErrors) {
                          BalconyPrice, BalconyPerDay, SuitePrice, SuitePerDay,
                          VerifiedBalconyPrice, VerifiedBalconyPerDay,
                          VerifiedSuitePrice, VerifiedSuitePerDay,
+                         FamilyInsidePrice, FamilyInsidePerDay, FamilyOceanviewPrice, FamilyOceanviewPerDay,
+                         FamilyBalconyPrice, FamilyBalconyPerDay, FamilySuitePrice, FamilySuitePerDay,
+                         FamilyVerifiedSuitePrice, FamilyVerifiedSuitePerDay,
                          VerifiedAt, ScrapedAt)
                     VALUES
                         (@line, @ship, @date,
                          @ip, @ipd, @op, @opd,
                          @bp, @bpd, @sp, @spd,
                          @vbp, @vbpd, @vsp, @vspd,
+                         @fip, @fipd, @fop, @fopd,
+                         @fbp, @fbpd, @fsp, @fspd,
+                         @fvsp, @fvspd,
                          @vat, @sat)
                 `);
             inserted++;

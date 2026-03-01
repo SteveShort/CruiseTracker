@@ -68,18 +68,18 @@ The project uses **two different SQL auth methods** — be aware of which one to
 
 > **⚠️ sqlcmd gotcha**: Large multi-statement queries via sqlcmd can hang. Break into smaller batches or use PowerShell `Invoke-RestMethod` against the API instead.
 
-## ⚠️ Deployment — MUST USE SCHEDULED TASK
+## ⚠️ Deployment & Version Control
 
 **NEVER run `dotnet publish` and copy files manually.** IIS locks the DLLs and the deploy will fail silently or corrupt the site.
 
-**Always deploy via the scheduled task:**
-```powershell
-schtasks /Run /TN "CruiseDashboardDeploy"
-```
+**Always deploy using the `/deploy` AI Workflow:**
+The `/deploy` workflow executes the following steps automatically:
+1. **Build & IIS Swap**: Triggers the `CruiseDashboardDeploy` Windows Scheduled Task, which runs `Deploy.ps1`. This builds the .NET app to a temp dir, stops IIS, kills any locked `w3wp` processes, swaps the `publish` folder, and restarts IIS. 
+2. **Health Check**: Waits and verifies the site returns HTTP 200 on `http://localhost:5050/`.
+3. **Smoke Tests**: Runs the `dotnet test` suite to ensure no regressions.
+4. **Auto-Commit & Push**: Commits changes to Git. **Important**: It uses `git add -u` instead of `git add -A` to ensure only tracked files are committed. This prevents stray temporary files (like generated CSVs or SQL scripts) from being accidentally pushed to the `origin/master` GitHub remote.
 
-The task runs `Deploy.ps1` which: builds to temp dir → stops IIS site → kills w3wp → swaps publish folder → restarts IIS.
-
-**Monitor deploy status:**
+**Monitor deploy status manually (if needed):**
 ```powershell
 Set-Content c:\temp\cruise-deploy-status.txt "PENDING"
 schtasks /Run /TN "CruiseDashboardDeploy"
@@ -182,36 +182,26 @@ schtasks /Run /TN "CruiseDashboardDeploy"
 
 ---
 
-## Frontend (app.js) — Function Catalog
+## Frontend (ES6 Modules) — Function Catalog
 
-### Initialization & Loading (Lines 1-149)
-| Function | Line | Purpose |
-|----------|------|---------|
-| `DOMContentLoaded` handler | 5-30 | Calls all init functions on page load |
-| `initInfoModal()` | 32-43 | Sets up the "How is Value calculated?" info modal |
-| `initTabs()` | 49-58 | Tab switching (Dashboard, All Cruises, Ship Reference, Calendar) |
-| `loadDashboard()` | 64-149 | Fetches `/api/stats`, `/api/cruises`, `/api/filter-options`, `/api/ships`, populates everything |
+The frontend has been modularized into standard browser ES6 modules (no build runner needed).
 
-### Dashboard Filters (Lines 168-606)
-| Function | Line | Purpose |
-|----------|------|---------|
-| `initDashboardFilters()` | 168-190 | Wire up filter change handlers |
-| `initValueWeightSliders()` | 192-255 | Initialize weight sliders + line bonus dropdowns + localStorage restore |
-| `getDiningMode()` | 257-260 | Returns `'main'`, `'package'`, or `'suite'` from toggle state |
-| `hasValidPrice(c)` | 262-266 | Check if cruise has valid price for current mode |
-| `clearAllFilters()` | 373-428 | Reset all filter controls to defaults |
-| `cruiseLineIcon(line)` | 430-438 | Returns emoji icon for cruise line |
-| `populateCheckboxDropdown()` | 440-453 | Build checkbox list inside dropdown panel |
-| `updateDropdownLabel()` | 455-467 | Update dropdown button text based on selections |
-| `getCheckedValues()` | 469-472 | Get array of checked values from dropdown |
-| `initCheckboxDropdowns()` | 474-492 | Set up click-outside-to-close for dropdowns |
-| `initMonthPicker()` | 500-559 | Month range picker with drag-to-select |
-| `renderMonthPickerState()` | 561-581 | Render month grid highlighting |
-| `updateMonthPickerLabel()` | 583-606 | Update month picker button text |
-| `applyDashboardFilters()` | 608-753 | **Main re-render function** — filters, sorts, computes values, renders cards |
-| `updateFilteredStats()` | 755-765 | Update "showing X of Y" counter |
+### Core Architecture
+* `main.js` — Entry point, orchestrates tab switching, app mode (Family/Adult).
+* `state.js` — Global state container (`allCruises`, `allShips`, `calendarEvents`).
+* `api.js` — Client-side fetch wrappers (if extracted, otherwise in main/ui files).
+* `helpers.js` — Pure utility functions (`formatDate`, `escHtml`, `kidsClubAssignment`).
+* `scoring.js` — Value computation algorithms and dynamic dining math.
 
-### Kids Club System (Lines 267-328)
+### UI Components
+* `ui-dashboard.js` — Core dashboard layout, stat aggregation, main filter logic.
+* `ui-cards.js` — Rendering of deals/cruise cards, price math, booking URL builder.
+* `ui-table.js` — "All Cruises" sortable data grid logic.
+* `ui-ships.js` — "Ship Reference" cards and editable rating logic.
+* `ui-calendar.js` — Family Calendar grid, events list, edit popups.
+* `ui-modals.js` — Price history Chart.js modal and generic info modals.
+
+### Kids Club System
 | Function | Line | Purpose |
 |----------|------|---------|
 | `OUR_KIDS` constant | 268-271 | Array with Jack (Sep 2016) and Eric (Apr 2019) birthdays |
@@ -257,13 +247,13 @@ schtasks /Run /TN "CruiseDashboardDeploy"
 | `renderRestaurantGroup()` | 1391-1410 | Render grouped restaurant cards |
 | `getScoreColorStyle()` | 1412-1425 | Color-code restaurant scores (green/yellow/red) |
 
-### Mini Calendar (Lines 1430-1484)
-| Function | Line | Purpose |
-|----------|------|---------|
-| `generateMiniCalendar()` | 1431-1444 | Generate calendar HTML for cruise departure/return range |
-| `renderMiniMonth()` | 1446-1484 | Render one month grid with highlighted cruise dates |
+### Mini Calendar
+| Function | Purpose |
+|----------|---------|
+| `generateMiniCalendar()` | Generate calendar HTML for cruise departure/return range |
+| `renderMiniMonth()` | Render one month grid with highlighted cruise dates |
 
-### All Cruises Table (Lines 1489-1621)
+### All Cruises Table
 | Function | Line | Purpose |
 |----------|------|---------|
 | `initCruiseFilters()` | 1490-1502 | Table-specific filter handlers |

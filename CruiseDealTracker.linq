@@ -521,6 +521,84 @@ async Task Main()
 		$"❌  Celebrity scraper failed: {ex.Message}".Dump();
 	}
 
+	// ── Oceania Verified Prices (Node.js scraper) ──
+	try
+	{
+		"\n🔍 Running Oceania verified price scraper...".Dump();
+		var oScraperPath = @"c:\Dev\Cruise Tracker\scraper\oceania-scraper.js";
+		var oProc = new System.Diagnostics.Process
+		{
+			StartInfo = new System.Diagnostics.ProcessStartInfo
+			{
+				FileName = "node",
+				Arguments = $"\"{oScraperPath}\"",
+				WorkingDirectory = Path.GetDirectoryName(oScraperPath),
+				RedirectStandardOutput = true,
+				RedirectStandardError = true,
+				UseShellExecute = false,
+				CreateNoWindow = true
+			}
+		};
+		oProc.Start();
+		var oOutput = oProc.StandardOutput.ReadToEnd();
+		var oError = oProc.StandardError.ReadToEnd();
+		oProc.WaitForExit(TimeSpan.FromMinutes(30));
+
+		var oSummary = oOutput.Split('\n').LastOrDefault(l => l.Contains("DB:") || l.Contains("Total:"));
+		if (!string.IsNullOrWhiteSpace(oSummary)) $"   {oSummary.Trim()}".Dump();
+
+		if (oProc.ExitCode == 0)
+			$"✅  Oceania scraper completed successfully".Dump();
+		else
+		{
+			$"⚠️  Oceania scraper exited with code {oProc.ExitCode}".Dump();
+			if (!string.IsNullOrWhiteSpace(oError)) $"   {oError.Trim().Substring(0, Math.Min(500, oError.Trim().Length))}".Dump();
+		}
+	}
+	catch (Exception ex)
+	{
+		$"❌  Oceania scraper failed: {ex.Message}".Dump();
+	}
+
+	// ── Regent Verified Prices (Node.js scraper) ──
+	try
+	{
+		"\n🔍 Running Regent verified price scraper...".Dump();
+		var rScraperPath = @"c:\Dev\Cruise Tracker\scraper\regent-scraper.js";
+		var rProc = new System.Diagnostics.Process
+		{
+			StartInfo = new System.Diagnostics.ProcessStartInfo
+			{
+				FileName = "node",
+				Arguments = $"\"{rScraperPath}\"",
+				WorkingDirectory = Path.GetDirectoryName(rScraperPath),
+				RedirectStandardOutput = true,
+				RedirectStandardError = true,
+				UseShellExecute = false,
+				CreateNoWindow = true
+			}
+		};
+		rProc.Start();
+		var rOutput = rProc.StandardOutput.ReadToEnd();
+		var rError = rProc.StandardError.ReadToEnd();
+		rProc.WaitForExit(TimeSpan.FromMinutes(30));
+
+		var rSummary = rOutput.Split('\n').LastOrDefault(l => l.Contains("DB:") || l.Contains("Total:"));
+		if (!string.IsNullOrWhiteSpace(rSummary)) $"   {rSummary.Trim()}".Dump();
+
+		if (rProc.ExitCode == 0)
+			$"✅  Regent scraper completed successfully".Dump();
+		else
+		{
+			$"⚠️  Regent scraper exited with code {rProc.ExitCode}".Dump();
+			if (!string.IsNullOrWhiteSpace(rError)) $"   {rError.Trim().Substring(0, Math.Min(500, rError.Trim().Length))}".Dump();
+		}
+	}
+	catch (Exception ex)
+	{
+		$"❌  Regent scraper failed: {ex.Message}".Dump();
+	}
+
 	// ── Check for deals per cruise line ──
 	"\n── 🔔 Deal Alerts ──".Dump();
 	foreach (var config in CruiseLines)

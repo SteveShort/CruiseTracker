@@ -106,9 +106,14 @@ async function acquireCookie() {
 }
 
 // ── API Headers ────────────────────────────────────────────────────────
-const PARTY_MIX = [{
+const PARTY_MIX_ADULT = [{
     accessible: false, adultCount: 2, childCount: 0,
     nonAdultAges: [], partyMixId: '0'
+}];
+
+const PARTY_MIX_FAMILY = [{
+    accessible: false, adultCount: 2, childCount: 2,
+    partyMixId: '0'
 }];
 
 function makeHeaders(cookie) {
@@ -138,7 +143,7 @@ async function fetchFirstProduct(cookie) {
 
     const payload = {
         currency: 'USD', filters: [],
-        partyMix: PARTY_MIX, region: 'INTL', storeId: 'DCL',
+        partyMix: PARTY_MIX_ADULT, region: 'INTL', storeId: 'DCL',
         affiliations: [],
         page: 1, pageHistory: false,
         includeAdvancedBookingPrices: true,
@@ -165,7 +170,7 @@ async function fetchFirstProduct(cookie) {
 
     // Grab first usable product for the sailings call
     for (const product of data.products) {
-        if (product.productId) {
+        if (product.productId && !product.productId.includes('singapore')) {
             console.log(`  ✅ Using product: ${product.productId}`);
             return {
                 productId: product.productId,
@@ -177,10 +182,10 @@ async function fetchFirstProduct(cookie) {
 }
 
 // ── Step 2: Fetch per-date pricing ─────────────────────────────────────
-async function fetchSailings(cookie, product) {
+async function fetchSailings(cookie, product, partyMix) {
     const payload = {
         currency: 'USD', filters: [],
-        partyMix: PARTY_MIX, region: 'INTL', storeId: 'DCL',
+        partyMix: partyMix, region: 'INTL', storeId: 'DCL',
         affiliations: [],
         productId: product.productId,
         includeAdvancedBookingPrices: true,
@@ -194,7 +199,8 @@ async function fetchSailings(cookie, product) {
     });
 
     if (!resp.ok) {
-        throw new Error(`Sailings API returned ${resp.status} for ${product.productId}`);
+        const text = await resp.text();
+        throw new Error(`Sailings API returned ${resp.status} for ${product.productId}: ${text}`);
     }
 
     const data = await resp.json();
@@ -223,20 +229,20 @@ function parseSailingPrices(product, sailings) {
             if (!stateroom.available) continue;
             const stType = (stateroom.stateroomType || '').toUpperCase();
 
-            let adultPrice = 0;
+            let roomTotal = 0;
             try {
-                adultPrice = stateroom.price?.breakdownByGuest?.['1']?.total || 0;
+                roomTotal = stateroom.price?.summary?.total || 0;
             } catch (_) { }
-            if (adultPrice <= 0) continue;
+            if (roomTotal <= 0) continue;
 
             if (stType.includes('INSIDE')) {
-                if (bestInside === 0 || adultPrice < bestInside) bestInside = adultPrice;
+                if (bestInside === 0 || roomTotal < bestInside) bestInside = roomTotal;
             } else if (stType.includes('OCEANVIEW') || stType.includes('OCEAN VIEW')) {
-                if (bestOceanview === 0 || adultPrice < bestOceanview) bestOceanview = adultPrice;
+                if (bestOceanview === 0 || roomTotal < bestOceanview) bestOceanview = roomTotal;
             } else if (stType.includes('VERANDAH')) {
-                if (bestBalcony === 0 || adultPrice < bestBalcony) bestBalcony = adultPrice;
+                if (bestBalcony === 0 || roomTotal < bestBalcony) bestBalcony = roomTotal;
             } else if (stType.includes('CONCIERGE')) {
-                if (bestSuite === 0 || adultPrice < bestSuite) bestSuite = adultPrice;
+                if (bestSuite === 0 || roomTotal < bestSuite) bestSuite = roomTotal;
             }
         }
 
@@ -292,12 +298,16 @@ async function main() {
         return;
     }
 
-    // Step 2: Fetch ALL sailings (Disney API returns all dates for any product)
-    console.log(`\n  📅 Fetching all sailings...`);
-    let allSailings;
+    // Step 2: Fetch sailings
+    console.log(`\n  📅 Fetching sailings for 2 Adults...`);
+    let adultSailings, familySailings;
     try {
-        allSailings = await fetchSailings(cookie, product);
-        console.log(`  ✅ Got ${allSailings.length} raw sailings`);
+        adultSailings = await fetchSailings(cookie, product, PARTY_MIX_ADULT);
+        console.log(`  ✅ Got ${adultSailings.length} raw sailings (Adult)`);
+
+        console.log(`\n  👨‍👩‍👧‍👦 Fetching sailings for Family (2A+2K)...`);
+        familySailings = await fetchSailings(cookie, product, PARTY_MIX_FAMILY);
+        console.log(`  ✅ Got ${familySailings.length} raw sailings (Family)`);
     } catch (err) {
         console.error(`  ❌ Sailings fetch failed: ${err.message}`);
         runErrors.push(`Sailings: ${err.message}`);
@@ -305,22 +315,40 @@ async function main() {
         return;
     }
 
-    // Parse all prices
+    // Parse prices
     const dummyProd = { shipName: '', nights: 0, itineraryName: '', departurePort: '' };
-    const rawPrices = parseSailingPrices(dummyProd, allSailings);
+    const adultPrices = parseSailingPrices(dummyProd, adultSailings);
+    const familyPrices = parseSailingPrices(dummyProd, familySailings);
 
     // Filter to FL ships only
-    const finalResults = rawPrices.filter(r => FL_SHIPS.has(r.shipName));
+    const adultFiltered = adultPrices.filter(r => FL_SHIPS.has(r.shipName));
+    const familyFiltered = familyPrices.filter(r => FL_SHIPS.has(r.shipName));
 
-    console.log(`\n  ── Total: ${finalResults.length} Disney FL sailings ──`);
+    // Merge into combined results
+    const combinedResults = adultFiltered.map(adult => {
+        const fam = familyFiltered.find(f => f.shipName === adult.shipName && f.departureDate === adult.departureDate);
+        return {
+            ...adult,
+            familyInsidePrice: fam?.insidePrice || 0,
+            familyInsidePerDay: fam?.insidePerDay || 0,
+            familyOceanviewPrice: fam?.oceanviewPrice || 0,
+            familyOceanviewPerDay: fam?.oceanviewPerDay || 0,
+            familyBalconyPrice: fam?.balconyPrice || 0,
+            familyBalconyPerDay: fam?.balconyPerDay || 0,
+            familySuitePrice: fam?.suitePrice || 0,
+            familySuitePerDay: fam?.suitePerDay || 0,
+        };
+    });
+
+    console.log(`\n  ── Total: ${combinedResults.length} Disney FL sailings (Merged Adult & Family) ──`);
 
     // Save backup JSON
     const outputFile = path.join(__dirname, 'disney-prices.json');
-    fs.writeFileSync(outputFile, JSON.stringify(finalResults, null, 2));
+    fs.writeFileSync(outputFile, JSON.stringify(combinedResults, null, 2));
     console.log(`  💾 Saved to ${outputFile}`);
 
     // Save to SQL Server
-    await upsertToDatabase(finalResults, runStartedAt, runErrors);
+    await upsertToDatabase(combinedResults, runStartedAt, runErrors);
 }
 
 // ── Database Upsert ────────────────────────────────────────────────────
@@ -380,6 +408,19 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
                 .input('vsp', sql.Decimal(10, 2), r.suitePrice > 0 ? r.suitePrice : null)
                 .input('vspd', sql.Decimal(10, 2), r.suitePerDay > 0 ? r.suitePerDay : null)
                 .input('vat', sql.DateTime2, now)
+
+                // Family columns
+                .input('fip', sql.Decimal(10, 2), r.familyInsidePrice || 0)
+                .input('fipd', sql.Decimal(10, 2), r.familyInsidePerDay || 0)
+                .input('fop', sql.Decimal(10, 2), r.familyOceanviewPrice || 0)
+                .input('fopd', sql.Decimal(10, 2), r.familyOceanviewPerDay || 0)
+                .input('fbp', sql.Decimal(10, 2), r.familyBalconyPrice || 0)
+                .input('fbpd', sql.Decimal(10, 2), r.familyBalconyPerDay || 0)
+                .input('fsp', sql.Decimal(10, 2), r.familySuitePrice || 0)
+                .input('fspd', sql.Decimal(10, 2), r.familySuitePerDay || 0)
+                .input('fvsp', sql.Decimal(10, 2), r.familySuitePrice > 0 ? r.familySuitePrice : null)
+                .input('fvspd', sql.Decimal(10, 2), r.familySuitePerDay > 0 ? r.familySuitePerDay : null)
+
                 .query(`
                     INSERT INTO PriceHistory
                         (CruiseLine, ShipName, DepartureDate,
@@ -387,12 +428,18 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
                          BalconyPrice, BalconyPerDay, SuitePrice, SuitePerDay,
                          VerifiedBalconyPrice, VerifiedBalconyPerDay,
                          VerifiedSuitePrice, VerifiedSuitePerDay,
+                         FamilyInsidePrice, FamilyInsidePerDay, FamilyOceanviewPrice, FamilyOceanviewPerDay,
+                         FamilyBalconyPrice, FamilyBalconyPerDay, FamilySuitePrice, FamilySuitePerDay,
+                         FamilyVerifiedSuitePrice, FamilyVerifiedSuitePerDay,
                          VerifiedAt, ScrapedAt)
                     VALUES
                         (@line, @ship, @date,
                          @ip, @ipd, @op, @opd,
                          @bp, @bpd, @sp, @spd,
                          @vbp, @vbpd, @vsp, @vspd,
+                         @fip, @fipd, @fop, @fopd,
+                         @fbp, @fbpd, @fsp, @fspd,
+                         @fvsp, @fvspd,
                          @vat, @sat)
                 `);
             inserted++;

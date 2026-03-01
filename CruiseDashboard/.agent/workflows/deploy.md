@@ -18,7 +18,7 @@ Start-Sleep -Seconds 15; (Invoke-WebRequest -Uri "http://localhost:5050/" -UseBa
 dotnet test "c:\Dev\Cruise Tracker\CruiseDashboard\CruiseDashboard.Tests" --logger "console;verbosity=detailed"
 ```
 
-4. Push to GitHub
+4. Commit changes locally and push to GitHub (only tracked files)
 ```powershell
-git -C "c:\Dev\Cruise Tracker" add -A; git -C "c:\Dev\Cruise Tracker" commit -m "Deploy update"; git -C "c:\Dev\Cruise Tracker" push
+git -C "c:\Dev\Cruise Tracker" add -u; git -C "c:\Dev\Cruise Tracker" commit -m "Deploy update"; git -C "c:\Dev\Cruise Tracker" push
 ```
