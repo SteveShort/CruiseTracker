@@ -338,7 +338,7 @@ function getDiningMode() {
 
 function hasValidPrice(c) {
     const bOk = c.balconyPrice !== null && c.balconyPrice !== undefined && c.balconyPrice > 0;
-    const sOk = c.suitePrice !== null && c.suitePrice !== undefined && c.suitePrice > 0;
+    const sOk = c.verifiedSuitePrice !== null && c.verifiedSuitePrice !== undefined && c.verifiedSuitePrice > 0;
     return bOk || sOk;
 }
 
@@ -768,7 +768,7 @@ function applyDashboardFilters() {
         if (mode === 'suite') {
             filtered = filtered.filter(c => {
                 const ppd = (c.verifiedSuitePerDay && c.verifiedSuitePerDay > 0)
-                    ? c.verifiedSuitePerDay : c.suitePerDay;
+                    ? c.verifiedSuitePerDay : 0;
                 return ppd && ppd > 0 && ppd <= maxPpd;
             });
         } else {
@@ -777,7 +777,7 @@ function applyDashboardFilters() {
     }
     if (maxTotal < maxTotalMax) {
         if (mode === 'suite') {
-            filtered = filtered.filter(c => c.suitePrice && c.suitePrice > 0 && c.suitePrice <= maxTotal);
+            filtered = filtered.filter(c => c.verifiedSuitePrice && c.verifiedSuitePrice > 0 && c.verifiedSuitePrice <= maxTotal);
         } else {
             // Total for all guests in room (2 or 4 depending on mode)
             filtered = filtered.filter(c => c.balconyPrice && c.balconyPrice > 0 && c.balconyPrice <= maxTotal);
@@ -869,7 +869,7 @@ function applyDashboardFilters() {
     const sortLabel = document.getElementById('dashSortLabel');
     if (orderBy === 'pricepd') {
         if (mode === 'suite') {
-            filtered.sort((a, b) => (a.suitePerDay || 99999) - (b.suitePerDay || 99999));
+            filtered.sort((a, b) => (a.verifiedSuitePerDay || 99999) - (b.verifiedSuitePerDay || 99999));
             sortLabel.textContent = 'ranked by lowest suite price per day';
         } else {
             filtered.sort((a, b) => (a.balconyPerDay || 99999) - (b.balconyPerDay || 99999));
@@ -877,7 +877,7 @@ function applyDashboardFilters() {
         }
     } else {
         const priceFn = mode === 'suite'
-            ? (c => (c.verifiedSuitePerDay && c.verifiedSuitePerDay > 0) ? c.verifiedSuitePerDay : (c.suitePerDay || 99999))
+            ? (c => (c.verifiedSuitePerDay && c.verifiedSuitePerDay > 0) ? c.verifiedSuitePerDay : 99999)
             : (c => c.balconyPerDay || 99999);
         filtered.sort((a, b) => (b._valueScoreRaw || 0) - (a._valueScoreRaw || 0) || priceFn(a) - priceFn(b));
         sortLabel.textContent = mode === 'suite' ? 'ranked by best suite value' : 'ranked by best balcony value';
@@ -893,7 +893,7 @@ function applyDashboardFilters() {
 
 function updateFilteredStats(filtered) {
     const balPrices = filtered.map(c => c.balconyPerDay).filter(p => p && p > 0);
-    const suitePrices = filtered.map(c => c.suitePerDay).filter(p => p && p > 0);
+    const suitePrices = filtered.map(c => c.verifiedSuitePerDay).filter(p => p && p > 0);
     document.getElementById('statSailings').textContent = filtered.length.toLocaleString();
     const ships = new Set(filtered.map(c => c.shipName));
     document.getElementById('statShips').textContent = ships.size;
@@ -923,7 +923,7 @@ function computeValueStars(cruises) {
         if (mode === 'package') {
             return bal > 0 ? bal + (c.diningPackageCostPerDay || 0) : 0;
         } else if (mode === 'suite') {
-            const suitePpd = (c.verifiedSuitePerDay && c.verifiedSuitePerDay > 0) ? c.verifiedSuitePerDay : c.suitePerDay;
+            const suitePpd = (c.verifiedSuitePerDay && c.verifiedSuitePerDay > 0) ? c.verifiedSuitePerDay : 0;
             return (suitePpd && suitePpd > 0) ? suitePpd : 0;
         }
         return bal; // main mode
@@ -954,7 +954,7 @@ function computeValueStars(cruises) {
 
         let tv = 0;
         if (mode === 'suite') {
-            tv = c.suitePrice && c.suitePrice > 0 ? c.suitePrice : 0;
+            tv = c.verifiedSuitePrice && c.verifiedSuitePrice > 0 ? c.verifiedSuitePrice : 0;
         } else {
             const bp = (c.balconyPrice && c.balconyPrice > 0) ? c.balconyPrice : 0;
             tv = bp;
@@ -1026,7 +1026,7 @@ function computeValueStars(cruises) {
         const ppdVal = effectivePpd(c);
         let totalVal = 0;
         if (mode === 'suite') {
-            totalVal = c.suitePrice && c.suitePrice > 0 ? c.suitePrice : 0;
+            totalVal = c.verifiedSuitePrice && c.verifiedSuitePrice > 0 ? c.verifiedSuitePrice : 0;
         } else {
             const bp = (c.balconyPrice && c.balconyPrice > 0) ? c.balconyPrice : 0;
             totalVal = bp;
@@ -1275,8 +1275,8 @@ function renderSingleCard(c, i) {
     // FL Resident pricing helpers - only show when FL price is actually cheaper
     const hasFLBal = c.flResBalconyPerDay && c.flResBalconyPerDay > 0 && c.balconyPerDay && c.flResBalconyPerDay < c.balconyPerDay;
 
-    const displaySuitePpd = (c.verifiedSuitePerDay && c.verifiedSuitePerDay > 0) ? c.verifiedSuitePerDay : c.suitePerDay;
-    const displaySuiteTotal = (c.verifiedSuitePrice && c.verifiedSuitePrice > 0) ? c.verifiedSuitePrice : c.suitePrice;
+    const displaySuitePpd = (c.verifiedSuitePerDay && c.verifiedSuitePerDay > 0) ? c.verifiedSuitePerDay : 0;
+    const displaySuiteTotal = (c.verifiedSuitePrice && c.verifiedSuitePrice > 0) ? c.verifiedSuitePrice : 0;
     const displayFlSuitePpd = (c.flResVerifiedSuitePerDay && c.flResVerifiedSuitePerDay > 0) ? c.flResVerifiedSuitePerDay : c.flResSuitePerDay;
     const displayFlSuiteTotal = (c.flResVerifiedSuitePrice && c.flResVerifiedSuitePrice > 0) ? c.flResVerifiedSuitePrice : c.flResSuitePrice;
 

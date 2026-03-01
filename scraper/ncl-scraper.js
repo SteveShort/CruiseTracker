@@ -402,7 +402,7 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
             upserted++;
 
             // 2. Always INSERT a new PriceHistory row (for price tracking over time)
-            if (balconyTotal > 0 || insideTotal > 0) {
+            if (balconyTotal > 0 || insideTotal > 0 || suiteTotal > 0 || havenTotal > 0) {
                 await pool.request()
                     .input('line', sql.NVarChar, 'Norwegian')
                     .input('ship', sql.NVarChar, r.shipName)

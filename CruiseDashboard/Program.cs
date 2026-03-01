@@ -475,7 +475,7 @@ app.MapGet("/api/cruises", async (string? line, string? ship, string? port, stri
     // Suite mode: exclude cruises with no suite pricing at all
     if (string.Equals(mode, "suite", StringComparison.OrdinalIgnoreCase))
     {
-        sql += " AND (ISNULL(p.SuitePerDay, 0) > 0 OR ISNULL(p.VerifiedSuitePerDay, 0) > 0)";
+        sql += " AND ISNULL(p.VerifiedSuitePerDay, 0) > 0";
     }
 
     // App mode: filter by cruise line category
@@ -712,7 +712,7 @@ app.MapGet("/api/deals", async () =>
         if (!thresholds.ContainsKey(line)) return false;
         var (bThresh, sThresh) = thresholds[line];
         var bpd = (decimal?)(r.BalconyPerDay) ?? 999999;
-        var spd = (decimal?)(r.VerifiedSuitePerDay) ?? (decimal?)(r.SuitePerDay) ?? 999999;
+        var spd = (decimal?)(r.VerifiedSuitePerDay) ?? 999999;
         return bpd <= bThresh || spd <= sThresh;
     }).Select(r =>
     {
@@ -720,8 +720,8 @@ app.MapGet("/api/deals", async () =>
         var line = (string)r.CruiseLine;
         var (bThresh, sThresh) = thresholds[line];
         var bpd = (decimal?)(r.BalconyPerDay);
-        var spd = (decimal?)(r.VerifiedSuitePerDay) ?? (decimal?)(r.SuitePerDay);
-        var sPrice = (decimal?)(r.VerifiedSuitePrice) ?? (decimal?)(r.SuitePrice);
+        var spd = (decimal?)(r.VerifiedSuitePerDay);
+        var sPrice = (decimal?)(r.VerifiedSuitePrice);
         return new
         {
             CruiseLine = line,

@@ -314,16 +314,16 @@ public class DashboardTests : PageTest
         var noSuiteCruises = cruises
             .Where(c =>
             {
-                var suitePpd = c.GetProperty("suitePerDay").GetDecimal();
+                // Suite mode now only requires Haven/Retreat (verifiedSuitePerDay), not MINISUITE
                 var verifiedSuitePpd = c.TryGetProperty("verifiedSuitePerDay", out var vsp) && vsp.ValueKind != JsonValueKind.Null
                     ? vsp.GetDecimal() : 0m;
-                return suitePpd <= 0 && verifiedSuitePpd <= 0;
+                return verifiedSuitePpd <= 0;
             })
             .Select(c => $"{c.GetProperty("cruiseLine").GetString()} {c.GetProperty("shipName").GetString()}")
             .ToList();
 
         Assert.That(noSuiteCruises, Is.Empty,
-            $"Suite mode returned {noSuiteCruises.Count} cruises with no suite price: {string.Join("; ", noSuiteCruises.Take(5))}");
+            $"Suite mode returned {noSuiteCruises.Count} cruises with no Haven/Retreat price: {string.Join("; ", noSuiteCruises.Take(5))}");
 
         // Disney should not appear at all in suite mode (they have no suite tier)
         var disneyInSuiteMode = cruises
