@@ -559,6 +559,19 @@ body::before {
     border-color: rgba(168, 85, 247, 0.2);
 }
 
+.suite-only-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-top: 4px;
+}
+
 .price-label {
     font-size: 0.6rem;
     font-weight: 600;
