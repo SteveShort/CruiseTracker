@@ -196,11 +196,14 @@ async function loadDashboard() {
         initMonthPicker();
         renderStats(stats);
         applyDashboardFilters();
+
+        // Default to Florida-only ports on initial load
+        document.getElementById('btnFloridaOnly')?.click();
         applyFilters();
         renderShips(ships);
 
         document.getElementById('cruiseBadge').textContent = cruises.length;
-        document.getElementById('totalCount').textContent = `${cruises.length} upcoming sailings`;
+        document.getElementById('totalCount').textContent = `${cruises.length} total tracked sailings`;
 
         if (stats.lastScraped) {
             const d = new Date(stats.lastScraped);
