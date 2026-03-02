@@ -1339,10 +1339,7 @@ function renderSingleCard(c, i) {
     const isSuiteOnly = (!c.balconyPrice || c.balconyPrice <= 0) && displaySuiteTotal > 0;
     let balconyPriceHtml;
     if (isSuiteOnly) {
-        balconyPriceHtml = `<div class="price-col balcony suite-only-col">
-                <span class="price-label">Balcony</span>
-                <span class="suite-only-badge">Suite Only</span>
-            </div>`;
+        balconyPriceHtml = '';
     } else if (hasFLBal) {
         balconyPriceHtml = `<div class="price-col balcony fl-res-price">
                 <span class="price-label">Balcony</span>
@@ -1358,18 +1355,21 @@ function renderSingleCard(c, i) {
             </div>`;
     }
 
-    // Build suite price column — show real scraped values
+    // Build suite price column
+    const suiteLabelHtml = isSuiteOnly
+        ? `${suiteLabel} <span class="suite-only-badge">Suite Only</span>`
+        : suiteLabel;
     let suitePriceHtml;
     if (hasFLSuite) {
         suitePriceHtml = `<div class="price-col suite fl-res-price">
-                <span class="price-label">${suiteLabel}</span>
+                <span class="price-label">${suiteLabelHtml}</span>
                 <span class="price-ppd-regular">${fmtPpd(displaySuitePpd)}<span class="ppd-suffix">/ppd</span></span>
                 <span class="price-ppd fl-res">${fmtPpd(displayFlSuitePpd)}<span class="ppd-suffix">/ppd</span></span>
                 <span class="price-total fl-res">${fmtTotal(displayFlSuiteTotal)}</span>
             </div>`;
     } else {
         suitePriceHtml = `<div class="price-col suite">
-                <span class="price-label">${suiteLabel}</span>
+                <span class="price-label">${suiteLabelHtml}</span>
                 <span class="price-ppd">${fmtPpd(displaySuitePpd)}<span class="ppd-suffix">/ppd</span></span>
                 <span class="price-total">${fmtTotal(displaySuiteTotal)}</span>
             </div>`;
