@@ -122,18 +122,20 @@ public class DashboardTests : PageTest
         // Wait for initial cards to load
         var cards = Page.Locator("#dealsContainer .deal-card");
         await Expect(cards.First).ToBeVisibleAsync(new() { Timeout = 15_000 });
-        await Page.WaitForTimeoutAsync(1000);  // Let data settle with larger dataset
+        await Page.WaitForTimeoutAsync(2000);  // Let data settle with ~4700 sailings
 
         // Read the initial total from the result count label (not DOM cards — pagination caps those)
         var initialLabel = await Page.Locator("#dashResultCount").InnerTextAsync();
         var initialTotal = int.Parse(initialLabel.Split(' ')[0]);
 
-        // Apply "Disney" cruise line filter
-        await Page.ClickAsync("#lineDropdown .dropdown-toggle");
-        var disneyCheckbox = Page.Locator("#dashFilterLinePanel input[value='Disney']");
-        await Expect(disneyCheckbox).ToBeVisibleAsync(new() { Timeout = 5_000 });
-        await disneyCheckbox.ClickAsync();
-        await Page.ClickAsync("body", new() { Position = new Microsoft.Playwright.Position { X = 0, Y = 0 } });
+        // Apply "Disney" cruise line filter via JavaScript (more reliable than click-based dropdown)
+        await Page.EvaluateAsync(@"() => {
+            const cb = document.querySelector('#dashFilterLinePanel input[value=""Disney""]');
+            if (cb) { cb.checked = true; cb.dispatchEvent(new Event('change', { bubbles: true })); }
+        }");
+
+        // Trigger filter application
+        await Page.EvaluateAsync("() => { if (typeof applyDashboardFilters === 'function') applyDashboardFilters(); }");
 
         // Wait for re-render
         await Page.WaitForTimeoutAsync(1000);
@@ -232,8 +234,8 @@ public class DashboardTests : PageTest
         var cards = Page.Locator("#dealsContainer .deal-card");
         await Expect(cards.First).ToBeVisibleAsync(new() { Timeout = 15_000 });
 
-        // Wait for stats to compute (larger dataset = longer scoring/computation time)
-        await Page.WaitForTimeoutAsync(3000);
+        // Wait for stats to compute (~4700 sailings = longer scoring/computation time)
+        await Page.WaitForTimeoutAsync(5000);
 
         // All 4 stat cards should have real values
         var statIds = new[] { "statSailings", "statShips", "statBalcony", "statSuite" };

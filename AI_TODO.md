@@ -38,7 +38,15 @@ Each task: build scraper + add ship data to `Program.cs`, test live run, deploy,
 
 - [x] **Silversea Scraper** — Algolia API (`ogg7av1jsp-dsn.algolia.net`), no browser needed. Direct REST POST returns all voyages with pricing in clean JSON. All-suite line → map fare to `SuitePrice`. CruiseLine = `"Silversea"`. Ships: Silver Dawn, Moon, Muse, Nova, Ray, Shadow, Spirit, Whisper, Wind, Endeavour. Follow `oceania-scraper.js` pattern. ✅ 995 voyages scraped, 12 ships.
 - [x] **Virgin Voyages Scraper** — Playwright-based, DOM card extraction + voyageId decoding. 220 sailings scraped with pricing. Miami homeport set for FL filter. Rockstar pricing enhancement deferred (needs per-voyage detail page). ✅
-- [ ] **Seabourn Scraper** — REST API at `/search/sbncruisesearch` + POST `/api/pricing/v1/cruises`. Needs Playwright for Akamai cookie. Carnival Corp infrastructure. All-suite → map fare to `SuitePrice`. CruiseLine = `"Seabourn"`. Ships: Odyssey, Sojourn, Quest, Ovation, Venture, Pursuit. Follow `oceania-scraper.js` pattern.
+- [x] **Seabourn Scraper** — Playwright for Akamai cookie + Solr search API. 502 sailings scraped from 6 ships. All-suite → SuitePrice. ✅
+
+---
+
+## Dashboard Enhancements
+
+- [ ] **Fix Virgin Voyages Itinerary** — Currently showing package code (e.g. `4NKW2`) instead of human-readable itinerary name. Investigate how to extract proper itinerary/destination from Virgin API or detail pages.
+- [ ] **Toggleable FL/Alaska Quick Filters** — Make the 🌴 Florida and ⛰️ Alaska port filter buttons toggleable (click on = filter, click again = clear). Currently they only activate.
+- [ ] **Autocomplete for Ship & Port Dropdowns** — Add search/type-ahead capability to Ship and Port filter dropdowns so users can start typing a name and the list filters down instantly.
 
 ---
 

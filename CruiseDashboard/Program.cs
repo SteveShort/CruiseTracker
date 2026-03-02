@@ -352,6 +352,32 @@ var ships = new Dictionary<string, ShipInfo>(StringComparer.OrdinalIgnoreCase)
         "None", "Rockstar Quarters", 3.0m,
         "Pool, Aquatic club, athletic club", "Fourth Mega-class; enters service 2025; same dining and entertainment concept",
         0, 90, 90, 90, 94, 0m),
+
+    // SEABOURN (adult-only ultra-luxury, all-suite, all-inclusive)        SuiteName    Mult KidsR ShipR  MainDin PkgDin SuiteDin PkgCost
+    ["Seabourn Encore"] = new("adult", "Seabourn", "Seabourn Encore", "Encore", 2016, "2023", 40350, 604, false,
+        "None", "Suite", 2.5m,
+        "Pool, spa, whirlpools", "Newest ocean-class; The Grill by Thomas Keller; all-suite, all-inclusive",
+        0, 90, 88, 88, 92, 0m),
+    ["Seabourn Ovation"] = new("adult", "Seabourn", "Seabourn Ovation", "Encore", 2018, "None", 40350, 604, false,
+        "None", "Suite", 2.5m,
+        "Pool, spa, whirlpools", "Sister to Encore; The Grill by Thomas Keller; European/Asian focus",
+        0, 91, 88, 88, 92, 0m),
+    ["Seabourn Quest"] = new("adult", "Seabourn", "Seabourn Quest", "Odyssey", 2011, "2023", 32346, 458, false,
+        "None", "Suite", 2.0m,
+        "Pool, spa", "Odyssey-class; intimate all-suite; The Grill by Thomas Keller",
+        0, 85, 86, 86, 90, 0m),
+    ["Seabourn Sojourn"] = new("adult", "Seabourn", "Seabourn Sojourn", "Odyssey", 2010, "2022", 32346, 458, false,
+        "None", "Suite", 2.0m,
+        "Pool, spa", "World cruise specialist; The Grill by Thomas Keller; 229 suites",
+        0, 84, 86, 86, 90, 0m),
+    ["Seabourn Venture"] = new("adult", "Seabourn", "Seabourn Venture", "Venture", 2022, "None", 23000, 264, false,
+        "None", "Suite", 2.5m,
+        "Pool, spa", "Purpose-built expedition; PC6 ice-class hull; 2 submarines; 264 guests",
+        0, 88, 87, 87, 91, 0m),
+    ["Seabourn Pursuit"] = new("adult", "Seabourn", "Seabourn Pursuit", "Venture", 2023, "None", 23000, 264, false,
+        "None", "Suite", 2.5m,
+        "Pool, spa", "Sister to Venture; expedition with submarines; Arctic/Antarctic specialist",
+        0, 88, 87, 87, 91, 0m),
 };
 
 ShipInfo? LookupShip(string name)
