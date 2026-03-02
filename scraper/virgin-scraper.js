@@ -30,7 +30,7 @@ const SHIP_CODES = {
     SC: 'Scarlet Lady',
     VL: 'Valiant Lady',
     RS: 'Resilient Lady',
-    BL: 'Brilliant Lady',
+    BR: 'Brilliant Lady',
 };
 
 // ── Logging ────────────────────────────────────────────────────────────
@@ -171,26 +171,41 @@ async function main() {
                 const priceMatch = cardText.match(/\$\s*([\d,]+)/);
                 const price = priceMatch ? parseFloat(priceMatch[1].replace(/,/g, '')) : null;
 
-                // Extract itinerary/destination from card
-                const titleWords = cardText.substring(0, 300).trim();
-
                 results.push({
                     voyageIds,
                     packageCode,
                     price,
-                    text: titleWords.substring(0, 200),
                 });
             });
 
-            return results;
+            // ── Extract itinerary names from "Book Now" buttons with aria-labels ──
+            const itineraryMap = {};  // packageCode → readable name
+            const cruiseBtns = document.querySelectorAll('a.cruiseBtn[aria-label]');
+            cruiseBtns.forEach(btn => {
+                const label = btn.getAttribute('aria-label') || '';
+                const name = label.replace(/^Book Now\s*/i, '').trim();
+                if (!name) return;
+                try {
+                    const url = new URL(btn.href, window.location.origin);
+                    const pkg = url.searchParams.get('packageCode') || '';
+                    if (pkg) itineraryMap[pkg] = name;
+                    // Also map by voyageIds
+                    const vids = (url.searchParams.get('voyageIds') || url.searchParams.get('voyageId') || '').split(',').filter(Boolean);
+                    vids.forEach(vid => { itineraryMap[vid] = name; });
+                } catch { /* skip */ }
+            });
+
+            return { cards: results, itineraryMap };
         });
 
-        console.log(`  📋 Extracted ${cardData.length} voyage cards from DOM`);
+        const { cards, itineraryMap } = cardData;
+        console.log(`  📋 Extracted ${cards.length} voyage cards from DOM`);
+        console.log(`  🏷️  Found ${Object.keys(itineraryMap).length} itinerary name mappings`);
         console.log(`  📡 Intercepted ${Object.keys(apiPricing).length} items from API`);
 
         // ── Build price map from card data (packageCode → price) ──
         const pricedPackages = {};
-        for (const card of cardData) {
+        for (const card of cards) {
             if (card.price && card.packageCode) {
                 pricedPackages[card.packageCode] = card.price;
             }
@@ -204,7 +219,7 @@ async function main() {
 
         // ── Collect unique voyageIds ──
         const allVoyageIds = new Set();
-        for (const card of cardData) {
+        for (const card of cards) {
             for (const vid of card.voyageIds) {
                 allVoyageIds.add(vid);
             }
@@ -238,8 +253,8 @@ async function main() {
                 else if (decoded.shipCode === 'BL') embarkPort = 'Miami, Florida';
             }
 
-            // Build itinerary name from package code
-            let itinerary = decoded.packageCode;
+            // Build itinerary name — prefer aria-label name, then API title, then package code
+            let itinerary = itineraryMap[vid] || itineraryMap[decoded.packageCode] || decoded.packageCode;
             if (apiData?.title) itinerary = apiData.title;
 
             results.push({
