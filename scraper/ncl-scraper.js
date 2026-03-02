@@ -2,13 +2,13 @@
 //  NCL Verified Price Scraper — API Edition
 //  Uses NCL's internal JSON APIs (no browser automation required)
 //
-//  Step 1: Discovery — GET /api/v2/vacations/search?embPorts=...
-//          Finds all Florida-departing itineraries across all ships
+//  Step 1: Discovery — GET /api/v2/vacations/search
+//          Finds all itineraries across all ships and ports
 //  Step 2: Sailings  — GET /api/vacations/sailings/{itineraryCode}
 //          Gets every departure date + prices for all stateroom types
 //
 //  Usage:
-//    node ncl-scraper.js                          # scrape all FL ports
+//    node ncl-scraper.js                          # scrape all ports
 //    node ncl-scraper.js --ship "Norwegian Aqua"  # filter to one ship
 // ============================================================================
 
@@ -22,7 +22,7 @@ const SQL_CONFIG = {
 };
 
 // ── Constants ──────────────────────────────────────────────────────────
-const FLORIDA_PORTS = 'MIA,JAX,PCV,TPA';         // Miami, Jacksonville, Port Canaveral, Tampa
+// No port filter — scrape all departure ports globally
 const DISCOVERY_URL = 'https://www.ncl.com/api/v2/vacations/search';
 const SAILINGS_URL = 'https://www.ncl.com/api/vacations/sailings';
 const PAGE_SIZE = 100;
@@ -90,16 +90,16 @@ const SHIP_FILTER = shipArgIdx >= 0 ? cliArgs[shipArgIdx + 1] : null;
 // ── Helper: polite delay ───────────────────────────────────────────────
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-// ── Step 1: Discover all Florida itineraries ───────────────────────────
+// ── Step 1: Discover all itineraries (all ports) ───────────────────────
 async function fetchAllItineraries() {
     const itineraries = [];
     let offset = 0;
     let total = Infinity;
 
-    console.log(`  🔍 Discovering itineraries for ports: ${FLORIDA_PORTS}`);
+    console.log(`  🔍 Discovering itineraries (all ports)...`);
 
     while (offset < total) {
-        const url = `${DISCOVERY_URL}?embPorts=${FLORIDA_PORTS}&limit=${PAGE_SIZE}&offset=${offset}`;
+        const url = `${DISCOVERY_URL}?limit=${PAGE_SIZE}&offset=${offset}`;
         console.log(`  📄 Fetching page offset=${offset}...`);
 
         const resp = await fetch(url, {
@@ -194,12 +194,39 @@ function buildSailingRecords(itinerary, pricingRooms) {
 // ── Normalize port name ────────────────────────────────────────────────
 function normalizePort(portName) {
     if (!portName) return 'Unknown';
+    // Florida
     if (/port canaveral|orlando/i.test(portName)) return 'Port Canaveral';
     if (/fort lauderdale|ft\.?\s*lauderdale/i.test(portName)) return 'Fort Lauderdale';
     if (/miami/i.test(portName)) return 'Miami';
     if (/tampa/i.test(portName)) return 'Tampa';
     if (/jacksonville/i.test(portName)) return 'Jacksonville';
-    return portName;
+    // East Coast / Gulf
+    if (/new york|manhattan/i.test(portName)) return 'New York';
+    if (/boston/i.test(portName)) return 'Boston';
+    if (/baltimore/i.test(portName)) return 'Baltimore';
+    if (/charleston/i.test(portName)) return 'Charleston';
+    if (/new orleans/i.test(portName)) return 'New Orleans';
+    if (/galveston/i.test(portName)) return 'Galveston';
+    if (/norfolk/i.test(portName)) return 'Norfolk';
+    // West Coast / Alaska
+    if (/seattle/i.test(portName)) return 'Seattle';
+    if (/los angeles|san pedro|long beach/i.test(portName)) return 'Los Angeles';
+    if (/san francisco/i.test(portName)) return 'San Francisco';
+    if (/san diego/i.test(portName)) return 'San Diego';
+    // Caribbean / Hawaii
+    if (/san juan/i.test(portName)) return 'San Juan';
+    if (/honolulu/i.test(portName)) return 'Honolulu';
+    // Europe
+    if (/barcelona/i.test(portName)) return 'Barcelona';
+    if (/rome|civitavecchia/i.test(portName)) return 'Rome (Civitavecchia)';
+    if (/london|southampton/i.test(portName)) return 'Southampton';
+    if (/copenhagen/i.test(portName)) return 'Copenhagen';
+    if (/athens|piraeus/i.test(portName)) return 'Athens (Piraeus)';
+    if (/venice/i.test(portName)) return 'Venice';
+    if (/lisbon/i.test(portName)) return 'Lisbon';
+    if (/amsterdam/i.test(portName)) return 'Amsterdam';
+    if (/reykjavik/i.test(portName)) return 'Reykjavik';
+    return portName; // Return as-is for unlisted ports
 }
 
 // ── Main ───────────────────────────────────────────────────────────────
@@ -209,7 +236,7 @@ async function main() {
     const runErrors = [];
 
     console.log('╔══════════════════════════════════════════════════════════╗');
-    console.log('║  NCL Price Scraper — API Edition (Florida ports)        ║');
+    console.log('║  NCL Price Scraper — API Edition (All ports)            ║');
     console.log('╚══════════════════════════════════════════════════════════╝');
     if (SHIP_FILTER) console.log(`  🔸 Filtering to ship: ${SHIP_FILTER}`);
 
@@ -272,8 +299,12 @@ async function main() {
 
             for (const s of sailings) {
                 let familyPrices = {};
-                if (s.sailId) {
-                    const frooms = familyPricingRooms.filter(r => r.sailId === s.sailId && r.status === 'AVAILABLE' && r.combinedPrice);
+                {
+                    const datePrefix = s.departureDate; // "2026-03-09"
+                    const frooms = familyPricingRooms.filter(r =>
+                        r.vacationStartDate?.startsWith(datePrefix) &&
+                        r.status === 'AVAILABLE' && r.combinedPrice
+                    );
                     for (const fr of frooms) {
                         familyPrices[fr.stateroomType] = fr.combinedPrice;
                     }

@@ -1,6 +1,6 @@
 // celebrity-scraper.js
 //  Celebrity Cruises Verified Price Scraper - GraphQL API
-//  Fetches all FL-departing sailings with per-stateroom pricing
+//  Fetches all sailings with per-stateroom pricing
 //  from Celebrity's own GraphQL API. No browser needed.
 
 const sql = require('mssql/msnodesqlv8');
@@ -14,16 +14,41 @@ const SQL_CONFIG = {
 
 const GRAPHQL_URL = 'https://www.celebritycruises.com/cruises/graph';
 
-// FL departure port codes
-const FL_PORTS = ['FLL', 'MIA', 'TPA', 'PCN'];
-const FL_PORT_FILTER = `departurePort:${FL_PORTS.join(',')}`;
-
-// Port code -> friendly name
+// Port code -> friendly name mapping
 const PORT_NAMES = {
+    // Florida
     FLL: 'Fort Lauderdale',
     MIA: 'Miami',
     TPA: 'Tampa',
     PCN: 'Port Canaveral',
+    // East Coast / Gulf
+    BYN: 'Bayonne (NYC)',
+    CPH: 'Charleston',
+    BAL: 'Baltimore',
+    BOS: 'Boston',
+    GAL: 'Galveston',
+    NOR: 'Norfolk',
+    // West Coast / Alaska
+    SEA: 'Seattle',
+    SFO: 'San Francisco',
+    LAX: 'Los Angeles',
+    SDP: 'San Diego',
+    // Caribbean
+    SJU: 'San Juan',
+    // Europe
+    BCN: 'Barcelona',
+    CVV: 'Rome (Civitavecchia)',
+    SOU: 'Southampton',
+    AMS: 'Amsterdam',
+    VCE: 'Venice',
+    PIR: 'Athens (Piraeus)',
+    CPH2: 'Copenhagen',
+    LIS: 'Lisbon',
+    REK: 'Reykjavik',
+    // Asia/Pacific
+    SIN: 'Singapore',
+    SYD: 'Sydney',
+    HNL: 'Honolulu',
 };
 
 const PAGE_SIZE = 50;
@@ -117,7 +142,7 @@ async function fetchPage(skip, qualifiers) {
         operationName: 'cruiseSearch_CruisesRiver',
         variables: {
             enableNewCasinoExperience: true,
-            filters: `voyageType:OCEAN;${FL_PORT_FILTER}`,
+            filters: `voyageType:OCEAN`,
             qualifiers: qualifiers,
             sort: { by: 'SAILDATE' },
             pagination: { count: PAGE_SIZE, skip },
@@ -277,7 +302,7 @@ async function main() {
         return allCruises;
     }
 
-    console.log(`  Fetching Celebrity FL sailings for 2 Adults...`);
+    console.log(`  Fetching Celebrity sailings for 2 Adults (all ports)...`);
     let adultCruises = [];
     try {
         adultCruises = await fetchAll('');

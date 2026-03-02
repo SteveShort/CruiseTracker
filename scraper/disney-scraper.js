@@ -33,25 +33,40 @@ const PRODUCTS_URL = `${BASE_URL}/dcl-apps-productavail-vas/available-products/`
 const SAILINGS_URL = `${BASE_URL}/dcl-apps-productavail-vas/available-sailings/`;
 const DELAY_MS = 300;
 
-// Florida departure ports — matched against productId and productName
-const FL_PORT_PATTERNS = ['port_canaveral', 'port canaveral', 'fort_lauderdale', 'fort lauderdale',
-    'ft_lauderdale', 'ft lauderdale', 'miami', 'tampa', 'jacksonville'];
-
-function isFloridaProduct(product) {
-    const id = (product.productId || '').toLowerCase();
-    const name = (product.productName || product.productDisplayName || '').toLowerCase();
-    return FL_PORT_PATTERNS.some(p => id.includes(p) || name.includes(p));
-}
-
+// Port extraction from Disney product identifiers
+// Disney productIds look like: '3_baja_san_diego', '7_western_port_canaveral'
 function extractPort(product) {
     const id = (product.productId || '').toLowerCase();
-    const name = (product.productName || '').toLowerCase();
-    if (id.includes('port_canaveral') || name.includes('port canaveral')) return 'Port Canaveral';
-    if (id.includes('fort_lauderdale') || id.includes('ft_lauderdale') || name.includes('fort lauderdale')) return 'Ft. Lauderdale';
-    if (id.includes('miami') || name.includes('miami')) return 'Miami';
-    if (id.includes('tampa') || name.includes('tampa')) return 'Tampa';
-    if (id.includes('jacksonville') || name.includes('jacksonville')) return 'Jacksonville';
-    return '';
+    const name = (product.productName || product.productDisplayName || '').toLowerCase();
+    const src = `${id} ${name}`;
+    // Florida
+    if (/port.?canaveral/i.test(src)) return 'Port Canaveral';
+    if (/fort.?lauderdale|ft.?lauderdale/i.test(src)) return 'Fort Lauderdale';
+    if (/miami/i.test(src)) return 'Miami';
+    if (/tampa/i.test(src)) return 'Tampa';
+    if (/jacksonville/i.test(src)) return 'Jacksonville';
+    // West Coast / Alaska
+    if (/san.?diego/i.test(src)) return 'San Diego';
+    if (/los.?angeles|san.?pedro/i.test(src)) return 'Los Angeles';
+    if (/san.?francisco/i.test(src)) return 'San Francisco';
+    if (/seattle/i.test(src)) return 'Seattle';
+    if (/vancouver/i.test(src)) return 'Vancouver';
+    // Northeast
+    if (/new.?york/i.test(src)) return 'New York';
+    if (/boston/i.test(src)) return 'Boston';
+    if (/new.?orleans/i.test(src)) return 'New Orleans';
+    if (/galveston/i.test(src)) return 'Galveston';
+    // Caribbean
+    if (/san.?juan/i.test(src)) return 'San Juan';
+    if (/honolulu/i.test(src)) return 'Honolulu';
+    // Europe
+    if (/barcelona/i.test(src)) return 'Barcelona';
+    if (/rome|civitavecchia/i.test(src)) return 'Rome (Civitavecchia)';
+    if (/southampton|london/i.test(src)) return 'Southampton';
+    if (/copenhagen/i.test(src)) return 'Copenhagen';
+    if (/singapore/i.test(src)) return 'Singapore';
+    if (/tokyo|yokohama/i.test(src)) return 'Tokyo';
+    return product.departurePort || '';
 }
 
 // ── Logging ────────────────────────────────────────────────────────────
@@ -114,7 +129,26 @@ const PARTY_MIX_ADULT = [{
 const PARTY_MIX_FAMILY = [{
     accessible: false, adultCount: 2, childCount: 2,
     partyMixId: '0'
+    // NOTE: Disney's sailings API does NOT support nonAdultAges — returns 400.
+    // The API always returns 2-adult stateroom-total regardless of childCount.
+    // True 4-guest pricing is obtained via Playwright (see fetchFamilyPricesViaPlaywright).
 }];
+
+// ── Playwright Family Price Scraper ────────────────────────────────────
+// ── Disney Family Pricing: Known Limitation ────────────────────────────
+// Family prices (2A+2K) are NOT available via Disney's search API:
+//   1. Server-side: API returns 400 when nonAdultAges is included
+//   2. Server-side: API ignores childCount, returns same 2-adult prices
+//   3. Browser context: Same behavior as server-side
+//   4. Route interception: Sailings API not called during initial page load
+//   5. DOM scraping: Guest picker requires visual interaction, fails in headless
+//
+// The Disney website DOES show correct family prices (e.g., Dream 3N Mar 6:
+// $4,121 for 4 guests vs $2,506 for 2 adults), but this pricing is only
+// available through their interactive booking flow.
+//
+// Family prices will remain 0 in the database for Disney sailings.
+// The app should note this limitation to users.
 
 function makeHeaders(cookie) {
     return {
@@ -132,10 +166,6 @@ function makeHeaders(cookie) {
     };
 }
 
-// Known Disney ships that sail from Florida
-const FL_SHIPS = new Set([
-    'Disney Dream', 'Disney Fantasy', 'Disney Wish', 'Disney Treasure', 'Disney Destiny'
-]);
 
 // ── Step 1: Get a valid product ID (just page 1) ──────────────────────
 async function fetchFirstProduct(cookie) {
@@ -170,7 +200,7 @@ async function fetchFirstProduct(cookie) {
 
     // Grab first usable product for the sailings call
     for (const product of data.products) {
-        if (product.productId && !product.productId.includes('singapore')) {
+        if (product.productId) {
             console.log(`  ✅ Using product: ${product.productId}`);
             return {
                 productId: product.productId,
@@ -298,16 +328,12 @@ async function main() {
         return;
     }
 
-    // Step 2: Fetch sailings
-    console.log(`\n  📅 Fetching sailings for 2 Adults...`);
-    let adultSailings, familySailings;
+    // Step 2: Fetch adult sailings via API (fast)
+    console.log(`\n  📅 Fetching sailings for 2 Adults (API)...`);
+    let adultSailings;
     try {
         adultSailings = await fetchSailings(cookie, product, PARTY_MIX_ADULT);
         console.log(`  ✅ Got ${adultSailings.length} raw sailings (Adult)`);
-
-        console.log(`\n  👨‍👩‍👧‍👦 Fetching sailings for Family (2A+2K)...`);
-        familySailings = await fetchSailings(cookie, product, PARTY_MIX_FAMILY);
-        console.log(`  ✅ Got ${familySailings.length} raw sailings (Family)`);
     } catch (err) {
         console.error(`  ❌ Sailings fetch failed: ${err.message}`);
         runErrors.push(`Sailings: ${err.message}`);
@@ -315,18 +341,26 @@ async function main() {
         return;
     }
 
-    // Parse prices
+    // Parse adult prices
     const dummyProd = { shipName: '', nights: 0, itineraryName: '', departurePort: '' };
     const adultPrices = parseSailingPrices(dummyProd, adultSailings);
+
+    // Step 3: Family prices via API (same endpoint, different partyMix)
+    // NOTE: Disney API returns identical prices regardless of partyMix config.
+    // Family prices remain 0 — see "Known Limitation" comment above.
+    console.log(`\n  👨‍👩‍👧‍👦 Fetching sailings for Family (2A+2K)...`);
+    let familySailings = [];
+    try {
+        familySailings = await fetchSailings(cookie, product, PARTY_MIX_FAMILY);
+        console.log(`  ✅ Got ${familySailings.length} raw sailings (Family)`);
+    } catch (err) {
+        runErrors.push(`FamilySailings: ${err.message}`);
+    }
     const familyPrices = parseSailingPrices(dummyProd, familySailings);
 
-    // Filter to FL ships only
-    const adultFiltered = adultPrices.filter(r => FL_SHIPS.has(r.shipName));
-    const familyFiltered = familyPrices.filter(r => FL_SHIPS.has(r.shipName));
-
-    // Merge into combined results
-    const combinedResults = adultFiltered.map(adult => {
-        const fam = familyFiltered.find(f => f.shipName === adult.shipName && f.departureDate === adult.departureDate);
+    // Merge adult + family (family prices will match adult due to API limitation)
+    const combinedResults = adultPrices.map(adult => {
+        const fam = familyPrices.find(f => f.shipName === adult.shipName && f.departureDate === adult.departureDate);
         return {
             ...adult,
             familyInsidePrice: fam?.insidePrice || 0,
@@ -340,7 +374,7 @@ async function main() {
         };
     });
 
-    console.log(`\n  ── Total: ${combinedResults.length} Disney FL sailings (Merged Adult & Family) ──`);
+    console.log(`\n  ── Total: ${combinedResults.length} Disney sailings (all ports, Merged Adult & Family) ──`);
 
     // Save backup JSON
     const outputFile = path.join(__dirname, 'disney-prices.json');

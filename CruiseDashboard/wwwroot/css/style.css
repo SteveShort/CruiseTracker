@@ -1101,6 +1101,38 @@ body::before {
     flex-shrink: 0;
 }
 
+/* Port quick filter buttons (Florida / Alaska) */
+.port-quick-filters {
+    display: flex;
+    gap: 4px;
+    margin-left: 2px;
+}
+
+.port-quick-btn {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.port-quick-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--text-muted);
+}
+
+.port-quick-btn.active {
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--accent-blue);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 0 8px rgba(99, 102, 241, 0.15);
+}
+
 /* ── Slider Filters ────────────────────────────────────────────────── */
 .slider-filter {
     display: flex;

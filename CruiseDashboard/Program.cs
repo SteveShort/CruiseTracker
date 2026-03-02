@@ -750,53 +750,61 @@ app.MapGet("/api/deals", async () =>
 // Fallback: serve index.html for SPA-like routing
 app.MapFallbackToFile("index.html");
 
-// ── Calendar Events (JSON persistence) ──────────────────────────────────
-// Store outside publish folder so deploys don't wipe user data
-var calendarJsonPath = Path.Combine(AppContext.BaseDirectory, "..", "calendar-events.json");
-var calendarEvents = new List<CalendarEvent>();
-if (File.Exists(calendarJsonPath))
+// ── Calendar Events (JSON persistence — reads from disk each request) ────
+// Uses ContentRootPath so it always points to the git-tracked source file.
+// No in-memory cache: edits to the file are reflected immediately.
+var calendarJsonPath = Path.Combine(env.ContentRootPath, "calendar-events.json");
+var calendarJsonOpts = new System.Text.Json.JsonSerializerOptions
 {
+    PropertyNameCaseInsensitive = true,
+    WriteIndented = true
+};
+
+List<CalendarEvent> LoadCalendarEvents()
+{
+    if (!File.Exists(calendarJsonPath)) return new();
     try
     {
         var json = File.ReadAllText(calendarJsonPath);
-        calendarEvents = System.Text.Json.JsonSerializer.Deserialize<List<CalendarEvent>>(json,
-            new System.Text.Json.JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new();
+        return System.Text.Json.JsonSerializer.Deserialize<List<CalendarEvent>>(json, calendarJsonOpts) ?? new();
     }
-    catch { /* start fresh if corrupt */ }
+    catch { return new(); }
 }
 
-void SaveCalendarEvents()
+void SaveCalendarEvents(List<CalendarEvent> events)
 {
-    var json = System.Text.Json.JsonSerializer.Serialize(calendarEvents,
-        new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
+    var json = System.Text.Json.JsonSerializer.Serialize(events, calendarJsonOpts);
     File.WriteAllText(calendarJsonPath, json);
 }
 
-app.MapGet("/api/calendar-events", () => Results.Ok(calendarEvents));
+app.MapGet("/api/calendar-events", () => Results.Ok(LoadCalendarEvents()));
 
 app.MapPost("/api/calendar-events", (CalendarEvent evt) =>
 {
+    var events = LoadCalendarEvents();
     var newEvt = evt with { Id = Guid.NewGuid().ToString("N")[..8] };
-    calendarEvents.Add(newEvt);
-    SaveCalendarEvents();
+    events.Add(newEvt);
+    SaveCalendarEvents(events);
     return Results.Ok(newEvt);
 });
 
 app.MapDelete("/api/calendar-events/{id}", (string id) =>
 {
-    var removed = calendarEvents.RemoveAll(e => e.Id == id);
+    var events = LoadCalendarEvents();
+    var removed = events.RemoveAll(e => e.Id == id);
     if (removed == 0) return Results.NotFound();
-    SaveCalendarEvents();
+    SaveCalendarEvents(events);
     return Results.Ok();
 });
 
 app.MapPut("/api/calendar-events/{id}", (string id, CalendarEvent evt) =>
 {
-    var idx = calendarEvents.FindIndex(e => e.Id == id);
+    var events = LoadCalendarEvents();
+    var idx = events.FindIndex(e => e.Id == id);
     if (idx < 0) return Results.NotFound();
-    calendarEvents[idx] = evt with { Id = id };
-    SaveCalendarEvents();
-    return Results.Ok(calendarEvents[idx]);
+    events[idx] = evt with { Id = id };
+    SaveCalendarEvents(events);
+    return Results.Ok(events[idx]);
 });
 
 // ── Settings persistence (JSON file) ──────────────────────────────────
