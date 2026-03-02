@@ -168,30 +168,6 @@ async function loadDashboard() {
             });
         });
 
-        // Port quick-filter buttons (Florida / Alaska)
-        const FLORIDA_PORTS = ['port canaveral', 'fort lauderdale', 'miami', 'tampa', 'jacksonville', 'ft. lauderdale'];
-        const ALASKA_PORTS = ['seattle', 'vancouver', 'juneau', 'anchorage', 'seward', 'whittier'];
-
-        function setPortQuickFilter(portList, btnId) {
-            const btn = document.getElementById(btnId);
-            const isActive = btn.classList.contains('active');
-            // Clear both buttons
-            document.querySelectorAll('.port-quick-btn').forEach(b => b.classList.remove('active'));
-            // Uncheck all port checkboxes
-            document.querySelectorAll('#dashFilterPortPanel input[type="checkbox"]').forEach(cb => { cb.checked = false; });
-            if (!isActive) {
-                // Check matching ports
-                document.querySelectorAll('#dashFilterPortPanel input[type="checkbox"]').forEach(cb => {
-                    if (portList.some(p => cb.value.toLowerCase().includes(p))) cb.checked = true;
-                });
-                btn.classList.add('active');
-            }
-            updateDropdownLabel('dashFilterPortPanel', 'Ports');
-            applyDashboardFilters();
-        }
-
-        document.getElementById('btnFloridaOnly')?.addEventListener('click', () => setPortQuickFilter(FLORIDA_PORTS, 'btnFloridaOnly'));
-        document.getElementById('btnAlaskaOnly')?.addEventListener('click', () => setPortQuickFilter(ALASKA_PORTS, 'btnAlaskaOnly'));
 
         initMonthPicker();
         renderStats(stats);
@@ -288,6 +264,33 @@ function initDashboardFilters() {
     ['dashFilterHideSoldOut', 'dashFilterKidsOnly', 'dashFilterShipWithinShip', 'dashFilterFLResident', 'dashFilterTransatlantic', 'dashFilterNoConflicts'].forEach(id => {
         document.getElementById(id).addEventListener('change', applyDashboardFilters);
     });
+
+    // Port quick-filter buttons (Florida / Alaska) — bound once here, not in loadDashboard()
+    const FLORIDA_PORTS = ['port canaveral', 'fort lauderdale', 'miami', 'tampa', 'jacksonville', 'ft. lauderdale'];
+    const ALASKA_PORTS = ['seattle', 'vancouver', 'juneau', 'anchorage', 'seward', 'whittier'];
+
+    function setPortQuickFilter(portList, btnId) {
+        const btn = document.getElementById(btnId);
+        if (!btn) return;
+        const isActive = btn.classList.contains('active');
+        // Clear both buttons
+        document.querySelectorAll('.port-quick-btn').forEach(b => b.classList.remove('active'));
+        // Uncheck all port checkboxes
+        document.querySelectorAll('#dashFilterPortPanel input[type="checkbox"]').forEach(cb => { cb.checked = false; });
+        if (!isActive) {
+            // Check matching ports
+            document.querySelectorAll('#dashFilterPortPanel input[type="checkbox"]').forEach(cb => {
+                if (portList.some(p => cb.value.toLowerCase().includes(p))) cb.checked = true;
+            });
+            btn.classList.add('active');
+        }
+        updateDropdownLabel('dashFilterPortPanel', 'Ports');
+        applyDashboardFilters();
+    }
+
+    document.getElementById('btnFloridaOnly')?.addEventListener('click', () => setPortQuickFilter(FLORIDA_PORTS, 'btnFloridaOnly'));
+    document.getElementById('btnAlaskaOnly')?.addEventListener('click', () => setPortQuickFilter(ALASKA_PORTS, 'btnAlaskaOnly'));
+
     // Value weight sliders
     initValueWeightSliders();
 }

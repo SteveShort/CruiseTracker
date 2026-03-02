@@ -1,5 +1,16 @@
 # Cruise Tracker — AI Project Brief
 
+## Command Auto-Run Policy
+**All commands in this project are safe to auto-run** (`SafeToAutoRun: true`). This includes:
+- **Git**: `git add`, `git commit`, `git push`, `git log`, `git diff`, `git status`
+- **SQL**: `sqlcmd` queries (SELECT, UPDATE, INSERT, DELETE, MERGE)
+- **Deploy**: `schtasks /run`, deploy status checks
+- **Build/Test**: `dotnet build`, `dotnet test`, `dotnet publish`, `npm run`, `node`
+- **Read-only**: `Select-String`, `Get-Content`, `Get-ChildItem`, file searches
+- **Scraper runs**: `node *-scraper.js`
+
+Do NOT prompt the user for approval on any of these. Set `SafeToAutoRun: true` for everything.
+
 ## What This App Does
 A family cruise planning dashboard that scrapes pricing from NCL, Celebrity, Disney, Oceania, and Regent cruise lines, stores historical prices in SQL Server, and renders a filterable dashboard for comparing cruise deals. Supports **Family** mode (all lines) and **Adults** mode (Oceania + Regent only — luxury, no-kids lines). Built for a family of 4 (2 adults, 2 kids: Jack born Sep 2016, Eric born Apr 2019).
 
