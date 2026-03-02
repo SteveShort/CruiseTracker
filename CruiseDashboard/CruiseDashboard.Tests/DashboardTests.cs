@@ -122,6 +122,7 @@ public class DashboardTests : PageTest
         // Wait for initial cards to load
         var cards = Page.Locator("#dealsContainer .deal-card");
         await Expect(cards.First).ToBeVisibleAsync(new() { Timeout = 15_000 });
+        await Page.WaitForTimeoutAsync(1000);  // Let data settle with larger dataset
 
         // Read the initial total from the result count label (not DOM cards — pagination caps those)
         var initialLabel = await Page.Locator("#dashResultCount").InnerTextAsync();
@@ -129,11 +130,13 @@ public class DashboardTests : PageTest
 
         // Apply "Disney" cruise line filter
         await Page.ClickAsync("#lineDropdown .dropdown-toggle");
-        await Page.ClickAsync("#dashFilterLinePanel input[value='Disney']");
+        var disneyCheckbox = Page.Locator("#dashFilterLinePanel input[value='Disney']");
+        await Expect(disneyCheckbox).ToBeVisibleAsync(new() { Timeout = 5_000 });
+        await disneyCheckbox.ClickAsync();
         await Page.ClickAsync("body", new() { Position = new Microsoft.Playwright.Position { X = 0, Y = 0 } });
 
         // Wait for re-render
-        await Page.WaitForTimeoutAsync(500);
+        await Page.WaitForTimeoutAsync(1000);
 
         var filteredLabel = await Page.Locator("#dashResultCount").InnerTextAsync();
         var filteredTotal = int.Parse(filteredLabel.Split(' ')[0]);
@@ -228,6 +231,9 @@ public class DashboardTests : PageTest
         // Wait for data to load
         var cards = Page.Locator("#dealsContainer .deal-card");
         await Expect(cards.First).ToBeVisibleAsync(new() { Timeout = 15_000 });
+
+        // Wait for stats to compute (larger dataset = longer scoring/computation time)
+        await Page.WaitForTimeoutAsync(3000);
 
         // All 4 stat cards should have real values
         var statIds = new[] { "statSailings", "statShips", "statBalcony", "statSuite" };

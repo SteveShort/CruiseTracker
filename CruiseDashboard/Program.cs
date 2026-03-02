@@ -334,6 +334,24 @@ var ships = new Dictionary<string, ShipInfo>(StringComparer.OrdinalIgnoreCase)
         "None", "Suite", 2.0m,
         "Pool", "Galapagos-dedicated expedition ship; 100 guests; all-suite; immersive naturalist program",
         0, 84, 86, 86, 88, 0m),
+
+    // VIRGIN VOYAGES (adults-only premium, all restaurants included, no buffet)  SuiteName    Mult KidsR ShipR  MainDin PkgDin SuiteDin PkgCost
+    ["Scarlet Lady"] = new("adult", "Virgin Voyages", "Scarlet Lady", "Mega", 2021, "None", 110000, 2770, false,
+        "None", "Rockstar Quarters", 3.0m,
+        "Pool, Aquatic club, athletic club", "First Virgin ship; 20+ included restaurants; Richard's Rooftop; no buffet concept",
+        0, 90, 90, 90, 94, 0m),
+    ["Valiant Lady"] = new("adult", "Virgin Voyages", "Valiant Lady", "Mega", 2022, "None", 110000, 2770, false,
+        "None", "Rockstar Quarters", 3.0m,
+        "Pool, Aquatic club, athletic club", "Sister to Scarlet; sails Mediterranean and Caribbean; same 20+ restaurant concept",
+        0, 90, 90, 90, 94, 0m),
+    ["Resilient Lady"] = new("adult", "Virgin Voyages", "Resilient Lady", "Mega", 2023, "None", 110000, 2770, false,
+        "None", "Rockstar Quarters", 3.0m,
+        "Pool, Aquatic club, athletic club", "Third Mega-class; sails Greek Isles, Australia, and Caribbean rotations",
+        0, 90, 90, 90, 94, 0m),
+    ["Brilliant Lady"] = new("adult", "Virgin Voyages", "Brilliant Lady", "Mega", 2025, "None", 110000, 2770, false,
+        "None", "Rockstar Quarters", 3.0m,
+        "Pool, Aquatic club, athletic club", "Fourth Mega-class; enters service 2025; same dining and entertainment concept",
+        0, 90, 90, 90, 94, 0m),
 };
 
 ShipInfo? LookupShip(string name)
