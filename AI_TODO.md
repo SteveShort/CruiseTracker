@@ -54,6 +54,6 @@ Each task: build scraper + add ship data to `Program.cs`, test live run, deploy,
 
 Add restaurant ratings using the same dining preference criteria as existing ships. Insert via SQL, deploy to reload cache.
 
-- [ ] **Silversea Restaurant Data** — ~10 ships. La Dame (Relais & Châteaux), Kaiseki, La Terrazza, S.A.L.T. Kitchen. All dining included.
-- [ ] **Virgin Voyages Restaurant Data** — 4 ships. 20+ restaurants all included, no buffet. Test Kitchen, Razzle Dazzle, Gunbae, The Wake, Extra Virgin.
-- [ ] **Seabourn Restaurant Data** — 6 ships. The Grill by Thomas Keller, The Restaurant, Earth & Ocean. All dining included.
+- [x] **Silversea Restaurant Data** — ~10 ships. La Dame (Relais & Châteaux), Kaiseki, La Terrazza, S.A.L.T. Kitchen. All dining included. ✅ 11 ships, 84 records.
+- [x] **Virgin Voyages Restaurant Data** — 4 ships. 20+ restaurants all included, no buffet. Test Kitchen, Razzle Dazzle, Gunbae, The Wake, Extra Virgin. ✅ 4 ships, 41 records.
+- [x] **Seabourn Restaurant Data** — 6 ships. The Grill by Thomas Keller, The Restaurant, Earth & Ocean. All dining included. ✅ 6 ships, 36 records. Note: Thomas Keller Grill replaced by Solis fleet-wide.
