@@ -1356,20 +1356,17 @@ function renderSingleCard(c, i) {
     }
 
     // Build suite price column
-    const suiteLabelHtml = isSuiteOnly
-        ? `${suiteLabel} <span class="suite-only-badge">Suite Only</span>`
-        : suiteLabel;
     let suitePriceHtml;
     if (hasFLSuite) {
         suitePriceHtml = `<div class="price-col suite fl-res-price">
-                <span class="price-label">${suiteLabelHtml}</span>
+                <span class="price-label">${suiteLabel}</span>
                 <span class="price-ppd-regular">${fmtPpd(displaySuitePpd)}<span class="ppd-suffix">/ppd</span></span>
                 <span class="price-ppd fl-res">${fmtPpd(displayFlSuitePpd)}<span class="ppd-suffix">/ppd</span></span>
                 <span class="price-total fl-res">${fmtTotal(displayFlSuiteTotal)}</span>
             </div>`;
     } else {
         suitePriceHtml = `<div class="price-col suite">
-                <span class="price-label">${suiteLabelHtml}</span>
+                <span class="price-label">${suiteLabel}</span>
                 <span class="price-ppd">${fmtPpd(displaySuitePpd)}<span class="ppd-suffix">/ppd</span></span>
                 <span class="price-total">${fmtTotal(displaySuiteTotal)}</span>
             </div>`;
@@ -1443,7 +1440,7 @@ function renderSingleCard(c, i) {
                     <div class="deal-badges">
                         ${flResBadge}
 
-                        ${suiteBadge(c.suiteName)}
+                        ${isSuiteOnly ? '<span class="suite-only-badge">Suite Only</span>' : suiteBadge(c.suiteName)}
                         ${getAppMode() !== 'adult' ? kidsClubBadges(c.cruiseLine, c.departureDate, c.hasKids) : ''}
                     </div>
                 </div>
