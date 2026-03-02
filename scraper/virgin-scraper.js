@@ -1,10 +1,11 @@
 // ============================================================================
 //  Virgin Voyages Price Scraper
-//  Uses Playwright to bypass DataDome, then extracts voyage data from the
-//  client-rendered search page.
+//  Uses Playwright to bypass DataDome and extract voyage data from the
+//  search results page including prices, ports, and itineraries.
 //
-//  Strategy: Navigate to find-a-voyage, wait for data to render, then
-//  extract structured voyage data from the DOM/analytics layer.
+//  Strategy: Render the search page, scroll to load all voyages, extract
+//  voyage card data (price, ports, itinerary) from the DOM, then decode
+//  ship/date/nights from the embedded voyageId links.
 //
 //  Usage:
 //    node virgin-scraper.js                              # scrape all voyages
@@ -23,9 +24,8 @@ const SQL_CONFIG = {
 
 // ── Constants ──────────────────────────────────────────────────────────
 const SEARCH_URL = 'https://www.virginvoyages.com/book/voyage-planner/find-a-voyage?currencyCode=USD';
-const DELAY_MS = 2000;
 
-// Ship code mapping (from voyageId prefix)
+// Ship prefix → full name (from voyageId first 2 chars)
 const SHIP_CODES = {
     SC: 'Scarlet Lady',
     VL: 'Valiant Lady',
@@ -61,336 +61,20 @@ const cliArgs = process.argv.slice(2);
 const shipFilter = cliArgs.includes('--ship') ? cliArgs[cliArgs.indexOf('--ship') + 1] : null;
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-// ── Step 1: Fetch all voyages via Playwright ───────────────────────────
-async function fetchAllVoyages() {
-    console.log(`\n🚢 Launching browser for Virgin Voyages...`);
-
-    const browser = await chromium.launch({ headless: true });
-    const context = await browser.newContext({
-        userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
-        viewport: { width: 1920, height: 1080 },
-    });
-
-    const page = await context.newPage();
-    const voyageData = [];
-
-    // Intercept API responses that contain voyage/pricing data
-    page.on('response', async (response) => {
-        const url = response.url();
-        try {
-            if (url.includes('/graphql') && response.status() === 200) {
-                const json = await response.json();
-                // Look for voyage search results in GraphQL responses
-                if (json?.data?.voyages || json?.data?.searchVoyages) {
-                    const voyages = json.data.voyages || json.data.searchVoyages;
-                    if (Array.isArray(voyages)) {
-                        voyageData.push(...voyages);
-                        console.log(`  📡 Intercepted ${voyages.length} voyages from GraphQL`);
-                    }
-                }
-            }
-            // Also look for the /api/ pricing/search endpoints
-            if (url.includes('/book/api/') && response.status() === 200) {
-                const contentType = response.headers()['content-type'] || '';
-                if (contentType.includes('json')) {
-                    const json = await response.json();
-                    if (json?.voyages || json?.data?.voyages || json?.packages) {
-                        const items = json.voyages || json.data?.voyages || json.packages || [];
-                        if (Array.isArray(items) && items.length > 0) {
-                            voyageData.push(...items);
-                            console.log(`  📡 Intercepted ${items.length} items from ${new URL(url).pathname}`);
-                        }
-                    }
-                }
-            }
-        } catch { /* Ignore non-JSON responses */ }
-    });
-
-    console.log(`  🌐 Navigating to ${SEARCH_URL}`);
-    await page.goto(SEARCH_URL, { waitUntil: 'networkidle', timeout: 60000 });
-    console.log(`  ✅ Page loaded`);
-
-    // Wait for results to render
-    await sleep(5000);
-
-    // Try to extract data directly from the page's rendered DOM
-    const domVoyages = await page.evaluate(() => {
-        // Strategy 1: Look for __NEXT_DATA__ (may have loaded after hydration)
-        const nextDataEl = document.getElementById('__NEXT_DATA__');
-        if (nextDataEl) {
-            try {
-                const data = JSON.parse(nextDataEl.textContent);
-                // Navigate the Next.js data structure to find voyage data
-                const pageProps = data?.props?.pageProps;
-                if (pageProps?.voyages) return { source: '__NEXT_DATA__', data: pageProps.voyages };
-                if (pageProps?.initialData?.voyages) return { source: '__NEXT_DATA__', data: pageProps.initialData.voyages };
-            } catch { }
-        }
-
-        // Strategy 2: Extract from rendered voyage cards in the DOM
-        const cards = document.querySelectorAll('[data-testid*="voyage"], [class*="VoyageCard"], [class*="voyage-card"], [class*="itinerary-card"]');
-        if (cards.length > 0) {
-            const results = [];
-            cards.forEach(card => {
-                const text = card.textContent || '';
-                const link = card.querySelector('a[href*="voyage"], a[href*="packageCode"]');
-                results.push({
-                    text: text.substring(0, 500),
-                    href: link?.href || null,
-                });
-            });
-            return { source: 'dom_cards', data: results };
-        }
-
-        // Strategy 3: Look for React fiber / state data
-        const appEl = document.getElementById('__next');
-        if (appEl?._reactRootContainer) {
-            return { source: 'react_root', data: 'found_react_root' };
-        }
-
-        // Strategy 4: Collect all links with voyage/package codes
-        const voyageLinks = Array.from(document.querySelectorAll('a[href*="packageCode"], a[href*="voyageId"]'));
-        if (voyageLinks.length > 0) {
-            return {
-                source: 'links',
-                data: voyageLinks.map(a => ({
-                    href: a.href,
-                    text: a.textContent?.trim()?.substring(0, 200),
-                }))
-            };
-        }
-
-        return { source: 'none', data: null };
-    });
-
-    console.log(`  📊 DOM extraction source: ${domVoyages.source}`);
-
-    // If we got data from DOM/interceptors, great. Otherwise try scrolling to load more.
-    if (voyageData.length === 0 && domVoyages.source === 'none') {
-        console.log(`  🔄 No data yet — scrolling to trigger lazy loading...`);
-        for (let i = 0; i < 20; i++) {
-            await page.evaluate(() => window.scrollBy(0, 800));
-            await sleep(1000);
-        }
-        await sleep(3000);
-    }
-
-    // Final attempt: extract all pricing/voyage data from the page's inner state
-    const extractedVoyages = await page.evaluate(() => {
-        // Find all elements that look like price containers
-        const allText = document.body.innerText;
-        // Look for structured voyage data in any script tags
-        const scripts = Array.from(document.querySelectorAll('script'));
-        const dataScripts = [];
-        for (const s of scripts) {
-            const text = s.textContent || '';
-            if (text.includes('voyageId') || text.includes('packageCode') || text.includes('startingPrice')) {
-                // Extract JSON-like objects
-                const matches = text.match(/\{[^{}]*"voyageId"[^{}]*\}/g);
-                if (matches) dataScripts.push(...matches);
-            }
-        }
-        return { scriptData: dataScripts.slice(0, 50), bodyLength: allText.length };
-    });
-
-    console.log(`  📋 Found ${extractedVoyages.scriptData.length} voyage objects in scripts`);
-
-    // Combine all data sources
-    let allVoyages = [...voyageData];
-
-    // Parse DOM card data if we need it
-    if (domVoyages.source === 'links' && Array.isArray(domVoyages.data)) {
-        for (const link of domVoyages.data) {
-            if (link.href) {
-                const urlObj = new URL(link.href);
-                const packageCode = urlObj.searchParams.get('packageCode');
-                const voyageId = urlObj.searchParams.get('voyageId') || urlObj.searchParams.get('voyageIds');
-                if (packageCode || voyageId) {
-                    allVoyages.push({ packageCode, voyageId, _source: 'link', _text: link.text });
-                }
-            }
-        }
-    }
-
-    // Parse script-embedded data
-    for (const jsonStr of extractedVoyages.scriptData) {
-        try {
-            const obj = JSON.parse(jsonStr);
-            if (obj.voyageId) allVoyages.push(obj);
-        } catch { }
-    }
-
-    // If still no data, try the GraphQL API directly with the browser's cookies
-    if (allVoyages.length < 10) {
-        console.log(`  🔄 Trying direct GraphQL query with browser session...`);
-        const graphqlResult = await page.evaluate(async () => {
-            try {
-                const resp = await fetch('https://prod.virginvoyages.com/graphql', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        query: `query SearchVoyages {
-                            searchVoyages(input: { currencyCode: "USD" }) {
-                                id voyageId packageCode shipCode
-                                startDate endDate nights
-                                departurePort { code name }
-                                arrivalPort { code name }
-                                title
-                                cabins { type name startingPrice }
-                            }
-                        }`
-                    }),
-                });
-                return await resp.json();
-            } catch (e) { return { error: e.message }; }
-        });
-
-        if (graphqlResult?.data?.searchVoyages) {
-            allVoyages.push(...graphqlResult.data.searchVoyages);
-            console.log(`  📡 GraphQL direct query returned ${graphqlResult.data.searchVoyages.length} voyages`);
-        } else {
-            console.log(`  ⚠️ GraphQL direct query: ${JSON.stringify(graphqlResult?.errors || graphqlResult?.error || 'no data').substring(0, 200)}`);
-        }
-    }
-
-    // If STILL limited data, try fetching individual ship pages which show all dates
-    if (allVoyages.length < 50) {
-        console.log(`  🔄 Trying per-ship voyage extraction...`);
-        for (const [code, name] of Object.entries(SHIP_CODES)) {
-            const shipUrl = `https://www.virginvoyages.com/book/voyage-planner/find-a-voyage?ship=${encodeURIComponent(name)}&currencyCode=USD`;
-            console.log(`  🚢 Loading ${name}...`);
-            await page.goto(shipUrl, { waitUntil: 'networkidle', timeout: 30000 });
-            await sleep(3000);
-
-            // Extract voyage links from this filtered view
-            const shipVoyages = await page.evaluate(() => {
-                const links = Array.from(document.querySelectorAll('a[href*="packageCode"], a[href*="voyageId"]'));
-                return links.map(a => ({
-                    href: a.href,
-                    text: a.textContent?.trim()?.substring(0, 300),
-                }));
-            });
-
-            for (const link of shipVoyages) {
-                try {
-                    const urlObj = new URL(link.href);
-                    const packageCode = urlObj.searchParams.get('packageCode');
-                    const voyageId = urlObj.searchParams.get('voyageId') || urlObj.searchParams.get('voyageIds');
-                    if (voyageId) {
-                        allVoyages.push({
-                            voyageId, packageCode, shipCode: code, shipName: name,
-                            _source: 'ship_page', _text: link.text
-                        });
-                    }
-                } catch { }
-            }
-            console.log(`    📋 ${name}: ${shipVoyages.length} voyage links found`);
-        }
-    }
-
-    await browser.close();
-    console.log(`  ✅ Browser closed. Total raw voyage data: ${allVoyages.length}`);
-
-    // Save raw data for debugging
-    const rawPath = path.join(__dirname, 'virgin-raw.json');
-    fs.writeFileSync(rawPath, JSON.stringify(allVoyages, null, 2));
-    console.log(`  💾 Raw data saved to ${rawPath}`);
-
-    return allVoyages;
-}
-
-// ── Step 2: Parse voyages into normalized records ──────────────────────
-function parseVoyages(rawVoyages) {
-    const results = [];
-    const seen = new Set();  // Deduplicate by voyageId
-
-    for (const v of rawVoyages) {
-        const voyageId = v.voyageId || v.id || null;
-        if (!voyageId || seen.has(voyageId)) continue;
-        seen.add(voyageId);
-
-        // Determine ship name
-        let shipName = v.shipName || v.ship?.name || null;
-        if (!shipName && voyageId) {
-            const prefix = voyageId.substring(0, 2);
-            shipName = SHIP_CODES[prefix] || null;
-        }
-        if (!shipName && v.shipCode) {
-            shipName = SHIP_CODES[v.shipCode] || `Virgin ${v.shipCode}`;
-        }
-        if (!shipName) continue;
-
-        // Apply ship filter
-        if (shipFilter && !shipName.toLowerCase().includes(shipFilter.toLowerCase())) continue;
-
-        // Parse departure date
-        let departureDate = v.startDate || v.start_date || v.departureDate || null;
-        if (!departureDate && voyageId) {
-            // Try to extract from voyageId format like "SC2612034NKW" → 2026-12-03
-            const match = voyageId.match(/^[A-Z]{2}(\d{2})(\d{2})(\d{2})/);
-            if (match) {
-                departureDate = `20${match[1]}-${match[2]}-${match[3]}`;
-            }
-        }
-        if (!departureDate) continue;
-        departureDate = departureDate.slice(0, 10);
-
-        const nights = v.nights || v.duration || 0;
-        const packageCode = v.packageCode || v.package_code || null;
-
-        // Parse pricing
-        let insidePrice = null, oceanviewPrice = null, balconyPrice = null, suitePrice = null;
-
-        // From structured cabin data
-        if (v.cabins && Array.isArray(v.cabins)) {
-            for (const c of v.cabins) {
-                const type = (c.type || c.name || '').toLowerCase();
-                const price = c.startingPrice || c.price || 0;
-                if (type.includes('insider') || type.includes('inside')) insidePrice = price;
-                else if (type.includes('sea view') || type.includes('oceanview')) oceanviewPrice = price;
-                else if (type.includes('terrace') || type.includes('balcony')) balconyPrice = price;
-                else if (type.includes('rockstar') || type.includes('suite') || type.includes('mega')) suitePrice = price;
-            }
-        }
-
-        // From flat price field (fallback)
-        if (!balconyPrice && !suitePrice) {
-            const price = v.price || v.startingPrice || v.starting_price || 0;
-            if (price > 0) balconyPrice = price;  // Default "from" price is typically Sea Terrace
-        }
-
-        // Parse ports
-        const embarkPort = v.departurePort?.name || v.departurePort?.code || v.embarkPort || '';
-        const debarkPort = v.arrivalPort?.name || v.arrivalPort?.code || v.debarkPort || embarkPort;
-
-        // Parse itinerary
-        const itinerary = v.title || v.name || v.itinerary || v.category || `${embarkPort} to ${debarkPort}`;
-
-        // Extract text-based price if from link extraction
-        if (v._text && !balconyPrice && !suitePrice) {
-            const priceMatch = v._text.match(/\$[\d,]+/);
-            if (priceMatch) {
-                balconyPrice = parseFloat(priceMatch[0].replace(/[$,]/g, ''));
-            }
-        }
-
-        results.push({
-            shipName,
-            departureDate,
-            nights,
-            itinerary,
-            itineraryCode: voyageId,
-            packageCode,
-            embarkPort,
-            debarkPort,
-            insidePrice,
-            oceanviewPrice,
-            balconyPrice,
-            suitePrice,   // Rockstar Quarters!
-        });
-    }
-
-    return results;
+// ── Decode voyageId → structured data ──────────────────────────────────
+function decodeVoyageId(id) {
+    // Format: SC2603134NKW → Ship=SC, Date=2026-03-13, Nights=4, PkgCode=NKW
+    const match = id.match(/^([A-Z]{2})(\d{2})(\d{2})(\d{2})(\d+)(N\w+)$/);
+    if (!match) return null;
+    const [, shipCode, yy, mm, dd, nights, pkgCode] = match;
+    return {
+        shipCode,
+        shipName: SHIP_CODES[shipCode] || `Virgin ${shipCode}`,
+        departureDate: `20${yy}-${mm}-${dd}`,
+        nights: parseInt(nights),
+        packageCode: `${nights}${pkgCode}`,
+        voyageId: id,
+    };
 }
 
 // ── Main ───────────────────────────────────────────────────────────────
@@ -405,26 +89,198 @@ async function main() {
     const runStartedAt = new Date();
     const runErrors = [];
 
+    console.log(`\n🚢 Launching browser for Virgin Voyages...`);
+    const browser = await chromium.launch({ headless: true });
+    const context = await browser.newContext({
+        userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+        viewport: { width: 1920, height: 1080 },
+    });
+    const page = await context.newPage();
+
+    // Track graphql/API responses for pricing data
+    const apiPricing = {};
+    page.on('response', async (response) => {
+        try {
+            const url = response.url();
+            if (url.includes('/graphql') && response.status() === 200) {
+                const json = await response.json();
+                // Capture any pricing data from GraphQL responses
+                const data = json?.data;
+                if (data) {
+                    for (const [key, value] of Object.entries(data)) {
+                        if (Array.isArray(value)) {
+                            for (const item of value) {
+                                if (item?.voyageId || item?.id) {
+                                    apiPricing[item.voyageId || item.id] = item;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } catch { /* skip non-JSON */ }
+    });
+
     try {
-        const rawVoyages = await fetchAllVoyages();
-        const results = parseVoyages(rawVoyages);
+        console.log(`\n  🌐 Navigating to search page...`);
+        await page.goto(SEARCH_URL, { waitUntil: 'networkidle', timeout: 60000 });
+        console.log(`  ✅ Search page loaded`);
+        await sleep(3000);
+
+        // Scroll down to trigger lazy loading of all voyage cards
+        console.log(`  📜 Scrolling to load all voyages...`);
+        let previousHeight = 0;
+        for (let i = 0; i < 40; i++) {
+            const height = await page.evaluate(() => document.body.scrollHeight);
+            if (height === previousHeight) {
+                await sleep(500);
+                const h2 = await page.evaluate(() => document.body.scrollHeight);
+                if (h2 === previousHeight) break;
+            }
+            previousHeight = height;
+            await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+            await sleep(1500);
+        }
+        await sleep(2000);
+
+        // ── Extract voyage card data from the DOM ──
+        console.log(`  📊 Extracting voyage card data from DOM...`);
+        const cardData = await page.evaluate(() => {
+            const results = [];
+
+            // Find all anchor links with voyageId params — these are the booking links
+            const links = document.querySelectorAll('a[href*="voyageId"], a[href*="packageCode"]');
+            const processed = new Set();
+
+            links.forEach(link => {
+                const href = link.href;
+                if (processed.has(href)) return;
+                processed.add(href);
+
+                const url = new URL(href, window.location.origin);
+                const voyageIds = (url.searchParams.get('voyageIds') || url.searchParams.get('voyageId') || '').split(',').filter(Boolean);
+                const packageCode = url.searchParams.get('packageCode') || '';
+
+                // Walk up the DOM to find the containing card/section
+                let card = link.closest('section, article, [class*="card"], [class*="Card"], div[class*="voyage"], div[class*="Voyage"]');
+                if (!card) card = link.parentElement?.parentElement?.parentElement;
+
+                const cardText = card?.textContent || link.textContent || '';
+
+                // Extract price from the card
+                const priceMatch = cardText.match(/\$\s*([\d,]+)/);
+                const price = priceMatch ? parseFloat(priceMatch[1].replace(/,/g, '')) : null;
+
+                // Extract itinerary/destination from card
+                const titleWords = cardText.substring(0, 300).trim();
+
+                results.push({
+                    voyageIds,
+                    packageCode,
+                    price,
+                    text: titleWords.substring(0, 200),
+                });
+            });
+
+            return results;
+        });
+
+        console.log(`  📋 Extracted ${cardData.length} voyage cards from DOM`);
+        console.log(`  📡 Intercepted ${Object.keys(apiPricing).length} items from API`);
+
+        // ── Build price map from card data (packageCode → price) ──
+        const pricedPackages = {};
+        for (const card of cardData) {
+            if (card.price && card.packageCode) {
+                pricedPackages[card.packageCode] = card.price;
+            }
+            // Also map individual voyageIds
+            if (card.price) {
+                for (const vid of card.voyageIds) {
+                    pricedPackages[vid] = card.price;
+                }
+            }
+        }
+
+        // ── Collect unique voyageIds ──
+        const allVoyageIds = new Set();
+        for (const card of cardData) {
+            for (const vid of card.voyageIds) {
+                allVoyageIds.add(vid);
+            }
+        }
+        console.log(`  📋 Total unique voyage IDs: ${allVoyageIds.size}`);
+
+        // ── Decode voyage IDs and build results ──
+        const results = [];
+        for (const vid of allVoyageIds) {
+            const decoded = decodeVoyageId(vid);
+            if (!decoded) continue;
+
+            // Apply ship filter
+            if (shipFilter && !decoded.shipName.toLowerCase().includes(shipFilter.toLowerCase())) continue;
+
+            // Look up price: first from API data, then from card data, then from packageCode
+            let price = null;
+            const apiData = apiPricing[vid];
+            if (apiData?.startingPrice) price = apiData.startingPrice;
+            if (!price) price = pricedPackages[vid] || pricedPackages[decoded.packageCode] || null;
+
+            // Determine port from card text or ship's known homeport
+            let embarkPort = '';
+            if (apiData?.departurePort?.name) embarkPort = apiData.departurePort.name;
+
+            // Most Virgin ships have fixed homeports:
+            if (!embarkPort) {
+                if (decoded.shipCode === 'SC') embarkPort = 'Miami, Florida';
+                else if (decoded.shipCode === 'VL') embarkPort = 'Miami, Florida';  // Also Barcelona for Med
+                else if (decoded.shipCode === 'RS') embarkPort = 'Miami, Florida';
+                else if (decoded.shipCode === 'BL') embarkPort = 'Miami, Florida';
+            }
+
+            // Build itinerary name from package code
+            let itinerary = decoded.packageCode;
+            if (apiData?.title) itinerary = apiData.title;
+
+            results.push({
+                shipName: decoded.shipName,
+                departureDate: decoded.departureDate,
+                nights: decoded.nights,
+                itinerary,
+                itineraryCode: vid,
+                packageCode: decoded.packageCode,
+                embarkPort,
+                debarkPort: embarkPort,  // Virgin voyages are roundtrip
+                balconyPrice: price,     // "Starting from" price is typically Sea Terrace (balcony equiv)
+                suitePrice: null,        // Rockstar pricing requires per-voyage detail page
+                insidePrice: null,
+                oceanviewPrice: null,
+            });
+        }
+
         console.log(`\n  📋 Parsed ${results.length} unique sailings`);
+        const withPrice = results.filter(r => r.balconyPrice);
+        console.log(`  💰 ${withPrice.length} sailings with pricing data`);
 
         if (results.length === 0) {
             console.warn('  ⚠️ No valid sailings found. Exiting.');
+            await browser.close();
             return;
         }
 
-        // Save parsed JSON
+        // Save JSON
         const jsonPath = path.join(__dirname, 'virgin-latest.json');
         fs.writeFileSync(jsonPath, JSON.stringify(results, null, 2));
         console.log(`  💾 Saved to ${jsonPath}`);
 
+        // Upsert to database
         await upsertToDatabase(results, runStartedAt, runErrors);
 
     } catch (err) {
         console.error(`\n  ❌ Fatal: ${err.message}`);
         runErrors.push(err.message);
+    } finally {
+        await browser.close();
     }
 
     console.log('\n  🏁 Virgin Voyages scraper run complete.\n');
@@ -454,7 +310,7 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
         const sp = r.suitePrice ? r.suitePrice * 2 : null;       // Rockstar Quarters
         const ip = r.insidePrice ? r.insidePrice * 2 : null;
         const ovp = r.oceanviewPrice ? r.oceanviewPrice * 2 : null;
-        const primaryPrice = sp || bp || ovp || ip || 0;
+        const primaryPrice = bp || sp || ovp || ip || 0;
         const ppd = (r.nights > 0 && primaryPrice > 0)
             ? Math.round(primaryPrice / r.nights * 100) / 100 : 0;
 
@@ -480,7 +336,7 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
                 `);
             upserted++;
 
-            // 2. INSERT price history row with ALL cabin tiers
+            // 2. INSERT price history row
             if (primaryPrice > 0) {
                 const req = pool.request()
                     .input('line', sql.NVarChar, 'Virgin Voyages')
@@ -488,13 +344,11 @@ async function upsertToDatabase(results, runStartedAt, runErrors = []) {
                     .input('date', sql.Date, r.departureDate)
                     .input('sat', sql.DateTime2, now);
 
-                // Add available price tiers
                 if (bp) { req.input('bp', sql.Decimal(10, 2), bp); req.input('bpd', sql.Decimal(10, 2), r.nights > 0 ? Math.round(bp / r.nights * 100) / 100 : 0); }
                 if (sp) { req.input('sp', sql.Decimal(10, 2), sp); req.input('spd', sql.Decimal(10, 2), r.nights > 0 ? Math.round(sp / r.nights * 100) / 100 : 0); }
                 if (ip) { req.input('ip', sql.Decimal(10, 2), ip); }
                 if (ovp) { req.input('ovp', sql.Decimal(10, 2), ovp); }
 
-                // Build dynamic INSERT
                 const cols = ['CruiseLine', 'ShipName', 'DepartureDate', 'ScrapedAt'];
                 const vals = ['@line', '@ship', '@date', '@sat'];
                 if (bp) { cols.push('BalconyPrice', 'BalconyPerDay'); vals.push('@bp', '@bpd'); }
