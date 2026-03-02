@@ -28,5 +28,24 @@ Issues discovered via independent audit ([walkthrough](file:///C:/Users/sshor/.g
 - [ ] **Extract Dapper Queries**: Move inline SQL queries from `Program.cs` into a `Repositories/CruiseRepository.cs` class.
 - [ ] **SQL Backup Solution**: Set up automated nightly backups of the CruiseTracker database (Restaurants, PriceHistory, Cruises, ScraperRuns) so we don't lose data that isn't tracked in git.
 - [ ] **Family Pricing**: Investigate how to add pricing for 2 adults and 2 children properly in the family mode, while keeping 2 people in Adult mode.
-- [ ] **Investigate New Cruise Lines**: Research what other cruise lines to bring in based on family dining preferences and overall value (e.g., Virgin Voyages, MSC, Holland America, Princess).
+- [x] **Investigate New Cruise Lines**: Investigated Virgin Voyages, Holland America, Silversea, Seabourn, Cunard. Recommended Silversea, Virgin Voyages, Seabourn. See [investigation report](file:///C:/Users/sshor/.gemini/antigravity/brain/a7ca69b1-f47f-42ee-82a1-ab07d8e9ec60/cruise_line_investigation.md).
 
+---
+
+## New Cruise Line Scrapers
+
+Each task: build scraper + add ship data to `Program.cs`, test live run, deploy, commit.
+
+- [ ] **Silversea Scraper** — Algolia API (`ogg7av1jsp-dsn.algolia.net`), no browser needed. Direct REST POST returns all voyages with pricing in clean JSON. All-suite line → map fare to `SuitePrice`. CruiseLine = `"Silversea"`. Ships: Silver Dawn, Moon, Muse, Nova, Ray, Shadow, Spirit, Whisper, Wind, Endeavour. Follow `oceania-scraper.js` pattern.
+- [ ] **Virgin Voyages Scraper** — GraphQL API (`prod.virginvoyages.com/graphql`), needs Playwright for DataDome bypass. Next.js `__NEXT_DATA__` has ~370 sailings pre-hydrated. Map: Insider→Inside, Sea View→OV, Sea Terrace→Balcony, Rockstar→Suite. CruiseLine = `"Virgin Voyages"`. Ships: Scarlet Lady, Valiant Lady, Resilient Lady, Brilliant Lady. Adults-only line (category `"adult"`).
+- [ ] **Seabourn Scraper** — REST API at `/search/sbncruisesearch` + POST `/api/pricing/v1/cruises`. Needs Playwright for Akamai cookie. Carnival Corp infrastructure. All-suite → map fare to `SuitePrice`. CruiseLine = `"Seabourn"`. Ships: Odyssey, Sojourn, Quest, Ovation, Venture, Pursuit. Follow `oceania-scraper.js` pattern.
+
+---
+
+## Restaurant Scoring (New Lines)
+
+Add restaurant ratings using the same dining preference criteria as existing ships. Insert via SQL, deploy to reload cache.
+
+- [ ] **Silversea Restaurant Data** — ~10 ships. La Dame (Relais & Châteaux), Kaiseki, La Terrazza, S.A.L.T. Kitchen. All dining included.
+- [ ] **Virgin Voyages Restaurant Data** — 4 ships. 20+ restaurants all included, no buffet. Test Kitchen, Razzle Dazzle, Gunbae, The Wake, Extra Virgin.
+- [ ] **Seabourn Restaurant Data** — 6 ships. The Grill by Thomas Keller, The Restaurant, Earth & Ocean. All dining included.
