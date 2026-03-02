@@ -36,7 +36,7 @@ Issues discovered via independent audit ([walkthrough](file:///C:/Users/sshor/.g
 
 Each task: build scraper + add ship data to `Program.cs`, test live run, deploy, commit.
 
-- [ ] **Silversea Scraper** — Algolia API (`ogg7av1jsp-dsn.algolia.net`), no browser needed. Direct REST POST returns all voyages with pricing in clean JSON. All-suite line → map fare to `SuitePrice`. CruiseLine = `"Silversea"`. Ships: Silver Dawn, Moon, Muse, Nova, Ray, Shadow, Spirit, Whisper, Wind, Endeavour. Follow `oceania-scraper.js` pattern.
+- [x] **Silversea Scraper** — Algolia API (`ogg7av1jsp-dsn.algolia.net`), no browser needed. Direct REST POST returns all voyages with pricing in clean JSON. All-suite line → map fare to `SuitePrice`. CruiseLine = `"Silversea"`. Ships: Silver Dawn, Moon, Muse, Nova, Ray, Shadow, Spirit, Whisper, Wind, Endeavour. Follow `oceania-scraper.js` pattern. ✅ 995 voyages scraped, 12 ships.
 - [ ] **Virgin Voyages Scraper** — GraphQL API (`prod.virginvoyages.com/graphql`), needs Playwright for DataDome bypass. Next.js `__NEXT_DATA__` has ~370 sailings pre-hydrated. Map: Insider→Inside, Sea View→OV, Sea Terrace→Balcony, Rockstar→Suite. CruiseLine = `"Virgin Voyages"`. Ships: Scarlet Lady, Valiant Lady, Resilient Lady, Brilliant Lady. Adults-only line (category `"adult"`).
 - [ ] **Seabourn Scraper** — REST API at `/search/sbncruisesearch` + POST `/api/pricing/v1/cruises`. Needs Playwright for Akamai cookie. Carnival Corp infrastructure. All-suite → map fare to `SuitePrice`. CruiseLine = `"Seabourn"`. Ships: Odyssey, Sojourn, Quest, Ovation, Venture, Pursuit. Follow `oceania-scraper.js` pattern.
 
