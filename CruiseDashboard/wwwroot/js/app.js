@@ -603,6 +603,11 @@ function cruiseLineIcon(line) {
         Disney: `<img src="/img/disney-logo.svg" alt="Disney Cruise Line" class="line-logo" title="Disney Cruise Line">`,
         Norwegian: `<img src="/img/ncl-logo.svg" alt="Norwegian Cruise Line" class="line-logo" title="Norwegian Cruise Line">`,
         Celebrity: `<img src="/img/celebrity-logo.svg" alt="Celebrity Cruises" class="line-logo" title="Celebrity Cruises">`,
+        'Virgin Voyages': `<img src="/img/virgin-logo.svg" alt="Virgin Voyages" class="line-logo" title="Virgin Voyages">`,
+        Silversea: `<img src="/img/silversea-logo.svg" alt="Silversea Cruises" class="line-logo" title="Silversea Cruises">`,
+        Seabourn: `<img src="/img/seabourn-logo.svg" alt="Seabourn" class="line-logo" title="Seabourn">`,
+        Oceania: `<img src="/img/oceania-logo.svg" alt="Oceania Cruises" class="line-logo" title="Oceania Cruises">`,
+        Regent: `<img src="/img/regent-logo.svg" alt="Regent Seven Seas" class="line-logo" title="Regent Seven Seas">`,
     };
     return logos[line] || `<span class="line-icon generic">${escHtml(line)}</span>`;
 }
