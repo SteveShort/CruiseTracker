@@ -368,7 +368,8 @@ function getDiningMode() {
 
 function hasValidPrice(c) {
     const bOk = c.balconyPrice !== null && c.balconyPrice !== undefined && c.balconyPrice > 0;
-    const sOk = c.verifiedSuitePrice !== null && c.verifiedSuitePrice !== undefined && c.verifiedSuitePrice > 0;
+    const sOk = (c.verifiedSuitePrice !== null && c.verifiedSuitePrice !== undefined && c.verifiedSuitePrice > 0)
+        || (c.suitePrice !== null && c.suitePrice !== undefined && c.suitePrice > 0);
     return bOk || sOk;
 }
 
