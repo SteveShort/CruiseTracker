@@ -26,6 +26,8 @@
                     title="Disney, NCL, Celebrity — family cruises">👨‍👩‍👦‍👦 Family</button>
                 <button class="app-mode-btn" data-appmode="adult"
                     title="Virgin, Oceania, Regent — adults-only getaways">🥂 Adults</button>
+                <button class="app-mode-btn hot-deals-toggle" id="hotDealsToggle"
+                    title="Show only exceptional value deals">🔥 Deals</button>
             </div>
             <div class="header-meta">
                 <div>Last scraped: <span class="last-scrape" id="lastScrape">—</span></div>
@@ -47,6 +49,9 @@
             </button>
             <button class="nav-tab" data-tab="calendar">
                 📅 Family Calendar
+            </button>
+            <button class="nav-tab" data-tab="analytics">
+                📈 Analytics
             </button>
         </nav>
 
@@ -254,14 +259,7 @@
                 </div>
             </div>
 
-            <!-- 🔥 Hot Deals -->
-            <div class="hot-deals-section" id="hotDealsSection" style="display:none;">
-                <div class="hot-deals-header">
-                    <span class="hot-deals-title">🔥 Hot Deals</span>
-                    <span class="hot-deals-subtitle" id="hotDealsCount"></span>
-                </div>
-                <div class="hot-deals-strip" id="hotDealsStrip"></div>
-            </div>
+
 
             <!-- Family Options -->
             <div class="deals-section">
@@ -535,7 +533,45 @@
         </div>
     </div>
 
-    <script src="js/app.js?v=20260303_hotdeals"></script>
+    <!-- ═══ ANALYTICS TAB ═══ -->
+    <div class="tab-content" id="tab-analytics">
+        <div class="analytics-header">
+            <h2 class="analytics-title">📈 Pricing Analytics</h2>
+            <p class="analytics-subtitle">Market insights from <span id="analyticsSnapshots">—</span> price snapshots
+                across all tracked sailings</p>
+            <div class="analytics-price-toggle" id="analyticsPriceToggle">
+                <button class="analytics-toggle-btn active" data-pricetype="balcony">🏖️ Balcony</button>
+                <button class="analytics-toggle-btn" data-pricetype="suite">👑 Suite</button>
+            </div>
+        </div>
+        <div class="analytics-grid">
+            <div class="analytics-card">
+                <div class="analytics-card-title">Average Price by Cruise Line</div>
+                <div class="analytics-card-subtitle">Current balcony $/ppd averages (non-transatlantic)</div>
+                <div class="chart-container"><canvas id="chartByLine"></canvas></div>
+            </div>
+            <div class="analytics-card">
+                <div class="analytics-card-title">📉 Price vs Days to Departure</div>
+                <div class="analytics-card-subtitle">How pricing changes as sailing date approaches — the "when to buy"
+                    chart</div>
+                <div class="chart-container chart-wide"><canvas id="chartDeparture"></canvas></div>
+            </div>
+            <div class="analytics-card analytics-card-full">
+                <div class="analytics-card-title">🚢 Price by Ship</div>
+                <div class="analytics-card-subtitle">Average $/ppd per ship, colored by ship quality score</div>
+                <div class="chart-container chart-tall"><canvas id="chartByShip"></canvas></div>
+            </div>
+            <div class="analytics-card analytics-card-full">
+                <div class="analytics-card-title">📅 Monthly Price Heatmap</div>
+                <div class="analytics-card-subtitle">Average $/ppd by departure month — find the cheapest time to sail
+                </div>
+                <div id="monthlyHeatmap" class="monthly-heatmap"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js?v=20260303_v4"></script>
+    <script src="js/analytics.js?v=20260303_v2"></script>
 </body>
 
 </html>

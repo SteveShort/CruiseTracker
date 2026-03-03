@@ -456,6 +456,209 @@ body::before {
     text-overflow: ellipsis;
 }
 
+/* ── Hot Deals Toggle Button ───────────────────────────────────────── */
+.app-mode-btn.hot-deals-toggle {
+    background: transparent;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.app-mode-btn.hot-deals-toggle.active {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(245, 158, 11, 0.3));
+    color: #fbbf24;
+    font-weight: 700;
+    border-color: rgba(239, 68, 68, 0.4);
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.15);
+}
+
+/* ── Analytics Tab ─────────────────────────────────────────────────── */
+.analytics-header {
+    margin-bottom: 24px;
+}
+
+.analytics-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--text-primary), var(--accent-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+}
+
+.analytics-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.analytics-price-toggle {
+    display: inline-flex;
+    gap: 0;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    overflow: hidden;
+}
+
+.analytics-toggle-btn {
+    padding: 6px 16px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    background: transparent;
+    color: var(--text-secondary);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.analytics-toggle-btn.active {
+    background: var(--accent-blue);
+    color: #fff;
+}
+
+.analytics-toggle-btn:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.ship-quality-legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0 4px;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.sq-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.sq-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.analytics-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    backdrop-filter: blur(12px);
+}
+
+.analytics-card-full {
+    grid-column: 1 / -1;
+}
+
+.analytics-card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+}
+
+.analytics-card-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.chart-container {
+    position: relative;
+    height: 300px;
+}
+
+.chart-container.chart-wide {
+    height: 350px;
+}
+
+.chart-container.chart-tall {
+    height: 600px;
+}
+
+/* ── Monthly Heatmap ──────────────────────────────────────────────── */
+.monthly-heatmap {
+    padding: 8px 0;
+}
+
+.heatmap-grid {
+    display: grid;
+    gap: 2px;
+    font-size: 0.72rem;
+}
+
+.heatmap-cell {
+    padding: 6px 8px;
+    text-align: center;
+    border-radius: 4px;
+    font-variant-numeric: tabular-nums;
+}
+
+.heatmap-corner {
+    background: transparent;
+}
+
+.heatmap-header {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.65rem;
+    white-space: nowrap;
+}
+
+.heatmap-row-label {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-primary);
+    font-weight: 600;
+    text-align: right;
+    padding-right: 12px;
+    white-space: nowrap;
+}
+
+.heatmap-data {
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.7rem;
+    cursor: default;
+    transition: transform 0.1s ease;
+}
+
+.heatmap-data:hover {
+    transform: scale(1.05);
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.heatmap-empty {
+    color: var(--text-muted);
+    opacity: 0.4;
+}
+
+.heatmap-legend {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 12px;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ── Deal Alerts Section ────────────────────────────────────────────── */
 /* Dining Mode Toggle */
 .dining-mode-section {

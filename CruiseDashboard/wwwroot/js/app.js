@@ -47,11 +47,18 @@ async function initAppModeToggle() {
         }
     } catch { /* settings unavailable, use HTML default */ }
     updateModeUI();
-    toggle.querySelectorAll('.app-mode-btn').forEach(btn => {
+    toggle.querySelectorAll('.app-mode-btn[data-appmode]').forEach(btn => {
         btn.addEventListener('click', () => {
             if (btn.classList.contains('active')) return;
-            toggle.querySelectorAll('.app-mode-btn').forEach(b => b.classList.remove('active'));
+            toggle.querySelectorAll('.app-mode-btn[data-appmode]').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+            // Reset hot deals toggle on mode switch
+            hotDealsMode = false;
+            hotDealsData = null;
+            const dealsBtn = document.getElementById('hotDealsToggle');
+            if (dealsBtn) dealsBtn.classList.remove('active');
+            // Reset analytics on mode switch
+            if (typeof resetAnalytics === 'function') resetAnalytics();
             // Save mode
             fetch('/api/settings', {
                 method: 'POST',
@@ -172,8 +179,8 @@ async function loadDashboard() {
         renderStats(stats);
         applyDashboardFilters();
 
-        // Load hot deals (non-blocking)
-        loadHotDeals(appMode);
+        // Init hot deals toggle (after dashboard loads)
+        initHotDealsToggle();
 
         // Default to Florida-only ports on initial load
         document.getElementById('btnFloridaOnly')?.click();
@@ -229,52 +236,53 @@ async function loadDashboard() {
 }
 
 // ================================================================
-//  HOT DEALS
+//  HOT DEALS TOGGLE MODE
 // ================================================================
 
-async function loadHotDeals(appMode) {
+let hotDealsMode = false;
+let hotDealsData = null;
+
+function initHotDealsToggle() {
+    const btn = document.getElementById('hotDealsToggle');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+        hotDealsMode = !hotDealsMode;
+        btn.classList.toggle('active', hotDealsMode);
+        if (hotDealsMode) {
+            loadHotDealsMode();
+        } else {
+            hotDealsData = null;
+            applyDashboardFilters(); // Restore normal view
+            updateSectionTitle(false);
+        }
+    });
+}
+
+function updateSectionTitle(isHotDeals, count) {
+    const titleEl = document.querySelector('.deals-section .section-title');
+    if (!titleEl) return;
+    const valueBtn = document.getElementById('valueInfoBtn');
+    const sortLabel = document.getElementById('dashSortLabel');
+    const orderBy = document.getElementById('dashOrderBy');
+    if (isHotDeals) {
+        titleEl.firstChild.textContent = '🔥 Hot Deals ';
+        if (valueBtn) valueBtn.style.display = 'none';
+        if (sortLabel) sortLabel.textContent = `${count} exceptional value deal${count !== 1 ? 's' : ''} found`;
+        if (orderBy) orderBy.style.display = 'none';
+    } else {
+        titleEl.firstChild.textContent = '🎯 Our Options ';
+        if (valueBtn) valueBtn.style.display = '';
+        if (sortLabel) sortLabel.textContent = 'ranked by best balcony value';
+        if (orderBy) orderBy.style.display = '';
+    }
+}
+
+async function loadHotDealsMode() {
+    const appMode = getAppMode();
     try {
         const deals = await fetch(`/api/hot-deals?appMode=${appMode}`).then(r => r.json());
-        const section = document.getElementById('hotDealsSection');
-        const strip = document.getElementById('hotDealsStrip');
-        const countEl = document.getElementById('hotDealsCount');
-
-        if (!deals || deals.length === 0) {
-            section.style.display = 'none';
-            return;
-        }
-
-        section.style.display = '';
-        countEl.textContent = `${deals.length} deal${deals.length > 1 ? 's' : ''} found`;
-
-        strip.innerHTML = deals.map(d => {
-            const flames = '🔥'.repeat(Math.min(d.heatScore, 6));
-            const reasons = (d.heatReasons || []).map(r =>
-                `<span class="hot-deal-reason">${escHtml(r)}</span>`
-            ).join('');
-            const icon = cruiseLineIcon(d.cruiseLine);
-            const depDate = new Date(d.departureDate + 'T00:00:00');
-            const endDate = new Date(depDate);
-            endDate.setDate(endDate.getDate() + (d.nights || 0));
-            const dateStr = `${formatShortDate(depDate)} – ${formatShortDate(endDate)}`;
-            const ppd = d.balconyPerDay ? `$${Math.round(d.balconyPerDay)}` : '—';
-            const total = d.balconyPrice ? `$${Math.round(d.balconyPrice).toLocaleString()}` : '';
-            const peakLabel = d.peakPpd && d.peakPpd > d.balconyPerDay
-                ? `<span class="hot-deal-peak">was $${Math.round(d.peakPpd)}/ppd</span>` : '';
-
-            return `<div class="hot-deal-card">
-                <div class="hot-deal-flames">${flames}</div>
-                <div class="hot-deal-ship">${icon} ${escHtml(d.shipName)}</div>
-                <div class="hot-deal-meta">${dateStr} · ${d.nights}n · ${escHtml(d.departurePort)}</div>
-                <div class="hot-deal-price">
-                    <span class="hot-deal-ppd">${ppd}<small>/ppd</small></span>
-                    ${peakLabel}
-                    ${total ? `<span class="hot-deal-total">${total}</span>` : ''}
-                </div>
-                <div class="hot-deal-reasons">${reasons}</div>
-                <div class="hot-deal-itinerary">${escHtml(truncate(d.itinerary, 80))}</div>
-            </div>`;
-        }).join('');
+        hotDealsData = deals;
+        applyDashboardFilters(); // This will use hotDealsData if hotDealsMode is on
     } catch (err) {
         console.error('Failed to load hot deals:', err);
     }
@@ -838,6 +846,23 @@ function updateMonthPickerLabel() {
 }
 
 function applyDashboardFilters() {
+    // If in hot deals mode, render hot deals instead of normal cruises
+    if (hotDealsMode && hotDealsData) {
+        let filtered = hotDealsData.slice();
+        // Apply basic filters to hot deals too
+        const line = getCheckedValues('dashFilterLinePanel');
+        const ship = getCheckedValues('dashFilterShipPanel');
+        const port = getCheckedValues('dashFilterPortPanel');
+        const nights = getCheckedValues('dashFilterNightsPanel');
+        if (line.length > 0) filtered = filtered.filter(c => line.includes(c.cruiseLine));
+        if (ship.length > 0) filtered = filtered.filter(c => ship.includes(c.shipName));
+        if (port.length > 0) filtered = filtered.filter(c => port.includes(c.departurePort));
+        if (nights.length > 0) filtered = filtered.filter(c => nights.includes(String(c.nights)));
+        updateSectionTitle(true, filtered.length);
+        renderDashboardCards(filtered);
+        return;
+    }
+    updateSectionTitle(false);
     const line = getCheckedValues('dashFilterLinePanel');
     const ship = getCheckedValues('dashFilterShipPanel');
     const port = getCheckedValues('dashFilterPortPanel');
@@ -1493,6 +1518,9 @@ function renderSingleCard(c, i) {
                 <div class="deal-meta-row">
                     <div class="deal-itinerary">${escHtml(c.itinerary)} ${bookingLinkHtml}</div>
                     <div class="deal-badges">
+                        ${c.heatScore ? `<span class="hot-deal-heat">${'🔥'.repeat(Math.min(c.heatScore, 6))}</span>` : ''}
+                        ${(c.heatReasons || []).map(r => `<span class="hot-deal-reason">${escHtml(r)}</span>`).join('')}
+                        ${c.peakPpd && c.balconyPerDay && c.peakPpd > c.balconyPerDay ? `<span class="hot-deal-peak">was $${Math.round(c.peakPpd)}/ppd</span>` : ''}
                         ${flResBadge}
 
                         ${isSuiteOnly ? '<span class="suite-only-badge">Suite Only</span>' : suiteBadge(c.suiteName)}

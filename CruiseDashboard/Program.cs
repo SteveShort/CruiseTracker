@@ -868,11 +868,13 @@ app.MapGet("/api/hot-deals", async (string? appMode) =>
             FROM PriceHistory ph2
             WHERE ph2.CruiseLine = c.CruiseLine AND ph2.ShipName = c.ShipName AND ph2.DepartureDate = c.DepartureDate
               AND ph2.BalconyPerDay > 0
+              AND ph2.ScrapedAt >= '2026-02-28'
         ) hist
         WHERE c.IsDeparted = 0 AND c.DepartureDate >= CAST(GETDATE() AS DATE)
           AND c.CruiseLine IN ({lineFilter})
           AND p.BalconyPerDay > 0
           AND p.ScrapedAt > DATEADD(hour, -36, (SELECT MaxScrapedAt FROM LatestScrapes ls WHERE ls.CruiseLine = c.CruiseLine))
+          AND (c.Itinerary IS NULL OR c.Itinerary NOT LIKE '%transatlantic%')
     ");
 
     var allRows = rows.ToList();
@@ -1023,10 +1025,127 @@ app.MapGet("/api/hot-deals", async (string? appMode) =>
     .Where(x => x.HeatScore >= 3)
     .OrderByDescending(x => x.HeatScore)
     .ThenBy(x => x.BalconyPerDay)
-    .Take(30)
     .ToList();
 
     return Results.Ok(scored);
+});
+
+// GET /api/analytics — pricing statistics for charts
+app.MapGet("/api/analytics", async (string? appMode, string? priceType) =>
+{
+    using var conn = new SqlConnection(connectionString);
+    var modeLines = LinesForMode(appMode);
+    var lineFilter = string.Join(",", modeLines.Select(l => $"'{l}'"));
+    var minDate = "2026-02-28"; // Exclude pre-2/28 cruise.com data
+    var priceCol = priceType == "suite" ? "SuitePerDay" : "BalconyPerDay";
+
+    // 1. Per-line averages
+    var byLine = await conn.QueryAsync<dynamic>($@"
+        SELECT CruiseLine, AVG({priceCol}) AS AvgPpd, MIN({priceCol}) AS MinPpd,
+               COUNT(DISTINCT CONCAT(ShipName,'|',DepartureDate)) AS Sailings
+        FROM PriceHistory
+        WHERE {priceCol} > 0 AND ScrapedAt >= '{minDate}'
+          AND CruiseLine IN ({lineFilter})
+          AND ScrapedAt = (SELECT MAX(p2.ScrapedAt) FROM PriceHistory p2
+                          WHERE p2.CruiseLine = PriceHistory.CruiseLine AND p2.ShipName = PriceHistory.ShipName
+                          AND p2.DepartureDate = PriceHistory.DepartureDate)
+          AND DepartureDate >= CAST(GETDATE() AS DATE)
+        GROUP BY CruiseLine ORDER BY AvgPpd");
+
+    // 2. Per-ship averages (latest price per sailing, grouped by ship)
+    var byShip = await conn.QueryAsync<dynamic>($@"
+        WITH LatestPrice AS (
+            SELECT CruiseLine, ShipName, DepartureDate, {priceCol} AS PricePerDay,
+                   ROW_NUMBER() OVER (PARTITION BY CruiseLine, ShipName, DepartureDate ORDER BY ScrapedAt DESC) AS rn
+            FROM PriceHistory
+            WHERE {priceCol} > 0 AND ScrapedAt >= '{minDate}'
+              AND CruiseLine IN ({lineFilter})
+              AND DepartureDate >= CAST(GETDATE() AS DATE)
+        )
+        SELECT CruiseLine, ShipName, CAST(AVG(PricePerDay) AS int) AS AvgPpd,
+               CAST(MIN(PricePerDay) AS int) AS MinPpd, COUNT(*) AS Sailings
+        FROM LatestPrice WHERE rn = 1
+        GROUP BY CruiseLine, ShipName
+        ORDER BY CruiseLine, AvgPpd");
+
+    // 3. Days-to-departure pricing curve
+    var departureCurve = await conn.QueryAsync<dynamic>($@"
+        SELECT
+            CASE WHEN DATEDIFF(day, ph.ScrapedAt, ph.DepartureDate) <= 14 THEN 7
+                 WHEN DATEDIFF(day, ph.ScrapedAt, ph.DepartureDate) <= 30 THEN 22
+                 WHEN DATEDIFF(day, ph.ScrapedAt, ph.DepartureDate) <= 60 THEN 45
+                 WHEN DATEDIFF(day, ph.ScrapedAt, ph.DepartureDate) <= 90 THEN 75
+                 WHEN DATEDIFF(day, ph.ScrapedAt, ph.DepartureDate) <= 120 THEN 105
+                 WHEN DATEDIFF(day, ph.ScrapedAt, ph.DepartureDate) <= 180 THEN 150
+                 WHEN DATEDIFF(day, ph.ScrapedAt, ph.DepartureDate) <= 270 THEN 225
+                 WHEN DATEDIFF(day, ph.ScrapedAt, ph.DepartureDate) <= 365 THEN 320
+                 ELSE 450 END AS DaysOut,
+            ph.CruiseLine,
+            CAST(AVG(ph.{priceCol}) AS int) AS AvgPpd,
+            COUNT(*) AS Snapshots
+        FROM PriceHistory ph
+        INNER JOIN Cruises c ON c.CruiseLine = ph.CruiseLine AND c.ShipName = ph.ShipName AND c.DepartureDate = ph.DepartureDate
+        WHERE ph.{priceCol} > 0 AND ph.ScrapedAt >= '{minDate}'
+          AND ph.CruiseLine IN ({lineFilter})
+          AND ph.DepartureDate >= '2026-01-01'
+          AND (c.Itinerary IS NULL OR c.Itinerary NOT LIKE '%transatlantic%')
+        GROUP BY
+            CASE WHEN DATEDIFF(day, ph.ScrapedAt, ph.DepartureDate) <= 14 THEN 7
+                 WHEN DATEDIFF(day, ph.ScrapedAt, ph.DepartureDate) <= 30 THEN 22
+                 WHEN DATEDIFF(day, ph.ScrapedAt, ph.DepartureDate) <= 60 THEN 45
+                 WHEN DATEDIFF(day, ph.ScrapedAt, ph.DepartureDate) <= 90 THEN 75
+                 WHEN DATEDIFF(day, ph.ScrapedAt, ph.DepartureDate) <= 120 THEN 105
+                 WHEN DATEDIFF(day, ph.ScrapedAt, ph.DepartureDate) <= 180 THEN 150
+                 WHEN DATEDIFF(day, ph.ScrapedAt, ph.DepartureDate) <= 270 THEN 225
+                 WHEN DATEDIFF(day, ph.ScrapedAt, ph.DepartureDate) <= 365 THEN 320
+                 ELSE 450 END,
+            ph.CruiseLine
+        ORDER BY ph.CruiseLine, DaysOut");
+
+    // 4. Monthly price heatmap (cruise departure month vs line)
+    var monthly = await conn.QueryAsync<dynamic>($@"
+        WITH LatestPrice AS (
+            SELECT ph.CruiseLine, ph.DepartureDate, ph.{priceCol} AS PricePerDay,
+                   ROW_NUMBER() OVER (PARTITION BY ph.CruiseLine, ph.ShipName, ph.DepartureDate ORDER BY ph.ScrapedAt DESC) AS rn
+            FROM PriceHistory ph
+            INNER JOIN Cruises c ON c.CruiseLine = ph.CruiseLine AND c.ShipName = ph.ShipName AND c.DepartureDate = ph.DepartureDate
+            WHERE ph.{priceCol} > 0 AND ph.ScrapedAt >= '{minDate}'
+              AND ph.CruiseLine IN ({lineFilter})
+              AND ph.DepartureDate >= CAST(GETDATE() AS DATE)
+              AND (c.Itinerary IS NULL OR c.Itinerary NOT LIKE '%transatlantic%')
+        )
+        SELECT CruiseLine,
+               YEAR(DepartureDate) AS Yr, MONTH(DepartureDate) AS Mo,
+               CAST(AVG(PricePerDay) AS int) AS AvgPpd, COUNT(*) AS Sailings
+        FROM LatestPrice WHERE rn = 1
+        GROUP BY CruiseLine, YEAR(DepartureDate), MONTH(DepartureDate)
+        ORDER BY Yr, Mo, CruiseLine");
+
+    // Enrich per-ship with quality scores
+    var shipData = byShip.Select(s =>
+    {
+        var si = LookupShip((string)s.ShipName);
+        return new
+        {
+            CruiseLine = (string)s.CruiseLine,
+            ShipName = (string)s.ShipName,
+            AvgPpd = (int)s.AvgPpd,
+            MinPpd = (int)s.MinPpd,
+            Sailings = (int)s.Sailings,
+            ShipScore = si?.ShipScore ?? 0,
+            DiningScore = si?.MainDiningScore ?? 0,
+            KidsScore = si?.KidsScore ?? 0,
+            ShipClass = si?.ShipClass ?? "Unknown"
+        };
+    });
+
+    return Results.Ok(new
+    {
+        byLine = byLine.Select(r => new { CruiseLine = (string)r.CruiseLine, AvgPpd = (int)Math.Round((decimal)r.AvgPpd), MinPpd = (int)Math.Round((decimal)r.MinPpd), Sailings = (int)r.Sailings }),
+        byShip = shipData,
+        departureCurve = departureCurve.Select(r => new { DaysOut = (int)r.DaysOut, CruiseLine = (string)r.CruiseLine, AvgPpd = (int)r.AvgPpd, Snapshots = (int)r.Snapshots }),
+        monthly = monthly.Select(r => new { CruiseLine = (string)r.CruiseLine, Year = (int)r.Yr, Month = (int)r.Mo, AvgPpd = (int)r.AvgPpd, Sailings = (int)r.Sailings })
+    });
 });
 
 // Fallback: serve index.html for SPA-like routing
