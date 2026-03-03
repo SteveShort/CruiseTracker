@@ -156,8 +156,8 @@ async function loadDashboard() {
 
         // Populate checkbox dropdown filters from DB
         populateCheckboxDropdown('dashFilterLinePanel', filterOpts.lines, 'Lines');
-        populateCheckboxDropdown('dashFilterShipPanel', filterOpts.ships, 'Ships');
-        populateCheckboxDropdown('dashFilterPortPanel', filterOpts.ports, 'Ports');
+        populateCheckboxDropdown('dashFilterShipPanel', filterOpts.ships, 'Ships', true);
+        populateCheckboxDropdown('dashFilterPortPanel', filterOpts.ports, 'Ports', true);
 
         // Ship Reference tab multi-selects
         populateCheckboxDropdown('filterShipLinePanel', filterOpts.lines, 'Lines');
@@ -677,9 +677,28 @@ function cruiseLineIcon(line) {
     return logos[line] || `<span class="line-icon generic">${escHtml(line)}</span>`;
 }
 
-function populateCheckboxDropdown(panelId, options, label) {
+function populateCheckboxDropdown(panelId, options, label, searchable) {
     const panel = document.getElementById(panelId);
     panel.innerHTML = '';
+
+    // Add search input for large lists (Ship, Port)
+    if (searchable && options.length > 6) {
+        const searchInput = document.createElement('input');
+        searchInput.type = 'text';
+        searchInput.className = 'dropdown-search';
+        searchInput.placeholder = `Search ${label.toLowerCase()}...`;
+        searchInput.addEventListener('input', () => {
+            const q = searchInput.value.toLowerCase();
+            panel.querySelectorAll('.dropdown-item').forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(q) ? '' : 'none';
+            });
+        });
+        searchInput.addEventListener('click', (e) => e.stopPropagation());
+        searchInput.addEventListener('keydown', (e) => e.stopPropagation());
+        panel.appendChild(searchInput);
+    }
+
     options.forEach(opt => {
         const item = document.createElement('label');
         item.className = 'dropdown-item';

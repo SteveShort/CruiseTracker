@@ -1464,6 +1464,30 @@ body::before {
     display: block;
 }
 
+.dropdown-search {
+    width: calc(100% - 12px);
+    margin: 4px 6px 6px;
+    padding: 6px 10px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.82rem;
+    outline: none;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.dropdown-search:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+}
+
+.dropdown-search::placeholder {
+    color: var(--text-muted);
+}
+
 .checkbox-dropdown.open .dropdown-arrow {
     transform: rotate(180deg);
 }

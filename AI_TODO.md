@@ -27,7 +27,7 @@ Issues discovered via independent audit ([walkthrough](file:///C:/Users/sshor/.g
 - [x] **Pure Logic Unit Tests**: Create a basic Node.js test file for the `computeValueStars` logic (now extracted in `scoring.js`) to ensure mathematical stability when tuning algorithms.
 - [ ] **Extract Dapper Queries**: Move inline SQL queries from `Program.cs` into a `Repositories/CruiseRepository.cs` class.
 - [x] **SQL Backup Solution**: Set up automated nightly backups of the CruiseTracker database (Restaurants, PriceHistory, Cruises, ScraperRuns) so we don't lose data that isn't tracked in git. ✅ `BackupDatabase.ps1` → Dropbox, 7d/4wk/12mo retention, `CruiseTrackerBackup` scheduled task at 4 AM. Schema DDL in `db/schema.sql`.
-- [ ] **Family Pricing**: Investigate how to add pricing for 2 adults and 2 children properly in the family mode, while keeping 2 people in Adult mode.
+- [x] **Family Pricing**: Investigate how to add pricing for 2 adults and 2 children properly in the family mode, while keeping 2 people in Adult mode. ✅ `FamilyBalconyPrice`, `FamilySuitePrice` columns in PriceHistory, populated by Celebrity scraper.
 - [x] **Investigate New Cruise Lines**: Investigated Virgin Voyages, Holland America, Silversea, Seabourn, Cunard. Recommended Silversea, Virgin Voyages, Seabourn. See [investigation report](file:///C:/Users/sshor/.gemini/antigravity/brain/a7ca69b1-f47f-42ee-82a1-ab07d8e9ec60/cruise_line_investigation.md).
 
 ---
@@ -46,7 +46,7 @@ Each task: build scraper + add ship data to `Program.cs`, test live run, deploy,
 
 - [ ] **Fix Virgin Voyages Itinerary** — Currently showing package code (e.g. `4NKW2`) instead of human-readable itinerary name. Investigate how to extract proper itinerary/destination from Virgin API or detail pages.
 - [ ] **Toggleable FL/Alaska Quick Filters** — Make the 🌴 Florida and ⛰️ Alaska port filter buttons toggleable (click on = filter, click again = clear). Currently they only activate.
-- [ ] **Autocomplete for Ship & Port Dropdowns** — Add search/type-ahead capability to Ship and Port filter dropdowns so users can start typing a name and the list filters down instantly.
+- [x] **Autocomplete for Ship & Port Dropdowns** — Add search/type-ahead capability to Ship and Port filter dropdowns so users can start typing a name and the list filters down instantly. ✅ Search input added to `populateCheckboxDropdown` with `searchable` flag, CSS `.dropdown-search` styles.
 
 ---
 
