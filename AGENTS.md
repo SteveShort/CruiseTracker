@@ -22,10 +22,15 @@ c:\Dev\Cruise Tracker\                  ← single git repo
 ├── .gitignore
 ├── RunScraper.ps1                      ← nightly scraper orchestration
 ├── RegisterTask.ps1                    ← registers Windows scheduled task
+├── BackupDatabase.ps1                  ← nightly DB backup to Dropbox
+├── RegisterBackupTask.ps1              ← registers backup scheduled task
 ├── CruiseDealTracker.linq              ← LINQPad exploration script
 │
+├── db/
+│   └── schema.sql                      ← DDL for all 4 CruiseTracker tables
+│
 ├── CruiseDashboard\                    ← ASP.NET 8 Minimal API + static frontend
-│   ├── Program.cs                      ← API endpoints, ship data, restaurants (~804 lines)
+│   ├── Program.cs                      ← API endpoints, ship data, restaurants (~1260 lines)
 │   ├── CruiseDashboard.csproj
 │   ├── Deploy.ps1                      ← deployment script (used by scheduled task)
 │   ├── RegisterDeploy.ps1              ← registers deploy scheduled task
@@ -34,9 +39,10 @@ c:\Dev\Cruise Tracker\                  ← single git repo
 │   ├── dashboard-settings.json         ← persisted UI settings (value bonuses etc)
 │   ├── .agent/workflows/deploy.md      ← AI deploy workflow
 │   ├── wwwroot/
-│   │   ├── js/app.js                   ← all dashboard JS logic (~2300 lines)
-│   │   ├── css/style.css               ← dark theme CSS (2860 lines)
-│   │   ├── index.html                  ← single-page app (520 lines)
+│   │   ├── js/app.js                   ← dashboard JS logic (~2600 lines)
+│   │   ├── js/analytics.js             ← analytics tab charts (Chart.js)
+│   │   ├── css/style.css               ← dark theme CSS (~3300 lines)
+│   │   ├── index.html                  ← single-page app (~575 lines)
 │   │   └── img/                        ← cruise line SVG logos
 │   └── CruiseDashboard.Tests/
 │       └── DashboardTests.cs           ← 11 Playwright NUnit integration tests
@@ -95,6 +101,40 @@ The `/deploy` workflow executes the following steps automatically:
 Set-Content c:\temp\cruise-deploy-status.txt "PENDING"
 schtasks /Run /TN "CruiseDashboardDeploy"
 Start-Sleep 25; Get-Content c:\temp\cruise-deploy-status.txt
+```
+
+## Database Backup
+
+Nightly automated backups of the CruiseTracker SQL Server database to a Dropbox-synced folder.
+
+| Item | Value |
+|------|-------|
+| **Backup script** | `BackupDatabase.ps1` |
+| **Scheduled task** | `CruiseTrackerBackup` — runs daily at 4:00 AM |
+| **Backup location** | `C:\Users\sshor\Dropbox\Cruise Tracker DB Backup` (synced to Dropbox) |
+| **Log file** | `backup-log.txt` in backup folder |
+| **Schema DDL** | `db/schema.sql` (version-controlled in git) |
+
+### Retention Policy
+| Tier | Keep | Selection |
+|------|------|-----------|
+| Daily | 7 | Last 7 days |
+| Weekly | 4 | Sundays |
+| Monthly | 12 | 1st of each month |
+
+### Key Commands
+```powershell
+# Run backup manually
+schtasks /Run /TN "CruiseTrackerBackup"
+
+# Check task status
+schtasks /Query /TN "CruiseTrackerBackup" /FO LIST /V
+
+# Re-register scheduled task (if lost)
+powershell -File RegisterBackupTask.ps1
+
+# Restore from backup (if needed)
+sqlcmd -S "STEVEOFFICEPC\ORACLE2SQL" -E -Q "RESTORE DATABASE CruiseTracker FROM DISK = N'C:\Users\sshor\Dropbox\Cruise Tracker DB Backup\CruiseTracker_YYYYMMDD_HHMM.bak' WITH REPLACE;"
 ```
 
 ## Cache Busting
