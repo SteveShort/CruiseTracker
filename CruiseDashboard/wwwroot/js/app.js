@@ -834,9 +834,8 @@ function applyDashboardFilters() {
     }
     const flResOnly = document.getElementById('dashFilterFLResident').checked;
     if (flResOnly) {
-        filtered = filtered.filter(c =>
-            (c.flResBalconyPerDay && c.flResBalconyPerDay > 0 && c.balconyPerDay && c.flResBalconyPerDay < c.balconyPerDay) ||
-            (c.flResSuitePerDay && c.flResSuitePerDay > 0 && c.suitePerDay && c.flResSuitePerDay < c.suitePerDay));
+        const FL_PORTS = ['Miami', 'Fort Lauderdale', 'Ft. Lauderdale', 'Port Canaveral', 'Tampa', 'Jacksonville'];
+        filtered = filtered.filter(c => c.departurePort && FL_PORTS.some(fp => c.departurePort.includes(fp)));
     }
 
     if (line.length > 0) filtered = filtered.filter(c => line.includes(c.cruiseLine));

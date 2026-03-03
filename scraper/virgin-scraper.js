@@ -267,7 +267,7 @@ async function main() {
                 embarkPort,
                 debarkPort: embarkPort,  // Virgin voyages are roundtrip
                 balconyPrice: price,     // "Starting from" price is typically Sea Terrace (balcony equiv)
-                suitePrice: null,        // Rockstar pricing requires per-voyage detail page
+                suitePrice: null,        // Will be populated from Rockstar pricing below
                 insidePrice: null,
                 oceanviewPrice: null,
             });
@@ -282,6 +282,81 @@ async function main() {
             await browser.close();
             return;
         }
+
+        // ── Extract Rockstar Quarters pricing per sailing ──────────────
+        // Navigate to each sailing's choose-cabin page and extract the
+        // RockStar Quarters "from" price as the suite price.
+        const sailingsToPrice = results.filter(r => r.balconyPrice && r.itineraryCode && r.packageCode);
+        console.log(`\n  🎸 Fetching Rockstar Quarters pricing for ${sailingsToPrice.length} sailings...`);
+
+        let rockstarFound = 0;
+        let rockstarFailed = 0;
+
+        for (let i = 0; i < sailingsToPrice.length; i++) {
+            const r = sailingsToPrice[i];
+            const cabinUrl = `https://www.virginvoyages.com/book/voyage-planner/choose-a-cabin?voyageId=${r.itineraryCode}&packageCode=${r.packageCode}&currencyCode=USD`;
+
+            try {
+                console.log(`    [${i + 1}/${sailingsToPrice.length}] ${r.shipName} ${r.departureDate} ...`);
+                await page.goto(cabinUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
+                await sleep(3000); // Wait for cabin cards to render
+
+                // Extract Rockstar "from" price from the cabin category cards
+                const rockstarPrice = await page.evaluate(() => {
+                    // Look for text containing "RockStar Quarters" (not "Mega RockStar")
+                    const allText = document.body.innerText;
+
+                    // Strategy 1: Find price near "RockStar Quarters" text
+                    const cards = document.querySelectorAll('div, section, article');
+                    for (const card of cards) {
+                        const text = card.textContent || '';
+                        // Must contain "RockStar Quarters" but NOT "Mega"
+                        if (/RockStar\s+Quarters/i.test(text) && !/Mega\s+RockStar/i.test(text)) {
+                            // Look for a price in this section
+                            const priceMatch = text.match(/(?:from\s+)?\$\s*([\d,]+)\s*(?:per\s+Sailor)?/i);
+                            if (priceMatch) {
+                                return parseFloat(priceMatch[1].replace(/,/g, ''));
+                            }
+                        }
+                    }
+
+                    // Strategy 2: Look for all "from $X,XXX per Sailor" patterns and take the
+                    // one that's likely Rockstar (higher than Sea Terrace but not Mega)
+                    const prices = [];
+                    const priceRegex = /from\s+\$\s*([\d,]+)\s*per\s+Sailor/gi;
+                    let match;
+                    while ((match = priceRegex.exec(allText)) !== null) {
+                        prices.push(parseFloat(match[1].replace(/,/g, '')));
+                    }
+                    // Sort ascending — Rockstar is typically the 4th category (after Insider, Sea View, Sea Terrace)
+                    prices.sort((a, b) => a - b);
+                    // If we have 4+ prices, the 4th is likely Rockstar
+                    if (prices.length >= 4) return prices[3];
+                    // If we have 3+ prices, the last might be Rockstar (some sailings skip categories)
+                    if (prices.length >= 3) return prices[prices.length - 1];
+
+                    return null;
+                });
+
+                if (rockstarPrice && rockstarPrice > 0) {
+                    r.suitePrice = rockstarPrice;
+                    rockstarFound++;
+                    console.log(`      ✅ Rockstar: $${rockstarPrice.toLocaleString()}/sailor`);
+                } else {
+                    rockstarFailed++;
+                    console.log(`      ⚠️  No Rockstar pricing found`);
+                }
+            } catch (err) {
+                rockstarFailed++;
+                console.log(`      ❌ Error: ${err.message.substring(0, 80)}`);
+                runErrors.push(`Rockstar pricing error for ${r.shipName} ${r.departureDate}: ${err.message}`);
+            }
+
+            // Small delay between navigations to avoid triggering anti-bot
+            if (i < sailingsToPrice.length - 1) await sleep(1500);
+        }
+
+        console.log(`\n  🎸 Rockstar pricing: ${rockstarFound} found, ${rockstarFailed} failed out of ${sailingsToPrice.length}`);
 
         // Save JSON
         const jsonPath = path.join(__dirname, 'virgin-latest.json');
