@@ -838,6 +838,197 @@ app.MapGet("/api/deals", async () =>
     return Results.Ok(deals);
 });
 
+// GET /api/hot-deals — cruises with exceptional value (multi-signal heat scoring)
+app.MapGet("/api/hot-deals", async (string? appMode) =>
+{
+    using var conn = new SqlConnection(connectionString);
+    var modeLines = LinesForMode(appMode);
+    var lineFilter = string.Join(",", modeLines.Select(l => $"'{l}'"));
+
+    // Single query: current prices + price history stats (peak, snapshot count)
+    var rows = await conn.QueryAsync<dynamic>($@"
+        WITH LatestScrapes AS (
+            SELECT CruiseLine, MAX(ScrapedAt) as MaxScrapedAt
+            FROM PriceHistory
+            GROUP BY CruiseLine
+        )
+        SELECT
+            c.CruiseLine, c.ShipName, c.Itinerary, c.ItineraryCode, c.DepartureDate, c.Nights, c.DeparturePort, c.Ports,
+            p.BalconyPrice, p.BalconyPerDay, p.SuitePrice, p.SuitePerDay, p.ScrapedAt,
+            hist.PeakPpd, hist.LowestPpd, hist.Snapshots
+        FROM Cruises c
+        OUTER APPLY (
+            SELECT TOP 1 ph.BalconyPrice, ph.BalconyPerDay, ph.SuitePrice, ph.SuitePerDay, ph.ScrapedAt
+            FROM PriceHistory ph
+            WHERE ph.CruiseLine = c.CruiseLine AND ph.ShipName = c.ShipName AND ph.DepartureDate = c.DepartureDate
+            ORDER BY ph.ScrapedAt DESC
+        ) p
+        OUTER APPLY (
+            SELECT MAX(ph2.BalconyPerDay) AS PeakPpd, MIN(ph2.BalconyPerDay) AS LowestPpd, COUNT(*) AS Snapshots
+            FROM PriceHistory ph2
+            WHERE ph2.CruiseLine = c.CruiseLine AND ph2.ShipName = c.ShipName AND ph2.DepartureDate = c.DepartureDate
+              AND ph2.BalconyPerDay > 0
+        ) hist
+        WHERE c.IsDeparted = 0 AND c.DepartureDate >= CAST(GETDATE() AS DATE)
+          AND c.CruiseLine IN ({lineFilter})
+          AND p.BalconyPerDay > 0
+          AND p.ScrapedAt > DATEADD(hour, -36, (SELECT MaxScrapedAt FROM LatestScrapes ls WHERE ls.CruiseLine = c.CruiseLine))
+    ");
+
+    var allRows = rows.ToList();
+    if (allRows.Count == 0) return Results.Ok(Array.Empty<object>());
+
+    // Compute per-line, per-nights-bucket percentiles (P10, P25)
+    string NightsBucket(int n) => n <= 4 ? "3-4" : n <= 6 ? "5-6" : n <= 8 ? "7-8" : n <= 11 ? "9-11" : "12+";
+
+    var peerGroups = allRows
+        .GroupBy(r => $"{(string)r.CruiseLine}|{NightsBucket((int)(r.Nights ?? 7))}")
+        .ToDictionary(
+            g => g.Key,
+            g =>
+            {
+                var prices = g.Select(r => (decimal)r.BalconyPerDay).OrderBy(p => p).ToList();
+                var cnt = prices.Count;
+                return new
+                {
+                    P10 = prices[(int)(cnt * 0.10)],
+                    P25 = prices[(int)(cnt * 0.25)],
+                    Median = prices[(int)(cnt * 0.50)],
+                    Count = cnt
+                };
+            });
+
+    // Compute per-line quality percentiles (ship + dining quality)
+    var lineQualityThresholds = allRows
+        .GroupBy(r => (string)r.CruiseLine)
+        .ToDictionary(
+            g => g.Key,
+            g =>
+            {
+                var quals = g.Select(r =>
+                {
+                    var si = LookupShip((string)r.ShipName);
+                    return (si?.ShipScore ?? 50) + (si?.MainDiningScore ?? 50);
+                }).OrderBy(q => q).ToList();
+                var cnt = quals.Count;
+                return new { Top30 = quals[(int)(cnt * 0.70)], Count = cnt };
+            });
+
+    var linePriceP30 = allRows
+        .GroupBy(r => (string)r.CruiseLine)
+        .ToDictionary(
+            g => g.Key,
+            g =>
+            {
+                var prices = g.Select(r => (decimal)r.BalconyPerDay).OrderBy(p => p).ToList();
+                return prices[(int)(prices.Count * 0.30)];
+            });
+
+    // Score each cruise
+    var scored = allRows.Select(r =>
+    {
+        var line = (string)r.CruiseLine;
+        var shipName = (string)r.ShipName;
+        var ppd = (decimal)r.BalconyPerDay;
+        var nights = (int)(r.Nights ?? 7);
+        var si = LookupShip(shipName);
+        var heatScore = 0;
+        var reasons = new List<string>();
+
+        // Signal 1: Price Drop from peak
+        var snapshots = (int)(r.Snapshots ?? 0);
+        var peakPpd = (decimal?)(r.PeakPpd);
+        if (snapshots >= 3 && peakPpd.HasValue && peakPpd > 0)
+        {
+            var dropPct = (double)(1m - ppd / peakPpd.Value) * 100;
+            if (dropPct >= 30)
+            {
+                heatScore += 2;
+                reasons.Add($"📉 {(int)dropPct}% price drop from peak (${(int)peakPpd}/ppd → ${(int)ppd})");
+            }
+            else if (dropPct >= 15)
+            {
+                heatScore += 1;
+                reasons.Add($"📉 {(int)dropPct}% price drop from peak");
+            }
+        }
+
+        // Signal 2: Peer Outlier (below line+nights percentile)
+        var bucket = NightsBucket(nights);
+        var key = $"{line}|{bucket}";
+        if (peerGroups.TryGetValue(key, out var peer) && peer.Count >= 5)
+        {
+            if (ppd <= peer.P10)
+            {
+                heatScore += 2;
+                reasons.Add($"📊 Bottom 10% for {nights}-night {line} (${(int)ppd} vs median ${(int)peer.Median})");
+            }
+            else if (ppd <= peer.P25)
+            {
+                heatScore += 1;
+                reasons.Add($"📊 Bottom 25% for {nights}-night {line}");
+            }
+        }
+
+        // Signal 3: Quality-Price Gap
+        if (si != null)
+        {
+            var qualScore = si.ShipScore + si.MainDiningScore;
+            var topQuality = lineQualityThresholds.TryGetValue(line, out var lq) && qualScore >= lq.Top30;
+            var lowPrice = linePriceP30.TryGetValue(line, out var lp) && ppd <= lp;
+
+            if (topQuality && lowPrice)
+            {
+                var shipQ = si.ShipScore;
+                var dinQ = si.MainDiningScore;
+                if (ppd <= (linePriceP30.GetValueOrDefault(line, 999) * 0.70m))
+                {
+                    heatScore += 2;
+                    reasons.Add($"🏆 Top-tier ship (ship:{shipQ} dining:{dinQ}) at rock-bottom price");
+                }
+                else
+                {
+                    heatScore += 1;
+                    reasons.Add($"🏆 Top-tier ship (ship:{shipQ} dining:{dinQ}) at below-average price");
+                }
+            }
+        }
+
+        return new
+        {
+            HeatScore = heatScore,
+            HeatReasons = reasons,
+            CruiseLine = line,
+            ShipName = shipName,
+            ShipClass = si?.ShipClass ?? "Unknown",
+            SuiteName = si?.SuiteName ?? "?",
+            HasKids = si?.HasKidsArea ?? false,
+            Itinerary = (string)(r.Itinerary ?? ""),
+            ItineraryCode = (string)(r.ItineraryCode ?? ""),
+            DepartureDate = ((DateTime)r.DepartureDate).ToString("yyyy-MM-dd"),
+            Nights = nights,
+            DeparturePort = (string)(r.DeparturePort ?? ""),
+            BalconyPrice = (decimal?)(r.BalconyPrice),
+            BalconyPerDay = ppd,
+            SuitePrice = (decimal?)(r.SuitePrice),
+            SuitePerDay = (decimal?)(r.SuitePerDay),
+            KidsScore = si?.KidsScore ?? 0,
+            ShipScore = si?.ShipScore ?? 0,
+            MainDiningScore = si?.MainDiningScore ?? 0,
+            PeakPpd = peakPpd,
+            Snapshots = snapshots,
+            ScrapedAt = r.ScrapedAt != null ? ((DateTime)r.ScrapedAt).ToString("yyyy-MM-dd HH:mm") : null
+        };
+    })
+    .Where(x => x.HeatScore >= 3)
+    .OrderByDescending(x => x.HeatScore)
+    .ThenBy(x => x.BalconyPerDay)
+    .Take(30)
+    .ToList();
+
+    return Results.Ok(scored);
+});
+
 // Fallback: serve index.html for SPA-like routing
 app.MapFallbackToFile("index.html");
 

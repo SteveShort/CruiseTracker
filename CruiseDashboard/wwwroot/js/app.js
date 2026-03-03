@@ -172,6 +172,9 @@ async function loadDashboard() {
         renderStats(stats);
         applyDashboardFilters();
 
+        // Load hot deals (non-blocking)
+        loadHotDeals(appMode);
+
         // Default to Florida-only ports on initial load
         document.getElementById('btnFloridaOnly')?.click();
         applyFilters();
@@ -222,6 +225,58 @@ async function loadDashboard() {
         console.error('Failed to load dashboard:', err);
         document.getElementById('dealsContainer').innerHTML =
             '<div class="empty-state"><div class="empty-icon">&#x26A0;&#xFE0F;</div><p>Failed to load data. Is the scraper running?</p></div>';
+    }
+}
+
+// ================================================================
+//  HOT DEALS
+// ================================================================
+
+async function loadHotDeals(appMode) {
+    try {
+        const deals = await fetch(`/api/hot-deals?appMode=${appMode}`).then(r => r.json());
+        const section = document.getElementById('hotDealsSection');
+        const strip = document.getElementById('hotDealsStrip');
+        const countEl = document.getElementById('hotDealsCount');
+
+        if (!deals || deals.length === 0) {
+            section.style.display = 'none';
+            return;
+        }
+
+        section.style.display = '';
+        countEl.textContent = `${deals.length} deal${deals.length > 1 ? 's' : ''} found`;
+
+        strip.innerHTML = deals.map(d => {
+            const flames = '🔥'.repeat(Math.min(d.heatScore, 6));
+            const reasons = (d.heatReasons || []).map(r =>
+                `<span class="hot-deal-reason">${escHtml(r)}</span>`
+            ).join('');
+            const icon = cruiseLineIcon(d.cruiseLine);
+            const depDate = new Date(d.departureDate + 'T00:00:00');
+            const endDate = new Date(depDate);
+            endDate.setDate(endDate.getDate() + (d.nights || 0));
+            const dateStr = `${formatShortDate(depDate)} – ${formatShortDate(endDate)}`;
+            const ppd = d.balconyPerDay ? `$${Math.round(d.balconyPerDay)}` : '—';
+            const total = d.balconyPrice ? `$${Math.round(d.balconyPrice).toLocaleString()}` : '';
+            const peakLabel = d.peakPpd && d.peakPpd > d.balconyPerDay
+                ? `<span class="hot-deal-peak">was $${Math.round(d.peakPpd)}/ppd</span>` : '';
+
+            return `<div class="hot-deal-card">
+                <div class="hot-deal-flames">${flames}</div>
+                <div class="hot-deal-ship">${icon} ${escHtml(d.shipName)}</div>
+                <div class="hot-deal-meta">${dateStr} · ${d.nights}n · ${escHtml(d.departurePort)}</div>
+                <div class="hot-deal-price">
+                    <span class="hot-deal-ppd">${ppd}<small>/ppd</small></span>
+                    ${peakLabel}
+                    ${total ? `<span class="hot-deal-total">${total}</span>` : ''}
+                </div>
+                <div class="hot-deal-reasons">${reasons}</div>
+                <div class="hot-deal-itinerary">${escHtml(truncate(d.itinerary, 80))}</div>
+            </div>`;
+        }).join('');
+    } catch (err) {
+        console.error('Failed to load hot deals:', err);
     }
 }
 
@@ -2231,6 +2286,10 @@ function suiteBadge(name) {
 
 function formatShortDate(d) {
     return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+function truncate(str, max) {
+    if (!str) return '';
+    return str.length > max ? str.substring(0, max) + '…' : str;
 }
 
 function formatDateStr(dateStr) {

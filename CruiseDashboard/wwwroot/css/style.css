@@ -279,6 +279,183 @@ body::before {
     color: var(--accent-purple);
 }
 
+/* ── 🔥 Hot Deals Section ──────────────────────────────────────────── */
+.hot-deals-section {
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(245, 158, 11, 0.06));
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: var(--radius-lg);
+    padding: 16px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hot-deals-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ef4444, #f59e0b, #ef4444);
+    background-size: 200% 100%;
+    animation: hotGlow 3s ease infinite;
+}
+
+@keyframes hotGlow {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.hot-deals-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.hot-deals-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ef4444, #f59e0b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hot-deals-subtitle {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.hot-deals-strip {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(239, 68, 68, 0.3) transparent;
+}
+
+.hot-deals-strip::-webkit-scrollbar {
+    height: 4px;
+}
+
+.hot-deals-strip::-webkit-scrollbar-thumb {
+    background: rgba(239, 68, 68, 0.3);
+    border-radius: 2px;
+}
+
+.hot-deal-card {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+    background: var(--bg-card);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    border-radius: var(--radius-md);
+    padding: 14px;
+    transition: all var(--transition);
+    cursor: default;
+}
+
+.hot-deal-card:hover {
+    border-color: rgba(239, 68, 68, 0.4);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.1);
+    transform: translateY(-2px);
+}
+
+.hot-deal-flames {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+    letter-spacing: 2px;
+}
+
+.hot-deal-ship {
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+.hot-deal-ship .line-logo {
+    height: 22px;
+}
+
+.hot-deal-meta {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.hot-deal-price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.hot-deal-ppd {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--accent-green);
+    font-variant-numeric: tabular-nums;
+}
+
+.hot-deal-ppd small {
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+.hot-deal-peak {
+    font-size: 0.7rem;
+    color: var(--accent-red);
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+
+.hot-deal-total {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.hot-deal-reasons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 6px;
+}
+
+.hot-deal-reason {
+    font-size: 0.62rem;
+    font-weight: 500;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    color: var(--accent-amber);
+    line-height: 1.3;
+}
+
+.hot-deal-itinerary {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /* ── Deal Alerts Section ────────────────────────────────────────────── */
 /* Dining Mode Toggle */
 .dining-mode-section {
