@@ -79,4 +79,7 @@ app.MapShipEndpoints(connectionString, ships, allRestaurants);
 app.MapCalendarEndpoints();
 app.MapSettingsEndpoints();
 
+// Fallback: serve index.html for SPA-like routing
+app.MapFallbackToFile("index.html");
+
 app.Run();
