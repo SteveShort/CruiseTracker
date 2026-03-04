@@ -9,6 +9,13 @@ public record ShipInfo(
     int MainDiningScore, int PackageDiningScore, int SuiteDiningScore,
     decimal DiningPackageCostPerDay);
 
+public record RestaurantData(int Id, string ShipName, string Name, string Type, string Cuisine, int Score, string Why);
+
+public record RatingUpdate(int? KidsScore, int? ShipScore,
+    int? MainDiningScore, int? PackageDiningScore, int? SuiteDiningScore);
+
+public record CalendarEvent(string Id, string StartDate, string EndDate, string Type, string Title);
+
 public static class ShipReferenceData
 {
     public static Dictionary<string, ShipInfo> CreateShipDictionary() =>
