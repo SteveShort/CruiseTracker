@@ -22,7 +22,7 @@ Issues discovered via independent audit ([walkthrough](file:///C:/Users/sshor/.g
 
 - [x] **Extract Ship Data**: Move the `ShipInfo` dictionary from `Program.cs` into `Data/ShipReferenceData.cs` to reduce the Program.cs file size. ✅ Program.cs reduced from 1249 to 882 lines. `ShipInfo` record, dictionary, `LookupShip`, `LinesForMode` all in new file.
 - [x] **Create API Endpoint Extension Methods**: Refactor Minimal API endpoints out of `Program.cs` into separate files (e.g., `Endpoints/DashboardEndpoints.cs`, `Endpoints/CalendarEndpoints.cs`). ✅ Program.cs → 80 lines. 4 endpoint files with AI-navigable route-table headers. Shared records in `Data/ShipReferenceData.cs`.
-- [ ] **Automated Schema Generation**: Update the `.agent/workflows/deploy.md` workflow (and deploy scripts) to generate a `SCHEMA.md` file on deployment, providing the AI with up-to-date database context.
+- [x] **Automated Schema Generation**: Update the `.agent/workflows/deploy.md` workflow (and deploy scripts) to generate a `SCHEMA.md` file on deployment, providing the AI with up-to-date database context. ✅ `GenerateSchema.ps1` queries INFORMATION_SCHEMA → `db/SCHEMA.md`. Runs as step 5/6 in `Deploy.ps1`.
 - [x] **Frontend Modularization**: Extract `app.js` into dedicated ES6 modules (`state.js`, `scoring.js`, UI modules) and wire up to `main.js`.
 - [x] **Pure Logic Unit Tests**: Create a basic Node.js test file for the `computeValueStars` logic (now extracted in `scoring.js`) to ensure mathematical stability when tuning algorithms.
 - [ ] **Extract Dapper Queries**: Move inline SQL queries from `Program.cs` into a `Repositories/CruiseRepository.cs` class.
