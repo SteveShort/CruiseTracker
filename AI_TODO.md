@@ -20,7 +20,7 @@ Issues discovered via independent audit ([walkthrough](file:///C:/Users/sshor/.g
 
 ## Backlog
 
-- [ ] **Extract Ship Data**: Move the `ShipInfo` dictionary from `Program.cs` into `Data/ShipReferenceData.cs` to reduce the Program.cs file size.
+- [x] **Extract Ship Data**: Move the `ShipInfo` dictionary from `Program.cs` into `Data/ShipReferenceData.cs` to reduce the Program.cs file size. ✅ Program.cs reduced from 1249 to 882 lines. `ShipInfo` record, dictionary, `LookupShip`, `LinesForMode` all in new file.
 - [ ] **Create API Endpoint Extension Methods**: Refactor Minimal API endpoints out of `Program.cs` into separate files (e.g., `Endpoints/DashboardEndpoints.cs`, `Endpoints/CalendarEndpoints.cs`).
 - [ ] **Automated Schema Generation**: Update the `.agent/workflows/deploy.md` workflow (and deploy scripts) to generate a `SCHEMA.md` file on deployment, providing the AI with up-to-date database context.
 - [x] **Frontend Modularization**: Extract `app.js` into dedicated ES6 modules (`state.js`, `scoring.js`, UI modules) and wire up to `main.js`.
@@ -44,8 +44,8 @@ Each task: build scraper + add ship data to `Program.cs`, test live run, deploy,
 
 ## Dashboard Enhancements
 
-- [ ] **Fix Virgin Voyages Itinerary** — Currently showing package code (e.g. `4NKW2`) instead of human-readable itinerary name. Investigate how to extract proper itinerary/destination from Virgin API or detail pages.
-- [ ] **Toggleable FL/Alaska Quick Filters** — Make the 🌴 Florida and ⛰️ Alaska port filter buttons toggleable (click on = filter, click again = clear). Currently they only activate.
+- [x] **Fix Virgin Voyages Itinerary** — Currently showing package code (e.g. `4NKW2`) instead of human-readable itinerary name. Investigate how to extract proper itinerary/destination from Virgin API or detail pages. ✅
+- [x] **Toggleable FL/Alaska Quick Filters** — Make the 🌴 Florida and ⛰️ Alaska port filter buttons toggleable (click on = filter, click again = clear). Currently they only activate. ✅
 - [x] **Autocomplete for Ship & Port Dropdowns** — Add search/type-ahead capability to Ship and Port filter dropdowns so users can start typing a name and the list filters down instantly. ✅ Search input added to `populateCheckboxDropdown` with `searchable` flag, CSS `.dropdown-search` styles.
 
 ---
