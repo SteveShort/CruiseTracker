@@ -461,12 +461,12 @@ public static class DashboardEndpoints
                     if (dropPct >= 30)
                     {
                         heatScore += 2;
-                        reasons.Add($"ðŸ“‰ {(int)dropPct}% price drop from peak (${(int)peakPpd}/ppd â†’ ${(int)ppd})");
+                        reasons.Add($"📉 {(int)dropPct}% price drop from peak (${(int)peakPpd}/ppd â†’ ${(int)ppd})");
                     }
                     else if (dropPct >= 15)
                     {
                         heatScore += 1;
-                        reasons.Add($"ðŸ“‰ {(int)dropPct}% price drop from peak");
+                        reasons.Add($"📉 {(int)dropPct}% price drop from peak");
                     }
                 }
         
@@ -478,12 +478,12 @@ public static class DashboardEndpoints
                     if (ppd <= peer.P10)
                     {
                         heatScore += 2;
-                        reasons.Add($"ðŸ“Š Bottom 10% for {nights}-night {line} (${(int)ppd} vs median ${(int)peer.Median})");
+                        reasons.Add($"📊 Bottom 10% for {nights}-night {line} (${(int)ppd} vs median ${(int)peer.Median})");
                     }
                     else if (ppd <= peer.P25)
                     {
                         heatScore += 1;
-                        reasons.Add($"ðŸ“Š Bottom 25% for {nights}-night {line}");
+                        reasons.Add($"📊 Bottom 25% for {nights}-night {line}");
                     }
                 }
         
@@ -501,12 +501,12 @@ public static class DashboardEndpoints
                         if (ppd <= (linePriceP30.GetValueOrDefault(line, 999) * 0.70m))
                         {
                             heatScore += 2;
-                            reasons.Add($"ðŸ† Top-tier ship (ship:{shipQ} dining:{dinQ}) at rock-bottom price");
+                            reasons.Add($"🏆 Top-tier ship (ship:{shipQ} dining:{dinQ}) at rock-bottom price");
                         }
                         else
                         {
                             heatScore += 1;
-                            reasons.Add($"ðŸ† Top-tier ship (ship:{shipQ} dining:{dinQ}) at below-average price");
+                            reasons.Add($"🏆 Top-tier ship (ship:{shipQ} dining:{dinQ}) at below-average price");
                         }
                     }
                 }
