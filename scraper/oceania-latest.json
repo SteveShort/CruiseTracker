@@ -1,12 +1,34 @@
 [
   {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-03-10",
+    "shipName": "Oceania Insignia",
+    "departureDate": "2026-11-02",
     "nights": 7,
-    "itinerary": "REEFS OF THE MAYA",
-    "itineraryCode": "NAU260310",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
+    "itinerary": "IBERIAN EXPLORER",
+    "itineraryCode": "INS261102",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Lisbon",
+    "fare": 1575,
+    "brochureFare": 4198
+  },
+  {
+    "shipName": "Oceania Sirena",
+    "departureDate": "2026-12-02",
+    "nights": 7,
+    "itinerary": "MEDITERRANEAN PASSAGE",
+    "itineraryCode": "SIR261202",
+    "embarkPort": "Rome",
+    "debarkPort": "Barcelona",
+    "fare": 1575,
+    "brochureFare": 4198
+  },
+  {
+    "shipName": "Oceania Sirena",
+    "departureDate": "2026-10-12",
+    "nights": 7,
+    "itinerary": "BALEARIC & RIVIERA RESORTS",
+    "itineraryCode": "SIR261012",
+    "embarkPort": "Rome",
+    "debarkPort": "Monte Carlo",
     "fare": 1650,
     "brochureFare": 4398
   },
@@ -23,36 +45,14 @@
   },
   {
     "shipName": "Oceania Sirena",
-    "departureDate": "2026-10-12",
+    "departureDate": "2026-11-05",
     "nights": 7,
-    "itinerary": "BALEARIC & RIVIERA RESORTS",
-    "itineraryCode": "SIR261012",
+    "itinerary": "ANCIENT SITES & CITIES",
+    "itineraryCode": "SIR261105",
     "embarkPort": "Rome",
-    "debarkPort": "Monte Carlo",
-    "fare": 1760,
-    "brochureFare": 4398
-  },
-  {
-    "shipName": "Oceania Insignia",
-    "departureDate": "2026-11-02",
-    "nights": 7,
-    "itinerary": "IBERIAN EXPLORER",
-    "itineraryCode": "INS261102",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Lisbon",
-    "fare": 1785,
-    "brochureFare": 4198
-  },
-  {
-    "shipName": "Oceania Sirena",
-    "departureDate": "2026-12-02",
-    "nights": 7,
-    "itinerary": "MEDITERRANEAN PASSAGE",
-    "itineraryCode": "SIR261202",
-    "embarkPort": "Rome",
-    "debarkPort": "Barcelona",
-    "fare": 1785,
-    "brochureFare": 4198
+    "debarkPort": "Istanbul",
+    "fare": 1687,
+    "brochureFare": 4498
   },
   {
     "shipName": "Oceania Sirena",
@@ -78,6 +78,28 @@
   },
   {
     "shipName": "Oceania Nautica",
+    "departureDate": "2026-06-25",
+    "nights": 7,
+    "itinerary": "THE ADRIATIC & ITALY",
+    "itineraryCode": "NAU260625",
+    "embarkPort": "Venice",
+    "debarkPort": "Rome",
+    "fare": 1875,
+    "brochureFare": 4998
+  },
+  {
+    "shipName": "Oceania Sirena",
+    "departureDate": "2027-01-04",
+    "nights": 10,
+    "itinerary": "INVITATION TO IBERIA",
+    "itineraryCode": "SIR270104",
+    "embarkPort": "Rome",
+    "debarkPort": "Lisbon",
+    "fare": 1890,
+    "brochureFare": 5398
+  },
+  {
+    "shipName": "Oceania Nautica",
     "departureDate": "2027-09-26",
     "nights": 7,
     "itinerary": "COASTAL KALEIDOSCOPE",
@@ -100,14 +122,25 @@
   },
   {
     "shipName": "Oceania Sirena",
-    "departureDate": "2026-11-05",
+    "departureDate": "2026-06-23",
     "nights": 7,
-    "itinerary": "ANCIENT SITES & CITIES",
-    "itineraryCode": "SIR261105",
+    "itinerary": "VINEYARDS & VISTAS",
+    "itineraryCode": "SIR260623",
+    "embarkPort": "Lisbon",
+    "debarkPort": "London",
+    "fare": 1920,
+    "brochureFare": 4798
+  },
+  {
+    "shipName": "Oceania Sirena",
+    "departureDate": "2026-06-09",
+    "nights": 7,
+    "itinerary": "ESSENTIAL MEDITERRANEAN",
+    "itineraryCode": "SIR260609",
     "embarkPort": "Rome",
-    "debarkPort": "Istanbul",
-    "fare": 1912,
-    "brochureFare": 4498
+    "debarkPort": "Barcelona",
+    "fare": 1955,
+    "brochureFare": 4598
   },
   {
     "shipName": "Oceania Marina",
@@ -130,17 +163,6 @@
     "debarkPort": "Panama City",
     "fare": 2040,
     "brochureFare": 6798
-  },
-  {
-    "shipName": "Oceania Sirena",
-    "departureDate": "2026-06-09",
-    "nights": 7,
-    "itinerary": "ESSENTIAL MEDITERRANEAN",
-    "itineraryCode": "SIR260609",
-    "embarkPort": "Rome",
-    "debarkPort": "Barcelona",
-    "fare": 2070,
-    "brochureFare": 4598
   },
   {
     "shipName": "Oceania Marina",
@@ -199,14 +221,25 @@
   },
   {
     "shipName": "Oceania Sirena",
-    "departureDate": "2026-06-23",
-    "nights": 7,
-    "itinerary": "VINEYARDS & VISTAS",
-    "itineraryCode": "SIR260623",
+    "departureDate": "2027-03-03",
+    "nights": 8,
+    "itinerary": "MEDITERRANEAN SUNRISE",
+    "itineraryCode": "SIR270303",
     "embarkPort": "Lisbon",
-    "debarkPort": "London",
+    "debarkPort": "Rome",
     "fare": 2160,
     "brochureFare": 4798
+  },
+  {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2026-03-10",
+    "nights": 7,
+    "itinerary": "REEFS OF THE MAYA",
+    "itineraryCode": "NAU260310",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 2199,
+    "brochureFare": 4398
   },
   {
     "shipName": "Oceania Sirena",
@@ -231,48 +264,15 @@
     "brochureFare": 4398
   },
   {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-03-17",
-    "nights": 10,
-    "itinerary": "CARIBBEAN MELODIES",
-    "itineraryCode": "NAU260317",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 2205,
-    "brochureFare": 6298
-  },
-  {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-06-25",
+    "shipName": "Oceania Sirena",
+    "departureDate": "2026-06-02",
     "nights": 7,
-    "itinerary": "THE ADRIATIC & ITALY",
-    "itineraryCode": "NAU260625",
+    "itinerary": "VENETIAN STRONGHOLDS",
+    "itineraryCode": "SIR260602",
     "embarkPort": "Venice",
     "debarkPort": "Rome",
     "fare": 2250,
     "brochureFare": 4998
-  },
-  {
-    "shipName": "Oceania Insignia",
-    "departureDate": "2026-03-18",
-    "nights": 7,
-    "itinerary": "WESTERN CARIBBEAN ESCAPE",
-    "itineraryCode": "INS260318",
-    "embarkPort": "Tampa",
-    "debarkPort": "Tampa",
-    "fare": 2280,
-    "brochureFare": 4798
-  },
-  {
-    "shipName": "Oceania Sirena",
-    "departureDate": "2027-03-03",
-    "nights": 8,
-    "itinerary": "MEDITERRANEAN SUNRISE",
-    "itineraryCode": "SIR270303",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Rome",
-    "fare": 2280,
-    "brochureFare": 4798
   },
   {
     "shipName": "Oceania Sirena",
@@ -308,26 +308,48 @@
     "brochureFare": 4598
   },
   {
+    "shipName": "Oceania Regatta",
+    "departureDate": "2026-07-31",
+    "nights": 10,
+    "itinerary": "HELLENIC EXPLORER",
+    "itineraryCode": "REG260731",
+    "embarkPort": "Istanbul",
+    "debarkPort": "Athens",
+    "fare": 2310,
+    "brochureFare": 6598
+  },
+  {
     "shipName": "Oceania Sirena",
-    "departureDate": "2026-06-02",
-    "nights": 7,
-    "itinerary": "VENETIAN STRONGHOLDS",
-    "itineraryCode": "SIR260602",
-    "embarkPort": "Venice",
-    "debarkPort": "Rome",
-    "fare": 2375,
-    "brochureFare": 4998
+    "departureDate": "2026-08-17",
+    "nights": 10,
+    "itinerary": "VISIONS OF BYZANTIUM",
+    "itineraryCode": "SIR260817",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Istanbul",
+    "fare": 2325,
+    "brochureFare": 6198
+  },
+  {
+    "shipName": "Oceania Sirena",
+    "departureDate": "2026-10-19",
+    "nights": 10,
+    "itinerary": "HAVENS OF ITALY & SPAIN",
+    "itineraryCode": "SIR261019",
+    "embarkPort": "Monte Carlo",
+    "debarkPort": "Barcelona",
+    "fare": 2362,
+    "brochureFare": 6298
   },
   {
     "shipName": "Oceania Insignia",
-    "departureDate": "2026-05-04",
-    "nights": 12,
-    "itinerary": "EXPLORERS ATLANTIC",
-    "itineraryCode": "INS260504",
-    "embarkPort": "Miami",
-    "debarkPort": "Lisbon",
-    "fare": 2385,
-    "brochureFare": 5298
+    "departureDate": "2026-03-18",
+    "nights": 7,
+    "itinerary": "WESTERN CARIBBEAN ESCAPE",
+    "itineraryCode": "INS260318",
+    "embarkPort": "Tampa",
+    "debarkPort": "Tampa",
+    "fare": 2399,
+    "brochureFare": 4798
   },
   {
     "shipName": "Oceania Sirena",
@@ -341,26 +363,26 @@
     "brochureFare": 4798
   },
   {
-    "shipName": "Oceania Insignia",
-    "departureDate": "2026-03-25",
-    "nights": 10,
-    "itinerary": "PALMS & PANAMA CANAL",
-    "itineraryCode": "INS260325",
-    "embarkPort": "Tampa",
-    "debarkPort": "Panama City",
-    "fare": 2415,
-    "brochureFare": 6898
+    "shipName": "Oceania Regatta",
+    "departureDate": "2026-07-05",
+    "nights": 12,
+    "itinerary": "MINARETS & MOSAICS",
+    "itineraryCode": "REG260705",
+    "embarkPort": "Athens",
+    "debarkPort": "Monte Carlo",
+    "fare": 2400,
+    "brochureFare": 7998
   },
   {
-    "shipName": "Oceania Sirena",
-    "departureDate": "2027-01-04",
-    "nights": 10,
-    "itinerary": "INVITATION TO IBERIA",
-    "itineraryCode": "SIR270104",
-    "embarkPort": "Rome",
-    "debarkPort": "Lisbon",
+    "shipName": "Oceania Regatta",
+    "departureDate": "2026-06-24",
+    "nights": 11,
+    "itinerary": "LEGENDARY MEDITERRANEAN",
+    "itineraryCode": "REG260624",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Athens",
     "fare": 2430,
-    "brochureFare": 5398
+    "brochureFare": 8098
   },
   {
     "shipName": "Oceania Nautica",
@@ -385,15 +407,59 @@
     "brochureFare": 4898
   },
   {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-03-27",
+    "shipName": "Oceania Insignia",
+    "departureDate": "2026-11-09",
     "nights": 15,
-    "itinerary": "EASTERN ATLANTIC CROSSING",
-    "itineraryCode": "NAU260327",
-    "embarkPort": "Miami",
+    "itinerary": "CANARIES TO THE CARIBBEAN",
+    "itineraryCode": "INS261109",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Miami",
+    "fare": 2450,
+    "brochureFare": 6998
+  },
+  {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2026-12-07",
+    "nights": 14,
+    "itinerary": "LANTERNS & LOTUSES",
+    "itineraryCode": "NAU261207",
+    "embarkPort": "Bali",
+    "debarkPort": "Hong Kong",
+    "fare": 2450,
+    "brochureFare": 9798
+  },
+  {
+    "shipName": "Oceania Marina",
+    "departureDate": "2026-05-24",
+    "nights": 7,
+    "itinerary": "ENGLISH CHANNEL DISCOVERY",
+    "itineraryCode": "MNA260524",
+    "embarkPort": "Paris",
+    "debarkPort": "London",
+    "fare": 2460,
+    "brochureFare": 6298
+  },
+  {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2026-06-01",
+    "nights": 10,
+    "itinerary": "ITALIAN & IBERIAN RADIANCE",
+    "itineraryCode": "NAU260601",
+    "embarkPort": "Barcelona",
     "debarkPort": "Lisbon",
-    "fare": 2480,
-    "brochureFare": 6198
+    "fare": 2485,
+    "brochureFare": 7098
+  },
+  {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2026-07-02",
+    "nights": 10,
+    "itinerary": "MEDITERRANEAN MEDLEY",
+    "itineraryCode": "NAU260702",
+    "embarkPort": "Rome",
+    "debarkPort": "Monte Carlo",
+    "fare": 2485,
+    "brochureFare": 7098
   },
   {
     "shipName": "Oceania Nautica",
@@ -506,17 +572,6 @@
     "brochureFare": 4998
   },
   {
-    "shipName": "Oceania Marina",
-    "departureDate": "2027-12-07",
-    "nights": 13,
-    "itinerary": "VOYAGE TO THE NEW WORLD",
-    "itineraryCode": "MNA271207",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Miami",
-    "fare": 2499,
-    "brochureFare": 4998
-  },
-  {
     "shipName": "Oceania Allura",
     "departureDate": "2028-01-31",
     "nights": 9,
@@ -528,15 +583,26 @@
     "brochureFare": 4998
   },
   {
-    "shipName": "Oceania Sirena",
-    "departureDate": "2026-10-19",
+    "shipName": "Oceania Vista",
+    "departureDate": "2026-12-14",
+    "nights": 7,
+    "itinerary": "TROPICAL RETREATS",
+    "itineraryCode": "VIS261214",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 2550,
+    "brochureFare": 5398
+  },
+  {
+    "shipName": "Oceania Regatta",
+    "departureDate": "2026-08-17",
     "nights": 10,
-    "itinerary": "HAVENS OF ITALY & SPAIN",
-    "itineraryCode": "SIR261019",
-    "embarkPort": "Monte Carlo",
-    "debarkPort": "Barcelona",
-    "fare": 2520,
-    "brochureFare": 6298
+    "itinerary": "BRIDGE TO THE BOSPHORUS",
+    "itineraryCode": "REG260817",
+    "embarkPort": "Dubrovnik",
+    "debarkPort": "Istanbul",
+    "fare": 2560,
+    "brochureFare": 6398
   },
   {
     "shipName": "Oceania Sirena",
@@ -548,6 +614,39 @@
     "debarkPort": "Valletta",
     "fare": 2560,
     "brochureFare": 6398
+  },
+  {
+    "shipName": "Oceania Sirena",
+    "departureDate": "2026-12-09",
+    "nights": 12,
+    "itinerary": "CANARIES, MOROCCO & MORE",
+    "itineraryCode": "SIR261209",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Lisbon",
+    "fare": 2560,
+    "brochureFare": 6398
+  },
+  {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2026-11-13",
+    "nights": 10,
+    "itinerary": "TEMPLES & TROPICAL ISLES",
+    "itineraryCode": "NAU261113",
+    "embarkPort": "Bangkok",
+    "debarkPort": "Singapore",
+    "fare": 2587,
+    "brochureFare": 6898
+  },
+  {
+    "shipName": "Oceania Sirena",
+    "departureDate": "2026-11-22",
+    "nights": 10,
+    "itinerary": "CROATIA & ITALY HOLIDAY",
+    "itineraryCode": "SIR261122",
+    "embarkPort": "Venice",
+    "debarkPort": "Rome",
+    "fare": 2592,
+    "brochureFare": 6098
   },
   {
     "shipName": "Oceania Riviera",
@@ -605,6 +704,17 @@
     "brochureFare": 5198
   },
   {
+    "shipName": "Oceania Marina",
+    "departureDate": "2027-12-07",
+    "nights": 13,
+    "itinerary": "VOYAGE TO THE NEW WORLD",
+    "itineraryCode": "MNA271207",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Miami",
+    "fare": 2599,
+    "brochureFare": 5198
+  },
+  {
     "shipName": "Oceania Sirena",
     "departureDate": "2028-03-24",
     "nights": 9,
@@ -616,15 +726,15 @@
     "brochureFare": 5198
   },
   {
-    "shipName": "Oceania Sirena",
-    "departureDate": "2026-08-17",
-    "nights": 10,
-    "itinerary": "VISIONS OF BYZANTIUM",
-    "itineraryCode": "SIR260817",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Istanbul",
-    "fare": 2635,
-    "brochureFare": 6198
+    "shipName": "Oceania Insignia",
+    "departureDate": "2026-05-04",
+    "nights": 12,
+    "itinerary": "EXPLORERS ATLANTIC",
+    "itineraryCode": "INS260504",
+    "embarkPort": "Miami",
+    "debarkPort": "Lisbon",
+    "fare": 2649,
+    "brochureFare": 5298
   },
   {
     "shipName": "Oceania Riviera",
@@ -667,17 +777,6 @@
     "itineraryCode": "MNA260421",
     "embarkPort": "Barcelona",
     "debarkPort": "Rome",
-    "fare": 2699,
-    "brochureFare": 5398
-  },
-  {
-    "shipName": "Oceania Vista",
-    "departureDate": "2026-12-14",
-    "nights": 7,
-    "itinerary": "TROPICAL RETREATS",
-    "itineraryCode": "VIS261214",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
     "fare": 2699,
     "brochureFare": 5398
   },
@@ -748,35 +847,13 @@
     "brochureFare": 5398
   },
   {
-    "shipName": "Oceania Insignia",
-    "departureDate": "2026-04-04",
-    "nights": 10,
-    "itinerary": "CLASSIC CANAL & TROPICS",
-    "itineraryCode": "INS260404",
-    "embarkPort": "Panama City",
-    "debarkPort": "Miami",
-    "fare": 2720,
-    "brochureFare": 6798
-  },
-  {
-    "shipName": "Oceania Regatta",
-    "departureDate": "2026-08-17",
-    "nights": 10,
-    "itinerary": "BRIDGE TO THE BOSPHORUS",
-    "itineraryCode": "REG260817",
-    "embarkPort": "Dubrovnik",
-    "debarkPort": "Istanbul",
-    "fare": 2720,
-    "brochureFare": 6398
-  },
-  {
     "shipName": "Oceania Sirena",
-    "departureDate": "2026-11-22",
+    "departureDate": "2026-11-12",
     "nights": 10,
-    "itinerary": "CROATIA & ITALY HOLIDAY",
-    "itineraryCode": "SIR261122",
-    "embarkPort": "Venice",
-    "debarkPort": "Rome",
+    "itinerary": "HELLENIC & DALMATIAN GEMS",
+    "itineraryCode": "SIR261112",
+    "embarkPort": "Istanbul",
+    "debarkPort": "Venice",
     "fare": 2745,
     "brochureFare": 6098
   },
@@ -801,17 +878,6 @@
     "debarkPort": "Venice",
     "fare": 2749,
     "brochureFare": 5498
-  },
-  {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-11-13",
-    "nights": 10,
-    "itinerary": "TEMPLES & TROPICAL ISLES",
-    "itineraryCode": "NAU261113",
-    "embarkPort": "Bangkok",
-    "debarkPort": "Singapore",
-    "fare": 2760,
-    "brochureFare": 6898
   },
   {
     "shipName": "Oceania Sirena",
@@ -891,59 +957,15 @@
     "brochureFare": 5598
   },
   {
-    "shipName": "Oceania Regatta",
-    "departureDate": "2026-07-05",
-    "nights": 12,
-    "itinerary": "MINARETS & MOSAICS",
-    "itineraryCode": "REG260705",
-    "embarkPort": "Athens",
-    "debarkPort": "Monte Carlo",
-    "fare": 2800,
-    "brochureFare": 7998
-  },
-  {
-    "shipName": "Oceania Regatta",
-    "departureDate": "2026-07-31",
+    "shipName": "Oceania Nautica",
+    "departureDate": "2026-08-20",
     "nights": 10,
-    "itinerary": "HELLENIC EXPLORER",
-    "itineraryCode": "REG260731",
-    "embarkPort": "Istanbul",
-    "debarkPort": "Athens",
+    "itinerary": "IBERIA CIRCUMNAVIGATION",
+    "itineraryCode": "NAU260820",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Bilbao",
     "fare": 2805,
     "brochureFare": 6598
-  },
-  {
-    "shipName": "Oceania Regatta",
-    "departureDate": "2026-06-24",
-    "nights": 11,
-    "itinerary": "LEGENDARY MEDITERRANEAN",
-    "itineraryCode": "REG260624",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Athens",
-    "fare": 2835,
-    "brochureFare": 8098
-  },
-  {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-06-01",
-    "nights": 10,
-    "itinerary": "ITALIAN & IBERIAN RADIANCE",
-    "itineraryCode": "NAU260601",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Lisbon",
-    "fare": 2840,
-    "brochureFare": 7098
-  },
-  {
-    "shipName": "Oceania Marina",
-    "departureDate": "2026-09-25",
-    "nights": 7,
-    "itinerary": "IBERIAN BALLAD",
-    "itineraryCode": "MNA260925",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Bilbao",
-    "fare": 2849,
-    "brochureFare": 5698
   },
   {
     "shipName": "Oceania Vista",
@@ -953,6 +975,17 @@
     "itineraryCode": "VIS261207",
     "embarkPort": "Miami",
     "debarkPort": "Miami",
+    "fare": 2805,
+    "brochureFare": 5698
+  },
+  {
+    "shipName": "Oceania Marina",
+    "departureDate": "2026-09-25",
+    "nights": 7,
+    "itinerary": "IBERIAN BALLAD",
+    "itineraryCode": "MNA260925",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Bilbao",
     "fare": 2849,
     "brochureFare": 5698
   },
@@ -979,26 +1012,15 @@
     "brochureFare": 5698
   },
   {
-    "shipName": "Oceania Sirena",
-    "departureDate": "2026-12-09",
-    "nights": 12,
-    "itinerary": "CANARIES, MOROCCO & MORE",
-    "itineraryCode": "SIR261209",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Lisbon",
-    "fare": 2880,
-    "brochureFare": 6398
-  },
-  {
-    "shipName": "Oceania Sirena",
-    "departureDate": "2026-11-12",
+    "shipName": "Oceania Insignia",
+    "departureDate": "2026-04-04",
     "nights": 10,
-    "itinerary": "HELLENIC & DALMATIAN GEMS",
-    "itineraryCode": "SIR261112",
-    "embarkPort": "Istanbul",
-    "debarkPort": "Venice",
-    "fare": 2897,
-    "brochureFare": 6098
+    "itinerary": "CLASSIC CANAL & TROPICS",
+    "itineraryCode": "INS260404",
+    "embarkPort": "Panama City",
+    "debarkPort": "Miami",
+    "fare": 2890,
+    "brochureFare": 6798
   },
   {
     "shipName": "Oceania Marina",
@@ -1111,17 +1133,6 @@
     "brochureFare": 5798
   },
   {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-12-07",
-    "nights": 14,
-    "itinerary": "LANTERNS & LOTUSES",
-    "itineraryCode": "NAU261207",
-    "embarkPort": "Bali",
-    "debarkPort": "Hong Kong",
-    "fare": 2940,
-    "brochureFare": 9798
-  },
-  {
     "shipName": "Oceania Allura",
     "departureDate": "2027-02-05",
     "nights": 7,
@@ -1142,17 +1153,6 @@
     "debarkPort": "London",
     "fare": 2949,
     "brochureFare": 5898
-  },
-  {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-08-20",
-    "nights": 10,
-    "itinerary": "IBERIA CIRCUMNAVIGATION",
-    "itineraryCode": "NAU260820",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Bilbao",
-    "fare": 2970,
-    "brochureFare": 6598
   },
   {
     "shipName": "Oceania Marina",
@@ -1254,6 +1254,39 @@
     "brochureFare": 5998
   },
   {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2026-07-12",
+    "nights": 12,
+    "itinerary": "PASSAGE TO PORTUGAL",
+    "itineraryCode": "NAU260712",
+    "embarkPort": "Monte Carlo",
+    "debarkPort": "Lisbon",
+    "fare": 3000,
+    "brochureFare": 7998
+  },
+  {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2026-11-23",
+    "nights": 14,
+    "itinerary": "INDOCHINA TO BALI SEAFARER",
+    "itineraryCode": "NAU261123",
+    "embarkPort": "Singapore",
+    "debarkPort": "Bali",
+    "fare": 3000,
+    "brochureFare": 9998
+  },
+  {
+    "shipName": "Oceania Riviera",
+    "departureDate": "2026-12-03",
+    "nights": 12,
+    "itinerary": "OUTBACK BYWAYS",
+    "itineraryCode": "RVA261203",
+    "embarkPort": "Sydney",
+    "debarkPort": "Sydney",
+    "fare": 3025,
+    "brochureFare": 8398
+  },
+  {
     "shipName": "Oceania Marina",
     "departureDate": "2027-01-05",
     "nights": 10,
@@ -1261,17 +1294,6 @@
     "itineraryCode": "MNA270105",
     "embarkPort": "Miami",
     "debarkPort": "Panama City",
-    "fare": 3049,
-    "brochureFare": 6098
-  },
-  {
-    "shipName": "Oceania Marina",
-    "departureDate": "2027-01-15",
-    "nights": 10,
-    "itinerary": "PANAMA TO CARIBBEAN JOY",
-    "itineraryCode": "MNA270115",
-    "embarkPort": "Panama City",
-    "debarkPort": "Miami",
     "fare": 3049,
     "brochureFare": 6098
   },
@@ -1288,17 +1310,6 @@
   },
   {
     "shipName": "Oceania Allura",
-    "departureDate": "2027-06-25",
-    "nights": 7,
-    "itinerary": "GRECO-ROMAN WORLD",
-    "itineraryCode": "ALU270625",
-    "embarkPort": "Athens",
-    "debarkPort": "Rome",
-    "fare": 3049,
-    "brochureFare": 6098
-  },
-  {
-    "shipName": "Oceania Allura",
     "departureDate": "2027-07-02",
     "nights": 7,
     "itinerary": "EUROPEAN YEARNINGS",
@@ -1310,17 +1321,6 @@
   },
   {
     "shipName": "Oceania Nautica",
-    "departureDate": "2026-04-21",
-    "nights": 10,
-    "itinerary": "CHARMED RIVIERAS",
-    "itineraryCode": "NAU260421",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Rome",
-    "fare": 3060,
-    "brochureFare": 6798
-  },
-  {
-    "shipName": "Oceania Nautica",
     "departureDate": "2026-08-10",
     "nights": 10,
     "itinerary": "DALMATIAN & ITALIAN GEMS",
@@ -1329,6 +1329,28 @@
     "debarkPort": "Barcelona",
     "fare": 3060,
     "brochureFare": 7198
+  },
+  {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2027-01-31",
+    "nights": 11,
+    "itinerary": "UNCHARTED SOUTHEAST ASIA",
+    "itineraryCode": "NAU270131",
+    "embarkPort": "Bangkok",
+    "debarkPort": "Singapore",
+    "fare": 3080,
+    "brochureFare": 7698
+  },
+  {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2026-03-27",
+    "nights": 15,
+    "itinerary": "EASTERN ATLANTIC CROSSING",
+    "itineraryCode": "NAU260327",
+    "embarkPort": "Miami",
+    "debarkPort": "Lisbon",
+    "fare": 3099,
+    "brochureFare": 6198
   },
   {
     "shipName": "Oceania Riviera",
@@ -1474,13 +1496,13 @@
     "brochureFare": 6198
   },
   {
-    "shipName": "Oceania Marina",
-    "departureDate": "2026-05-24",
-    "nights": 7,
-    "itinerary": "ENGLISH CHANNEL DISCOVERY",
-    "itineraryCode": "MNA260524",
-    "embarkPort": "Paris",
-    "debarkPort": "London",
+    "shipName": "Oceania Nautica",
+    "departureDate": "2026-03-17",
+    "nights": 10,
+    "itinerary": "CARIBBEAN MELODIES",
+    "itineraryCode": "NAU260317",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
     "fare": 3149,
     "brochureFare": 6298
   },
@@ -1538,39 +1560,6 @@
     "debarkPort": "Rome",
     "fare": 3149,
     "brochureFare": 6298
-  },
-  {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-05-01",
-    "nights": 10,
-    "itinerary": "ITALIAN & AEGEAN IDYLL",
-    "itineraryCode": "NAU260501",
-    "embarkPort": "Rome",
-    "debarkPort": "Athens",
-    "fare": 3150,
-    "brochureFare": 6998
-  },
-  {
-    "shipName": "Oceania Insignia",
-    "departureDate": "2026-11-09",
-    "nights": 15,
-    "itinerary": "CANARIES TO THE CARIBBEAN",
-    "itineraryCode": "INS261109",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Miami",
-    "fare": 3150,
-    "brochureFare": 6998
-  },
-  {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-07-02",
-    "nights": 10,
-    "itinerary": "MEDITERRANEAN MEDLEY",
-    "itineraryCode": "NAU260702",
-    "embarkPort": "Rome",
-    "debarkPort": "Monte Carlo",
-    "fare": 3195,
-    "brochureFare": 7098
   },
   {
     "shipName": "Oceania Insignia",
@@ -1648,6 +1637,50 @@
     "debarkPort": "Istanbul",
     "fare": 3199,
     "brochureFare": 6398
+  },
+  {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2026-08-30",
+    "nights": 14,
+    "itinerary": "IBERIA CELEBRATION",
+    "itineraryCode": "NAU260830",
+    "embarkPort": "Bilbao",
+    "debarkPort": "Rome",
+    "fare": 3220,
+    "brochureFare": 9198
+  },
+  {
+    "shipName": "Oceania Insignia",
+    "departureDate": "2026-12-19",
+    "nights": 15,
+    "itinerary": "ANTILLES TO ANDES",
+    "itineraryCode": "INS261219",
+    "embarkPort": "Miami",
+    "debarkPort": "Lima",
+    "fare": 3225,
+    "brochureFare": 8598
+  },
+  {
+    "shipName": "Oceania Marina",
+    "departureDate": "2027-01-15",
+    "nights": 10,
+    "itinerary": "PANAMA TO CARIBBEAN JOY",
+    "itineraryCode": "MNA270115",
+    "embarkPort": "Panama City",
+    "debarkPort": "Miami",
+    "fare": 3249,
+    "brochureFare": 6498
+  },
+  {
+    "shipName": "Oceania Allura",
+    "departureDate": "2027-06-25",
+    "nights": 7,
+    "itinerary": "GRECO-ROMAN WORLD",
+    "itineraryCode": "ALU270625",
+    "embarkPort": "Athens",
+    "debarkPort": "Rome",
+    "fare": 3249,
+    "brochureFare": 6498
   },
   {
     "shipName": "Oceania Nautica",
@@ -1749,6 +1782,17 @@
     "brochureFare": 6598
   },
   {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2026-06-11",
+    "nights": 14,
+    "itinerary": "ATLANTIC TO ADRIATIC SEA",
+    "itineraryCode": "NAU260611",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Venice",
+    "fare": 3325,
+    "brochureFare": 9498
+  },
+  {
     "shipName": "Oceania Sirena",
     "departureDate": "2026-09-20",
     "nights": 10,
@@ -1793,6 +1837,28 @@
     "brochureFare": 6698
   },
   {
+    "shipName": "Oceania Sirena",
+    "departureDate": "2026-08-05",
+    "nights": 12,
+    "itinerary": "ECLIPSE OVER LISBON",
+    "itineraryCode": "SIR260805",
+    "embarkPort": "London",
+    "debarkPort": "Barcelona",
+    "fare": 3360,
+    "brochureFare": 8398
+  },
+  {
+    "shipName": "Oceania Sirena",
+    "departureDate": "2026-12-21",
+    "nights": 14,
+    "itinerary": "IBERIA & ITALIAN TREASURES",
+    "itineraryCode": "SIR261221",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Rome",
+    "fare": 3375,
+    "brochureFare": 8998
+  },
+  {
     "shipName": "Oceania Nautica",
     "departureDate": "2026-04-11",
     "nights": 10,
@@ -1800,6 +1866,17 @@
     "itineraryCode": "NAU260411",
     "embarkPort": "Lisbon",
     "debarkPort": "Barcelona",
+    "fare": 3399,
+    "brochureFare": 6798
+  },
+  {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2026-04-21",
+    "nights": 10,
+    "itinerary": "CHARMED RIVIERAS",
+    "itineraryCode": "NAU260421",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Rome",
     "fare": 3399,
     "brochureFare": 6798
   },
@@ -1903,6 +1980,17 @@
     "brochureFare": 6798
   },
   {
+    "shipName": "Oceania Insignia",
+    "departureDate": "2026-03-25",
+    "nights": 10,
+    "itinerary": "PALMS & PANAMA CANAL",
+    "itineraryCode": "INS260325",
+    "embarkPort": "Tampa",
+    "debarkPort": "Panama City",
+    "fare": 3449,
+    "brochureFare": 6898
+  },
+  {
     "shipName": "Oceania Nautica",
     "departureDate": "2027-08-15",
     "nights": 11,
@@ -1912,17 +2000,6 @@
     "debarkPort": "Lisbon",
     "fare": 3449,
     "brochureFare": 6898
-  },
-  {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-08-30",
-    "nights": 14,
-    "itinerary": "IBERIA CELEBRATION",
-    "itineraryCode": "NAU260830",
-    "embarkPort": "Bilbao",
-    "debarkPort": "Rome",
-    "fare": 3450,
-    "brochureFare": 9198
   },
   {
     "shipName": "Oceania Insignia",
@@ -1936,15 +2013,26 @@
     "brochureFare": 7698
   },
   {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2027-01-31",
-    "nights": 11,
-    "itinerary": "UNCHARTED SOUTHEAST ASIA",
-    "itineraryCode": "NAU270131",
-    "embarkPort": "Bangkok",
-    "debarkPort": "Singapore",
+    "shipName": "Oceania Regatta",
+    "departureDate": "2026-07-17",
+    "nights": 14,
+    "itinerary": "ADRIATIC & AEGEAN RADIANCE",
+    "itineraryCode": "REG260717",
+    "embarkPort": "Monte Carlo",
+    "debarkPort": "Istanbul",
     "fare": 3465,
-    "brochureFare": 7698
+    "brochureFare": 9898
+  },
+  {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2026-05-01",
+    "nights": 10,
+    "itinerary": "ITALIAN & AEGEAN IDYLL",
+    "itineraryCode": "NAU260501",
+    "embarkPort": "Rome",
+    "debarkPort": "Athens",
+    "fare": 3499,
+    "brochureFare": 6998
   },
   {
     "shipName": "Oceania Nautica",
@@ -2024,15 +2112,15 @@
     "brochureFare": 6998
   },
   {
-    "shipName": "Oceania Sirena",
-    "departureDate": "2026-09-30",
-    "nights": 12,
-    "itinerary": "FRENCH & ITALIAN TREASURES",
-    "itineraryCode": "SIR260930",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Rome",
-    "fare": 3515,
-    "brochureFare": 7398
+    "shipName": "Oceania Riviera",
+    "departureDate": "2026-06-13",
+    "nights": 9,
+    "itinerary": "ALASKA GLACIAL PASSAGE",
+    "itineraryCode": "RVA260613",
+    "embarkPort": "Anchorage",
+    "debarkPort": "Vancouver",
+    "fare": 3500,
+    "brochureFare": 7698
   },
   {
     "shipName": "Oceania Insignia",
@@ -2044,6 +2132,28 @@
     "debarkPort": "Paris",
     "fare": 3520,
     "brochureFare": 8798
+  },
+  {
+    "shipName": "Oceania Sirena",
+    "departureDate": "2026-08-27",
+    "nights": 14,
+    "itinerary": "MEDITERRANEAN MOSAIC",
+    "itineraryCode": "SIR260827",
+    "embarkPort": "Istanbul",
+    "debarkPort": "Rome",
+    "fare": 3525,
+    "brochureFare": 9398
+  },
+  {
+    "shipName": "Oceania Marina",
+    "departureDate": "2026-11-15",
+    "nights": 10,
+    "itinerary": "MEDITERRANEAN ISLES",
+    "itineraryCode": "MNA261115",
+    "embarkPort": "Rome",
+    "debarkPort": "Barcelona",
+    "fare": 3535,
+    "brochureFare": 7198
   },
   {
     "shipName": "Oceania Riviera",
@@ -2066,17 +2176,6 @@
     "debarkPort": "Paris",
     "fare": 3549,
     "brochureFare": 7098
-  },
-  {
-    "shipName": "Oceania Sirena",
-    "departureDate": "2026-08-05",
-    "nights": 12,
-    "itinerary": "ECLIPSE OVER LISBON",
-    "itineraryCode": "SIR260805",
-    "embarkPort": "London",
-    "debarkPort": "Barcelona",
-    "fare": 3570,
-    "brochureFare": 8398
   },
   {
     "shipName": "Oceania Sirena",
@@ -2108,17 +2207,6 @@
     "itineraryCode": "ALU261003",
     "embarkPort": "Trieste",
     "debarkPort": "Athens",
-    "fare": 3599,
-    "brochureFare": 7198
-  },
-  {
-    "shipName": "Oceania Marina",
-    "departureDate": "2026-11-15",
-    "nights": 10,
-    "itinerary": "MEDITERRANEAN ISLES",
-    "itineraryCode": "MNA261115",
-    "embarkPort": "Rome",
-    "debarkPort": "Barcelona",
     "fare": 3599,
     "brochureFare": 7198
   },
@@ -2222,28 +2310,6 @@
     "brochureFare": 7198
   },
   {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-07-12",
-    "nights": 12,
-    "itinerary": "PASSAGE TO PORTUGAL",
-    "itineraryCode": "NAU260712",
-    "embarkPort": "Monte Carlo",
-    "debarkPort": "Lisbon",
-    "fare": 3600,
-    "brochureFare": 7998
-  },
-  {
-    "shipName": "Oceania Riviera",
-    "departureDate": "2026-12-03",
-    "nights": 12,
-    "itinerary": "OUTBACK BYWAYS",
-    "itineraryCode": "RVA261203",
-    "embarkPort": "Sydney",
-    "debarkPort": "Sydney",
-    "fare": 3630,
-    "brochureFare": 8398
-  },
-  {
     "shipName": "Oceania Insignia",
     "departureDate": "2026-10-13",
     "nights": 10,
@@ -2277,15 +2343,15 @@
     "brochureFare": 7298
   },
   {
-    "shipName": "Oceania Insignia",
-    "departureDate": "2026-12-19",
-    "nights": 15,
-    "itinerary": "ANTILLES TO ANDES",
-    "itineraryCode": "INS261219",
-    "embarkPort": "Miami",
-    "debarkPort": "Lima",
-    "fare": 3655,
-    "brochureFare": 8598
+    "shipName": "Oceania Nautica",
+    "departureDate": "2027-01-17",
+    "nights": 14,
+    "itinerary": "LANDS OF SPICES & DRAGONS",
+    "itineraryCode": "NAU270117",
+    "embarkPort": "Bali",
+    "debarkPort": "Bangkok",
+    "fare": 3675,
+    "brochureFare": 9798
   },
   {
     "shipName": "Oceania Nautica",
@@ -2295,6 +2361,17 @@
     "itineraryCode": "NAU260913",
     "embarkPort": "Rome",
     "debarkPort": "Athens",
+    "fare": 3699,
+    "brochureFare": 7398
+  },
+  {
+    "shipName": "Oceania Sirena",
+    "departureDate": "2026-09-30",
+    "nights": 12,
+    "itinerary": "FRENCH & ITALIAN TREASURES",
+    "itineraryCode": "SIR260930",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Rome",
     "fare": 3699,
     "brochureFare": 7398
   },
@@ -2398,17 +2475,6 @@
     "brochureFare": 7398
   },
   {
-    "shipName": "Oceania Regatta",
-    "departureDate": "2026-07-17",
-    "nights": 14,
-    "itinerary": "ADRIATIC & AEGEAN RADIANCE",
-    "itineraryCode": "REG260717",
-    "embarkPort": "Monte Carlo",
-    "debarkPort": "Istanbul",
-    "fare": 3712,
-    "brochureFare": 9898
-  },
-  {
     "shipName": "Oceania Marina",
     "departureDate": "2026-09-15",
     "nights": 10,
@@ -2420,13 +2486,13 @@
     "brochureFare": 7498
   },
   {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-11-23",
+    "shipName": "Oceania Insignia",
+    "departureDate": "2026-09-22",
     "nights": 14,
-    "itinerary": "INDOCHINA TO BALI SEAFARER",
-    "itineraryCode": "NAU261123",
-    "embarkPort": "Singapore",
-    "debarkPort": "Bali",
+    "itinerary": "RICHES OF FRANCE & IBERIA",
+    "itineraryCode": "INS260922",
+    "embarkPort": "Paris",
+    "debarkPort": "Barcelona",
     "fare": 3750,
     "brochureFare": 9998
   },
@@ -2464,6 +2530,39 @@
     "brochureFare": 7598
   },
   {
+    "shipName": "Oceania Riviera",
+    "departureDate": "2026-05-25",
+    "nights": 10,
+    "itinerary": "ALASKA DISCOVERER",
+    "itineraryCode": "RVA260525",
+    "embarkPort": "Seattle",
+    "debarkPort": "Vancouver",
+    "fare": 3802,
+    "brochureFare": 8298
+  },
+  {
+    "shipName": "Oceania Riviera",
+    "departureDate": "2026-08-26",
+    "nights": 10,
+    "itinerary": "INSIDE PASSAGE DISCOVERY",
+    "itineraryCode": "RVA260826",
+    "embarkPort": "Seattle",
+    "debarkPort": "Vancouver",
+    "fare": 3815,
+    "brochureFare": 8298
+  },
+  {
+    "shipName": "Oceania Sirena",
+    "departureDate": "2026-07-24",
+    "nights": 12,
+    "itinerary": "JEWELS OF NORTHERN EUROPE",
+    "itineraryCode": "SIR260724",
+    "embarkPort": "Stockholm",
+    "debarkPort": "London",
+    "fare": 3825,
+    "brochureFare": 8998
+  },
+  {
     "shipName": "Oceania Insignia",
     "departureDate": "2026-08-03",
     "nights": 12,
@@ -2475,17 +2574,6 @@
     "brochureFare": 8998
   },
   {
-    "shipName": "Oceania Sirena",
-    "departureDate": "2026-12-21",
-    "nights": 14,
-    "itinerary": "IBERIA & ITALIAN TREASURES",
-    "itineraryCode": "SIR261221",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Rome",
-    "fare": 3825,
-    "brochureFare": 8998
-  },
-  {
     "shipName": "Oceania Allura",
     "departureDate": "2026-04-30",
     "nights": 7,
@@ -2493,17 +2581,6 @@
     "itineraryCode": "ALU260430",
     "embarkPort": "Rome",
     "debarkPort": "Athens",
-    "fare": 3849,
-    "brochureFare": 7698
-  },
-  {
-    "shipName": "Oceania Riviera",
-    "departureDate": "2026-06-13",
-    "nights": 9,
-    "itinerary": "ALASKA GLACIAL PASSAGE",
-    "itineraryCode": "RVA260613",
-    "embarkPort": "Anchorage",
-    "debarkPort": "Vancouver",
     "fare": 3849,
     "brochureFare": 7698
   },
@@ -2528,6 +2605,28 @@
     "debarkPort": "Copenhagen",
     "fare": 3849,
     "brochureFare": 7698
+  },
+  {
+    "shipName": "Oceania Insignia",
+    "departureDate": "2026-07-02",
+    "nights": 12,
+    "itinerary": "FJORDS, FAROES & ICELAND",
+    "itineraryCode": "INS260702",
+    "embarkPort": "Copenhagen",
+    "debarkPort": "Reykjavik",
+    "fare": 3862,
+    "brochureFare": 10298
+  },
+  {
+    "shipName": "Oceania Riviera",
+    "departureDate": "2026-06-22",
+    "nights": 10,
+    "itinerary": "GOLD RUSH & GLACIERS",
+    "itineraryCode": "RVA260622",
+    "embarkPort": "Vancouver",
+    "debarkPort": "Seattle",
+    "fare": 3867,
+    "brochureFare": 7898
   },
   {
     "shipName": "Oceania Nautica",
@@ -2607,15 +2706,15 @@
     "brochureFare": 7798
   },
   {
-    "shipName": "Oceania Riviera",
-    "departureDate": "2026-06-22",
-    "nights": 10,
-    "itinerary": "GOLD RUSH & GLACIERS",
-    "itineraryCode": "RVA260622",
-    "embarkPort": "Vancouver",
-    "debarkPort": "Seattle",
-    "fare": 3949,
-    "brochureFare": 7898
+    "shipName": "Oceania Insignia",
+    "departureDate": "2026-06-20",
+    "nights": 12,
+    "itinerary": "NORDIC ILLUMINATION",
+    "itineraryCode": "INS260620",
+    "embarkPort": "Helsinki",
+    "debarkPort": "Copenhagen",
+    "fare": 3900,
+    "brochureFare": 10398
   },
   {
     "shipName": "Oceania Marina",
@@ -2638,6 +2737,17 @@
     "debarkPort": "Rome",
     "fare": 3949,
     "brochureFare": 7898
+  },
+  {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2027-03-21",
+    "nights": 10,
+    "itinerary": "CHERRY BLOSSOM PATHWAYS",
+    "itineraryCode": "NAU270321",
+    "embarkPort": "Tokyo",
+    "debarkPort": "Tokyo",
+    "fare": 3960,
+    "brochureFare": 8798
   },
   {
     "shipName": "Oceania Marina",
@@ -2728,28 +2838,6 @@
     "brochureFare": 7998
   },
   {
-    "shipName": "Oceania Insignia",
-    "departureDate": "2026-09-22",
-    "nights": 14,
-    "itinerary": "RICHES OF FRANCE & IBERIA",
-    "itineraryCode": "INS260922",
-    "embarkPort": "Paris",
-    "debarkPort": "Barcelona",
-    "fare": 4000,
-    "brochureFare": 9998
-  },
-  {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-06-11",
-    "nights": 14,
-    "itinerary": "ATLANTIC TO ADRIATIC SEA",
-    "itineraryCode": "NAU260611",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Venice",
-    "fare": 4037,
-    "brochureFare": 9498
-  },
-  {
     "shipName": "Oceania Riviera",
     "departureDate": "2027-04-05",
     "nights": 11,
@@ -2759,6 +2847,28 @@
     "debarkPort": "Hong Kong",
     "fare": 4049,
     "brochureFare": 8098
+  },
+  {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2027-02-25",
+    "nights": 14,
+    "itinerary": "TIMELESS TEA GARDENS",
+    "itineraryCode": "NAU270225",
+    "embarkPort": "Hong Kong",
+    "debarkPort": "Tokyo",
+    "fare": 4080,
+    "brochureFare": 10198
+  },
+  {
+    "shipName": "Oceania Sirena",
+    "departureDate": "2026-06-30",
+    "nights": 13,
+    "itinerary": "EUROPEAN CORONATION",
+    "itineraryCode": "SIR260630",
+    "embarkPort": "London",
+    "debarkPort": "Oslo",
+    "fare": 4087,
+    "brochureFare": 10898
   },
   {
     "shipName": "Oceania Nautica",
@@ -2849,59 +2959,15 @@
     "brochureFare": 8198
   },
   {
-    "shipName": "Oceania Riviera",
-    "departureDate": "2026-05-25",
-    "nights": 10,
-    "itinerary": "ALASKA DISCOVERER",
-    "itineraryCode": "RVA260525",
-    "embarkPort": "Seattle",
-    "debarkPort": "Vancouver",
-    "fare": 4149,
-    "brochureFare": 8298
-  },
-  {
-    "shipName": "Oceania Riviera",
-    "departureDate": "2026-08-26",
-    "nights": 10,
-    "itinerary": "INSIDE PASSAGE DISCOVERY",
-    "itineraryCode": "RVA260826",
-    "embarkPort": "Seattle",
-    "debarkPort": "Vancouver",
-    "fare": 4149,
-    "brochureFare": 8298
-  },
-  {
-    "shipName": "Oceania Insignia",
-    "departureDate": "2026-06-20",
-    "nights": 12,
-    "itinerary": "NORDIC ILLUMINATION",
-    "itineraryCode": "INS260620",
-    "embarkPort": "Helsinki",
-    "debarkPort": "Copenhagen",
-    "fare": 4160,
-    "brochureFare": 10398
-  },
-  {
     "shipName": "Oceania Nautica",
-    "departureDate": "2027-01-17",
-    "nights": 14,
-    "itinerary": "LANDS OF SPICES & DRAGONS",
-    "itineraryCode": "NAU270117",
-    "embarkPort": "Bali",
-    "debarkPort": "Bangkok",
-    "fare": 4165,
-    "brochureFare": 9798
-  },
-  {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2027-03-21",
-    "nights": 10,
-    "itinerary": "CHERRY BLOSSOM PATHWAYS",
-    "itineraryCode": "NAU270321",
-    "embarkPort": "Tokyo",
-    "debarkPort": "Tokyo",
-    "fare": 4180,
-    "brochureFare": 8798
+    "departureDate": "2026-12-21",
+    "nights": 15,
+    "itinerary": "LEGENDS OF JADE",
+    "itineraryCode": "NAU261221",
+    "embarkPort": "Hong Kong",
+    "debarkPort": "Singapore",
+    "fare": 4125,
+    "brochureFare": 10998
   },
   {
     "shipName": "Oceania Marina",
@@ -3025,17 +3091,6 @@
     "brochureFare": 8398
   },
   {
-    "shipName": "Oceania Sirena",
-    "departureDate": "2026-08-27",
-    "nights": 14,
-    "itinerary": "MEDITERRANEAN MOSAIC",
-    "itineraryCode": "SIR260827",
-    "embarkPort": "Istanbul",
-    "debarkPort": "Rome",
-    "fare": 4230,
-    "brochureFare": 9398
-  },
-  {
     "shipName": "Oceania Allura",
     "departureDate": "2026-04-14",
     "nights": 16,
@@ -3045,17 +3100,6 @@
     "debarkPort": "Rome",
     "fare": 4249,
     "brochureFare": 8498
-  },
-  {
-    "shipName": "Oceania Sirena",
-    "departureDate": "2026-07-24",
-    "nights": 12,
-    "itinerary": "JEWELS OF NORTHERN EUROPE",
-    "itineraryCode": "SIR260724",
-    "embarkPort": "Stockholm",
-    "debarkPort": "London",
-    "fare": 4275,
-    "brochureFare": 8998
   },
   {
     "shipName": "Oceania Sirena",
@@ -3113,28 +3157,6 @@
     "brochureFare": 8598
   },
   {
-    "shipName": "Oceania Allura",
-    "departureDate": "2026-04-04",
-    "nights": 10,
-    "itinerary": "CARIBBEAN ILLUMINATION",
-    "itineraryCode": "ALU260404",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 4320,
-    "brochureFare": 8998
-  },
-  {
-    "shipName": "Oceania Sirena",
-    "departureDate": "2026-06-30",
-    "nights": 13,
-    "itinerary": "EUROPEAN CORONATION",
-    "itineraryCode": "SIR260630",
-    "embarkPort": "London",
-    "debarkPort": "Oslo",
-    "fare": 4360,
-    "brochureFare": 10898
-  },
-  {
     "shipName": "Oceania Nautica",
     "departureDate": "2027-03-11",
     "nights": 10,
@@ -3190,15 +3212,15 @@
     "brochureFare": 8798
   },
   {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-12-21",
-    "nights": 15,
-    "itinerary": "LEGENDS OF JADE",
-    "itineraryCode": "NAU261221",
-    "embarkPort": "Hong Kong",
-    "debarkPort": "Singapore",
-    "fare": 4400,
-    "brochureFare": 10998
+    "shipName": "Oceania Vista",
+    "departureDate": "2026-11-25",
+    "nights": 12,
+    "itinerary": "ANTILLEAN ISLAND SOJOURN",
+    "itineraryCode": "VIS261125",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 4420,
+    "brochureFare": 9498
   },
   {
     "shipName": "Oceania Allura",
@@ -3221,6 +3243,28 @@
     "debarkPort": "Miami",
     "fare": 4449,
     "brochureFare": 8898
+  },
+  {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2027-04-24",
+    "nights": 14,
+    "itinerary": "VIETNAMESE REFLECTIONS",
+    "itineraryCode": "NAU270424",
+    "embarkPort": "Hong Kong",
+    "debarkPort": "Singapore",
+    "fare": 4462,
+    "brochureFare": 10498
+  },
+  {
+    "shipName": "Oceania Allura",
+    "departureDate": "2026-04-04",
+    "nights": 10,
+    "itinerary": "CARIBBEAN ILLUMINATION",
+    "itineraryCode": "ALU260404",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 4499,
+    "brochureFare": 8998
   },
   {
     "shipName": "Oceania Insignia",
@@ -3322,17 +3366,6 @@
     "brochureFare": 9098
   },
   {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2027-02-25",
-    "nights": 14,
-    "itinerary": "TIMELESS TEA GARDENS",
-    "itineraryCode": "NAU270225",
-    "embarkPort": "Hong Kong",
-    "debarkPort": "Tokyo",
-    "fare": 4590,
-    "brochureFare": 10198
-  },
-  {
     "shipName": "Oceania Vista",
     "departureDate": "2026-03-07",
     "nights": 16,
@@ -3399,15 +3432,15 @@
     "brochureFare": 9198
   },
   {
-    "shipName": "Oceania Insignia",
-    "departureDate": "2026-07-02",
-    "nights": 12,
-    "itinerary": "FJORDS, FAROES & ICELAND",
-    "itineraryCode": "INS260702",
-    "embarkPort": "Copenhagen",
+    "shipName": "Oceania Marina",
+    "departureDate": "2026-08-13",
+    "nights": 10,
+    "itinerary": "VIKING & NORDIC LEGENDS",
+    "itineraryCode": "MNA260813",
+    "embarkPort": "Reykjavik",
     "debarkPort": "Reykjavik",
-    "fare": 4635,
-    "brochureFare": 10298
+    "fare": 4620,
+    "brochureFare": 10198
   },
   {
     "shipName": "Oceania Riviera",
@@ -3452,6 +3485,28 @@
     "debarkPort": "Tokyo",
     "fare": 4649,
     "brochureFare": 9298
+  },
+  {
+    "shipName": "Oceania Insignia",
+    "departureDate": "2026-08-15",
+    "nights": 14,
+    "itinerary": "FJORDLANDS OF NORWAY",
+    "itineraryCode": "INS260815",
+    "embarkPort": "London",
+    "debarkPort": "Oslo",
+    "fare": 4650,
+    "brochureFare": 12398
+  },
+  {
+    "shipName": "Oceania Insignia",
+    "departureDate": "2026-05-26",
+    "nights": 11,
+    "itinerary": "UNBOUND BRITISH ISLES",
+    "itineraryCode": "INS260526",
+    "embarkPort": "London",
+    "debarkPort": "London",
+    "fare": 4680,
+    "brochureFare": 10398
   },
   {
     "shipName": "Oceania Allura",
@@ -3520,17 +3575,6 @@
     "brochureFare": 9398
   },
   {
-    "shipName": "Oceania Vista",
-    "departureDate": "2026-11-25",
-    "nights": 12,
-    "itinerary": "ANTILLEAN ISLAND SOJOURN",
-    "itineraryCode": "VIS261125",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 4749,
-    "brochureFare": 9498
-  },
-  {
     "shipName": "Oceania Nautica",
     "departureDate": "2027-03-31",
     "nights": 11,
@@ -3586,17 +3630,6 @@
     "brochureFare": 9598
   },
   {
-    "shipName": "Oceania Marina",
-    "departureDate": "2026-08-13",
-    "nights": 10,
-    "itinerary": "VIKING & NORDIC LEGENDS",
-    "itineraryCode": "MNA260813",
-    "embarkPort": "Reykjavik",
-    "debarkPort": "Reykjavik",
-    "fare": 4849,
-    "brochureFare": 9698
-  },
-  {
     "shipName": "Oceania Allura",
     "departureDate": "2026-11-07",
     "nights": 10,
@@ -3617,6 +3650,28 @@
     "debarkPort": "Miami",
     "fare": 4849,
     "brochureFare": 9698
+  },
+  {
+    "shipName": "Oceania Vista",
+    "departureDate": "2026-10-28",
+    "nights": 14,
+    "itinerary": "CARIBBEAN ENCHANTMENT",
+    "itineraryCode": "VIS261028",
+    "embarkPort": "New York",
+    "debarkPort": "Miami",
+    "fare": 4887,
+    "brochureFare": 9998
+  },
+  {
+    "shipName": "Oceania Vista",
+    "departureDate": "2026-11-11",
+    "nights": 14,
+    "itinerary": "DUTCHMAN'S CARIBBEAN",
+    "itineraryCode": "VIS261111",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 4887,
+    "brochureFare": 9998
   },
   {
     "shipName": "Oceania Riviera",
@@ -3674,15 +3729,15 @@
     "brochureFare": 9798
   },
   {
-    "shipName": "Oceania Insignia",
-    "departureDate": "2026-05-26",
-    "nights": 11,
-    "itinerary": "UNBOUND BRITISH ISLES",
-    "itineraryCode": "INS260526",
-    "embarkPort": "London",
-    "debarkPort": "London",
-    "fare": 4940,
-    "brochureFare": 10398
+    "shipName": "Oceania Riviera",
+    "departureDate": "2026-08-13",
+    "nights": 13,
+    "itinerary": "ALASKA ADVENTURER",
+    "itineraryCode": "RVA260813",
+    "embarkPort": "Seattle",
+    "debarkPort": "Seattle",
+    "fare": 4935,
+    "brochureFare": 10098
   },
   {
     "shipName": "Oceania Marina",
@@ -3696,28 +3751,6 @@
     "brochureFare": 9898
   },
   {
-    "shipName": "Oceania Insignia",
-    "departureDate": "2026-08-15",
-    "nights": 14,
-    "itinerary": "FJORDLANDS OF NORWAY",
-    "itineraryCode": "INS260815",
-    "embarkPort": "London",
-    "debarkPort": "Oslo",
-    "fare": 4960,
-    "brochureFare": 12398
-  },
-  {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2027-04-24",
-    "nights": 14,
-    "itinerary": "VIETNAMESE REFLECTIONS",
-    "itineraryCode": "NAU270424",
-    "embarkPort": "Hong Kong",
-    "debarkPort": "Singapore",
-    "fare": 4987,
-    "brochureFare": 10498
-  },
-  {
     "shipName": "Oceania Marina",
     "departureDate": "2026-08-23",
     "nights": 12,
@@ -3725,28 +3758,6 @@
     "itineraryCode": "MNA260823",
     "embarkPort": "Reykjavik",
     "debarkPort": "London",
-    "fare": 4999,
-    "brochureFare": 9998
-  },
-  {
-    "shipName": "Oceania Vista",
-    "departureDate": "2026-10-28",
-    "nights": 14,
-    "itinerary": "CARIBBEAN ENCHANTMENT",
-    "itineraryCode": "VIS261028",
-    "embarkPort": "New York",
-    "debarkPort": "Miami",
-    "fare": 4999,
-    "brochureFare": 9998
-  },
-  {
-    "shipName": "Oceania Vista",
-    "departureDate": "2026-11-11",
-    "nights": 14,
-    "itinerary": "DUTCHMAN'S CARIBBEAN",
-    "itineraryCode": "VIS261111",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
     "fare": 4999,
     "brochureFare": 9998
   },
@@ -3817,15 +3828,15 @@
     "brochureFare": 9998
   },
   {
-    "shipName": "Oceania Riviera",
-    "departureDate": "2026-08-13",
-    "nights": 13,
-    "itinerary": "ALASKA ADVENTURER",
-    "itineraryCode": "RVA260813",
-    "embarkPort": "Seattle",
-    "debarkPort": "Seattle",
-    "fare": 5049,
-    "brochureFare": 10098
+    "shipName": "Oceania Insignia",
+    "departureDate": "2026-11-24",
+    "nights": 25,
+    "itinerary": "AMAZON & CARIBBEAN ISLES",
+    "itineraryCode": "INS261124",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 5005,
+    "brochureFare": 14298
   },
   {
     "shipName": "Oceania Sirena",
@@ -3850,17 +3861,6 @@
     "brochureFare": 10098
   },
   {
-    "shipName": "Oceania Marina",
-    "departureDate": "2027-11-27",
-    "nights": 23,
-    "itinerary": "OLD & NEW WORLDS",
-    "itineraryCode": "MNA271127A",
-    "embarkPort": "Rome",
-    "debarkPort": "Miami",
-    "fare": 5049,
-    "brochureFare": 10098
-  },
-  {
     "shipName": "Oceania Riviera",
     "departureDate": "2027-12-21",
     "nights": 14,
@@ -3870,6 +3870,17 @@
     "debarkPort": "Singapore",
     "fare": 5049,
     "brochureFare": 10098
+  },
+  {
+    "shipName": "Oceania Riviera",
+    "departureDate": "2026-10-30",
+    "nights": 18,
+    "itinerary": "ATOLLS, OUTBACK & DRAGONS",
+    "itineraryCode": "RVA261030",
+    "embarkPort": "Lautoka",
+    "debarkPort": "Bali",
+    "fare": 5070,
+    "brochureFare": 11598
   },
   {
     "shipName": "Oceania Regatta",
@@ -3945,6 +3956,17 @@
     "itineraryCode": "RVA270207",
     "embarkPort": "Sydney",
     "debarkPort": "Auckland",
+    "fare": 5149,
+    "brochureFare": 10298
+  },
+  {
+    "shipName": "Oceania Marina",
+    "departureDate": "2027-11-27",
+    "nights": 23,
+    "itinerary": "OLD & NEW WORLDS",
+    "itineraryCode": "MNA271127A",
+    "embarkPort": "Rome",
+    "debarkPort": "Miami",
     "fare": 5149,
     "brochureFare": 10298
   },
@@ -4046,6 +4068,17 @@
     "debarkPort": "New York",
     "fare": 5199,
     "brochureFare": 10398
+  },
+  {
+    "shipName": "Oceania Insignia",
+    "departureDate": "2026-06-06",
+    "nights": 14,
+    "itinerary": "NORTH & BALTIC SEA CAPITALS",
+    "itineraryCode": "INS260606",
+    "embarkPort": "London",
+    "debarkPort": "Helsinki",
+    "fare": 5220,
+    "brochureFare": 11598
   },
   {
     "shipName": "Oceania Allura",
@@ -4235,17 +4268,6 @@
     "brochureFare": 10798
   },
   {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-10-14",
-    "nights": 21,
-    "itinerary": "MINARETS TO MANDALAS",
-    "itineraryCode": "NAU261014",
-    "embarkPort": "Doha",
-    "debarkPort": "Singapore",
-    "fare": 5440,
-    "brochureFare": 13598
-  },
-  {
     "shipName": "Oceania Riviera",
     "departureDate": "2026-03-30",
     "nights": 21,
@@ -4255,28 +4277,6 @@
     "debarkPort": "Singapore",
     "fare": 5449,
     "brochureFare": 10898
-  },
-  {
-    "shipName": "Oceania Riviera",
-    "departureDate": "2026-10-30",
-    "nights": 18,
-    "itinerary": "ATOLLS, OUTBACK & DRAGONS",
-    "itineraryCode": "RVA261030",
-    "embarkPort": "Lautoka",
-    "debarkPort": "Bali",
-    "fare": 5460,
-    "brochureFare": 11598
-  },
-  {
-    "shipName": "Oceania Allura",
-    "departureDate": "2026-03-21",
-    "nights": 14,
-    "itinerary": "ATLANTIC & BALMY BERMUDA",
-    "itineraryCode": "ALU260321",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 5480,
-    "brochureFare": 11798
   },
   {
     "shipName": "Oceania Riviera",
@@ -4345,6 +4345,17 @@
     "brochureFare": 10998
   },
   {
+    "shipName": "Oceania Insignia",
+    "departureDate": "2027-03-19",
+    "nights": 21,
+    "itinerary": "AMAZONIAN SPIRIT",
+    "itineraryCode": "INS270319",
+    "embarkPort": "Rio de Janeiro",
+    "debarkPort": "Miami",
+    "fare": 5535,
+    "brochureFare": 12298
+  },
+  {
     "shipName": "Oceania Marina",
     "departureDate": "2026-03-17",
     "nights": 21,
@@ -4354,6 +4365,17 @@
     "debarkPort": "Miami",
     "fare": 5549,
     "brochureFare": 11098
+  },
+  {
+    "shipName": "Oceania Insignia",
+    "departureDate": "2027-01-03",
+    "nights": 21,
+    "itinerary": "PATAGONIAN PANORAMA",
+    "itineraryCode": "INS270103",
+    "embarkPort": "Lima",
+    "debarkPort": "Buenos Aires",
+    "fare": 5567,
+    "brochureFare": 13098
   },
   {
     "shipName": "Oceania Regatta",
@@ -4390,6 +4412,17 @@
   },
   {
     "shipName": "Oceania Vista",
+    "departureDate": "2027-02-26",
+    "nights": 15,
+    "itinerary": "KOALAS TO KOMODOS",
+    "itineraryCode": "VIS270226",
+    "embarkPort": "Sydney",
+    "debarkPort": "Bali",
+    "fare": 5652,
+    "brochureFare": 11398
+  },
+  {
+    "shipName": "Oceania Vista",
     "departureDate": "2026-07-23",
     "nights": 10,
     "itinerary": "ICELANDIC & NORDIC STARS",
@@ -4407,17 +4440,6 @@
     "itineraryCode": "NAU260724A",
     "embarkPort": "Lisbon",
     "debarkPort": "Venice",
-    "fare": 5699,
-    "brochureFare": 11398
-  },
-  {
-    "shipName": "Oceania Vista",
-    "departureDate": "2027-02-26",
-    "nights": 15,
-    "itinerary": "KOALAS TO KOMODOS",
-    "itineraryCode": "VIS270226",
-    "embarkPort": "Sydney",
-    "debarkPort": "Bali",
     "fare": 5699,
     "brochureFare": 11398
   },
@@ -4466,6 +4488,17 @@
     "brochureFare": 11398
   },
   {
+    "shipName": "Oceania Riviera",
+    "departureDate": "2026-05-06",
+    "nights": 20,
+    "itinerary": "BERING SEA EXPLORER",
+    "itineraryCode": "RVA260506",
+    "embarkPort": "Tokyo",
+    "debarkPort": "Seattle",
+    "fare": 5705,
+    "brochureFare": 12598
+  },
+  {
     "shipName": "Oceania Nautica",
     "departureDate": "2026-06-25",
     "nights": 17,
@@ -4475,28 +4508,6 @@
     "debarkPort": "Monte Carlo",
     "fare": 5749,
     "brochureFare": 11498
-  },
-  {
-    "shipName": "Oceania Insignia",
-    "departureDate": "2026-06-06",
-    "nights": 14,
-    "itinerary": "NORTH & BALTIC SEA CAPITALS",
-    "itineraryCode": "INS260606",
-    "embarkPort": "London",
-    "debarkPort": "Helsinki",
-    "fare": 5799,
-    "brochureFare": 11598
-  },
-  {
-    "shipName": "Oceania Marina",
-    "departureDate": "2027-01-05",
-    "nights": 20,
-    "itinerary": "PANAMA CANAL & CARIBBEAN",
-    "itineraryCode": "MNA270105A",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 5799,
-    "brochureFare": 11598
   },
   {
     "shipName": "Oceania Marina",
@@ -4543,17 +4554,6 @@
     "brochureFare": 11598
   },
   {
-    "shipName": "Oceania Insignia",
-    "departureDate": "2027-03-19",
-    "nights": 21,
-    "itinerary": "AMAZONIAN SPIRIT",
-    "itineraryCode": "INS270319",
-    "embarkPort": "Rio de Janeiro",
-    "debarkPort": "Miami",
-    "fare": 5842,
-    "brochureFare": 12298
-  },
-  {
     "shipName": "Oceania Allura",
     "departureDate": "2026-06-25",
     "nights": 12,
@@ -4565,15 +4565,15 @@
     "brochureFare": 11698
   },
   {
-    "shipName": "Oceania Insignia",
-    "departureDate": "2027-01-03",
-    "nights": 21,
-    "itinerary": "PATAGONIAN PANORAMA",
-    "itineraryCode": "INS270103",
-    "embarkPort": "Lima",
-    "debarkPort": "Buenos Aires",
-    "fare": 5895,
-    "brochureFare": 13098
+    "shipName": "Oceania Allura",
+    "departureDate": "2026-03-21",
+    "nights": 14,
+    "itinerary": "ATLANTIC & BALMY BERMUDA",
+    "itineraryCode": "ALU260321",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 5899,
+    "brochureFare": 11798
   },
   {
     "shipName": "Oceania Nautica",
@@ -4653,6 +4653,17 @@
     "brochureFare": 11798
   },
   {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2027-05-08",
+    "nights": 18,
+    "itinerary": "INDIAN OCEAN INSPIRATION",
+    "itineraryCode": "NAU270508",
+    "embarkPort": "Singapore",
+    "debarkPort": "Dubai",
+    "fare": 5940,
+    "brochureFare": 13198
+  },
+  {
     "shipName": "Oceania Vista",
     "departureDate": "2026-04-09",
     "nights": 18,
@@ -4671,6 +4682,17 @@
     "itineraryCode": "REG260415",
     "embarkPort": "Tokyo",
     "debarkPort": "Singapore",
+    "fare": 5999,
+    "brochureFare": 11998
+  },
+  {
+    "shipName": "Oceania Marina",
+    "departureDate": "2027-01-05",
+    "nights": 20,
+    "itinerary": "PANAMA CANAL & CARIBBEAN",
+    "itineraryCode": "MNA270105A",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
     "fare": 5999,
     "brochureFare": 11998
   },
@@ -4763,6 +4785,17 @@
     "brochureFare": 12298
   },
   {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2027-05-26",
+    "nights": 21,
+    "itinerary": "EMIRATES & SULTANATES",
+    "itineraryCode": "NAU270526",
+    "embarkPort": "Dubai",
+    "debarkPort": "Istanbul",
+    "fare": 6165,
+    "brochureFare": 13698
+  },
+  {
     "shipName": "Oceania Insignia",
     "departureDate": "2026-05-04",
     "nights": 22,
@@ -4818,28 +4851,6 @@
     "brochureFare": 12398
   },
   {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2027-05-08",
-    "nights": 18,
-    "itinerary": "INDIAN OCEAN INSPIRATION",
-    "itineraryCode": "NAU270508",
-    "embarkPort": "Singapore",
-    "debarkPort": "Dubai",
-    "fare": 6270,
-    "brochureFare": 13198
-  },
-  {
-    "shipName": "Oceania Riviera",
-    "departureDate": "2026-05-06",
-    "nights": 20,
-    "itinerary": "BERING SEA EXPLORER",
-    "itineraryCode": "RVA260506",
-    "embarkPort": "Tokyo",
-    "debarkPort": "Seattle",
-    "fare": 6299,
-    "brochureFare": 12598
-  },
-  {
     "shipName": "Oceania Vista",
     "departureDate": "2027-06-02",
     "nights": 13,
@@ -4849,6 +4860,17 @@
     "debarkPort": "Rome",
     "fare": 6299,
     "brochureFare": 12598
+  },
+  {
+    "shipName": "Oceania Vista",
+    "departureDate": "2027-04-11",
+    "nights": 14,
+    "itinerary": "ARCHIPELAGOS OF THE EAST",
+    "itineraryCode": "VIS270411",
+    "embarkPort": "Tokyo",
+    "debarkPort": "Singapore",
+    "fare": 6375,
+    "brochureFare": 13598
   },
   {
     "shipName": "Oceania Nautica",
@@ -4917,17 +4939,6 @@
     "brochureFare": 12798
   },
   {
-    "shipName": "Oceania Insignia",
-    "departureDate": "2026-11-24",
-    "nights": 25,
-    "itinerary": "AMAZON & CARIBBEAN ISLES",
-    "itineraryCode": "INS261124",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 6435,
-    "brochureFare": 14298
-  },
-  {
     "shipName": "Oceania Sirena",
     "departureDate": "2026-03-11",
     "nights": 20,
@@ -4959,17 +4970,6 @@
     "debarkPort": "Singapore",
     "fare": 6499,
     "brochureFare": 12998
-  },
-  {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2027-05-26",
-    "nights": 21,
-    "itinerary": "EMIRATES & SULTANATES",
-    "itineraryCode": "NAU270526",
-    "embarkPort": "Dubai",
-    "debarkPort": "Istanbul",
-    "fare": 6507,
-    "brochureFare": 13698
   },
   {
     "shipName": "Oceania Insignia",
@@ -5027,6 +5027,17 @@
     "brochureFare": 13198
   },
   {
+    "shipName": "Oceania Allura",
+    "departureDate": "2026-07-07",
+    "nights": 14,
+    "itinerary": "ADRIATIC & AEGEAN GEMS",
+    "itineraryCode": "ALU260707",
+    "embarkPort": "Trieste",
+    "debarkPort": "Istanbul",
+    "fare": 6640,
+    "brochureFare": 14498
+  },
+  {
     "shipName": "Oceania Marina",
     "departureDate": "2026-07-30",
     "nights": 14,
@@ -5072,11 +5083,44 @@
   },
   {
     "shipName": "Oceania Vista",
-    "departureDate": "2027-04-11",
+    "departureDate": "2026-08-12",
+    "nights": 15,
+    "itinerary": "ECLIPSE ACROSS BELFAST SKIES",
+    "itineraryCode": "VIS260812",
+    "embarkPort": "Belfast",
+    "debarkPort": "London",
+    "fare": 6757,
+    "brochureFare": 14298
+  },
+  {
+    "shipName": "Oceania Vista",
+    "departureDate": "2026-07-09",
     "nights": 14,
-    "itinerary": "ARCHIPELAGOS OF THE EAST",
-    "itineraryCode": "VIS270411",
-    "embarkPort": "Tokyo",
+    "itinerary": "MARITIMES & ICELAND",
+    "itineraryCode": "VIS260709",
+    "embarkPort": "New York",
+    "debarkPort": "Reykjavik",
+    "fare": 6760,
+    "brochureFare": 14598
+  },
+  {
+    "shipName": "Oceania Allura",
+    "departureDate": "2026-10-17",
+    "nights": 14,
+    "itinerary": "MEDITERRANEAN CLASSICS",
+    "itineraryCode": "ALU261017",
+    "embarkPort": "Istanbul",
+    "debarkPort": "Barcelona",
+    "fare": 6795,
+    "brochureFare": 14598
+  },
+  {
+    "shipName": "Oceania Nautica",
+    "departureDate": "2026-10-14",
+    "nights": 21,
+    "itinerary": "MINARETS TO MANDALAS",
+    "itineraryCode": "NAU261014",
+    "embarkPort": "Doha",
     "debarkPort": "Singapore",
     "fare": 6799,
     "brochureFare": 13598
@@ -5192,26 +5236,15 @@
     "brochureFare": 13998
   },
   {
-    "shipName": "Oceania Allura",
-    "departureDate": "2026-07-07",
-    "nights": 14,
-    "itinerary": "ADRIATIC & AEGEAN GEMS",
-    "itineraryCode": "ALU260707",
-    "embarkPort": "Trieste",
-    "debarkPort": "Istanbul",
-    "fare": 7049,
-    "brochureFare": 14098
-  },
-  {
     "shipName": "Oceania Vista",
-    "departureDate": "2026-08-12",
-    "nights": 15,
-    "itinerary": "ECLIPSE ACROSS BELFAST SKIES",
-    "itineraryCode": "VIS260812",
-    "embarkPort": "Belfast",
-    "debarkPort": "London",
-    "fare": 7149,
-    "brochureFare": 14298
+    "departureDate": "2026-08-27",
+    "nights": 18,
+    "itinerary": "PASSAGE TO THE NEW WORLD",
+    "itineraryCode": "VIS260827",
+    "embarkPort": "London",
+    "debarkPort": "New York",
+    "fare": 7040,
+    "brochureFare": 15198
   },
   {
     "shipName": "Oceania Allura",
@@ -5226,25 +5259,14 @@
   },
   {
     "shipName": "Oceania Vista",
-    "departureDate": "2026-07-09",
-    "nights": 14,
-    "itinerary": "MARITIMES & ICELAND",
-    "itineraryCode": "VIS260709",
-    "embarkPort": "New York",
-    "debarkPort": "Reykjavik",
-    "fare": 7182,
-    "brochureFare": 14598
-  },
-  {
-    "shipName": "Oceania Allura",
-    "departureDate": "2026-10-17",
-    "nights": 14,
-    "itinerary": "MEDITERRANEAN CLASSICS",
-    "itineraryCode": "ALU261017",
-    "embarkPort": "Istanbul",
-    "debarkPort": "Barcelona",
-    "fare": 7299,
-    "brochureFare": 14598
+    "departureDate": "2027-03-13",
+    "nights": 16,
+    "itinerary": "EMERALD SHORES",
+    "itineraryCode": "VIS270313",
+    "embarkPort": "Bali",
+    "debarkPort": "Hong Kong",
+    "fare": 7267,
+    "brochureFare": 15798
   },
   {
     "shipName": "Oceania Marina",
@@ -5289,17 +5311,6 @@
     "debarkPort": "Miami",
     "fare": 7399,
     "brochureFare": 14798
-  },
-  {
-    "shipName": "Oceania Vista",
-    "departureDate": "2026-08-27",
-    "nights": 18,
-    "itinerary": "PASSAGE TO THE NEW WORLD",
-    "itineraryCode": "VIS260827",
-    "embarkPort": "London",
-    "debarkPort": "New York",
-    "fare": 7480,
-    "brochureFare": 15198
   },
   {
     "shipName": "Oceania Allura",
@@ -5379,6 +5390,28 @@
     "brochureFare": 15398
   },
   {
+    "shipName": "Oceania Sirena",
+    "departureDate": "2027-01-14",
+    "nights": 24,
+    "itinerary": "MYSTICAL ATLANTIC AFRICA",
+    "itineraryCode": "SIR270114",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Cape Town",
+    "fare": 7740,
+    "brochureFare": 17198
+  },
+  {
+    "shipName": "Oceania Sirena",
+    "departureDate": "2027-02-07",
+    "nights": 24,
+    "itinerary": "GOLD & IVORY COASTS",
+    "itineraryCode": "SIR270207",
+    "embarkPort": "Cape Town",
+    "debarkPort": "Lisbon",
+    "fare": 7740,
+    "brochureFare": 17198
+  },
+  {
     "shipName": "Oceania Vista",
     "departureDate": "2026-05-13",
     "nights": 20,
@@ -5401,17 +5434,6 @@
     "brochureFare": 15598
   },
   {
-    "shipName": "Oceania Marina",
-    "departureDate": "2027-11-17",
-    "nights": 33,
-    "itinerary": "ISLES & RIVIERAS",
-    "itineraryCode": "MNA271117B",
-    "embarkPort": "Athens",
-    "debarkPort": "Miami",
-    "fare": 7799,
-    "brochureFare": 15598
-  },
-  {
     "shipName": "Oceania Sonata",
     "departureDate": "2028-03-01",
     "nights": 17,
@@ -5423,24 +5445,24 @@
     "brochureFare": 15598
   },
   {
-    "shipName": "Oceania Regatta",
-    "departureDate": "2026-05-01",
-    "nights": 30,
-    "itinerary": "ASIA & AFRICA MARINER",
-    "itineraryCode": "REG260501",
-    "embarkPort": "Singapore",
-    "debarkPort": "Cape Town",
-    "fare": 7840,
-    "brochureFare": 19598
+    "shipName": "Oceania Riviera",
+    "departureDate": "2026-12-15",
+    "nights": 23,
+    "itinerary": "AUSTRALASIAN ALLURE",
+    "itineraryCode": "RVA261215",
+    "embarkPort": "Sydney",
+    "debarkPort": "Perth",
+    "fare": 7875,
+    "brochureFare": 15998
   },
   {
-    "shipName": "Oceania Vista",
-    "departureDate": "2027-03-13",
-    "nights": 16,
-    "itinerary": "EMERALD SHORES",
-    "itineraryCode": "VIS270313",
-    "embarkPort": "Bali",
-    "debarkPort": "Hong Kong",
+    "shipName": "Oceania Marina",
+    "departureDate": "2027-11-17",
+    "nights": 33,
+    "itinerary": "ISLES & RIVIERAS",
+    "itineraryCode": "MNA271117B",
+    "embarkPort": "Athens",
+    "debarkPort": "Miami",
     "fare": 7899,
     "brochureFare": 15798
   },
@@ -5474,17 +5496,6 @@
     "itineraryCode": "REG260531",
     "embarkPort": "Cape Town",
     "debarkPort": "Lisbon",
-    "fare": 7999,
-    "brochureFare": 15998
-  },
-  {
-    "shipName": "Oceania Riviera",
-    "departureDate": "2026-12-15",
-    "nights": 23,
-    "itinerary": "AUSTRALASIAN ALLURE",
-    "itineraryCode": "RVA261215",
-    "embarkPort": "Sydney",
-    "debarkPort": "Perth",
     "fare": 7999,
     "brochureFare": 15998
   },
@@ -5575,28 +5586,6 @@
     "debarkPort": "Miami",
     "fare": 8149,
     "brochureFare": 16298
-  },
-  {
-    "shipName": "Oceania Sirena",
-    "departureDate": "2027-01-14",
-    "nights": 24,
-    "itinerary": "MYSTICAL ATLANTIC AFRICA",
-    "itineraryCode": "SIR270114",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Cape Town",
-    "fare": 8170,
-    "brochureFare": 17198
-  },
-  {
-    "shipName": "Oceania Sirena",
-    "departureDate": "2027-02-07",
-    "nights": 24,
-    "itinerary": "GOLD & IVORY COASTS",
-    "itineraryCode": "SIR270207",
-    "embarkPort": "Cape Town",
-    "debarkPort": "Lisbon",
-    "fare": 8170,
-    "brochureFare": 17198
   },
   {
     "shipName": "Oceania Vista",
@@ -5721,17 +5710,6 @@
   },
   {
     "shipName": "Oceania Allura",
-    "departureDate": "2027-06-18",
-    "nights": 21,
-    "itinerary": "SOUTHERN EUROPE SUMMER",
-    "itineraryCode": "ALU270618B",
-    "embarkPort": "Trieste",
-    "debarkPort": "Barcelona",
-    "fare": 8699,
-    "brochureFare": 17398
-  },
-  {
-    "shipName": "Oceania Allura",
     "departureDate": "2027-07-17",
     "nights": 20,
     "itinerary": "ODE ON A GRECIAN JOURNEY",
@@ -5773,6 +5751,17 @@
     "debarkPort": "Doha",
     "fare": 8799,
     "brochureFare": 17598
+  },
+  {
+    "shipName": "Oceania Allura",
+    "departureDate": "2027-06-18",
+    "nights": 21,
+    "itinerary": "SOUTHERN EUROPE SUMMER",
+    "itineraryCode": "ALU270618B",
+    "embarkPort": "Trieste",
+    "debarkPort": "Barcelona",
+    "fare": 8899,
+    "brochureFare": 17798
   },
   {
     "shipName": "Oceania Insignia",
@@ -5907,6 +5896,17 @@
     "brochureFare": 19498
   },
   {
+    "shipName": "Oceania Regatta",
+    "departureDate": "2026-05-01",
+    "nights": 30,
+    "itinerary": "ASIA & AFRICA MARINER",
+    "itineraryCode": "REG260501",
+    "embarkPort": "Singapore",
+    "debarkPort": "Cape Town",
+    "fare": 9799,
+    "brochureFare": 19598
+  },
+  {
     "shipName": "Oceania Sonata",
     "departureDate": "2027-08-21",
     "nights": 19,
@@ -5951,17 +5951,6 @@
     "brochureFare": 19898
   },
   {
-    "shipName": "Oceania Allura",
-    "departureDate": "2026-07-07",
-    "nights": 21,
-    "itinerary": "GRAND ADRIATIC & AEGEAN",
-    "itineraryCode": "ALU260707A",
-    "embarkPort": "Trieste",
-    "debarkPort": "Athens",
-    "fare": 10149,
-    "brochureFare": 20298
-  },
-  {
     "shipName": "Oceania Insignia",
     "departureDate": "2026-11-09",
     "nights": 40,
@@ -5993,6 +5982,17 @@
     "debarkPort": "Vancouver",
     "fare": 10199,
     "brochureFare": 20398
+  },
+  {
+    "shipName": "Oceania Allura",
+    "departureDate": "2026-07-07",
+    "nights": 21,
+    "itinerary": "GRAND ADRIATIC & AEGEAN",
+    "itineraryCode": "ALU260707A",
+    "embarkPort": "Trieste",
+    "debarkPort": "Athens",
+    "fare": 10349,
+    "brochureFare": 20698
   },
   {
     "shipName": "Oceania Marina",

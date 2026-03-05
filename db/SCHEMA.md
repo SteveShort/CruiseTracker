@@ -1,6 +1,6 @@
 ﻿# CruiseTracker Database Schema
 
-> Auto-generated from live database on 2026-03-04 07:17
+> Auto-generated from live database on 2026-03-05 18:06
 > Server: `STEVEOFFICEPC\ORACLE2SQL` | Database: `CruiseTracker`
 
 ## Tables
@@ -14,7 +14,7 @@
 
 ## Cruises
 
-**Rows:** 7267
+**Rows:** 7313
 
 | Column | Type | Nullable | Default |
 |--------|------|----------|---------|
@@ -35,7 +35,7 @@
 
 ## PriceHistory
 
-**Rows:** 41094
+**Rows:** 49330
 
 | Column | Type | Nullable | Default |
 |--------|------|----------|---------|
@@ -99,7 +99,7 @@
 
 ## ScraperRuns
 
-**Rows:** 85
+**Rows:** 94
 
 | Column | Type | Nullable | Default |
 |--------|------|----------|---------|

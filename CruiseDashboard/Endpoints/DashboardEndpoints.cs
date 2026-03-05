@@ -532,6 +532,9 @@ public static class DashboardEndpoints
                     KidsScore = si?.KidsScore ?? 0,
                     ShipScore = si?.ShipScore ?? 0,
                     MainDiningScore = si?.MainDiningScore ?? 0,
+                    PackageDiningScore = si?.PackageDiningScore ?? 0,
+                    SuiteDiningScore = si?.SuiteDiningScore ?? 0,
+                    DiningPackageCostPerDay = si?.DiningPackageCostPerDay ?? 0m,
                     PeakPpd = peakPpd,
                     Snapshots = snapshots,
                     ScrapedAt = r.ScrapedAt != null ? ((DateTime)r.ScrapedAt).ToString("yyyy-MM-dd HH:mm") : null
