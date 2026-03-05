@@ -171,15 +171,23 @@ async function main() {
                 const priceMatch = cardText.match(/\$\s*([\d,]+)/);
                 const price = priceMatch ? parseFloat(priceMatch[1].replace(/,/g, '')) : null;
 
+                // Extract departure port from card text
+                // Virgin cards typically show "Departing from <PortName>" or "from <PortName>"
+                let port = '';
+                const portMatch = cardText.match(/(?:Departing|Departs?|Sailing)\s+from\s+([A-Za-z\s,.]+?)(?:\s*[|·\n]|$)/i);
+                if (portMatch) port = portMatch[1].trim();
+
                 results.push({
                     voyageIds,
                     packageCode,
                     price,
+                    port,
                 });
             });
 
             // ── Extract itinerary names from "Book Now" buttons with aria-labels ──
             const itineraryMap = {};  // packageCode → readable name
+            const portMap = {};       // packageCode/voyageId → departure port
             const cruiseBtns = document.querySelectorAll('a.cruiseBtn[aria-label]');
             cruiseBtns.forEach(btn => {
                 const label = btn.getAttribute('aria-label') || '';
@@ -195,10 +203,20 @@ async function main() {
                 } catch { /* skip */ }
             });
 
-            return { cards: results, itineraryMap };
+            // Build port map from card results
+            for (const r of results) {
+                if (r.port) {
+                    if (r.packageCode) portMap[r.packageCode] = r.port;
+                    for (const vid of r.voyageIds) {
+                        portMap[vid] = r.port;
+                    }
+                }
+            }
+
+            return { cards: results, itineraryMap, portMap };
         });
 
-        const { cards, itineraryMap } = cardData;
+        const { cards, itineraryMap, portMap } = cardData;
         console.log(`  📋 Extracted ${cards.length} voyage cards from DOM`);
         console.log(`  🏷️  Found ${Object.keys(itineraryMap).length} itinerary name mappings`);
         console.log(`  📡 Intercepted ${Object.keys(apiPricing).length} items from API`);
@@ -241,16 +259,15 @@ async function main() {
             if (apiData?.startingPrice) price = apiData.startingPrice;
             if (!price) price = pricedPackages[vid] || pricedPackages[decoded.packageCode] || null;
 
-            // Determine port from card text or ship's known homeport
+            // Determine departure port: API data > DOM extraction > ship homeport default
             let embarkPort = '';
             if (apiData?.departurePort?.name) embarkPort = apiData.departurePort.name;
+            if (!embarkPort) embarkPort = portMap[vid] || portMap[decoded.packageCode] || '';
 
-            // Most Virgin ships have fixed homeports:
+            // Only fall back to homeport if we genuinely have no port data
             if (!embarkPort) {
-                if (decoded.shipCode === 'SC') embarkPort = 'Miami, Florida';
-                else if (decoded.shipCode === 'VL') embarkPort = 'Miami, Florida';  // Also Barcelona for Med
-                else if (decoded.shipCode === 'RS') embarkPort = 'Miami, Florida';
-                else if (decoded.shipCode === 'BL') embarkPort = 'Miami, Florida';
+                // Virgin has variable homeports — leave empty rather than guessing wrong
+                embarkPort = '';
             }
 
             // Build itinerary name — prefer aria-label name, then API title, then package code
