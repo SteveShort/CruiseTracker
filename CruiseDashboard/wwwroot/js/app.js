@@ -877,6 +877,7 @@ function applyDashboardFilters() {
         if (ship.length > 0) filtered = filtered.filter(c => ship.includes(c.shipName));
         if (port.length > 0) filtered = filtered.filter(c => port.includes(c.departurePort));
         if (nights.length > 0) filtered = filtered.filter(c => nights.includes(String(c.nights)));
+        computeValueStars(filtered);
         updateSectionTitle(true, filtered.length);
         renderDashboardCards(filtered);
         return;
