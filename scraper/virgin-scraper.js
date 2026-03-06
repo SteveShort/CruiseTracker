@@ -337,20 +337,10 @@ async function main() {
                         }
                     }
 
-                    // Strategy 2: Look for all "from $X,XXX per Sailor" patterns and take the
-                    // one that's likely Rockstar (higher than Sea Terrace but not Mega)
-                    const prices = [];
-                    const priceRegex = /from\s+\$\s*([\d,]+)\s*per\s+Sailor/gi;
-                    let match;
-                    while ((match = priceRegex.exec(allText)) !== null) {
-                        prices.push(parseFloat(match[1].replace(/,/g, '')));
-                    }
-                    // Sort ascending — Rockstar is typically the 4th category (after Insider, Sea View, Sea Terrace)
-                    prices.sort((a, b) => a - b);
-                    // If we have 4+ prices, the 4th is likely Rockstar
-                    if (prices.length >= 4) return prices[3];
-                    // If we have 3+ prices, the last might be Rockstar (some sailings skip categories)
-                    if (prices.length >= 3) return prices[prices.length - 1];
+                    // Strategy 2 removed: the blind "pick the 4th price" approach was
+                    // incorrectly capturing Mega RockStar prices when regular Rockstar
+                    // was sold out. If Strategy 1 doesn't find "RockStar Quarters",
+                    // it means Rockstar is not available — return null.
 
                     return null;
                 });
