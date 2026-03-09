@@ -54,6 +54,7 @@ c:\Dev\Cruise Tracker\                  ← single git repo
     ├── disney-fl-scraper.js            ← Disney FL resident pricing (534 lines)
     ├── oceania-scraper.js              ← Oceania pricing via REST API
     ├── regent-scraper.js               ← Regent pricing via REST API
+    ├── virgin-scraper.js               ← Virgin Voyages pricing via Playwright (~500 lines)
     ├── config.json                     ← scraper configuration
     ├── package.json                    ← Node.js dependencies
     └── logs/                           ← scraper log files (gitignored)
@@ -449,6 +450,18 @@ All scrapers are Node.js scripts using `mssql/msnodesqlv8` for SQL Server with W
 - **Stores to**: `FLResBalconyPrice`, `FLResSuitePrice` columns in PriceHistory
 - **Key functions**: Same pattern, with `AFFILIATIONS = [{ affiliationType: 'FL_RESIDENT' }]`
 
+### Virgin Voyages Scraper (`virgin-scraper.js`, ~500 lines)
+- **API**: Playwright (headless browser) — no REST API, scrapes `virginvoyages.com/book/voyage-planner/find-a-voyage`
+- **Flow**: Load search page → scroll to lazy-load all voyage cards → extract pricing/ports from DOM → decode voyageId for ship/date/nights → navigate to each sailing's cabin page for RockStar Quarters suite pricing → MERGE upsert
+- **Special**: Uses Playwright to bypass DataDome bot protection. VoyageId encoding: `SC2603134NKW` → Ship=SC (Scarlet Lady), Date=2026-03-13, Nights=4, PkgCode=NKW
+- **Ships**: Scarlet Lady (SC), Valiant Lady (VL), Resilient Lady (RS), Brilliant Lady (BR)
+- **Pricing**: Per-person ("per Sailor") — multiplied by 2 for couple pricing before DB insert. "Starting from" price maps to BalconyPrice (Sea Terrace equiv), RockStar Quarters maps to SuitePrice
+- **Port extraction**: Parses the bulleted itinerary route list (e.g. `Miami, Florida • Puerto Plata • Miami, Florida`) — first item is departure port
+- **Resilience**: `gotoWithRetry()` wrapper retries on timeout (90s base, 120s retry). Fatal errors still record a ScraperRuns entry with 0 sailings
+- **CLI**: `node virgin-scraper.js [--ship "Scarlet Lady"]`
+- **Key functions**: `decodeVoyageId(id)` → `main()` (DOM extraction + Rockstar pricing) → `upsertToDatabase()`
+- **Output**: Also saves `virgin-latest.json` alongside DB upsert
+
 ### Running Scrapers
 ```powershell
 # Individual
@@ -456,8 +469,9 @@ node scraper/ncl-scraper.js
 node scraper/celebrity-scraper.js
 node scraper/disney-scraper.js
 node scraper/disney-fl-scraper.js
+node scraper/virgin-scraper.js
 
-# All via orchestration script
+# All via orchestration script (runs nightly at 3 AM via Windows scheduled task)
 powershell RunScraper.ps1
 ```
 

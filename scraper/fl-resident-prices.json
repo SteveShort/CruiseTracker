@@ -1,45 +1,12 @@
 [
   {
     "shipName": "Disney Wish",
-    "departureDate": "2026-03-09",
-    "nights": 4,
-    "itinerary": "4_bahamian_port_canaveral",
-    "port": "",
-    "balconyPrice": 3531.94,
-    "balconyPerDay": 882.99,
-    "suitePrice": 0,
-    "suitePerDay": 0
-  },
-  {
-    "shipName": "Disney Wish",
     "departureDate": "2026-03-23",
     "nights": 4,
     "itinerary": "4_bahamian_port_canaveral",
     "port": "",
     "balconyPrice": 3479.56,
     "balconyPerDay": 869.89,
-    "suitePrice": 0,
-    "suitePerDay": 0
-  },
-  {
-    "shipName": "Disney Wish",
-    "departureDate": "2026-03-27",
-    "nights": 3,
-    "itinerary": "4_bahamian_port_canaveral",
-    "port": "",
-    "balconyPrice": 2245.94,
-    "balconyPerDay": 748.65,
-    "suitePrice": 0,
-    "suitePerDay": 0
-  },
-  {
-    "shipName": "Disney Wish",
-    "departureDate": "2026-04-06",
-    "nights": 4,
-    "itinerary": "4_bahamian_port_canaveral",
-    "port": "",
-    "balconyPrice": 3643.94,
-    "balconyPerDay": 910.99,
     "suitePrice": 0,
     "suitePerDay": 0
   },

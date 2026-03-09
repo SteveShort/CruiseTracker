@@ -1,25 +1,5 @@
 [
   {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2026-03-13",
-    "nights": 14,
-    "itinerary": "BLUE HORIZONS",
-    "itineraryCode": "SPL260313",
-    "embarkPort": "Miami",
-    "debarkPort": "Lisbon",
-    "fare": 8499
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2026-03-14",
-    "nights": 17,
-    "itinerary": "SOUTH PACIFIC OVERNIGHTS",
-    "itineraryCode": "NAV260314",
-    "embarkPort": "Papeete (Tahiti)",
-    "debarkPort": "Auckland",
-    "fare": 10399
-  },
-  {
     "shipName": "Seven Seas Grandeur",
     "departureDate": "2026-03-26",
     "nights": 12,
@@ -30,24 +10,14 @@
     "fare": 8999
   },
   {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-04-07",
-    "nights": 14,
-    "itinerary": "ATLANTIC ISLE EXPLORATION",
-    "itineraryCode": "GRA260407",
-    "embarkPort": "Miami",
-    "debarkPort": "Barcelona",
-    "fare": 8299
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2026-04-09",
-    "nights": 30,
-    "itinerary": "INDIAN OCEAN EXPLORATION",
-    "itineraryCode": "MAR260409",
-    "embarkPort": "Singapore",
-    "debarkPort": "Cape Town",
-    "fare": 22699
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2026-05-03",
+    "nights": 17,
+    "itinerary": "NORTHERN PACIFIC JOURNEY",
+    "itineraryCode": "EXP260503",
+    "embarkPort": "Tokyo",
+    "debarkPort": "Vancouver",
+    "fare": 13649
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -60,6 +30,16 @@
     "fare": 11999
   },
   {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2026-05-09",
+    "nights": 35,
+    "itinerary": "AFRICAN ALLURE TO OCEANIC WONDER",
+    "itineraryCode": "MAR260509A",
+    "embarkPort": "Cape Town",
+    "debarkPort": "Miami",
+    "fare": 23399
+  },
+  {
     "shipName": "Seven Seas Explorer",
     "departureDate": "2026-05-20",
     "nights": 7,
@@ -70,34 +50,14 @@
     "fare": 8049
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-05-20",
-    "nights": 14,
-    "itinerary": "CANADIAN SPRING",
-    "itineraryCode": "EXP260520A",
-    "embarkPort": "Vancouver",
-    "debarkPort": "Vancouver",
-    "fare": 14899
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2026-05-22",
-    "nights": 12,
-    "itinerary": "SPRING IN THE AEGEAN",
-    "itineraryCode": "SPL260522",
-    "embarkPort": "Istanbul",
-    "debarkPort": "Istanbul",
-    "fare": 11349
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-05-27",
-    "nights": 7,
-    "itinerary": "GLACIERS & WILDLIFE",
-    "itineraryCode": "EXP260527",
-    "embarkPort": "Whittier",
-    "debarkPort": "Vancouver",
-    "fare": 7599
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-05-24",
+    "nights": 13,
+    "itinerary": "SPOTLIGHT ON FABERGE",
+    "itineraryCode": "GRA260524",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "London (Southampton)",
+    "fare": 15099
   },
   {
     "shipName": "Seven Seas Mariner",
@@ -110,34 +70,14 @@
     "fare": 8199
   },
   {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2026-06-02",
-    "nights": 14,
-    "itinerary": "SYMPHONY OF THE SENSES",
-    "itineraryCode": "VOY260602",
-    "embarkPort": "Athens (Piraeus)",
-    "debarkPort": "Trieste",
-    "fare": 13899
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-06-16",
-    "nights": 12,
-    "itinerary": "BRITISH ISLES ENCHANTMENT",
-    "itineraryCode": "GRA260616",
-    "embarkPort": "London (Southampton)",
-    "debarkPort": "London (Southampton)",
-    "fare": 17499
-  },
-  {
     "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-06-17",
+    "departureDate": "2026-06-10",
     "nights": 7,
-    "itinerary": "ICY STRAIT & HOONAH MOUNTAIN",
-    "itineraryCode": "EXP260617",
-    "embarkPort": "Vancouver",
-    "debarkPort": "Whittier",
-    "fare": 7849
+    "itinerary": "SPOTLIGHT ON KEN BROWN WINES",
+    "itineraryCode": "EXP260610",
+    "embarkPort": "Whittier",
+    "debarkPort": "Vancouver",
+    "fare": 7899
   },
   {
     "shipName": "Seven Seas Splendor",
@@ -150,24 +90,14 @@
     "fare": 10499
   },
   {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2026-06-19",
-    "nights": 17,
-    "itinerary": "MEDITERRANEAN MYSTIQUE",
-    "itineraryCode": "SPL260619A",
-    "embarkPort": "Athens (Piraeus)",
-    "debarkPort": "Monte Carlo",
-    "fare": 17199
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-06-28",
-    "nights": 14,
-    "itinerary": "THE EXTRAORDINARY NORTH ATLANTIC",
-    "itineraryCode": "GRA260628A",
-    "embarkPort": "London (Southampton)",
-    "debarkPort": "Reykjavik",
-    "fare": 16899
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2026-06-24",
+    "nights": 7,
+    "itinerary": "JUNEAU IN JUNE",
+    "itineraryCode": "EXP260624",
+    "embarkPort": "Whittier",
+    "debarkPort": "Vancouver",
+    "fare": 7599
   },
   {
     "shipName": "Seven Seas Voyager",
@@ -180,14 +110,34 @@
     "fare": 22649
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2026-06-29",
-    "nights": 81,
-    "itinerary": "GRAND ARCTIC ADVENTURE",
-    "itineraryCode": "MAR260629D",
-    "embarkPort": "New York",
-    "debarkPort": "Barcelona",
-    "fare": 80699
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2026-07-01",
+    "nights": 7,
+    "itinerary": "BALD EAGLE SKIES",
+    "itineraryCode": "EXP260701",
+    "embarkPort": "Vancouver",
+    "debarkPort": "Whittier",
+    "fare": 8299
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-07-05",
+    "nights": 7,
+    "itinerary": "ICELANDIC RHAPSODY",
+    "itineraryCode": "GRA260705",
+    "embarkPort": "Belfast",
+    "debarkPort": "Reykjavik",
+    "fare": 8999
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2026-07-08",
+    "nights": 7,
+    "itinerary": "TALL TOTEMS & LUMBERJACK SHOWS",
+    "itineraryCode": "EXP260708",
+    "embarkPort": "Whittier",
+    "debarkPort": "Vancouver",
+    "fare": 7699
   },
   {
     "shipName": "Seven Seas Mariner",
@@ -220,6 +170,16 @@
     "fare": 7599
   },
   {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2026-07-28",
+    "nights": 14,
+    "itinerary": "AEGEAN PANORAMAS",
+    "itineraryCode": "SPL260728A",
+    "embarkPort": "Athens (Piraeus)",
+    "debarkPort": "Athens (Piraeus)",
+    "fare": 15349
+  },
+  {
     "shipName": "Seven Seas Grandeur",
     "departureDate": "2026-08-01",
     "nights": 14,
@@ -230,34 +190,44 @@
     "fare": 18599
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-08-05",
-    "nights": 7,
-    "itinerary": "INSIDE PASSAGE RAINFOREST",
-    "itineraryCode": "EXP260805",
-    "embarkPort": "Whittier",
-    "debarkPort": "Vancouver",
-    "fare": 7349
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2026-08-12",
+    "nights": 8,
+    "itinerary": "ROYAL ROUTES",
+    "itineraryCode": "VOY260812",
+    "embarkPort": "London (Southampton)",
+    "debarkPort": "Reykjavik",
+    "fare": 9549
   },
   {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2026-08-11",
-    "nights": 26,
-    "itinerary": "HISTORIC HORIZONS",
-    "itineraryCode": "SPL260811A",
-    "embarkPort": "Athens (Piraeus)",
-    "debarkPort": "New York",
-    "fare": 21249
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-08-15",
+    "nights": 7,
+    "itinerary": "NORTH SEA JOURNEY",
+    "itineraryCode": "GRA260815",
+    "embarkPort": "Oslo",
+    "debarkPort": "Copenhagen",
+    "fare": 9299
   },
   {
     "shipName": "Seven Seas Voyager",
-    "departureDate": "2026-08-12",
-    "nights": 20,
-    "itinerary": "ISLES OF MYTH & MAGNIFICENCE",
-    "itineraryCode": "VOY260812A",
-    "embarkPort": "London (Southampton)",
+    "departureDate": "2026-08-20",
+    "nights": 12,
+    "itinerary": "VIKING VISTAS",
+    "itineraryCode": "VOY260820",
+    "embarkPort": "Reykjavik",
     "debarkPort": "London (Southampton)",
-    "fare": 20599
+    "fare": 11849
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2026-08-26",
+    "nights": 7,
+    "itinerary": "BIG BEARS, GLEAMING GLACIERS",
+    "itineraryCode": "EXP260826",
+    "embarkPort": "Vancouver",
+    "debarkPort": "Whittier",
+    "fare": 7699
   },
   {
     "shipName": "Seven Seas Explorer",
@@ -280,16 +250,6 @@
     "fare": 7399
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-09-18",
-    "nights": 12,
-    "itinerary": "SOARING FJORDS & RAW WILDERNESS",
-    "itineraryCode": "EXP260918",
-    "embarkPort": "Seattle",
-    "debarkPort": "Seattle",
-    "fare": 9599
-  },
-  {
     "shipName": "Seven Seas Mariner",
     "departureDate": "2026-09-29",
     "nights": 13,
@@ -298,1396 +258,6 @@
     "embarkPort": "Rome (Civitavecchia)",
     "debarkPort": "Athens (Piraeus)",
     "fare": 11699
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2026-10-20",
-    "nights": 10,
-    "itinerary": "SCENIC COASTS & OLD QUEBEC",
-    "itineraryCode": "SPL261020",
-    "embarkPort": "New York",
-    "debarkPort": "Montréal",
-    "fare": 11199
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2026-10-26",
-    "nights": 14,
-    "itinerary": "MOONLIGHT OVER BERMUDA",
-    "itineraryCode": "MAR261026",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Miami",
-    "fare": 7199
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2026-10-30",
-    "nights": 16,
-    "itinerary": "EPIC ATLANTIC ESCAPADE",
-    "itineraryCode": "SPL261030",
-    "embarkPort": "Montréal",
-    "debarkPort": "Miami",
-    "fare": 11899
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-11-01",
-    "nights": 21,
-    "itinerary": "IONIAN MOSAIC & ATLANTIC CROSSING",
-    "itineraryCode": "GRA261101A",
-    "embarkPort": "Athens (Piraeus)",
-    "debarkPort": "Miami",
-    "fare": 16449
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-11-08",
-    "nights": 14,
-    "itinerary": "NEW WORLD PASSAGE",
-    "itineraryCode": "GRA261108",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Miami",
-    "fare": 8099
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2026-11-11",
-    "nights": 12,
-    "itinerary": "SPANISH & MOROCCAN DELIGHTS",
-    "itineraryCode": "NAV261111",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Lisbon",
-    "fare": 5199
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2026-11-15",
-    "nights": 15,
-    "itinerary": "SAPPHIRE SEA DREAMS",
-    "itineraryCode": "SPL261115",
-    "embarkPort": "Miami",
-    "debarkPort": "Galveston",
-    "fare": 9599
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-11-22",
-    "nights": 7,
-    "itinerary": "FALL FOR THE CARIBBEAN",
-    "itineraryCode": "GRA261122",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 5999
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2026-11-30",
-    "nights": 11,
-    "itinerary": "WATERFALLS & DIVERS",
-    "itineraryCode": "SPL261130",
-    "embarkPort": "Galveston",
-    "debarkPort": "Galveston",
-    "fare": 6699
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-12-03",
-    "nights": 16,
-    "itinerary": "CORAL COASTS TO OPERA HOUSE",
-    "itineraryCode": "EXP261203",
-    "embarkPort": "Bali (Benoa)",
-    "debarkPort": "Sydney",
-    "fare": 12749
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-12-09",
-    "nights": 10,
-    "itinerary": "TREASURES OF BELIZE",
-    "itineraryCode": "GRA261209",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 6849
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2026-12-11",
-    "nights": 17,
-    "itinerary": "TROPICAL SPARKLE & HOLIDAY CHEER",
-    "itineraryCode": "SPL261211",
-    "embarkPort": "Galveston",
-    "debarkPort": "Galveston",
-    "fare": 9999
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2026-12-13",
-    "nights": 14,
-    "itinerary": "FELICES FIESTAS",
-    "itineraryCode": "PRT261213",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Miami",
-    "fare": 9099
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2026-12-21",
-    "nights": 14,
-    "itinerary": "CARIBBEAN CELEBRATION",
-    "itineraryCode": "MAR261221",
-    "embarkPort": "Tampa Bay",
-    "debarkPort": "Miami",
-    "fare": 8999
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2026-12-28",
-    "nights": 14,
-    "itinerary": "BLUE SEAS & PASTEL TOWNS",
-    "itineraryCode": "SPL261228",
-    "embarkPort": "Galveston",
-    "debarkPort": "Miami",
-    "fare": 8749
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2027-01-04",
-    "nights": 11,
-    "itinerary": "ROMANCE, RUINS & RHODES",
-    "itineraryCode": "NAV270104",
-    "embarkPort": "Athens (Piraeus)",
-    "debarkPort": "Istanbul",
-    "fare": 4599
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-01-12",
-    "nights": 14,
-    "itinerary": "TROPICAL TREASURES",
-    "itineraryCode": "SPL270112",
-    "embarkPort": "Miami",
-    "debarkPort": "Panama City",
-    "fare": 13999
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-01-12",
-    "nights": 42,
-    "itinerary": "TIDES TO TAHITI",
-    "itineraryCode": "SPL270112A",
-    "embarkPort": "Miami",
-    "debarkPort": "Papeete (Tahiti)",
-    "fare": 33649
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-01-14",
-    "nights": 14,
-    "itinerary": "VINTNERS & ARTISANS OF THE PACIFIC",
-    "itineraryCode": "EXP270114",
-    "embarkPort": "Auckland",
-    "debarkPort": "Sydney",
-    "fare": 16749
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-01-26",
-    "nights": 28,
-    "itinerary": "CANAL TO CORAL REEFS",
-    "itineraryCode": "SPL270126",
-    "embarkPort": "Panama City",
-    "debarkPort": "Papeete (Tahiti)",
-    "fare": 21399
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-02-09",
-    "nights": 7,
-    "itinerary": "MYSTICAL MAYA",
-    "itineraryCode": "GRA270209",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 5099
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-02-10",
-    "nights": 12,
-    "itinerary": "SAPPHIRE SOJOURN",
-    "itineraryCode": "PRT270210",
-    "embarkPort": "Los Angeles",
-    "debarkPort": "Panama City",
-    "fare": 8499
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2027-02-12",
-    "nights": 25,
-    "itinerary": "WEST AFRICAN MAJESTY",
-    "itineraryCode": "NAV270212",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Cape Town",
-    "fare": 10999
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-02-16",
-    "nights": 14,
-    "itinerary": "CITIES OF MYSTERY & MAGIC",
-    "itineraryCode": "EXP270216",
-    "embarkPort": "Bali (Benoa)",
-    "debarkPort": "Bangkok (Laem Chabang)",
-    "fare": 11349
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-02-16",
-    "nights": 15,
-    "itinerary": "SEYCHELLES TO SANDS",
-    "itineraryCode": "VOY270216",
-    "embarkPort": "Port Louis",
-    "debarkPort": "Doha",
-    "fare": 10799
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-03-03",
-    "nights": 21,
-    "itinerary": "SOUKS TO SORRENTO",
-    "itineraryCode": "VOY270303",
-    "embarkPort": "Doha",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 13599
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-03-09",
-    "nights": 22,
-    "itinerary": "JOURNEY TO THE AMAZON",
-    "itineraryCode": "GRA270309",
-    "embarkPort": "Panama City",
-    "debarkPort": "Panama City",
-    "fare": 16599
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-03-30",
-    "nights": 10,
-    "itinerary": "CARIBBEAN MYSTIQUE",
-    "itineraryCode": "PRT270330",
-    "embarkPort": "San Juan",
-    "debarkPort": "Miami",
-    "fare": 7099
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-04-05",
-    "nights": 10,
-    "itinerary": "BLISSFUL BVI",
-    "itineraryCode": "MAR270405",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 6599
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-04-09",
-    "nights": 14,
-    "itinerary": "EMERALD EAST COAST",
-    "itineraryCode": "PRT270409",
-    "embarkPort": "Miami",
-    "debarkPort": "New York",
-    "fare": 10299
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-04-18",
-    "nights": 22,
-    "itinerary": "DREAMS BETWEEN SHORES",
-    "itineraryCode": "VOY270418A",
-    "embarkPort": "Barcelona",
-    "debarkPort": "London (Southampton)",
-    "fare": 20649
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-04-27",
-    "nights": 14,
-    "itinerary": "GILDED CROSSING",
-    "itineraryCode": "PRT270427",
-    "embarkPort": "New York",
-    "debarkPort": "Barcelona",
-    "fare": 9049
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2027-05-09",
-    "nights": 24,
-    "itinerary": "SAVOR THE SOUTH SEAS",
-    "itineraryCode": "NAV270509A",
-    "embarkPort": "Tokyo",
-    "debarkPort": "Bali (Benoa)",
-    "fare": 10499
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-05-15",
-    "nights": 18,
-    "itinerary": "ITALIA IN FULL",
-    "itineraryCode": "GRA270515A",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Venice (Fusina)",
-    "fare": 15599
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2027-05-21",
-    "nights": 12,
-    "itinerary": "LOTUS BLOOMS",
-    "itineraryCode": "NAV270521",
-    "embarkPort": "Singapore",
-    "debarkPort": "Bali (Benoa)",
-    "fare": 5499
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-05-21",
-    "nights": 12,
-    "itinerary": "CLIFFS, CASTLES & CULTURE",
-    "itineraryCode": "VOY270521",
-    "embarkPort": "Edinburgh (Leith)",
-    "debarkPort": "Stockholm",
-    "fare": 11299
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-06-02",
-    "nights": 7,
-    "itinerary": "GOLD RUSH LEGACY",
-    "itineraryCode": "EXP270602",
-    "embarkPort": "Whittier",
-    "debarkPort": "Vancouver",
-    "fare": 6099
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-06-02",
-    "nights": 11,
-    "itinerary": "A GRECIAN SUMMER",
-    "itineraryCode": "GRA270602",
-    "embarkPort": "Venice (Fusina)",
-    "debarkPort": "Barcelona",
-    "fare": 8999
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-06-10",
-    "nights": 10,
-    "itinerary": "BALTICS IN BLUE",
-    "itineraryCode": "MAR270610",
-    "embarkPort": "Copenhagen",
-    "debarkPort": "Stockholm",
-    "fare": 9699
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-06-15",
-    "nights": 12,
-    "itinerary": "SPLENDOR OF THE ISLES",
-    "itineraryCode": "SPL270615",
-    "embarkPort": "London (Southampton)",
-    "debarkPort": "London (Southampton)",
-    "fare": 11699
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-06-16",
-    "nights": 7,
-    "itinerary": "INSIDE PASSAGE JOURNEY",
-    "itineraryCode": "EXP270616",
-    "embarkPort": "Whittier",
-    "debarkPort": "Vancouver",
-    "fare": 6099
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-06-17",
-    "nights": 9,
-    "itinerary": "UNDER THE TUSCAN SUNSET",
-    "itineraryCode": "PRT270617",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 8799
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-06-20",
-    "nights": 10,
-    "itinerary": "NORTH SEA CANALS & CURRENTS",
-    "itineraryCode": "MAR270620",
-    "embarkPort": "Stockholm",
-    "debarkPort": "Amsterdam (Ijmuiden)",
-    "fare": 9649
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2027-06-27",
-    "nights": 16,
-    "itinerary": "WILDLIFE & WINE",
-    "itineraryCode": "NAV270627",
-    "embarkPort": "Darwin",
-    "debarkPort": "Sydney",
-    "fare": 8499
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-07-02",
-    "nights": 12,
-    "itinerary": "LYRICAL LANDS & HARMONIC HORIZONS",
-    "itineraryCode": "VOY270702",
-    "embarkPort": "London (Southampton)",
-    "debarkPort": "Edinburgh (Leith)",
-    "fare": 10999
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-07-05",
-    "nights": 10,
-    "itinerary": "BREATHTAKING GREEK ISLES",
-    "itineraryCode": "PRT270705",
-    "embarkPort": "Ravenna",
-    "debarkPort": "Barcelona",
-    "fare": 9799
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-07-05",
-    "nights": 17,
-    "itinerary": "MUSE & MARBLE",
-    "itineraryCode": "PRT270705A",
-    "embarkPort": "Ravenna",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 16149
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-07-11",
-    "nights": 14,
-    "itinerary": "CASTLES, FORTS & WINDMILLS",
-    "itineraryCode": "SPL270711",
-    "embarkPort": "Copenhagen",
-    "debarkPort": "London (Southampton)",
-    "fare": 14799
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2027-07-13",
-    "nights": 21,
-    "itinerary": "CORAL COAST JOURNEY",
-    "itineraryCode": "NAV270713A",
-    "embarkPort": "Sydney",
-    "debarkPort": "Cairns",
-    "fare": 10399
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-07-15",
-    "nights": 7,
-    "itinerary": "CULTURES & CUISINES",
-    "itineraryCode": "PRT270715",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 7199
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-07-22",
-    "nights": 7,
-    "itinerary": "HEAVEN ON THE MED",
-    "itineraryCode": "PRT270722",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Trieste",
-    "fare": 7099
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-07-25",
-    "nights": 14,
-    "itinerary": "ISLES & ICE",
-    "itineraryCode": "SPL270725",
-    "embarkPort": "London (Southampton)",
-    "debarkPort": "Reykjavik",
-    "fare": 13949
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-07-29",
-    "nights": 7,
-    "itinerary": "RETURN TO THE CLASSICS",
-    "itineraryCode": "PRT270729",
-    "embarkPort": "Trieste",
-    "debarkPort": "Athens (Piraeus)",
-    "fare": 6999
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-07-29",
-    "nights": 14,
-    "itinerary": "SEA OF LEGACY",
-    "itineraryCode": "PRT270729A",
-    "embarkPort": "Trieste",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 12949
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-07-30",
-    "nights": 12,
-    "itinerary": "WINES, BEACHES & FLAMENCO",
-    "itineraryCode": "MAR270730",
-    "embarkPort": "London (Southampton)",
-    "debarkPort": "Lisbon",
-    "fare": 11899
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-07-30",
-    "nights": 23,
-    "itinerary": "CATHEDRALS TO CASTANETS",
-    "itineraryCode": "MAR270730A",
-    "embarkPort": "London (Southampton)",
-    "debarkPort": "Barcelona",
-    "fare": 20549
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-08-03",
-    "nights": 18,
-    "itinerary": "LAND OF VIKINGS",
-    "itineraryCode": "VOY270803",
-    "embarkPort": "Copenhagen",
-    "debarkPort": "London (Southampton)",
-    "fare": 17099
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-08-11",
-    "nights": 7,
-    "itinerary": "HUMPACK EXPEDITION",
-    "itineraryCode": "EXP270811",
-    "embarkPort": "Whittier",
-    "debarkPort": "Vancouver",
-    "fare": 6299
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2027-08-15",
-    "nights": 10,
-    "itinerary": "AZURE ISLANDS",
-    "itineraryCode": "NAV270815",
-    "embarkPort": "Lautoka",
-    "debarkPort": "Lautoka",
-    "fare": 4999
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-08-18",
-    "nights": 7,
-    "itinerary": "GLACIER PEAKS & HISTORIC RAILS",
-    "itineraryCode": "EXP270818",
-    "embarkPort": "Vancouver",
-    "debarkPort": "Whittier",
-    "fare": 6499
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-08-22",
-    "nights": 11,
-    "itinerary": "PICTURESQUE PANORAMAS",
-    "itineraryCode": "MAR270822",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 9699
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2027-08-25",
-    "nights": 10,
-    "itinerary": "CORAL SEA DREAMS",
-    "itineraryCode": "NAV270825",
-    "embarkPort": "Lautoka",
-    "debarkPort": "Lautoka",
-    "fare": 5249
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-08-28",
-    "nights": 16,
-    "itinerary": "PICTURE PERFECT FJORDS",
-    "itineraryCode": "SPL270828",
-    "embarkPort": "Reykjavik",
-    "debarkPort": "London (Southampton)",
-    "fare": 15499
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-09-10",
-    "nights": 10,
-    "itinerary": "ROMANTIC RESPITES IN GREECE",
-    "itineraryCode": "MAR270910",
-    "embarkPort": "Venice (Fusina)",
-    "debarkPort": "Athens (Piraeus)",
-    "fare": 8399
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-09-15",
-    "nights": 30,
-    "itinerary": "THE PAINTED EAST",
-    "itineraryCode": "EXP270915A",
-    "embarkPort": "Vancouver",
-    "debarkPort": "Tokyo",
-    "fare": 19499
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-09-16",
-    "nights": 14,
-    "itinerary": "SUNLIGHT & STONE",
-    "itineraryCode": "PRT270916A",
-    "embarkPort": "Trieste",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 13649
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2027-09-20",
-    "nights": 14,
-    "itinerary": "ATOLLS & DRAGONS",
-    "itineraryCode": "NAV270920",
-    "embarkPort": "Sydney",
-    "debarkPort": "Bali (Benoa)",
-    "fare": 7199
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2027-09-20",
-    "nights": 24,
-    "itinerary": "GREAT SKYLINES & REEFS",
-    "itineraryCode": "NAV270920A",
-    "embarkPort": "Sydney",
-    "debarkPort": "Perth (Fremantle)",
-    "fare": 11499
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-09-21",
-    "nights": 11,
-    "itinerary": "HARVEST TIDES",
-    "itineraryCode": "GRA270921",
-    "embarkPort": "New York",
-    "debarkPort": "Montréal",
-    "fare": 11599
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-09-27",
-    "nights": 14,
-    "itinerary": "IBERIAN WANDERLUST & SICILIAN DREAM",
-    "itineraryCode": "VOY270927",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 11499
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-09-30",
-    "nights": 7,
-    "itinerary": "RIVIERA REVERIE",
-    "itineraryCode": "PRT270930",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Barcelona",
-    "fare": 6599
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2027-10-04",
-    "nights": 10,
-    "itinerary": "STARLIGHT SOJOURN",
-    "itineraryCode": "NAV271004",
-    "embarkPort": "Bali (Benoa)",
-    "debarkPort": "Perth (Fremantle)",
-    "fare": 4999
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-10-07",
-    "nights": 9,
-    "itinerary": "MEDITERRANEAN HORIZONS",
-    "itineraryCode": "PRT271007",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 9099
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2027-10-14",
-    "nights": 12,
-    "itinerary": "ORCHIDS & LANTERNS",
-    "itineraryCode": "NAV271014",
-    "embarkPort": "Perth (Fremantle)",
-    "debarkPort": "Singapore",
-    "fare": 5999
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-10-15",
-    "nights": 14,
-    "itinerary": "MIYAKO MYSTIQUE",
-    "itineraryCode": "EXP271015",
-    "embarkPort": "Tokyo",
-    "debarkPort": "Tokyo",
-    "fare": 11499
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-10-16",
-    "nights": 9,
-    "itinerary": "CIRCLE ITALY",
-    "itineraryCode": "PRT271016",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Trieste",
-    "fare": 7699
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-10-17",
-    "nights": 14,
-    "itinerary": "SUBLIME SPAIN",
-    "itineraryCode": "SPL271017",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 11499
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-10-22",
-    "nights": 12,
-    "itinerary": "JOURNEY TO EL TEIDE",
-    "itineraryCode": "VOY271022",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Lisbon",
-    "fare": 9199
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-11-04",
-    "nights": 14,
-    "itinerary": "SUN-KISSED SOIREE",
-    "itineraryCode": "GRA271104",
-    "embarkPort": "New York",
-    "debarkPort": "Miami",
-    "fare": 10199
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-11-09",
-    "nights": 11,
-    "itinerary": "CINEMATIC SHORES",
-    "itineraryCode": "SPL271109",
-    "embarkPort": "Istanbul",
-    "debarkPort": "Barcelona",
-    "fare": 8499
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-11-10",
-    "nights": 17,
-    "itinerary": "DESERT SANDS TO ELEPHANTA CAVES",
-    "itineraryCode": "MAR271110",
-    "embarkPort": "Doha",
-    "debarkPort": "Singapore",
-    "fare": 11499
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-11-20",
-    "nights": 10,
-    "itinerary": "TEMPURA & TEA",
-    "itineraryCode": "EXP271120",
-    "embarkPort": "Tokyo",
-    "debarkPort": "Hong Kong",
-    "fare": 7599
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-11-20",
-    "nights": 15,
-    "itinerary": "MEDITERRANEAN PILGRIMAGE",
-    "itineraryCode": "VOY271120A",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Barcelona",
-    "fare": 10599
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-11-27",
-    "nights": 10,
-    "itinerary": "ISLE CROSSROADS",
-    "itineraryCode": "MAR271127",
-    "embarkPort": "Singapore",
-    "debarkPort": "Bali (Benoa)",
-    "fare": 7899
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-11-27",
-    "nights": 10,
-    "itinerary": "REGGAE RHYTHMS",
-    "itineraryCode": "PRT271127",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 6999
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-12-05",
-    "nights": 14,
-    "itinerary": "ATLANTIC OCEAN ZEPHYR",
-    "itineraryCode": "VOY271205",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Miami",
-    "fare": 5999
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-12-06",
-    "nights": 14,
-    "itinerary": "THE MAGNIFICENT ATLANTIC",
-    "itineraryCode": "SPL271206",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Miami",
-    "fare": 7099
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-12-08",
-    "nights": 14,
-    "itinerary": "HEAVENLY HIDEAWAYS",
-    "itineraryCode": "GRA271208",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 7799
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-12-20",
-    "nights": 16,
-    "itinerary": "HOLIDAY IN PANAMA",
-    "itineraryCode": "SPL271220",
-    "embarkPort": "Miami",
-    "debarkPort": "San Francisco",
-    "fare": 10099
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-12-21",
-    "nights": 14,
-    "itinerary": "SURF & SANTA",
-    "itineraryCode": "MAR271221",
-    "embarkPort": "Sydney",
-    "debarkPort": "Auckland",
-    "fare": 13199
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-12-28",
-    "nights": 10,
-    "itinerary": "NEW YEAR EXUBERANCE",
-    "itineraryCode": "PRT271228",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 6999
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2028-01-18",
-    "nights": 32,
-    "itinerary": "AUSTRALIAN ADVENTURE",
-    "itineraryCode": "MAR280118A",
-    "embarkPort": "Sydney",
-    "debarkPort": "Sydney",
-    "fare": 30099
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2028-01-23",
-    "nights": 12,
-    "itinerary": "ISLES OF DEGEI",
-    "itineraryCode": "SPL280123",
-    "embarkPort": "Papeete (Tahiti)",
-    "debarkPort": "Lautoka",
-    "fare": 9599
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2028-01-29",
-    "nights": 13,
-    "itinerary": "CULINARY DISCOVERIES",
-    "itineraryCode": "EXP280129",
-    "embarkPort": "Singapore",
-    "debarkPort": "Taipei (Keelung)",
-    "fare": 10999
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2028-02-16",
-    "nights": 15,
-    "itinerary": "ROMANCE OF ROSEAU",
-    "itineraryCode": "PRT280216",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 11799
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2028-02-18",
-    "nights": 16,
-    "itinerary": "TANIWHA TALES",
-    "itineraryCode": "SPL280218",
-    "embarkPort": "Sydney",
-    "debarkPort": "Melbourne",
-    "fare": 15399
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2028-02-19",
-    "nights": 69,
-    "itinerary": "GRAND SOUTHERN SEAS SOJOURN",
-    "itineraryCode": "MAR280219D",
-    "embarkPort": "Sydney",
-    "debarkPort": "Cape Town",
-    "fare": 52449
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2028-03-02",
-    "nights": 12,
-    "itinerary": "FLAVORS OF CARTAGENA",
-    "itineraryCode": "PRT280302",
-    "embarkPort": "Miami",
-    "debarkPort": "Panama City",
-    "fare": 8799
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2028-03-04",
-    "nights": 16,
-    "itinerary": "JOURNEY TO OZ",
-    "itineraryCode": "MAR280304",
-    "embarkPort": "Auckland",
-    "debarkPort": "Bali (Benoa)",
-    "fare": 12399
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2028-03-05",
-    "nights": 21,
-    "itinerary": "DINGOES & DRAGONS",
-    "itineraryCode": "SPL280305",
-    "embarkPort": "Melbourne",
-    "debarkPort": "Singapore",
-    "fare": 18299
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2028-03-06",
-    "nights": 11,
-    "itinerary": "AT FIRST BLOOM",
-    "itineraryCode": "EXP280306",
-    "embarkPort": "Tokyo",
-    "debarkPort": "Tokyo",
-    "fare": 9699
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2028-03-17",
-    "nights": 14,
-    "itinerary": "UNDER THE CHERRY TREES",
-    "itineraryCode": "EXP280317",
-    "embarkPort": "Tokyo",
-    "debarkPort": "Tokyo",
-    "fare": 12199
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2028-03-17",
-    "nights": 28,
-    "itinerary": "GOLDEN LATITTUDE",
-    "itineraryCode": "EXP280317A",
-    "embarkPort": "Tokyo",
-    "debarkPort": "Singapore",
-    "fare": 22899
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2028-03-18",
-    "nights": 14,
-    "itinerary": "EXUBERANT BERMUDA & AZORES",
-    "itineraryCode": "VOY280318",
-    "embarkPort": "Miami",
-    "debarkPort": "Barcelona",
-    "fare": 6499
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2028-03-20",
-    "nights": 27,
-    "itinerary": "SPRINGTIME ATLANTIC CROSSING",
-    "itineraryCode": "GRA280320A",
-    "embarkPort": "Miami",
-    "debarkPort": "Barcelona",
-    "fare": 14899
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2028-03-20",
-    "nights": 8,
-    "itinerary": "WILD ORCHIDS & SUPERTREES",
-    "itineraryCode": "MAR280320",
-    "embarkPort": "Bali (Benoa)",
-    "debarkPort": "Singapore",
-    "fare": 6899
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2028-03-26",
-    "nights": 14,
-    "itinerary": "RITE OF SPRING CROSSING",
-    "itineraryCode": "PRT280326",
-    "embarkPort": "Miami",
-    "debarkPort": "Lisbon",
-    "fare": 9299
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2028-03-26",
-    "nights": 11,
-    "itinerary": "SACRED SWORDS & TEMPLES",
-    "itineraryCode": "SPL280326",
-    "embarkPort": "Singapore",
-    "debarkPort": "Hong Kong",
-    "fare": 9199
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2028-04-06",
-    "nights": 10,
-    "itinerary": "JOURNEY TO THE JADE BUDDHA",
-    "itineraryCode": "SPL280406",
-    "embarkPort": "Hong Kong",
-    "debarkPort": "Seoul (Incheon)",
-    "fare": 7799
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2028-04-09",
-    "nights": 11,
-    "itinerary": "CRUISING THE CANARY ISLANDS",
-    "itineraryCode": "PRT280409",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Lisbon",
-    "fare": 11399
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2028-04-16",
-    "nights": 11,
-    "itinerary": "SAKURA & SAMURAI",
-    "itineraryCode": "SPL280416",
-    "embarkPort": "Seoul (Incheon)",
-    "debarkPort": "Tokyo",
-    "fare": 10099
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2028-04-16",
-    "nights": 31,
-    "itinerary": "RISING SUN & GOLDEN GATE",
-    "itineraryCode": "SPL280416A",
-    "embarkPort": "Seoul (Incheon)",
-    "debarkPort": "San Francisco",
-    "fare": 25499
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2026-03-06",
-    "nights": 18,
-    "itinerary": "KIWI CHARM & AUSSIE DELIGHTS",
-    "itineraryCode": "MAR260306",
-    "embarkPort": "Auckland",
-    "debarkPort": "Bali (Benoa)",
-    "fare": 17949
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2026-03-24",
-    "nights": 16,
-    "itinerary": "SPECTACULAR ASIA AT NIGHT",
-    "itineraryCode": "MAR260324",
-    "embarkPort": "Bali (Benoa)",
-    "debarkPort": "Singapore",
-    "fare": 14699
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2026-04-09",
-    "nights": 54,
-    "itinerary": "TRANSCULTURAL PEREGRINATION",
-    "itineraryCode": "MAR260409A",
-    "embarkPort": "Singapore",
-    "debarkPort": "Lisbon",
-    "fare": 37149
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2026-04-18",
-    "nights": 14,
-    "itinerary": "SANDS OF SOUTHEAST ASIA",
-    "itineraryCode": "NAV260418",
-    "embarkPort": "Bali (Benoa)",
-    "debarkPort": "Bangkok (Laem Chabang)",
-    "fare": 9549
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2026-05-02",
-    "nights": 20,
-    "itinerary": "INDIAN OCEAN ENCHANTMENTS",
-    "itineraryCode": "NAV260502",
-    "embarkPort": "Bangkok (Laem Chabang)",
-    "debarkPort": "Doha",
-    "fare": 12599
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-05-03",
-    "nights": 17,
-    "itinerary": "NORTHERN PACIFIC JOURNEY",
-    "itineraryCode": "EXP260503",
-    "embarkPort": "Tokyo",
-    "debarkPort": "Vancouver",
-    "fare": 13649
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2026-05-09",
-    "nights": 24,
-    "itinerary": "WESTERN AFRICA & ISLES OF WONDER",
-    "itineraryCode": "MAR260509",
-    "embarkPort": "Cape Town",
-    "debarkPort": "Lisbon",
-    "fare": 16399
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2026-05-09",
-    "nights": 35,
-    "itinerary": "AFRICAN ALLURE TO OCEANIC WONDER",
-    "itineraryCode": "MAR260509A",
-    "embarkPort": "Cape Town",
-    "debarkPort": "Miami",
-    "fare": 23399
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2026-05-15",
-    "nights": 7,
-    "itinerary": "GRECIAN & TURKISH WONDERS",
-    "itineraryCode": "SPL260515",
-    "embarkPort": "Athens (Piraeus)",
-    "debarkPort": "Istanbul",
-    "fare": 7249
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2026-05-22",
-    "nights": 20,
-    "itinerary": "ARABIAN NIGHTS & EGYPTIAN SHORES",
-    "itineraryCode": "NAV260522",
-    "embarkPort": "Doha",
-    "debarkPort": "Cape Town",
-    "fare": 9949
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-06-06",
-    "nights": 10,
-    "itinerary": "ENGLISH CHANNEL ICONS",
-    "itineraryCode": "GRA260606",
-    "embarkPort": "London (Southampton)",
-    "debarkPort": "London (Southampton)",
-    "fare": 13299
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2026-06-11",
-    "nights": 24,
-    "itinerary": "WEST AFRICA PASSAGE",
-    "itineraryCode": "NAV260611",
-    "embarkPort": "Cape Town",
-    "debarkPort": "Barcelona",
-    "fare": 12999
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2026-06-13",
-    "nights": 16,
-    "itinerary": "SPOTLIGHT WITH SOUTHERN LIVING",
-    "itineraryCode": "MAR260613",
-    "embarkPort": "Miami",
-    "debarkPort": "New York",
-    "fare": 10549
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2026-06-16",
-    "nights": 12,
-    "itinerary": "TREASURES OF THE ADRIATIC",
-    "itineraryCode": "VOY260616",
-    "embarkPort": "Trieste",
-    "debarkPort": "Istanbul",
-    "fare": 11699
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-06-24",
-    "nights": 7,
-    "itinerary": "JUNEAU IN JUNE",
-    "itineraryCode": "EXP260624",
-    "embarkPort": "Whittier",
-    "debarkPort": "Vancouver",
-    "fare": 7599
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-06-28",
-    "nights": 7,
-    "itinerary": "ISLES GETAWAY",
-    "itineraryCode": "GRA260628",
-    "embarkPort": "London (Southampton)",
-    "debarkPort": "Belfast",
-    "fare": 8749
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2026-06-28",
-    "nights": 12,
-    "itinerary": "KNIGHTS & EMPERORS",
-    "itineraryCode": "VOY260628",
-    "embarkPort": "Istanbul",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 12199
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2026-06-29",
-    "nights": 18,
-    "itinerary": "ICELANDIC GETAWAY",
-    "itineraryCode": "MAR260629",
-    "embarkPort": "New York",
-    "debarkPort": "Reykjavik",
-    "fare": 16399
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-07-05",
-    "nights": 7,
-    "itinerary": "ICELANDIC RHAPSODY",
-    "itineraryCode": "GRA260705",
-    "embarkPort": "Belfast",
-    "debarkPort": "Reykjavik",
-    "fare": 8999
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-07-12",
-    "nights": 10,
-    "itinerary": "MAGICAL MIDNIGHT SUN",
-    "itineraryCode": "GRA260712",
-    "embarkPort": "Reykjavik",
-    "debarkPort": "Reykjavik",
-    "fare": 12999
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-07-15",
-    "nights": 7,
-    "itinerary": "TLINGIT ART & CRAFTSMANSHIP",
-    "itineraryCode": "EXP260715",
-    "embarkPort": "Vancouver",
-    "debarkPort": "Whittier",
-    "fare": 7699
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-07-29",
-    "nights": 7,
-    "itinerary": "TALES OF THE GOLD RUSH",
-    "itineraryCode": "EXP260729",
-    "embarkPort": "Vancouver",
-    "debarkPort": "Whittier",
-    "fare": 7849
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-08-15",
-    "nights": 7,
-    "itinerary": "NORTH SEA JOURNEY",
-    "itineraryCode": "GRA260815",
-    "embarkPort": "Oslo",
-    "debarkPort": "Copenhagen",
-    "fare": 9299
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2026-08-20",
-    "nights": 12,
-    "itinerary": "VIKING VISTAS",
-    "itineraryCode": "VOY260820",
-    "embarkPort": "Reykjavik",
-    "debarkPort": "London (Southampton)",
-    "fare": 12099
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2026-08-23",
-    "nights": 14,
-    "itinerary": "HISTORY ON THE HORIZON",
-    "itineraryCode": "SPL260823",
-    "embarkPort": "Lisbon",
-    "debarkPort": "New York",
-    "fare": 9849
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-09-09",
-    "nights": 9,
-    "itinerary": "BEHOLD THE PACIFIC NORTHWEST",
-    "itineraryCode": "EXP260909",
-    "embarkPort": "Vancouver",
-    "debarkPort": "Seattle",
-    "fare": 7949
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2026-09-11",
-    "nights": 17,
-    "itinerary": "NORTHERN ELEGANCE, SOUTHERN GLAMOUR",
-    "itineraryCode": "VOY260911A",
-    "embarkPort": "Copenhagen",
-    "debarkPort": "Barcelona",
-    "fare": 18649
   },
   {
     "shipName": "Seven Seas Explorer",
@@ -1710,24 +280,54 @@
     "fare": 11999
   },
   {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-10-20",
+    "nights": 12,
+    "itinerary": "BEAUTY UNDER THE STARS",
+    "itineraryCode": "GRA261020",
+    "embarkPort": "Valletta",
+    "debarkPort": "Athens (Piraeus)",
+    "fare": 11199
+  },
+  {
     "shipName": "Seven Seas Splendor",
-    "departureDate": "2026-10-09",
-    "nights": 11,
-    "itinerary": "CELEBRATE THE ST. LAWRENCE",
-    "itineraryCode": "SPL261009",
-    "embarkPort": "Montréal",
-    "debarkPort": "New York",
-    "fare": 12799
+    "departureDate": "2026-10-20",
+    "nights": 10,
+    "itinerary": "SCENIC COASTS & OLD QUEBEC",
+    "itineraryCode": "SPL261020",
+    "embarkPort": "New York",
+    "debarkPort": "Montréal",
+    "fare": 11199
   },
   {
     "shipName": "Seven Seas Mariner",
-    "departureDate": "2026-10-12",
-    "nights": 28,
-    "itinerary": "RUINS, RIVIERA & ROSE SANDS",
-    "itineraryCode": "MAR261012A",
-    "embarkPort": "Athens (Piraeus)",
+    "departureDate": "2026-10-26",
+    "nights": 14,
+    "itinerary": "MOONLIGHT OVER BERMUDA",
+    "itineraryCode": "MAR261026",
+    "embarkPort": "Barcelona",
     "debarkPort": "Miami",
-    "fare": 20599
+    "fare": 7199
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2026-10-31",
+    "nights": 22,
+    "itinerary": "EASTERN ELEGANCE",
+    "itineraryCode": "EXP261031A",
+    "embarkPort": "Tokyo",
+    "debarkPort": "Bangkok (Laem Chabang)",
+    "fare": 21999
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-11-08",
+    "nights": 21,
+    "itinerary": "ATLANTIC OCEAN ISLES",
+    "itineraryCode": "GRA261108A",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Miami",
+    "fare": 13399
   },
   {
     "shipName": "Seven Seas Explorer",
@@ -1740,14 +340,24 @@
     "fare": 12749
   },
   {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2026-11-10",
-    "nights": 17,
-    "itinerary": "ANCIENT & HISTORIC SHORES",
-    "itineraryCode": "VOY261110A",
-    "embarkPort": "Trieste",
-    "debarkPort": "Istanbul",
-    "fare": 16549
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2026-11-11",
+    "nights": 12,
+    "itinerary": "SPANISH & MOROCCAN DELIGHTS",
+    "itineraryCode": "NAV261111",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Lisbon",
+    "fare": 5199
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-11-22",
+    "nights": 7,
+    "itinerary": "FALL FOR THE CARIBBEAN",
+    "itineraryCode": "GRA261122",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 5999
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -1760,14 +370,24 @@
     "fare": 7349
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2026-12-11",
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2026-12-07",
+    "nights": 21,
+    "itinerary": "MASTERPIECES OF PETRA",
+    "itineraryCode": "VOY261207",
+    "embarkPort": "Athens (Piraeus)",
+    "debarkPort": "Dubai",
+    "fare": 16649
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2026-12-19",
     "nights": 10,
-    "itinerary": "SHIMMERING REEFS, MIGHTY RUINS",
-    "itineraryCode": "MAR261211",
-    "embarkPort": "Tampa Bay",
-    "debarkPort": "Tampa Bay",
-    "fare": 6199
+    "itinerary": "AN AUSSIE CELEBRATION",
+    "itineraryCode": "EXP261219",
+    "embarkPort": "Sydney",
+    "debarkPort": "Sydney",
+    "fare": 8999
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -1780,24 +400,24 @@
     "fare": 7649
   },
   {
-    "shipName": "Seven Seas Voyager",
+    "shipName": "Seven Seas Splendor",
     "departureDate": "2026-12-28",
-    "nights": 20,
-    "itinerary": "DESERT CITIES & TURQUOISE SEAS",
-    "itineraryCode": "VOY261228",
-    "embarkPort": "Dubai",
-    "debarkPort": "Port Louis",
-    "fare": 15599
+    "nights": 14,
+    "itinerary": "BLUE SEAS & PASTEL TOWNS",
+    "itineraryCode": "SPL261228",
+    "embarkPort": "Galveston",
+    "debarkPort": "Miami",
+    "fare": 8749
   },
   {
-    "shipName": "Seven Seas Grandeur",
+    "shipName": "Seven Seas Explorer",
     "departureDate": "2026-12-29",
     "nights": 16,
-    "itinerary": "PANAMA CANAL & PACIFIC GEMS",
-    "itineraryCode": "GRA261229",
-    "embarkPort": "Miami",
-    "debarkPort": "Los Angeles",
-    "fare": 12999
+    "itinerary": "TOAST TO THE FJORDS",
+    "itineraryCode": "EXP261229",
+    "embarkPort": "Sydney",
+    "debarkPort": "Auckland",
+    "fare": 14549
   },
   {
     "shipName": "Seven Seas Mariner",
@@ -1810,6 +430,26 @@
     "fare": 12449
   },
   {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-01-12",
+    "nights": 14,
+    "itinerary": "TROPICAL TREASURES",
+    "itineraryCode": "SPL270112",
+    "embarkPort": "Miami",
+    "debarkPort": "Panama City",
+    "fare": 13999
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-01-14",
+    "nights": 10,
+    "itinerary": "WEST COAST RETREAT",
+    "itineraryCode": "GRA270114",
+    "embarkPort": "Los Angeles",
+    "debarkPort": "Los Angeles",
+    "fare": 7599
+  },
+  {
     "shipName": "Seven Seas Navigator",
     "departureDate": "2027-01-15",
     "nights": 14,
@@ -1820,44 +460,24 @@
     "fare": 5999
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-01-22",
-    "nights": 11,
-    "itinerary": "NIGHTS OF SAMBA & TANGO",
-    "itineraryCode": "MAR270122",
-    "embarkPort": "Rio de Janeiro",
-    "debarkPort": "Buenos Aires",
-    "fare": 9499
-  },
-  {
     "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-01-24",
-    "nights": 16,
-    "itinerary": "ULTIMATE PANAMA CANAL TRANSIT",
-    "itineraryCode": "GRA270124",
-    "embarkPort": "Los Angeles",
+    "departureDate": "2027-02-09",
+    "nights": 7,
+    "itinerary": "MYSTICAL MAYA",
+    "itineraryCode": "GRA270209",
+    "embarkPort": "Miami",
     "debarkPort": "Miami",
-    "fare": 13599
+    "fare": 5099
   },
   {
     "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-01-28",
-    "nights": 19,
-    "itinerary": "ROOS, REEFS & ROMANCE",
-    "itineraryCode": "EXP270128A",
-    "embarkPort": "Sydney",
-    "debarkPort": "Bali (Benoa)",
-    "fare": 15999
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-02-01",
-    "nights": 61,
-    "itinerary": "INDIAN OCEAN ODYSSEY",
-    "itineraryCode": "VOY270201C",
-    "embarkPort": "Cape Town",
-    "debarkPort": "Barcelona",
-    "fare": 42299
+    "departureDate": "2027-02-16",
+    "nights": 14,
+    "itinerary": "CITIES OF MYSTERY & MAGIC",
+    "itineraryCode": "EXP270216",
+    "embarkPort": "Bali (Benoa)",
+    "debarkPort": "Bangkok (Laem Chabang)",
+    "fare": 11349
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -1880,6 +500,16 @@
     "fare": 13799
   },
   {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-02-22",
+    "nights": 11,
+    "itinerary": "CRESCENT BEACHES & COLORFUL TOWNS",
+    "itineraryCode": "PRT270222",
+    "embarkPort": "Panama City",
+    "debarkPort": "Miami",
+    "fare": 9299
+  },
+  {
     "shipName": "Seven Seas Grandeur",
     "departureDate": "2027-02-23",
     "nights": 14,
@@ -1890,24 +520,14 @@
     "fare": 10099
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-03-02",
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-03-10",
     "nights": 16,
-    "itinerary": "ICONIC SKYLINES, STARRY NIGHTS",
-    "itineraryCode": "EXP270302",
-    "embarkPort": "Bangkok (Laem Chabang)",
-    "debarkPort": "Tokyo",
-    "fare": 14149
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-03-05",
-    "nights": 12,
-    "itinerary": "PRESTIGE ISLES",
-    "itineraryCode": "PRT270305",
-    "embarkPort": "Miami",
+    "itinerary": "MACHU PICCHU & MAYAN RUINS",
+    "itineraryCode": "MAR270310",
+    "embarkPort": "Lima (Callao)",
     "debarkPort": "Miami",
-    "fare": 9849
+    "fare": 12399
   },
   {
     "shipName": "Seven Seas Splendor",
@@ -1920,24 +540,54 @@
     "fare": 15999
   },
   {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-04-03",
-    "nights": 15,
-    "itinerary": "QUINTESSENTIAL IBERIAN JOURNEY",
-    "itineraryCode": "VOY270403",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Barcelona",
-    "fare": 12499
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-03-18",
+    "nights": 12,
+    "itinerary": "CASTLES, TEMPLES & GEISHAS",
+    "itineraryCode": "EXP270318",
+    "embarkPort": "Tokyo",
+    "debarkPort": "Tokyo",
+    "fare": 10899
   },
   {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2027-04-06",
-    "nights": 12,
-    "itinerary": "FUSION OF ANCIENT & MODERN",
-    "itineraryCode": "NAV270406",
-    "embarkPort": "Singapore",
-    "debarkPort": "Hong Kong",
-    "fare": 6349
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2027-03-24",
+    "nights": 10,
+    "itinerary": "SPANISH SAPPHIRE SHORES",
+    "itineraryCode": "VOY270324",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Barcelona",
+    "fare": 8099
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-03-26",
+    "nights": 10,
+    "itinerary": "MAYAN CULTURE, ISLAND JOY",
+    "itineraryCode": "MAR270326",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 6599
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-03-26",
+    "nights": 20,
+    "itinerary": "CULTURAL CURRENTS",
+    "itineraryCode": "MAR270326A",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 12549
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-03-30",
+    "nights": 10,
+    "itinerary": "CARIBBEAN MYSTIQUE",
+    "itineraryCode": "PRT270330",
+    "embarkPort": "San Juan",
+    "debarkPort": "Miami",
+    "fare": 7099
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -1948,16 +598,6 @@
     "embarkPort": "Miami",
     "debarkPort": "Lisbon",
     "fare": 6399
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-04-14",
-    "nights": 24,
-    "itinerary": "ATLANTIC EVENINGS",
-    "itineraryCode": "GRA270414A",
-    "embarkPort": "Miami",
-    "debarkPort": "Lisbon",
-    "fare": 17049
   },
   {
     "shipName": "Seven Seas Mariner",
@@ -1980,24 +620,24 @@
     "fare": 9699
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-04-25",
-    "nights": 12,
-    "itinerary": "EXOTIC ADVENTURE",
-    "itineraryCode": "EXP270425",
-    "embarkPort": "Seoul (Incheon)",
-    "debarkPort": "Tokyo",
-    "fare": 10899
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-04-27",
+    "nights": 14,
+    "itinerary": "GILDED CROSSING",
+    "itineraryCode": "PRT270427",
+    "embarkPort": "New York",
+    "debarkPort": "Barcelona",
+    "fare": 9049
   },
   {
     "shipName": "Seven Seas Mariner",
     "departureDate": "2027-04-29",
-    "nights": 28,
-    "itinerary": "NEW WORLD, OLD WORLD",
-    "itineraryCode": "MAR270429A",
+    "nights": 16,
+    "itinerary": "SHIMMERING ATLANTIC SHORES",
+    "itineraryCode": "MAR270429",
     "embarkPort": "New York",
-    "debarkPort": "Paris (Le Havre)",
-    "fare": 20149
+    "debarkPort": "Lisbon",
+    "fare": 9999
   },
   {
     "shipName": "Seven Seas Mariner",
@@ -2010,34 +650,24 @@
     "fare": 149949
   },
   {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-05-08",
-    "nights": 17,
-    "itinerary": "LISBON TO LIGURIA",
-    "itineraryCode": "GRA270508A",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 14699
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-05-07",
+    "nights": 19,
+    "itinerary": "EPIC PACIFIC PASSAGE",
+    "itineraryCode": "EXP270507",
+    "embarkPort": "Tokyo",
+    "debarkPort": "Vancouver",
+    "fare": 14299
   },
   {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-05-10",
-    "nights": 11,
-    "itinerary": "CELTIC LEGENDS",
-    "itineraryCode": "VOY270510",
-    "embarkPort": "London (Southampton)",
-    "debarkPort": "Edinburgh (Leith)",
-    "fare": 9799
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-05-11",
-    "nights": 14,
-    "itinerary": "SUNLIT IBERIA",
-    "itineraryCode": "PRT270511",
-    "embarkPort": "Barcelona",
-    "debarkPort": "London (Southampton)",
-    "fare": 15899
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2027-05-09",
+    "nights": 24,
+    "itinerary": "SAVOR THE SOUTH SEAS",
+    "itineraryCode": "NAV270509A",
+    "embarkPort": "Tokyo",
+    "debarkPort": "Bali (Benoa)",
+    "fare": 10499
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -2050,24 +680,24 @@
     "fare": 9699
   },
   {
-    "shipName": "Seven Seas Mariner",
+    "shipName": "Seven Seas Grandeur",
     "departureDate": "2027-05-15",
-    "nights": 12,
-    "itinerary": "LA LUMIERE DU SOLEIL",
-    "itineraryCode": "MAR270515",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Paris (Le Havre)",
-    "fare": 11199
+    "nights": 18,
+    "itinerary": "ITALIA IN FULL",
+    "itineraryCode": "GRA270515A",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Venice (Fusina)",
+    "fare": 15599
   },
   {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-05-25",
-    "nights": 8,
-    "itinerary": "DALMATIAN RHAPSODY",
-    "itineraryCode": "GRA270525",
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-05-18",
+    "nights": 14,
+    "itinerary": "SPLENDID ATLANTIC SOJOURN",
+    "itineraryCode": "SPL270518",
     "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Venice (Fusina)",
-    "fare": 6699
+    "debarkPort": "New York",
+    "fare": 9699
   },
   {
     "shipName": "Seven Seas Explorer",
@@ -2078,6 +708,36 @@
     "embarkPort": "Vancouver",
     "debarkPort": "Whittier",
     "fare": 6249
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-05-27",
+    "nights": 12,
+    "itinerary": "REGAL SHORES",
+    "itineraryCode": "PRT270527",
+    "embarkPort": "London (Southampton)",
+    "debarkPort": "Lisbon",
+    "fare": 14299
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-06-02",
+    "nights": 7,
+    "itinerary": "GOLD RUSH LEGACY",
+    "itineraryCode": "EXP270602",
+    "embarkPort": "Whittier",
+    "debarkPort": "Vancouver",
+    "fare": 6099
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-06-02",
+    "nights": 11,
+    "itinerary": "A GRECIAN SUMMER",
+    "itineraryCode": "GRA270602",
+    "embarkPort": "Venice (Fusina)",
+    "debarkPort": "Barcelona",
+    "fare": 8999
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -2110,6 +770,26 @@
     "fare": 8799
   },
   {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-06-09",
+    "nights": 7,
+    "itinerary": "SUMMER IN SKAGWAY",
+    "itineraryCode": "EXP270609",
+    "embarkPort": "Vancouver",
+    "debarkPort": "Whittier",
+    "fare": 5899
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-06-10",
+    "nights": 10,
+    "itinerary": "BALTICS IN BLUE",
+    "itineraryCode": "MAR270610",
+    "embarkPort": "Copenhagen",
+    "debarkPort": "Stockholm",
+    "fare": 9699
+  },
+  {
     "shipName": "Seven Seas Mariner",
     "departureDate": "2027-06-10",
     "nights": 20,
@@ -2118,6 +798,26 @@
     "embarkPort": "Copenhagen",
     "debarkPort": "Amsterdam (Ijmuiden)",
     "fare": 18399
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-06-13",
+    "nights": 7,
+    "itinerary": "REGAL RETREAT",
+    "itineraryCode": "GRA270613",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 6299
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-06-15",
+    "nights": 12,
+    "itinerary": "SPLENDOR OF THE ISLES",
+    "itineraryCode": "SPL270615",
+    "embarkPort": "London (Southampton)",
+    "debarkPort": "London (Southampton)",
+    "fare": 11699
   },
   {
     "shipName": "Seven Seas Navigator",
@@ -2130,24 +830,24 @@
     "fare": 5499
   },
   {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-06-20",
-    "nights": 7,
-    "itinerary": "MYSTICAL ITALY & CROATIA",
-    "itineraryCode": "GRA270620",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Venice (Fusina)",
-    "fare": 6299
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-06-17",
+    "nights": 9,
+    "itinerary": "UNDER THE TUSCAN SUNSET",
+    "itineraryCode": "PRT270617",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 8799
   },
   {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-06-20",
-    "nights": 14,
-    "itinerary": "VILLAS & VENICE",
-    "itineraryCode": "GRA270620A",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Athens (Piraeus)",
-    "fare": 13149
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-06-23",
+    "nights": 7,
+    "itinerary": "EVERGREEN SHORES",
+    "itineraryCode": "EXP270623",
+    "embarkPort": "Vancouver",
+    "debarkPort": "Whittier",
+    "fare": 6499
   },
   {
     "shipName": "Seven Seas Splendor",
@@ -2160,44 +860,24 @@
     "fare": 15199
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-06-30",
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-07-11",
     "nights": 14,
-    "itinerary": "CELESTIAL NORWAY & ICELAND",
-    "itineraryCode": "MAR270630",
-    "embarkPort": "Amsterdam (Ijmuiden)",
-    "debarkPort": "Reykjavik",
-    "fare": 13999
+    "itinerary": "CASTLES, FORTS & WINDMILLS",
+    "itineraryCode": "SPL270711",
+    "embarkPort": "Copenhagen",
+    "debarkPort": "London (Southampton)",
+    "fare": 14799
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-07-07",
-    "nights": 7,
-    "itinerary": "WILDLIFE EXPLORATION",
-    "itineraryCode": "EXP270707",
-    "embarkPort": "Vancouver",
-    "debarkPort": "Whittier",
-    "fare": 6899
-  },
-  {
-    "shipName": "Seven Seas Explorer",
+    "shipName": "Seven Seas Voyager",
     "departureDate": "2027-07-14",
-    "nights": 7,
-    "itinerary": "GREAT ALASKA ENCOUNTER",
-    "itineraryCode": "EXP270714",
-    "embarkPort": "Whittier",
-    "debarkPort": "Vancouver",
-    "fare": 6699
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-07-15",
-    "nights": 14,
-    "itinerary": "CULINARY COASTS",
-    "itineraryCode": "PRT270715A",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Trieste",
-    "fare": 13599
+    "nights": 12,
+    "itinerary": "SCANDI-CHIC & ROYAL HERITAGE",
+    "itineraryCode": "VOY270714",
+    "embarkPort": "Edinburgh (Leith)",
+    "debarkPort": "Stockholm",
+    "fare": 11399
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -2210,74 +890,54 @@
     "fare": 8699
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-07-21",
-    "nights": 7,
-    "itinerary": "NORTHERN ESCAPE",
-    "itineraryCode": "EXP270721",
-    "embarkPort": "Vancouver",
-    "debarkPort": "Whittier",
-    "fare": 7349
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-07-22",
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-07-25",
     "nights": 14,
-    "itinerary": "HARBORS OF HERITAGE",
-    "itineraryCode": "PRT270722A",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Athens (Piraeus)",
-    "fare": 13399
+    "itinerary": "ISLES & ICE",
+    "itineraryCode": "SPL270725",
+    "embarkPort": "London (Southampton)",
+    "debarkPort": "Reykjavik",
+    "fare": 13949
   },
   {
     "shipName": "Seven Seas Navigator",
-    "departureDate": "2027-07-25",
-    "nights": 9,
-    "itinerary": "OUTBACK ADVENTURES",
-    "itineraryCode": "NAV270725",
+    "departureDate": "2027-08-03",
+    "nights": 12,
+    "itinerary": "OUTBACK & ISLES",
+    "itineraryCode": "NAV270803",
     "embarkPort": "Cairns",
-    "debarkPort": "Cairns",
-    "fare": 4499
+    "debarkPort": "Lautoka",
+    "fare": 6699
   },
   {
     "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-07-26",
-    "nights": 8,
-    "itinerary": "NORDIC & BALTIC JEWELS",
-    "itineraryCode": "VOY270726",
-    "embarkPort": "Stockholm",
-    "debarkPort": "Copenhagen",
-    "fare": 8099
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-07-29",
-    "nights": 9,
-    "itinerary": "ECLIPSE THE ORDINARY",
-    "itineraryCode": "GRA270729",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 9599
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-08-07",
-    "nights": 10,
-    "itinerary": "CULINARY WONDERS",
-    "itineraryCode": "GRA270807",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Lisbon",
-    "fare": 8599
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-08-07",
-    "nights": 20,
-    "itinerary": "LEGACIES & EMPIRES",
-    "itineraryCode": "GRA270807A",
-    "embarkPort": "Rome (Civitavecchia)",
+    "departureDate": "2027-08-03",
+    "nights": 18,
+    "itinerary": "LAND OF VIKINGS",
+    "itineraryCode": "VOY270803",
+    "embarkPort": "Copenhagen",
     "debarkPort": "London (Southampton)",
-    "fare": 16849
+    "fare": 17099
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-08-11",
+    "nights": 7,
+    "itinerary": "HUMPACK EXPEDITION",
+    "itineraryCode": "EXP270811",
+    "embarkPort": "Whittier",
+    "debarkPort": "Vancouver",
+    "fare": 6299
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-08-11",
+    "nights": 11,
+    "itinerary": "ENDURING IBERIA",
+    "itineraryCode": "MAR270811",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Barcelona",
+    "fare": 9699
   },
   {
     "shipName": "Seven Seas Mariner",
@@ -2290,34 +950,14 @@
     "fare": 18449
   },
   {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-08-17",
-    "nights": 10,
-    "itinerary": "CITIES OF WINES",
-    "itineraryCode": "GRA270817",
-    "embarkPort": "Lisbon",
-    "debarkPort": "London (Southampton)",
-    "fare": 9099
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-08-18",
-    "nights": 10,
-    "itinerary": "VERDANT ICELAND",
-    "itineraryCode": "SPL270818",
-    "embarkPort": "Reykjavik",
-    "debarkPort": "Reykjavik",
-    "fare": 10499
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-08-21",
-    "nights": 10,
-    "itinerary": "ANTIQUITIES & ANCIENTS",
-    "itineraryCode": "PRT270821",
-    "embarkPort": "Trieste",
-    "debarkPort": "Barcelona",
-    "fare": 9199
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-08-25",
+    "nights": 7,
+    "itinerary": "TONGASS IN THE MIST",
+    "itineraryCode": "EXP270825",
+    "embarkPort": "Whittier",
+    "debarkPort": "Vancouver",
+    "fare": 5549
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -2330,104 +970,74 @@
     "fare": 19599
   },
   {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-08-31",
-    "nights": 9,
-    "itinerary": "TOAST TO TOULON",
-    "itineraryCode": "PRT270831",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 8799
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-09-01",
-    "nights": 7,
-    "itinerary": "WINGS OVER ALASKA",
-    "itineraryCode": "EXP270901",
-    "embarkPort": "Vancouver",
-    "debarkPort": "Whittier",
-    "fare": 5999
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-09-02",
-    "nights": 8,
-    "itinerary": "CENTURIES OF ART",
-    "itineraryCode": "MAR270902",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Venice (Fusina)",
-    "fare": 6849
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-09-09",
-    "nights": 7,
-    "itinerary": "CROATIAN CULTURE & CUISINE",
-    "itineraryCode": "PRT270909",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Trieste",
-    "fare": 6799
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-09-09",
-    "nights": 14,
-    "itinerary": "IDYLLIC DAYS",
-    "itineraryCode": "PRT270909A",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Athens (Piraeus)",
-    "fare": 13399
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-09-10",
-    "nights": 11,
-    "itinerary": "CANADIAN CULINARY DELIGHTS",
-    "itineraryCode": "GRA270910",
-    "embarkPort": "Montréal",
-    "debarkPort": "New York",
-    "fare": 11599
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-09-14",
-    "nights": 13,
-    "itinerary": "STORYBOOK VILLAGES & WORLDCLASS ART",
-    "itineraryCode": "VOY270914",
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-09-13",
+    "nights": 12,
+    "itinerary": "ENCHANTED SCOTLAND",
+    "itineraryCode": "SPL270913",
     "embarkPort": "London (Southampton)",
-    "debarkPort": "Lisbon",
-    "fare": 12699
+    "debarkPort": "London (Southampton)",
+    "fare": 11199
   },
   {
     "shipName": "Seven Seas Explorer",
     "departureDate": "2027-09-15",
-    "nights": 19,
-    "itinerary": "HUBBARD GLACIER TO MOUNT FUJI",
-    "itineraryCode": "EXP270915",
+    "nights": 30,
+    "itinerary": "THE PAINTED EAST",
+    "itineraryCode": "EXP270915A",
     "embarkPort": "Vancouver",
     "debarkPort": "Tokyo",
-    "fare": 10699
+    "fare": 19499
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-09-20",
-    "nights": 10,
-    "itinerary": "ULTIMATE AEGEAN EXPLORER",
-    "itineraryCode": "MAR270920",
-    "embarkPort": "Athens (Piraeus)",
-    "debarkPort": "Istanbul",
-    "fare": 8649
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-09-20",
-    "nights": 20,
-    "itinerary": "ANTIQUITY & HERITAGE",
-    "itineraryCode": "MAR270920A",
-    "embarkPort": "Athens (Piraeus)",
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-09-16",
+    "nights": 7,
+    "itinerary": "HIDDEN SHORES OF MYKONOS",
+    "itineraryCode": "PRT270916",
+    "embarkPort": "Trieste",
     "debarkPort": "Athens (Piraeus)",
-    "fare": 16199
+    "fare": 7649
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-09-16",
+    "nights": 14,
+    "itinerary": "SUNLIGHT & STONE",
+    "itineraryCode": "PRT270916A",
+    "embarkPort": "Trieste",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 13999
+  },
+  {
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2027-09-20",
+    "nights": 14,
+    "itinerary": "ATOLLS & DRAGONS",
+    "itineraryCode": "NAV270920",
+    "embarkPort": "Sydney",
+    "debarkPort": "Bali (Benoa)",
+    "fare": 7199
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-09-21",
+    "nights": 11,
+    "itinerary": "HARVEST TIDES",
+    "itineraryCode": "GRA270921",
+    "embarkPort": "New York",
+    "debarkPort": "Montréal",
+    "fare": 11599
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-09-30",
+    "nights": 7,
+    "itinerary": "RIVIERA REVERIE",
+    "itineraryCode": "PRT270930",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Barcelona",
+    "fare": 6599
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -2440,54 +1050,24 @@
     "fare": 12499
   },
   {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-10-08",
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2027-10-14",
+    "nights": 12,
+    "itinerary": "ORCHIDS & LANTERNS",
+    "itineraryCode": "NAV271014",
+    "embarkPort": "Perth (Fremantle)",
+    "debarkPort": "Singapore",
+    "fare": 5999
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-10-16",
     "nights": 9,
-    "itinerary": "CERULEAN CANARY ISLANDS",
-    "itineraryCode": "SPL271008",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Lisbon",
-    "fare": 8199
-  },
-  {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-10-11",
-    "nights": 11,
-    "itinerary": "SPANISH FLAVORS & RHYTHMS",
-    "itineraryCode": "VOY271011",
+    "itinerary": "CIRCLE ITALY",
+    "itineraryCode": "PRT271016",
     "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Barcelona",
-    "fare": 8499
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-10-13",
-    "nights": 11,
-    "itinerary": "LEAVES & LOBSTERS",
-    "itineraryCode": "GRA271013",
-    "embarkPort": "Boston",
-    "debarkPort": "Montréal",
-    "fare": 12299
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-10-17",
-    "nights": 23,
-    "itinerary": "COASTAL HARMONY",
-    "itineraryCode": "SPL271017A",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Istanbul",
-    "fare": 17599
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-10-20",
-    "nights": 21,
-    "itinerary": "PATH OF THE GREAT EMPIRES",
-    "itineraryCode": "MAR271020",
-    "embarkPort": "Athens (Piraeus)",
-    "debarkPort": "Doha",
-    "fare": 13099
+    "debarkPort": "Trieste",
+    "fare": 7699
   },
   {
     "shipName": "Seven Seas Prestige",
@@ -2530,6 +1110,36 @@
     "fare": 10899
   },
   {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-11-09",
+    "nights": 11,
+    "itinerary": "EPICUREAN JAPAN",
+    "itineraryCode": "EXP271109",
+    "embarkPort": "Tokyo",
+    "debarkPort": "Tokyo",
+    "fare": 8599
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-11-09",
+    "nights": 11,
+    "itinerary": "CINEMATIC SHORES",
+    "itineraryCode": "SPL271109",
+    "embarkPort": "Istanbul",
+    "debarkPort": "Barcelona",
+    "fare": 8499
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-11-10",
+    "nights": 27,
+    "itinerary": "MINARETS & MANDALAS",
+    "itineraryCode": "MAR271110A",
+    "embarkPort": "Doha",
+    "debarkPort": "Bali (Benoa)",
+    "fare": 18449
+  },
+  {
     "shipName": "Seven Seas Voyager",
     "departureDate": "2027-11-13",
     "nights": 7,
@@ -2540,14 +1150,24 @@
     "fare": 5299
   },
   {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2027-11-13",
+    "nights": 15,
+    "itinerary": "CATHEDRALS & CASTANETS",
+    "itineraryCode": "VOY271113A",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Barcelona",
+    "fare": 10699
+  },
+  {
     "shipName": "Seven Seas Explorer",
     "departureDate": "2027-11-20",
-    "nights": 21,
-    "itinerary": "THE STILL HORIZON",
-    "itineraryCode": "EXP271120A",
+    "nights": 10,
+    "itinerary": "TEMPURA & TEA",
+    "itineraryCode": "EXP271120",
     "embarkPort": "Tokyo",
-    "debarkPort": "Singapore",
-    "fare": 15149
+    "debarkPort": "Hong Kong",
+    "fare": 7599
   },
   {
     "shipName": "Seven Seas Voyager",
@@ -2560,74 +1180,34 @@
     "fare": 5999
   },
   {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-11-28",
-    "nights": 10,
-    "itinerary": "ISLAND RENDEZVOUS",
-    "itineraryCode": "GRA271128",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 5699
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-11-30",
-    "nights": 22,
-    "itinerary": "SILK & SKYLINE",
-    "itineraryCode": "EXP271130A",
-    "embarkPort": "Hong Kong",
-    "debarkPort": "Hong Kong",
-    "fare": 15249
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-12-07",
-    "nights": 11,
-    "itinerary": "VIRGIN ISLANDS VOYAGE",
-    "itineraryCode": "PRT271207",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 7799
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-12-11",
-    "nights": 11,
-    "itinerary": "SKYLINE STORIES",
-    "itineraryCode": "EXP271211",
-    "embarkPort": "Singapore",
-    "debarkPort": "Hong Kong",
-    "fare": 7749
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-12-18",
-    "nights": 10,
-    "itinerary": "SEASON TO CHEER",
-    "itineraryCode": "PRT271218",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 7099
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-12-22",
-    "nights": 14,
-    "itinerary": "A FESTIVE PASSAGE",
-    "itineraryCode": "GRA271222",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 8999
-  },
-  {
     "shipName": "Seven Seas Mariner",
-    "departureDate": "2028-01-04",
+    "departureDate": "2027-12-07",
     "nights": 14,
-    "itinerary": "BESPOKE NEW ZEALAND ESCAPE",
-    "itineraryCode": "MAR280104",
-    "embarkPort": "Auckland",
+    "itinerary": "COLORFUL FRANGIPANI & HIBISCUS",
+    "itineraryCode": "MAR271207",
+    "embarkPort": "Bali (Benoa)",
     "debarkPort": "Sydney",
-    "fare": 12999
+    "fare": 10199
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-12-20",
+    "nights": 16,
+    "itinerary": "HOLIDAY IN PANAMA",
+    "itineraryCode": "SPL271220",
+    "embarkPort": "Miami",
+    "debarkPort": "San Francisco",
+    "fare": 10099
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-12-28",
+    "nights": 10,
+    "itinerary": "NEW YEAR EXUBERANCE",
+    "itineraryCode": "PRT271228",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 6999
   },
   {
     "shipName": "Seven Seas Explorer",
@@ -2640,16 +1220,6 @@
     "fare": 9999
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2028-01-05",
-    "nights": 61,
-    "itinerary": "GRAND ASIA ESCAPE",
-    "itineraryCode": "EXP280105D",
-    "embarkPort": "Hong Kong",
-    "debarkPort": "Tokyo",
-    "fare": 49899
-  },
-  {
     "shipName": "Seven Seas Splendor",
     "departureDate": "2028-01-06",
     "nights": 17,
@@ -2660,24 +1230,14 @@
     "fare": 13699
   },
   {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2028-01-07",
-    "nights": 10,
-    "itinerary": "BAHAMIAN BREEZE",
-    "itineraryCode": "PRT280107",
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2028-01-13",
+    "nights": 14,
+    "itinerary": "EMPIRES OF THE SUN",
+    "itineraryCode": "VOY280113",
     "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 7299
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2028-01-17",
-    "nights": 35,
-    "itinerary": "FIRECRACKERS TO SKYLINES",
-    "itineraryCode": "EXP280117B",
-    "embarkPort": "Bali (Benoa)",
-    "debarkPort": "Seoul (Incheon)",
-    "fare": 28799
+    "debarkPort": "Lima (Callao)",
+    "fare": 12099
   },
   {
     "shipName": "Seven Seas Prestige",
@@ -2690,14 +1250,14 @@
     "fare": 7699
   },
   {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2028-01-23",
-    "nights": 26,
-    "itinerary": "DREAMING DOWN UNDER",
-    "itineraryCode": "SPL280123A",
-    "embarkPort": "Papeete (Tahiti)",
-    "debarkPort": "Sydney",
-    "fare": 19299
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2028-01-25",
+    "nights": 10,
+    "itinerary": "TROPICAL HEART & SOUL",
+    "itineraryCode": "GRA280125",
+    "embarkPort": "Bridgetown",
+    "debarkPort": "Bridgetown",
+    "fare": 5899
   },
   {
     "shipName": "Seven Seas Prestige",
@@ -2720,34 +1280,74 @@
     "fare": 21949
   },
   {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2028-02-14",
-    "nights": 10,
-    "itinerary": "BE MY ISLAND VALENTINE",
-    "itineraryCode": "GRA280214",
-    "embarkPort": "Bridgetown",
-    "debarkPort": "Bridgetown",
-    "fare": 5999
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2028-02-05",
+    "nights": 11,
+    "itinerary": "CUPID IN THE CARIBBEAN",
+    "itineraryCode": "PRT280205",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 8799
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2028-02-19",
-    "nights": 30,
-    "itinerary": "AUSTRAL ARC",
-    "itineraryCode": "MAR280219A",
-    "embarkPort": "Sydney",
-    "debarkPort": "Bali (Benoa)",
-    "fare": 25199
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2028-02-16",
+    "nights": 15,
+    "itinerary": "ROMANCE OF ROSEAU",
+    "itineraryCode": "PRT280216",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 11799
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2028-02-21",
+    "nights": 14,
+    "itinerary": "GATES, PALACES & SHRINES",
+    "itineraryCode": "EXP280221",
+    "embarkPort": "Seoul (Incheon)",
+    "debarkPort": "Tokyo",
+    "fare": 12199
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2028-03-02",
+    "nights": 12,
+    "itinerary": "FLAVORS OF CARTAGENA",
+    "itineraryCode": "PRT280302",
+    "embarkPort": "Miami",
+    "debarkPort": "Panama City",
+    "fare": 8799
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2028-03-04",
+    "nights": 10,
+    "itinerary": "MAYA CULTURE & CUISINE",
+    "itineraryCode": "GRA280304",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 6399
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2028-03-06",
+    "nights": 11,
+    "itinerary": "AT FIRST BLOOM",
+    "itineraryCode": "EXP280306",
+    "embarkPort": "Tokyo",
+    "debarkPort": "Tokyo",
+    "fare": 9699
   },
   {
     "shipName": "Seven Seas Prestige",
     "departureDate": "2028-03-14",
-    "nights": 26,
-    "itinerary": "AZURE TO IBERIA",
-    "itineraryCode": "PRT280314A",
+    "nights": 12,
+    "itinerary": "BON BINI ARUBA",
+    "itineraryCode": "PRT280314",
     "embarkPort": "Panama City",
-    "debarkPort": "Lisbon",
-    "fare": 17049
+    "debarkPort": "Miami",
+    "fare": 8599
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -2760,16 +1360,6 @@
     "fare": 7599
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2028-03-20",
-    "nights": 25,
-    "itinerary": "SERENE EDENS",
-    "itineraryCode": "MAR280320A",
-    "embarkPort": "Bali (Benoa)",
-    "debarkPort": "Port Louis",
-    "fare": 18249
-  },
-  {
     "shipName": "Seven Seas Prestige",
     "departureDate": "2028-03-26",
     "nights": 25,
@@ -2780,44 +1370,24 @@
     "fare": 19699
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2028-03-28",
-    "nights": 17,
-    "itinerary": "DISCOVERIES OF WONDER & JOY",
-    "itineraryCode": "MAR280328",
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2028-03-26",
+    "nights": 21,
+    "itinerary": "GUARDIAN GIANTS",
+    "itineraryCode": "SPL280326A",
     "embarkPort": "Singapore",
-    "debarkPort": "Port Louis",
-    "fare": 12299
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2028-03-31",
-    "nights": 14,
-    "itinerary": "PRETTY IN PINK SPRING",
-    "itineraryCode": "EXP280331",
-    "embarkPort": "Tokyo",
-    "debarkPort": "Singapore",
-    "fare": 11899
+    "debarkPort": "Seoul (Incheon)",
+    "fare": 16149
   },
   {
     "shipName": "Seven Seas Splendor",
-    "departureDate": "2028-04-06",
-    "nights": 21,
-    "itinerary": "FOLK TRADITIONS & FESTIVALS",
-    "itineraryCode": "SPL280406A",
-    "embarkPort": "Hong Kong",
+    "departureDate": "2028-04-16",
+    "nights": 11,
+    "itinerary": "SAKURA & SAMURAI",
+    "itineraryCode": "SPL280416",
+    "embarkPort": "Seoul (Incheon)",
     "debarkPort": "Tokyo",
-    "fare": 17049
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2028-04-14",
-    "nights": 16,
-    "itinerary": "ISLAND DELIGHTS & CITY LIGHTS",
-    "itineraryCode": "EXP280414",
-    "embarkPort": "Singapore",
-    "debarkPort": "Doha",
-    "fare": 12649
+    "fare": 10099
   },
   {
     "shipName": "Seven Seas Mariner",
@@ -2831,13 +1401,43 @@
   },
   {
     "shipName": "Seven Seas Splendor",
-    "departureDate": "2028-05-17",
-    "nights": 7,
-    "itinerary": "FLOWERS, HARMONY & HAIGHT",
-    "itineraryCode": "SPL280517",
-    "embarkPort": "San Francisco",
-    "debarkPort": "Vancouver",
-    "fare": 6199
+    "departureDate": "2026-03-13",
+    "nights": 14,
+    "itinerary": "BLUE HORIZONS",
+    "itineraryCode": "SPL260313",
+    "embarkPort": "Miami",
+    "debarkPort": "Lisbon",
+    "fare": 8499
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-03-14",
+    "nights": 12,
+    "itinerary": "CARIBBEAN FLAVORS & COZUMEL",
+    "itineraryCode": "GRA260314",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 10499
+  },
+  {
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2026-03-14",
+    "nights": 17,
+    "itinerary": "SOUTH PACIFIC OVERNIGHTS",
+    "itineraryCode": "NAV260314",
+    "embarkPort": "Papeete (Tahiti)",
+    "debarkPort": "Auckland",
+    "fare": 10399
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2026-03-24",
+    "nights": 16,
+    "itinerary": "SPECTACULAR ASIA AT NIGHT",
+    "itineraryCode": "MAR260324",
+    "embarkPort": "Bali (Benoa)",
+    "debarkPort": "Singapore",
+    "fare": 14699
   },
   {
     "shipName": "Seven Seas Splendor",
@@ -2850,6 +1450,16 @@
     "fare": 12299
   },
   {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2026-04-09",
+    "nights": 30,
+    "itinerary": "INDIAN OCEAN EXPLORATION",
+    "itineraryCode": "MAR260409",
+    "embarkPort": "Singapore",
+    "debarkPort": "Cape Town",
+    "fare": 22699
+  },
+  {
     "shipName": "Seven Seas Voyager",
     "departureDate": "2026-04-10",
     "nights": 7,
@@ -2860,24 +1470,34 @@
     "fare": 6299
   },
   {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2026-04-17",
-    "nights": 9,
-    "itinerary": "PESTO, PAELLA & PARADISE",
-    "itineraryCode": "VOY260417",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Barcelona (Tarragona)",
-    "fare": 8599
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2026-05-02",
+    "nights": 20,
+    "itinerary": "INDIAN OCEAN ENCHANTMENTS",
+    "itineraryCode": "NAV260502",
+    "embarkPort": "Bangkok (Laem Chabang)",
+    "debarkPort": "Doha",
+    "fare": 12599
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2026-05-09",
+    "nights": 24,
+    "itinerary": "WESTERN AFRICA & ISLES OF WONDER",
+    "itineraryCode": "MAR260509",
+    "embarkPort": "Cape Town",
+    "debarkPort": "Lisbon",
+    "fare": 16399
   },
   {
     "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-04-19",
-    "nights": 31,
-    "itinerary": "ASIAN LIGHTS & ALASKAN SIGHTS",
-    "itineraryCode": "EXP260419A",
-    "embarkPort": "Tokyo",
+    "departureDate": "2026-05-20",
+    "nights": 14,
+    "itinerary": "CANADIAN SPRING",
+    "itineraryCode": "EXP260520A",
+    "embarkPort": "Vancouver",
     "debarkPort": "Vancouver",
-    "fare": 26249
+    "fare": 14899
   },
   {
     "shipName": "Seven Seas Voyager",
@@ -2890,24 +1510,34 @@
     "fare": 12199
   },
   {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-05-24",
-    "nights": 13,
-    "itinerary": "SPOTLIGHT ON FABERGE",
-    "itineraryCode": "GRA260524",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "London (Southampton)",
-    "fare": 15099
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2026-05-22",
+    "nights": 20,
+    "itinerary": "ARABIAN NIGHTS & EGYPTIAN SHORES",
+    "itineraryCode": "NAV260522",
+    "embarkPort": "Doha",
+    "debarkPort": "Cape Town",
+    "fare": 9949
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-06-03",
-    "nights": 7,
-    "itinerary": "KLONDIKE BLOOMS",
-    "itineraryCode": "EXP260603",
-    "embarkPort": "Vancouver",
-    "debarkPort": "Whittier",
-    "fare": 7749
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2026-05-22",
+    "nights": 12,
+    "itinerary": "SPRING IN THE AEGEAN",
+    "itineraryCode": "SPL260522",
+    "embarkPort": "Istanbul",
+    "debarkPort": "Istanbul",
+    "fare": 11349
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2026-06-02",
+    "nights": 14,
+    "itinerary": "SYMPHONY OF THE SENSES",
+    "itineraryCode": "VOY260602",
+    "embarkPort": "Athens (Piraeus)",
+    "debarkPort": "Trieste",
+    "fare": 13899
   },
   {
     "shipName": "Seven Seas Splendor",
@@ -2920,14 +1550,54 @@
     "fare": 10849
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-06-10",
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-06-16",
+    "nights": 12,
+    "itinerary": "BRITISH ISLES ENCHANTMENT",
+    "itineraryCode": "GRA260616",
+    "embarkPort": "London (Southampton)",
+    "debarkPort": "London (Southampton)",
+    "fare": 17499
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2026-06-16",
+    "nights": 12,
+    "itinerary": "TREASURES OF THE ADRIATIC",
+    "itineraryCode": "VOY260616",
+    "embarkPort": "Trieste",
+    "debarkPort": "Istanbul",
+    "fare": 11699
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-06-28",
     "nights": 7,
-    "itinerary": "SPOTLIGHT ON KEN BROWN WINES",
-    "itineraryCode": "EXP260610",
-    "embarkPort": "Whittier",
-    "debarkPort": "Vancouver",
-    "fare": 7899
+    "itinerary": "ISLES GETAWAY",
+    "itineraryCode": "GRA260628",
+    "embarkPort": "London (Southampton)",
+    "debarkPort": "Belfast",
+    "fare": 8749
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-06-28",
+    "nights": 14,
+    "itinerary": "THE EXTRAORDINARY NORTH ATLANTIC",
+    "itineraryCode": "GRA260628A",
+    "embarkPort": "London (Southampton)",
+    "debarkPort": "Reykjavik",
+    "fare": 16899
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2026-06-28",
+    "nights": 12,
+    "itinerary": "KNIGHTS & EMPERORS",
+    "itineraryCode": "VOY260628",
+    "embarkPort": "Istanbul",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 12199
   },
   {
     "shipName": "Seven Seas Splendor",
@@ -2940,23 +1610,23 @@
     "fare": 7599
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-07-01",
-    "nights": 7,
-    "itinerary": "BALD EAGLE SKIES",
-    "itineraryCode": "EXP260701",
-    "embarkPort": "Vancouver",
-    "debarkPort": "Whittier",
-    "fare": 8299
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-07-12",
+    "nights": 10,
+    "itinerary": "MAGICAL MIDNIGHT SUN",
+    "itineraryCode": "GRA260712",
+    "embarkPort": "Reykjavik",
+    "debarkPort": "Reykjavik",
+    "fare": 12999
   },
   {
     "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-07-08",
+    "departureDate": "2026-07-15",
     "nights": 7,
-    "itinerary": "TALL TOTEMS & LUMBERJACK SHOWS",
-    "itineraryCode": "EXP260708",
-    "embarkPort": "Whittier",
-    "debarkPort": "Vancouver",
+    "itinerary": "TLINGIT ART & CRAFTSMANSHIP",
+    "itineraryCode": "EXP260715",
+    "embarkPort": "Vancouver",
+    "debarkPort": "Whittier",
     "fare": 7699
   },
   {
@@ -2970,34 +1640,34 @@
     "fare": 12399
   },
   {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2026-07-28",
-    "nights": 14,
-    "itinerary": "AEGEAN PANORAMAS",
-    "itineraryCode": "SPL260728A",
-    "embarkPort": "Athens (Piraeus)",
-    "debarkPort": "Athens (Piraeus)",
-    "fare": 15349
-  },
-  {
     "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-08-12",
+    "departureDate": "2026-07-29",
     "nights": 7,
-    "itinerary": "ALASKAN ESCAPE",
-    "itineraryCode": "EXP260812",
+    "itinerary": "TALES OF THE GOLD RUSH",
+    "itineraryCode": "EXP260729",
     "embarkPort": "Vancouver",
     "debarkPort": "Whittier",
-    "fare": 8249
+    "fare": 7849
   },
   {
     "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-08-12",
-    "nights": 14,
-    "itinerary": "EXPLORE THE FRONTIER",
-    "itineraryCode": "EXP260812A",
-    "embarkPort": "Vancouver",
+    "departureDate": "2026-08-05",
+    "nights": 7,
+    "itinerary": "INSIDE PASSAGE RAINFOREST",
+    "itineraryCode": "EXP260805",
+    "embarkPort": "Whittier",
     "debarkPort": "Vancouver",
-    "fare": 14499
+    "fare": 7349
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2026-08-11",
+    "nights": 26,
+    "itinerary": "HISTORIC HORIZONS",
+    "itineraryCode": "SPL260811A",
+    "embarkPort": "Athens (Piraeus)",
+    "debarkPort": "New York",
+    "fare": 21249
   },
   {
     "shipName": "Seven Seas Navigator",
@@ -3012,62 +1682,32 @@
   {
     "shipName": "Seven Seas Voyager",
     "departureDate": "2026-08-12",
-    "nights": 8,
-    "itinerary": "ROYAL ROUTES",
-    "itineraryCode": "VOY260812",
+    "nights": 20,
+    "itinerary": "ISLES OF MYTH & MAGNIFICENCE",
+    "itineraryCode": "VOY260812A",
     "embarkPort": "London (Southampton)",
-    "debarkPort": "Reykjavik",
-    "fare": 9549
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-08-15",
-    "nights": 14,
-    "itinerary": "NORDIC VERVE & BAROQUE FLAIR",
-    "itineraryCode": "GRA260815A",
-    "embarkPort": "Oslo",
-    "debarkPort": "Stockholm",
-    "fare": 17699
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-08-19",
-    "nights": 7,
-    "itinerary": "WILD FRONTIERS",
-    "itineraryCode": "EXP260819",
-    "embarkPort": "Whittier",
-    "debarkPort": "Vancouver",
-    "fare": 6999
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-08-22",
-    "nights": 7,
-    "itinerary": "NORDIC MAJESTY",
-    "itineraryCode": "GRA260822",
-    "embarkPort": "Copenhagen",
-    "debarkPort": "Stockholm",
-    "fare": 9299
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-08-26",
-    "nights": 7,
-    "itinerary": "BIG BEARS, GLEAMING GLACIERS",
-    "itineraryCode": "EXP260826",
-    "embarkPort": "Vancouver",
-    "debarkPort": "Whittier",
-    "fare": 7699
+    "debarkPort": "London (Southampton)",
+    "fare": 20349
   },
   {
     "shipName": "Seven Seas Splendor",
-    "departureDate": "2026-09-06",
-    "nights": 11,
-    "itinerary": "EARLY AUTUMN VIBRANCE",
-    "itineraryCode": "SPL260906",
-    "embarkPort": "New York",
-    "debarkPort": "Montréal",
-    "fare": 11999
+    "departureDate": "2026-08-23",
+    "nights": 14,
+    "itinerary": "HISTORY ON THE HORIZON",
+    "itineraryCode": "SPL260823",
+    "embarkPort": "Lisbon",
+    "debarkPort": "New York",
+    "fare": 9849
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2026-09-09",
+    "nights": 9,
+    "itinerary": "BEHOLD THE PACIFIC NORTHWEST",
+    "itineraryCode": "EXP260909",
+    "embarkPort": "Vancouver",
+    "debarkPort": "Seattle",
+    "fare": 7949
   },
   {
     "shipName": "Seven Seas Navigator",
@@ -3090,44 +1730,44 @@
     "fare": 12999
   },
   {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2026-09-18",
+    "nights": 12,
+    "itinerary": "SOARING FJORDS & RAW WILDERNESS",
+    "itineraryCode": "EXP260918",
+    "embarkPort": "Seattle",
+    "debarkPort": "Seattle",
+    "fare": 9599
+  },
+  {
     "shipName": "Seven Seas Splendor",
-    "departureDate": "2026-09-28",
+    "departureDate": "2026-10-09",
     "nights": 11,
-    "itinerary": "MAGNIFIQUE L'AUTOMNE",
-    "itineraryCode": "SPL260928",
-    "embarkPort": "Boston",
-    "debarkPort": "Montréal",
-    "fare": 13249
+    "itinerary": "CELEBRATE THE ST. LAWRENCE",
+    "itineraryCode": "SPL261009",
+    "embarkPort": "Montréal",
+    "debarkPort": "New York",
+    "fare": 12799
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2026-10-30",
+    "nights": 16,
+    "itinerary": "EPIC ATLANTIC ESCAPADE",
+    "itineraryCode": "SPL261030",
+    "embarkPort": "Montréal",
+    "debarkPort": "Miami",
+    "fare": 11899
   },
   {
     "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-10-20",
-    "nights": 12,
-    "itinerary": "BEAUTY UNDER THE STARS",
-    "itineraryCode": "GRA261020",
-    "embarkPort": "Valletta",
-    "debarkPort": "Athens (Piraeus)",
-    "fare": 11199
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-10-31",
-    "nights": 10,
-    "itinerary": "ZEN TO ZEST",
-    "itineraryCode": "EXP261031",
-    "embarkPort": "Tokyo",
-    "debarkPort": "Hong Kong",
-    "fare": 9899
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-10-31",
-    "nights": 22,
-    "itinerary": "EASTERN ELEGANCE",
-    "itineraryCode": "EXP261031A",
-    "embarkPort": "Tokyo",
-    "debarkPort": "Bangkok (Laem Chabang)",
-    "fare": 21549
+    "departureDate": "2026-11-01",
+    "nights": 21,
+    "itinerary": "IONIAN MOSAIC & ATLANTIC CROSSING",
+    "itineraryCode": "GRA261101A",
+    "embarkPort": "Athens (Piraeus)",
+    "debarkPort": "Miami",
+    "fare": 16449
   },
   {
     "shipName": "Seven Seas Navigator",
@@ -3137,17 +1777,7 @@
     "itineraryCode": "NAV261101",
     "embarkPort": "Rome (Civitavecchia)",
     "debarkPort": "Barcelona",
-    "fare": 4549
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2026-11-08",
-    "nights": 21,
-    "itinerary": "ATLANTIC OCEAN ISLES",
-    "itineraryCode": "GRA261108A",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Miami",
-    "fare": 13399
+    "fare": 4799
   },
   {
     "shipName": "Seven Seas Mariner",
@@ -3160,14 +1790,34 @@
     "fare": 13949
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-11-22",
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2026-11-10",
+    "nights": 17,
+    "itinerary": "ANCIENT & HISTORIC SHORES",
+    "itineraryCode": "VOY261110A",
+    "embarkPort": "Trieste",
+    "debarkPort": "Istanbul",
+    "fare": 16549
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2026-11-15",
+    "nights": 15,
+    "itinerary": "SAPPHIRE SEA DREAMS",
+    "itineraryCode": "SPL261115",
+    "embarkPort": "Miami",
+    "debarkPort": "Galveston",
+    "fare": 9599
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2026-11-30",
     "nights": 11,
-    "itinerary": "PEAKS & PAGODAS",
-    "itineraryCode": "EXP261122",
-    "embarkPort": "Bangkok (Laem Chabang)",
-    "debarkPort": "Bali (Benoa)",
-    "fare": 8499
+    "itinerary": "WATERFALLS & DIVERS",
+    "itineraryCode": "SPL261130",
+    "embarkPort": "Galveston",
+    "debarkPort": "Galveston",
+    "fare": 6899
   },
   {
     "shipName": "Seven Seas Mariner",
@@ -3180,54 +1830,84 @@
     "fare": 6299
   },
   {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2026-12-07",
-    "nights": 21,
-    "itinerary": "MASTERPIECES OF PETRA",
-    "itineraryCode": "VOY261207",
-    "embarkPort": "Athens (Piraeus)",
-    "debarkPort": "Dubai",
-    "fare": 16649
-  },
-  {
     "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-12-19",
-    "nights": 10,
-    "itinerary": "AN AUSSIE CELEBRATION",
-    "itineraryCode": "EXP261219",
-    "embarkPort": "Sydney",
-    "debarkPort": "Sydney",
-    "fare": 8999
-  },
-  {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2026-12-21",
-    "nights": 14,
-    "itinerary": "SPICE TRAIL SAIL",
-    "itineraryCode": "NAV261221",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Athens (Piraeus)",
-    "fare": 6999
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2026-12-29",
+    "departureDate": "2026-12-03",
     "nights": 16,
-    "itinerary": "TOAST TO THE FJORDS",
-    "itineraryCode": "EXP261229",
-    "embarkPort": "Sydney",
-    "debarkPort": "Auckland",
-    "fare": 14549
+    "itinerary": "CORAL COASTS TO OPERA HOUSE",
+    "itineraryCode": "EXP261203",
+    "embarkPort": "Bali (Benoa)",
+    "debarkPort": "Sydney",
+    "fare": 12749
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2026-12-11",
+    "nights": 10,
+    "itinerary": "SHIMMERING REEFS, MIGHTY RUINS",
+    "itineraryCode": "MAR261211",
+    "embarkPort": "Tampa Bay",
+    "debarkPort": "Tampa Bay",
+    "fare": 6199
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2026-12-11",
+    "nights": 17,
+    "itinerary": "TROPICAL SPARKLE & HOLIDAY CHEER",
+    "itineraryCode": "SPL261211",
+    "embarkPort": "Galveston",
+    "debarkPort": "Galveston",
+    "fare": 9999
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2026-12-13",
+    "nights": 14,
+    "itinerary": "FELICES FIESTAS",
+    "itineraryCode": "PRT261213",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Miami",
+    "fare": 9099
   },
   {
     "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-01-14",
-    "nights": 10,
-    "itinerary": "WEST COAST RETREAT",
-    "itineraryCode": "GRA270114",
-    "embarkPort": "Los Angeles",
+    "departureDate": "2026-12-29",
+    "nights": 16,
+    "itinerary": "PANAMA CANAL & PACIFIC GEMS",
+    "itineraryCode": "GRA261229",
+    "embarkPort": "Miami",
     "debarkPort": "Los Angeles",
-    "fare": 7599
+    "fare": 12999
+  },
+  {
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2027-01-04",
+    "nights": 11,
+    "itinerary": "ROMANCE, RUINS & RHODES",
+    "itineraryCode": "NAV270104",
+    "embarkPort": "Athens (Piraeus)",
+    "debarkPort": "Istanbul",
+    "fare": 4599
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-01-11",
+    "nights": 141,
+    "itinerary": "WORLD OF SPLENDOR",
+    "itineraryCode": "SPL270111G",
+    "embarkPort": "Miami",
+    "debarkPort": "New York",
+    "fare": 94399
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-01-14",
+    "nights": 14,
+    "itinerary": "VINTNERS & ARTISANS OF THE PACIFIC",
+    "itineraryCode": "EXP270114",
+    "embarkPort": "Auckland",
+    "debarkPort": "Sydney",
+    "fare": 16749
   },
   {
     "shipName": "Seven Seas Voyager",
@@ -3242,32 +1922,42 @@
   {
     "shipName": "Seven Seas Voyager",
     "departureDate": "2027-02-01",
-    "nights": 15,
-    "itinerary": "MADAGASCAR MARVELS",
-    "itineraryCode": "VOY270201",
+    "nights": 61,
+    "itinerary": "INDIAN OCEAN ODYSSEY",
+    "itineraryCode": "VOY270201C",
     "embarkPort": "Cape Town",
-    "debarkPort": "Port Louis",
-    "fare": 11999
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-02-02",
-    "nights": 18,
-    "itinerary": "COLOSSAL COASTLINES",
-    "itineraryCode": "MAR270202",
-    "embarkPort": "Buenos Aires",
-    "debarkPort": "Buenos Aires",
-    "fare": 12699
+    "debarkPort": "Barcelona",
+    "fare": 42299
   },
   {
     "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-02-22",
-    "nights": 11,
-    "itinerary": "CRESCENT BEACHES & COLORFUL TOWNS",
-    "itineraryCode": "PRT270222",
-    "embarkPort": "Panama City",
-    "debarkPort": "Miami",
-    "fare": 9299
+    "departureDate": "2027-02-10",
+    "nights": 12,
+    "itinerary": "SAPPHIRE SOJOURN",
+    "itineraryCode": "PRT270210",
+    "embarkPort": "Los Angeles",
+    "debarkPort": "Panama City",
+    "fare": 8499
+  },
+  {
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2027-02-12",
+    "nights": 25,
+    "itinerary": "WEST AFRICAN MAJESTY",
+    "itineraryCode": "NAV270212",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Cape Town",
+    "fare": 10999
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2027-02-16",
+    "nights": 15,
+    "itinerary": "SEYCHELLES TO SANDS",
+    "itineraryCode": "VOY270216",
+    "embarkPort": "Port Louis",
+    "debarkPort": "Doha",
+    "fare": 10799
   },
   {
     "shipName": "Seven Seas Navigator",
@@ -3280,74 +1970,24 @@
     "fare": 11399
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-03-10",
-    "nights": 16,
-    "itinerary": "MACHU PICCHU & MAYAN RUINS",
-    "itineraryCode": "MAR270310",
-    "embarkPort": "Lima (Callao)",
-    "debarkPort": "Miami",
-    "fare": 12399
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-03-18",
-    "nights": 12,
-    "itinerary": "CASTLES, TEMPLES & GEISHAS",
-    "itineraryCode": "EXP270318",
-    "embarkPort": "Tokyo",
-    "debarkPort": "Tokyo",
-    "fare": 10899
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-03-20",
-    "nights": 10,
-    "itinerary": "TROPICAL PASSAGE",
-    "itineraryCode": "PRT270320",
-    "embarkPort": "Miami",
-    "debarkPort": "San Juan",
-    "fare": 7099
-  },
-  {
     "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-03-24",
-    "nights": 10,
-    "itinerary": "SPANISH SAPPHIRE SHORES",
-    "itineraryCode": "VOY270324",
-    "embarkPort": "Rome (Civitavecchia)",
+    "departureDate": "2027-04-03",
+    "nights": 15,
+    "itinerary": "QUINTESSENTIAL IBERIAN JOURNEY",
+    "itineraryCode": "VOY270403",
+    "embarkPort": "Barcelona",
     "debarkPort": "Barcelona",
-    "fare": 8099
+    "fare": 12499
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-03-26",
-    "nights": 10,
-    "itinerary": "MAYAN CULTURE, ISLAND JOY",
-    "itineraryCode": "MAR270326",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 6599
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-03-26",
-    "nights": 20,
-    "itinerary": "CULTURAL CURRENTS",
-    "itineraryCode": "MAR270326A",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 12549
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-03-31",
-    "nights": 14,
-    "itinerary": "CARNIVAL OF CARIBBEAN COLORS",
-    "itineraryCode": "GRA270331",
-    "embarkPort": "Panama City",
-    "debarkPort": "Miami",
-    "fare": 9399
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2027-04-06",
+    "nights": 12,
+    "itinerary": "FUSION OF ANCIENT & MODERN",
+    "itineraryCode": "NAV270406",
+    "embarkPort": "Singapore",
+    "debarkPort": "Hong Kong",
+    "fare": 6349
   },
   {
     "shipName": "Seven Seas Explorer",
@@ -3360,14 +2000,14 @@
     "fare": 10799
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-04-29",
-    "nights": 16,
-    "itinerary": "SHIMMERING ATLANTIC SHORES",
-    "itineraryCode": "MAR270429",
-    "embarkPort": "New York",
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-04-14",
+    "nights": 24,
+    "itinerary": "ATLANTIC EVENINGS",
+    "itineraryCode": "GRA270414A",
+    "embarkPort": "Miami",
     "debarkPort": "Lisbon",
-    "fare": 9999
+    "fare": 17049
   },
   {
     "shipName": "Seven Seas Mariner",
@@ -3380,16 +2020,6 @@
     "fare": 82049
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-05-07",
-    "nights": 19,
-    "itinerary": "EPIC PACIFIC PASSAGE",
-    "itineraryCode": "EXP270507",
-    "embarkPort": "Tokyo",
-    "debarkPort": "Vancouver",
-    "fare": 14299
-  },
-  {
     "shipName": "Seven Seas Grandeur",
     "departureDate": "2027-05-08",
     "nights": 7,
@@ -3397,27 +2027,37 @@
     "itineraryCode": "GRA270508",
     "embarkPort": "Lisbon",
     "debarkPort": "Barcelona",
-    "fare": 5749
+    "fare": 6049
   },
   {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-05-18",
-    "nights": 14,
-    "itinerary": "SPLENDID ATLANTIC SOJOURN",
-    "itineraryCode": "SPL270518",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "New York",
-    "fare": 9699
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-05-27",
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-05-15",
     "nights": 12,
-    "itinerary": "REGAL SHORES",
-    "itineraryCode": "PRT270527",
-    "embarkPort": "London (Southampton)",
-    "debarkPort": "Lisbon",
-    "fare": 14299
+    "itinerary": "LA LUMIERE DU SOLEIL",
+    "itineraryCode": "MAR270515",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Paris (Le Havre)",
+    "fare": 11199
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2027-05-21",
+    "nights": 12,
+    "itinerary": "CLIFFS, CASTLES & CULTURE",
+    "itineraryCode": "VOY270521",
+    "embarkPort": "Edinburgh (Leith)",
+    "debarkPort": "Stockholm",
+    "fare": 11299
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-05-25",
+    "nights": 8,
+    "itinerary": "DALMATIAN RHAPSODY",
+    "itineraryCode": "GRA270525",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Venice (Fusina)",
+    "fare": 6699
   },
   {
     "shipName": "Seven Seas Splendor",
@@ -3440,44 +2080,14 @@
     "fare": 7599
   },
   {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-06-08",
-    "nights": 18,
-    "itinerary": "TIMELESS SHORES",
-    "itineraryCode": "PRT270608A",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 16749
-  },
-  {
     "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-06-09",
+    "departureDate": "2027-06-16",
     "nights": 7,
-    "itinerary": "SUMMER IN SKAGWAY",
-    "itineraryCode": "EXP270609",
-    "embarkPort": "Vancouver",
-    "debarkPort": "Whittier",
-    "fare": 5899
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-06-13",
-    "nights": 7,
-    "itinerary": "REGAL RETREAT",
-    "itineraryCode": "GRA270613",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 6299
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-06-23",
-    "nights": 7,
-    "itinerary": "EVERGREEN SHORES",
-    "itineraryCode": "EXP270623",
-    "embarkPort": "Vancouver",
-    "debarkPort": "Whittier",
-    "fare": 6499
+    "itinerary": "INSIDE PASSAGE JOURNEY",
+    "itineraryCode": "EXP270616",
+    "embarkPort": "Whittier",
+    "debarkPort": "Vancouver",
+    "fare": 6099
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -3490,16 +2100,6 @@
     "fare": 7499
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-06-30",
-    "nights": 7,
-    "itinerary": "AN ALASKAN CELEBRATION",
-    "itineraryCode": "EXP270630",
-    "embarkPort": "Whittier",
-    "debarkPort": "Vancouver",
-    "fare": 6599
-  },
-  {
     "shipName": "Seven Seas Grandeur",
     "departureDate": "2027-07-04",
     "nights": 7,
@@ -3508,6 +2108,26 @@
     "embarkPort": "Athens (Piraeus)",
     "debarkPort": "Rome (Civitavecchia)",
     "fare": 7599
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-07-05",
+    "nights": 10,
+    "itinerary": "BREATHTAKING GREEK ISLES",
+    "itineraryCode": "PRT270705",
+    "embarkPort": "Ravenna",
+    "debarkPort": "Barcelona",
+    "fare": 9799
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-07-05",
+    "nights": 17,
+    "itinerary": "MUSE & MARBLE",
+    "itineraryCode": "PRT270705A",
+    "embarkPort": "Ravenna",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 16149
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -3530,24 +2150,44 @@
     "fare": 6499
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-07-14",
-    "nights": 16,
-    "itinerary": "ICELAND & THE ISLES ODYSSEY",
-    "itineraryCode": "MAR270714",
-    "embarkPort": "Reykjavik",
-    "debarkPort": "London (Southampton)",
-    "fare": 16099
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-07-21",
+    "nights": 7,
+    "itinerary": "NORTHERN ESCAPE",
+    "itineraryCode": "EXP270721",
+    "embarkPort": "Vancouver",
+    "debarkPort": "Whittier",
+    "fare": 7349
   },
   {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-07-14",
-    "nights": 12,
-    "itinerary": "SCANDI-CHIC & ROYAL HERITAGE",
-    "itineraryCode": "VOY270714",
-    "embarkPort": "Edinburgh (Leith)",
-    "debarkPort": "Stockholm",
-    "fare": 11399
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-07-22",
+    "nights": 7,
+    "itinerary": "HEAVEN ON THE MED",
+    "itineraryCode": "PRT270722",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Trieste",
+    "fare": 7099
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-07-22",
+    "nights": 14,
+    "itinerary": "HARBORS OF HERITAGE",
+    "itineraryCode": "PRT270722A",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Athens (Piraeus)",
+    "fare": 13399
+  },
+  {
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2027-07-25",
+    "nights": 9,
+    "itinerary": "OUTBACK ADVENTURES",
+    "itineraryCode": "NAV270725",
+    "embarkPort": "Cairns",
+    "debarkPort": "Cairns",
+    "fare": 4499
   },
   {
     "shipName": "Seven Seas Explorer",
@@ -3560,24 +2200,34 @@
     "fare": 6599
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-07-30",
-    "nights": 82,
-    "itinerary": "GRAND MEDITERRANEAN ODYSSEY",
-    "itineraryCode": "MAR270730G",
-    "embarkPort": "London (Southampton)",
-    "debarkPort": "Athens (Piraeus)",
-    "fare": 67949
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-07-29",
+    "nights": 14,
+    "itinerary": "SEA OF LEGACY",
+    "itineraryCode": "PRT270729A",
+    "embarkPort": "Trieste",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 12949
   },
   {
-    "shipName": "Seven Seas Navigator",
-    "departureDate": "2027-08-03",
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-07-30",
     "nights": 12,
-    "itinerary": "OUTBACK & ISLES",
-    "itineraryCode": "NAV270803",
-    "embarkPort": "Cairns",
-    "debarkPort": "Lautoka",
-    "fare": 6699
+    "itinerary": "WINES, BEACHES & FLAMENCO",
+    "itineraryCode": "MAR270730",
+    "embarkPort": "London (Southampton)",
+    "debarkPort": "Lisbon",
+    "fare": 11899
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-07-30",
+    "nights": 23,
+    "itinerary": "CATHEDRALS TO CASTANETS",
+    "itineraryCode": "MAR270730A",
+    "embarkPort": "London (Southampton)",
+    "debarkPort": "Barcelona",
+    "fare": 20549
   },
   {
     "shipName": "Seven Seas Explorer",
@@ -3600,24 +2250,14 @@
     "fare": 6599
   },
   {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-08-08",
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-08-07",
     "nights": 10,
-    "itinerary": "JOURNEY OF FIRE & ICE",
-    "itineraryCode": "SPL270808",
-    "embarkPort": "Reykjavik",
-    "debarkPort": "Reykjavik",
-    "fare": 10599
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-08-11",
-    "nights": 11,
-    "itinerary": "ENDURING IBERIA",
-    "itineraryCode": "MAR270811",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Barcelona",
-    "fare": 9699
+    "itinerary": "CULINARY WONDERS",
+    "itineraryCode": "GRA270807",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Lisbon",
+    "fare": 8599
   },
   {
     "shipName": "Seven Seas Prestige",
@@ -3630,6 +2270,36 @@
     "fare": 8099
   },
   {
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2027-08-15",
+    "nights": 10,
+    "itinerary": "AZURE ISLANDS",
+    "itineraryCode": "NAV270815",
+    "embarkPort": "Lautoka",
+    "debarkPort": "Lautoka",
+    "fare": 4999
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-08-18",
+    "nights": 7,
+    "itinerary": "GLACIER PEAKS & HISTORIC RAILS",
+    "itineraryCode": "EXP270818",
+    "embarkPort": "Vancouver",
+    "debarkPort": "Whittier",
+    "fare": 6499
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-08-21",
+    "nights": 10,
+    "itinerary": "ANTIQUITIES & ANCIENTS",
+    "itineraryCode": "PRT270821",
+    "embarkPort": "Trieste",
+    "debarkPort": "Barcelona",
+    "fare": 9199
+  },
+  {
     "shipName": "Seven Seas Voyager",
     "departureDate": "2027-08-21",
     "nights": 12,
@@ -3640,14 +2310,24 @@
     "fare": 11199
   },
   {
-    "shipName": "Seven Seas Explorer",
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-08-22",
+    "nights": 11,
+    "itinerary": "PICTURESQUE PANORAMAS",
+    "itineraryCode": "MAR270822",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 9699
+  },
+  {
+    "shipName": "Seven Seas Navigator",
     "departureDate": "2027-08-25",
-    "nights": 7,
-    "itinerary": "TONGASS IN THE MIST",
-    "itineraryCode": "EXP270825",
-    "embarkPort": "Whittier",
-    "debarkPort": "Vancouver",
-    "fare": 5549
+    "nights": 10,
+    "itinerary": "CORAL SEA DREAMS",
+    "itineraryCode": "NAV270825",
+    "embarkPort": "Lautoka",
+    "debarkPort": "Lautoka",
+    "fare": 5249
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -3660,14 +2340,14 @@
     "fare": 8999
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-09-02",
-    "nights": 18,
-    "itinerary": "MYTH & MARBLE",
-    "itineraryCode": "MAR270902A",
-    "embarkPort": "Rome (Civitavecchia)",
-    "debarkPort": "Athens (Piraeus)",
-    "fare": 14499
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-08-28",
+    "nights": 16,
+    "itinerary": "PICTURE PERFECT FJORDS",
+    "itineraryCode": "SPL270828",
+    "embarkPort": "Reykjavik",
+    "debarkPort": "London (Southampton)",
+    "fare": 15499
   },
   {
     "shipName": "Seven Seas Voyager",
@@ -3690,44 +2370,54 @@
     "fare": 8499
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-09-08",
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-09-09",
     "nights": 7,
-    "itinerary": "BEAR VIEWING ON THE FRONTIER",
-    "itineraryCode": "EXP270908",
-    "embarkPort": "Whittier",
-    "debarkPort": "Vancouver",
-    "fare": 5999
-  },
-  {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-09-13",
-    "nights": 12,
-    "itinerary": "ENCHANTED SCOTLAND",
-    "itineraryCode": "SPL270913",
-    "embarkPort": "London (Southampton)",
-    "debarkPort": "London (Southampton)",
-    "fare": 11199
+    "itinerary": "CROATIAN CULTURE & CUISINE",
+    "itineraryCode": "PRT270909",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Trieste",
+    "fare": 6799
   },
   {
     "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-09-16",
-    "nights": 7,
-    "itinerary": "HIDDEN SHORES OF MYKONOS",
-    "itineraryCode": "PRT270916",
-    "embarkPort": "Trieste",
+    "departureDate": "2027-09-09",
+    "nights": 14,
+    "itinerary": "IDYLLIC DAYS",
+    "itineraryCode": "PRT270909A",
+    "embarkPort": "Rome (Civitavecchia)",
     "debarkPort": "Athens (Piraeus)",
-    "fare": 7299
+    "fare": 13749
   },
   {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2027-09-23",
-    "nights": 7,
-    "itinerary": "MYTHS, RUINS & AMALFI COAST",
-    "itineraryCode": "PRT270923",
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-09-20",
+    "nights": 10,
+    "itinerary": "ULTIMATE AEGEAN EXPLORER",
+    "itineraryCode": "MAR270920",
     "embarkPort": "Athens (Piraeus)",
-    "debarkPort": "Rome (Civitavecchia)",
-    "fare": 7049
+    "debarkPort": "Istanbul",
+    "fare": 8649
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-09-20",
+    "nights": 20,
+    "itinerary": "ANTIQUITY & HERITAGE",
+    "itineraryCode": "MAR270920A",
+    "embarkPort": "Athens (Piraeus)",
+    "debarkPort": "Athens (Piraeus)",
+    "fare": 16199
+  },
+  {
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2027-09-20",
+    "nights": 24,
+    "itinerary": "GREAT SKYLINES & REEFS",
+    "itineraryCode": "NAV270920A",
+    "embarkPort": "Sydney",
+    "debarkPort": "Perth (Fremantle)",
+    "fare": 11499
   },
   {
     "shipName": "Seven Seas Prestige",
@@ -3740,14 +2430,14 @@
     "fare": 12999
   },
   {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2027-09-25",
-    "nights": 13,
-    "itinerary": "SPARKLING WINES & GLIMMERING SEAS",
-    "itineraryCode": "SPL270925",
-    "embarkPort": "London (Southampton)",
-    "debarkPort": "Lisbon",
-    "fare": 12199
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2027-09-27",
+    "nights": 14,
+    "itinerary": "IBERIAN WANDERLUST & SICILIAN DREAM",
+    "itineraryCode": "VOY270927",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 11499
   },
   {
     "shipName": "Seven Seas Mariner",
@@ -3760,24 +2450,44 @@
     "fare": 8399
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-10-04",
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2027-10-11",
     "nights": 11,
-    "itinerary": "WAY OF THE BUSHIDO",
-    "itineraryCode": "EXP271004",
-    "embarkPort": "Tokyo",
-    "debarkPort": "Tokyo",
-    "fare": 9799
+    "itinerary": "SPANISH FLAVORS & RHYTHMS",
+    "itineraryCode": "VOY271011",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Barcelona",
+    "fare": 8499
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-10-10",
-    "nights": 10,
-    "itinerary": "BEST OF GREECE",
-    "itineraryCode": "MAR271010",
-    "embarkPort": "Athens (Piraeus)",
-    "debarkPort": "Athens (Piraeus)",
-    "fare": 7899
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-10-15",
+    "nights": 14,
+    "itinerary": "MIYAKO MYSTIQUE",
+    "itineraryCode": "EXP271015",
+    "embarkPort": "Tokyo",
+    "debarkPort": "Tokyo",
+    "fare": 11499
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-10-17",
+    "nights": 23,
+    "itinerary": "COASTAL HARMONY",
+    "itineraryCode": "SPL271017A",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Istanbul",
+    "fare": 17599
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2027-10-22",
+    "nights": 12,
+    "itinerary": "JOURNEY TO EL TEIDE",
+    "itineraryCode": "VOY271022",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Lisbon",
+    "fare": 9199
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -3810,54 +2520,54 @@
     "fare": 6999
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-11-09",
-    "nights": 11,
-    "itinerary": "EPICUREAN JAPAN",
-    "itineraryCode": "EXP271109",
-    "embarkPort": "Tokyo",
-    "debarkPort": "Tokyo",
-    "fare": 8599
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-11-04",
+    "nights": 14,
+    "itinerary": "SUN-KISSED SOIREE",
+    "itineraryCode": "GRA271104",
+    "embarkPort": "New York",
+    "debarkPort": "Miami",
+    "fare": 10199
   },
   {
     "shipName": "Seven Seas Mariner",
     "departureDate": "2027-11-10",
-    "nights": 27,
-    "itinerary": "MINARETS & MANDALAS",
-    "itineraryCode": "MAR271110A",
+    "nights": 17,
+    "itinerary": "DESERT SANDS TO ELEPHANTA CAVES",
+    "itineraryCode": "MAR271110",
     "embarkPort": "Doha",
-    "debarkPort": "Bali (Benoa)",
-    "fare": 18449
+    "debarkPort": "Singapore",
+    "fare": 11499
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-11-20",
+    "nights": 21,
+    "itinerary": "THE STILL HORIZON",
+    "itineraryCode": "EXP271120A",
+    "embarkPort": "Tokyo",
+    "debarkPort": "Singapore",
+    "fare": 15149
   },
   {
     "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-11-13",
-    "nights": 15,
-    "itinerary": "CATHEDRALS & CASTANETS",
-    "itineraryCode": "VOY271113A",
-    "embarkPort": "Barcelona",
-    "debarkPort": "Barcelona",
-    "fare": 10699
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2027-11-18",
-    "nights": 10,
-    "itinerary": "RAINFOREST TO REEF",
-    "itineraryCode": "GRA271118",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 5599
-  },
-  {
-    "shipName": "Seven Seas Prestige",
     "departureDate": "2027-11-20",
-    "nights": 7,
-    "itinerary": "SEA, SUN & SALSA",
-    "itineraryCode": "PRT271120",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 5099
+    "nights": 15,
+    "itinerary": "MEDITERRANEAN PILGRIMAGE",
+    "itineraryCode": "VOY271120A",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Barcelona",
+    "fare": 10599
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-11-27",
+    "nights": 10,
+    "itinerary": "ISLE CROSSROADS",
+    "itineraryCode": "MAR271127",
+    "embarkPort": "Singapore",
+    "debarkPort": "Bali (Benoa)",
+    "fare": 7899
   },
   {
     "shipName": "Seven Seas Mariner",
@@ -3880,44 +2590,64 @@
     "fare": 5199
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-11-30",
-    "nights": 11,
-    "itinerary": "SOARING DRAGONS",
-    "itineraryCode": "EXP271130",
-    "embarkPort": "Hong Kong",
-    "debarkPort": "Singapore",
-    "fare": 8299
-  },
-  {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2027-12-07",
-    "nights": 14,
-    "itinerary": "COLORFUL FRANGIPANI & HIBISCUS",
-    "itineraryCode": "MAR271207",
-    "embarkPort": "Bali (Benoa)",
-    "debarkPort": "Sydney",
-    "fare": 10199
-  },
-  {
     "shipName": "Seven Seas Voyager",
-    "departureDate": "2027-12-19",
-    "nights": 25,
-    "itinerary": "ULTIMATE ISLAND HOLIDAY",
-    "itineraryCode": "VOY271219",
+    "departureDate": "2027-12-05",
+    "nights": 14,
+    "itinerary": "ATLANTIC OCEAN ZEPHYR",
+    "itineraryCode": "VOY271205",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Miami",
+    "fare": 5999
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-12-06",
+    "nights": 14,
+    "itinerary": "THE MAGNIFICENT ATLANTIC",
+    "itineraryCode": "SPL271206",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Miami",
+    "fare": 7099
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-12-07",
+    "nights": 11,
+    "itinerary": "VIRGIN ISLANDS VOYAGE",
+    "itineraryCode": "PRT271207",
     "embarkPort": "Miami",
     "debarkPort": "Miami",
-    "fare": 15799
+    "fare": 7799
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-12-08",
+    "nights": 14,
+    "itinerary": "HEAVENLY HIDEAWAYS",
+    "itineraryCode": "GRA271208",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 7799
   },
   {
     "shipName": "Seven Seas Explorer",
-    "departureDate": "2027-12-22",
-    "nights": 14,
-    "itinerary": "SERENITY & CELEBRATION",
-    "itineraryCode": "EXP271222",
-    "embarkPort": "Hong Kong",
+    "departureDate": "2027-12-11",
+    "nights": 11,
+    "itinerary": "SKYLINE STORIES",
+    "itineraryCode": "EXP271211",
+    "embarkPort": "Singapore",
     "debarkPort": "Hong Kong",
-    "fare": 9999
+    "fare": 7749
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2028-01-05",
+    "nights": 61,
+    "itinerary": "GRAND ASIA ESCAPE",
+    "itineraryCode": "EXP280105D",
+    "embarkPort": "Hong Kong",
+    "debarkPort": "Tokyo",
+    "fare": 49899
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -3930,14 +2660,14 @@
     "fare": 6399
   },
   {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2028-01-13",
-    "nights": 14,
-    "itinerary": "EMPIRES OF THE SUN",
-    "itineraryCode": "VOY280113",
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2028-01-07",
+    "nights": 10,
+    "itinerary": "BAHAMIAN BREEZE",
+    "itineraryCode": "PRT280107",
     "embarkPort": "Miami",
-    "debarkPort": "Lima (Callao)",
-    "fare": 12099
+    "debarkPort": "Miami",
+    "fare": 7299
   },
   {
     "shipName": "Seven Seas Voyager",
@@ -3950,26 +2680,6 @@
     "fare": 49049
   },
   {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2028-01-15",
-    "nights": 10,
-    "itinerary": "UNTOUCHED TREASURES",
-    "itineraryCode": "GRA280115",
-    "embarkPort": "Bridgetown",
-    "debarkPort": "Bridgetown",
-    "fare": 6549
-  },
-  {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2028-01-17",
-    "nights": 12,
-    "itinerary": "PEACEFUL SHORES & VIBRANT CITYSCAPE",
-    "itineraryCode": "EXP280117",
-    "embarkPort": "Bali (Benoa)",
-    "debarkPort": "Singapore",
-    "fare": 10599
-  },
-  {
     "shipName": "Seven Seas Explorer",
     "departureDate": "2028-01-17",
     "nights": 25,
@@ -3980,14 +2690,34 @@
     "fare": 20549
   },
   {
-    "shipName": "Seven Seas Grandeur",
-    "departureDate": "2028-01-25",
-    "nights": 10,
-    "itinerary": "TROPICAL HEART & SOUL",
-    "itineraryCode": "GRA280125",
-    "embarkPort": "Bridgetown",
-    "debarkPort": "Bridgetown",
-    "fare": 5899
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2028-01-17",
+    "nights": 35,
+    "itinerary": "FIRECRACKERS TO SKYLINES",
+    "itineraryCode": "EXP280117B",
+    "embarkPort": "Bali (Benoa)",
+    "debarkPort": "Seoul (Incheon)",
+    "fare": 28799
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2028-01-18",
+    "nights": 32,
+    "itinerary": "AUSTRALIAN ADVENTURE",
+    "itineraryCode": "MAR280118A",
+    "embarkPort": "Sydney",
+    "debarkPort": "Sydney",
+    "fare": 30099
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2028-01-29",
+    "nights": 13,
+    "itinerary": "CULINARY DISCOVERIES",
+    "itineraryCode": "EXP280129",
+    "embarkPort": "Singapore",
+    "debarkPort": "Taipei (Keelung)",
+    "fare": 10999
   },
   {
     "shipName": "Seven Seas Explorer",
@@ -4010,26 +2740,6 @@
     "fare": 5899
   },
   {
-    "shipName": "Seven Seas Splendor",
-    "departureDate": "2028-02-04",
-    "nights": 14,
-    "itinerary": "REALM OF THE CORAL SKY",
-    "itineraryCode": "SPL280204",
-    "embarkPort": "Lautoka",
-    "debarkPort": "Sydney",
-    "fare": 10699
-  },
-  {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2028-02-05",
-    "nights": 11,
-    "itinerary": "CUPID IN THE CARIBBEAN",
-    "itineraryCode": "PRT280205",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 8799
-  },
-  {
     "shipName": "Seven Seas Explorer",
     "departureDate": "2028-02-11",
     "nights": 10,
@@ -4040,24 +2750,44 @@
     "fare": 8699
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2028-02-19",
-    "nights": 14,
-    "itinerary": "KIWI QUEST",
-    "itineraryCode": "MAR280219",
-    "embarkPort": "Sydney",
-    "debarkPort": "Auckland",
-    "fare": 14099
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2028-02-14",
+    "nights": 10,
+    "itinerary": "BE MY ISLAND VALENTINE",
+    "itineraryCode": "GRA280214",
+    "embarkPort": "Bridgetown",
+    "debarkPort": "Bridgetown",
+    "fare": 5999
   },
   {
-    "shipName": "Seven Seas Explorer",
-    "departureDate": "2028-02-21",
-    "nights": 14,
-    "itinerary": "GATES, PALACES & SHRINES",
-    "itineraryCode": "EXP280221",
-    "embarkPort": "Seoul (Incheon)",
-    "debarkPort": "Tokyo",
-    "fare": 12199
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2028-02-18",
+    "nights": 16,
+    "itinerary": "TANIWHA TALES",
+    "itineraryCode": "SPL280218",
+    "embarkPort": "Sydney",
+    "debarkPort": "Melbourne",
+    "fare": 15399
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2028-02-19",
+    "nights": 30,
+    "itinerary": "AUSTRAL ARC",
+    "itineraryCode": "MAR280219A",
+    "embarkPort": "Sydney",
+    "debarkPort": "Bali (Benoa)",
+    "fare": 25199
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2028-02-19",
+    "nights": 69,
+    "itinerary": "GRAND SOUTHERN SEAS SOJOURN",
+    "itineraryCode": "MAR280219D",
+    "embarkPort": "Sydney",
+    "debarkPort": "Cape Town",
+    "fare": 52449
   },
   {
     "shipName": "Seven Seas Grandeur",
@@ -4070,24 +2800,14 @@
     "fare": 5899
   },
   {
-    "shipName": "Seven Seas Voyager",
-    "departureDate": "2028-02-26",
-    "nights": 21,
-    "itinerary": "SECRETS OF THE SELVA",
-    "itineraryCode": "VOY280226",
-    "embarkPort": "Rio de Janeiro",
-    "debarkPort": "Miami",
-    "fare": 16999
-  },
-  {
-    "shipName": "Seven Seas Grandeur",
+    "shipName": "Seven Seas Mariner",
     "departureDate": "2028-03-04",
-    "nights": 10,
-    "itinerary": "MAYA CULTURE & CUISINE",
-    "itineraryCode": "GRA280304",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 6399
+    "nights": 16,
+    "itinerary": "JOURNEY TO OZ",
+    "itineraryCode": "MAR280304",
+    "embarkPort": "Auckland",
+    "debarkPort": "Bali (Benoa)",
+    "fare": 12399
   },
   {
     "shipName": "Seven Seas Mariner",
@@ -4100,24 +2820,54 @@
     "fare": 18299
   },
   {
-    "shipName": "Seven Seas Prestige",
-    "departureDate": "2028-03-14",
-    "nights": 12,
-    "itinerary": "BON BINI ARUBA",
-    "itineraryCode": "PRT280314",
-    "embarkPort": "Panama City",
-    "debarkPort": "Miami",
-    "fare": 8599
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2028-03-05",
+    "nights": 21,
+    "itinerary": "DINGOES & DRAGONS",
+    "itineraryCode": "SPL280305",
+    "embarkPort": "Melbourne",
+    "debarkPort": "Singapore",
+    "fare": 18299
   },
   {
-    "shipName": "Seven Seas Splendor",
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2028-03-18",
+    "nights": 14,
+    "itinerary": "EXUBERANT BERMUDA & AZORES",
+    "itineraryCode": "VOY280318",
+    "embarkPort": "Miami",
+    "debarkPort": "Barcelona",
+    "fare": 6499
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2028-03-20",
+    "nights": 8,
+    "itinerary": "WILD ORCHIDS & SUPERTREES",
+    "itineraryCode": "MAR280320",
+    "embarkPort": "Bali (Benoa)",
+    "debarkPort": "Singapore",
+    "fare": 6899
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2028-03-20",
+    "nights": 25,
+    "itinerary": "SERENE EDENS",
+    "itineraryCode": "MAR280320A",
+    "embarkPort": "Bali (Benoa)",
+    "debarkPort": "Port Louis",
+    "fare": 18249
+  },
+  {
+    "shipName": "Seven Seas Prestige",
     "departureDate": "2028-03-26",
-    "nights": 21,
-    "itinerary": "GUARDIAN GIANTS",
-    "itineraryCode": "SPL280326A",
-    "embarkPort": "Singapore",
-    "debarkPort": "Seoul (Incheon)",
-    "fare": 16149
+    "nights": 14,
+    "itinerary": "RITE OF SPRING CROSSING",
+    "itineraryCode": "PRT280326",
+    "embarkPort": "Miami",
+    "debarkPort": "Lisbon",
+    "fare": 9299
   },
   {
     "shipName": "Seven Seas Mariner",
@@ -4140,14 +2890,14 @@
     "fare": 8099
   },
   {
-    "shipName": "Seven Seas Mariner",
-    "departureDate": "2028-04-14",
-    "nights": 14,
-    "itinerary": "BOLD SUNSETS & LUSH RESERVES",
-    "itineraryCode": "MAR280414",
-    "embarkPort": "Port Louis",
-    "debarkPort": "Cape Town",
-    "fare": 9499
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2028-04-06",
+    "nights": 10,
+    "itinerary": "JOURNEY TO THE JADE BUDDHA",
+    "itineraryCode": "SPL280406",
+    "embarkPort": "Hong Kong",
+    "debarkPort": "Seoul (Incheon)",
+    "fare": 7799
   },
   {
     "shipName": "Seven Seas Prestige",
@@ -4158,6 +2908,1226 @@
     "embarkPort": "Lisbon",
     "debarkPort": "London (Southampton)",
     "fare": 10899
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2028-05-17",
+    "nights": 7,
+    "itinerary": "FLOWERS, HARMONY & HAIGHT",
+    "itineraryCode": "SPL280517",
+    "embarkPort": "San Francisco",
+    "debarkPort": "Vancouver",
+    "fare": 6199
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-04-07",
+    "nights": 14,
+    "itinerary": "ATLANTIC ISLE EXPLORATION",
+    "itineraryCode": "GRA260407",
+    "embarkPort": "Miami",
+    "debarkPort": "Barcelona",
+    "fare": 8299
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2026-04-09",
+    "nights": 54,
+    "itinerary": "TRANSCULTURAL PEREGRINATION",
+    "itineraryCode": "MAR260409A",
+    "embarkPort": "Singapore",
+    "debarkPort": "Lisbon",
+    "fare": 37149
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2026-04-17",
+    "nights": 9,
+    "itinerary": "PESTO, PAELLA & PARADISE",
+    "itineraryCode": "VOY260417",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Barcelona (Tarragona)",
+    "fare": 8599
+  },
+  {
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2026-04-18",
+    "nights": 14,
+    "itinerary": "SANDS OF SOUTHEAST ASIA",
+    "itineraryCode": "NAV260418",
+    "embarkPort": "Bali (Benoa)",
+    "debarkPort": "Bangkok (Laem Chabang)",
+    "fare": 9549
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2026-05-15",
+    "nights": 7,
+    "itinerary": "GRECIAN & TURKISH WONDERS",
+    "itineraryCode": "SPL260515",
+    "embarkPort": "Athens (Piraeus)",
+    "debarkPort": "Istanbul",
+    "fare": 7249
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2026-05-27",
+    "nights": 7,
+    "itinerary": "GLACIERS & WILDLIFE",
+    "itineraryCode": "EXP260527",
+    "embarkPort": "Whittier",
+    "debarkPort": "Vancouver",
+    "fare": 7599
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2026-06-03",
+    "nights": 7,
+    "itinerary": "KLONDIKE BLOOMS",
+    "itineraryCode": "EXP260603",
+    "embarkPort": "Vancouver",
+    "debarkPort": "Whittier",
+    "fare": 7749
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-06-06",
+    "nights": 10,
+    "itinerary": "ENGLISH CHANNEL ICONS",
+    "itineraryCode": "GRA260606",
+    "embarkPort": "London (Southampton)",
+    "debarkPort": "London (Southampton)",
+    "fare": 13299
+  },
+  {
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2026-06-11",
+    "nights": 24,
+    "itinerary": "WEST AFRICA PASSAGE",
+    "itineraryCode": "NAV260611",
+    "embarkPort": "Cape Town",
+    "debarkPort": "Barcelona",
+    "fare": 12649
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2026-06-13",
+    "nights": 16,
+    "itinerary": "SPOTLIGHT WITH SOUTHERN LIVING",
+    "itineraryCode": "MAR260613",
+    "embarkPort": "Miami",
+    "debarkPort": "New York",
+    "fare": 10549
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2026-06-17",
+    "nights": 7,
+    "itinerary": "ICY STRAIT & HOONAH MOUNTAIN",
+    "itineraryCode": "EXP260617",
+    "embarkPort": "Vancouver",
+    "debarkPort": "Whittier",
+    "fare": 8249
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2026-06-29",
+    "nights": 18,
+    "itinerary": "ICELANDIC GETAWAY",
+    "itineraryCode": "MAR260629",
+    "embarkPort": "New York",
+    "debarkPort": "Reykjavik",
+    "fare": 16399
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2026-06-29",
+    "nights": 81,
+    "itinerary": "GRAND ARCTIC ADVENTURE",
+    "itineraryCode": "MAR260629D",
+    "embarkPort": "New York",
+    "debarkPort": "Barcelona",
+    "fare": 80699
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2026-08-12",
+    "nights": 7,
+    "itinerary": "ALASKAN ESCAPE",
+    "itineraryCode": "EXP260812",
+    "embarkPort": "Vancouver",
+    "debarkPort": "Whittier",
+    "fare": 8249
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2026-08-12",
+    "nights": 14,
+    "itinerary": "EXPLORE THE FRONTIER",
+    "itineraryCode": "EXP260812A",
+    "embarkPort": "Vancouver",
+    "debarkPort": "Vancouver",
+    "fare": 14499
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-08-15",
+    "nights": 14,
+    "itinerary": "NORDIC VERVE & BAROQUE FLAIR",
+    "itineraryCode": "GRA260815A",
+    "embarkPort": "Oslo",
+    "debarkPort": "Stockholm",
+    "fare": 17699
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2026-08-19",
+    "nights": 7,
+    "itinerary": "WILD FRONTIERS",
+    "itineraryCode": "EXP260819",
+    "embarkPort": "Whittier",
+    "debarkPort": "Vancouver",
+    "fare": 6999
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-08-22",
+    "nights": 7,
+    "itinerary": "NORDIC MAJESTY",
+    "itineraryCode": "GRA260822",
+    "embarkPort": "Copenhagen",
+    "debarkPort": "Stockholm",
+    "fare": 9299
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2026-09-06",
+    "nights": 11,
+    "itinerary": "EARLY AUTUMN VIBRANCE",
+    "itineraryCode": "SPL260906",
+    "embarkPort": "New York",
+    "debarkPort": "Montréal",
+    "fare": 11999
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2026-09-11",
+    "nights": 17,
+    "itinerary": "NORTHERN ELEGANCE, SOUTHERN GLAMOUR",
+    "itineraryCode": "VOY260911A",
+    "embarkPort": "Copenhagen",
+    "debarkPort": "Barcelona",
+    "fare": 18649
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2026-09-28",
+    "nights": 11,
+    "itinerary": "MAGNIFIQUE L'AUTOMNE",
+    "itineraryCode": "SPL260928",
+    "embarkPort": "Boston",
+    "debarkPort": "Montréal",
+    "fare": 13249
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2026-10-12",
+    "nights": 28,
+    "itinerary": "RUINS, RIVIERA & ROSE SANDS",
+    "itineraryCode": "MAR261012A",
+    "embarkPort": "Athens (Piraeus)",
+    "debarkPort": "Miami",
+    "fare": 20599
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-11-08",
+    "nights": 14,
+    "itinerary": "NEW WORLD PASSAGE",
+    "itineraryCode": "GRA261108",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Miami",
+    "fare": 8099
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2026-11-22",
+    "nights": 11,
+    "itinerary": "PEAKS & PAGODAS",
+    "itineraryCode": "EXP261122",
+    "embarkPort": "Bangkok (Laem Chabang)",
+    "debarkPort": "Bali (Benoa)",
+    "fare": 8499
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2026-12-09",
+    "nights": 10,
+    "itinerary": "TREASURES OF BELIZE",
+    "itineraryCode": "GRA261209",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 6849
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2026-12-21",
+    "nights": 14,
+    "itinerary": "CARIBBEAN CELEBRATION",
+    "itineraryCode": "MAR261221",
+    "embarkPort": "Tampa Bay",
+    "debarkPort": "Miami",
+    "fare": 8999
+  },
+  {
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2026-12-21",
+    "nights": 14,
+    "itinerary": "SPICE TRAIL SAIL",
+    "itineraryCode": "NAV261221",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Athens (Piraeus)",
+    "fare": 6999
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2026-12-28",
+    "nights": 20,
+    "itinerary": "DESERT CITIES & TURQUOISE SEAS",
+    "itineraryCode": "VOY261228",
+    "embarkPort": "Dubai",
+    "debarkPort": "Port Louis",
+    "fare": 15599
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-01-11",
+    "nights": 127,
+    "itinerary": "NAVIGATE THE WORLD",
+    "itineraryCode": "SPL270111F",
+    "embarkPort": "Miami",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 86099
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-01-12",
+    "nights": 42,
+    "itinerary": "TIDES TO TAHITI",
+    "itineraryCode": "SPL270112A",
+    "embarkPort": "Miami",
+    "debarkPort": "Papeete (Tahiti)",
+    "fare": 33649
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-01-22",
+    "nights": 11,
+    "itinerary": "NIGHTS OF SAMBA & TANGO",
+    "itineraryCode": "MAR270122",
+    "embarkPort": "Rio de Janeiro",
+    "debarkPort": "Buenos Aires",
+    "fare": 9499
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-01-24",
+    "nights": 16,
+    "itinerary": "ULTIMATE PANAMA CANAL TRANSIT",
+    "itineraryCode": "GRA270124",
+    "embarkPort": "Los Angeles",
+    "debarkPort": "Miami",
+    "fare": 13599
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-01-26",
+    "nights": 28,
+    "itinerary": "CANAL TO CORAL REEFS",
+    "itineraryCode": "SPL270126",
+    "embarkPort": "Panama City",
+    "debarkPort": "Papeete (Tahiti)",
+    "fare": 21399
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-01-28",
+    "nights": 19,
+    "itinerary": "ROOS, REEFS & ROMANCE",
+    "itineraryCode": "EXP270128A",
+    "embarkPort": "Sydney",
+    "debarkPort": "Bali (Benoa)",
+    "fare": 15999
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2027-02-01",
+    "nights": 15,
+    "itinerary": "MADAGASCAR MARVELS",
+    "itineraryCode": "VOY270201",
+    "embarkPort": "Cape Town",
+    "debarkPort": "Port Louis",
+    "fare": 11999
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-02-02",
+    "nights": 18,
+    "itinerary": "COLOSSAL COASTLINES",
+    "itineraryCode": "MAR270202",
+    "embarkPort": "Buenos Aires",
+    "debarkPort": "Buenos Aires",
+    "fare": 12699
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-03-02",
+    "nights": 16,
+    "itinerary": "ICONIC SKYLINES, STARRY NIGHTS",
+    "itineraryCode": "EXP270302",
+    "embarkPort": "Bangkok (Laem Chabang)",
+    "debarkPort": "Tokyo",
+    "fare": 14149
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2027-03-03",
+    "nights": 21,
+    "itinerary": "SOUKS TO SORRENTO",
+    "itineraryCode": "VOY270303",
+    "embarkPort": "Doha",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 13599
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-03-05",
+    "nights": 12,
+    "itinerary": "PRESTIGE ISLES",
+    "itineraryCode": "PRT270305",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 9849
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-03-09",
+    "nights": 22,
+    "itinerary": "JOURNEY TO THE AMAZON",
+    "itineraryCode": "GRA270309",
+    "embarkPort": "Panama City",
+    "debarkPort": "Panama City",
+    "fare": 16599
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-03-20",
+    "nights": 10,
+    "itinerary": "TROPICAL PASSAGE",
+    "itineraryCode": "PRT270320",
+    "embarkPort": "Miami",
+    "debarkPort": "San Juan",
+    "fare": 7099
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-03-31",
+    "nights": 14,
+    "itinerary": "CARNIVAL OF CARIBBEAN COLORS",
+    "itineraryCode": "GRA270331",
+    "embarkPort": "Panama City",
+    "debarkPort": "Miami",
+    "fare": 9399
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-04-05",
+    "nights": 10,
+    "itinerary": "BLISSFUL BVI",
+    "itineraryCode": "MAR270405",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 6599
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-04-09",
+    "nights": 14,
+    "itinerary": "EMERALD EAST COAST",
+    "itineraryCode": "PRT270409",
+    "embarkPort": "Miami",
+    "debarkPort": "New York",
+    "fare": 10299
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2027-04-18",
+    "nights": 22,
+    "itinerary": "DREAMS BETWEEN SHORES",
+    "itineraryCode": "VOY270418A",
+    "embarkPort": "Barcelona",
+    "debarkPort": "London (Southampton)",
+    "fare": 20649
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-04-25",
+    "nights": 12,
+    "itinerary": "EXOTIC ADVENTURE",
+    "itineraryCode": "EXP270425",
+    "embarkPort": "Seoul (Incheon)",
+    "debarkPort": "Tokyo",
+    "fare": 10899
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-04-29",
+    "nights": 28,
+    "itinerary": "NEW WORLD, OLD WORLD",
+    "itineraryCode": "MAR270429A",
+    "embarkPort": "New York",
+    "debarkPort": "Paris (Le Havre)",
+    "fare": 20149
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-05-08",
+    "nights": 17,
+    "itinerary": "LISBON TO LIGURIA",
+    "itineraryCode": "GRA270508A",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 14999
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2027-05-10",
+    "nights": 11,
+    "itinerary": "CELTIC LEGENDS",
+    "itineraryCode": "VOY270510",
+    "embarkPort": "London (Southampton)",
+    "debarkPort": "Edinburgh (Leith)",
+    "fare": 9799
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-05-11",
+    "nights": 14,
+    "itinerary": "SUNLIT IBERIA",
+    "itineraryCode": "PRT270511",
+    "embarkPort": "Barcelona",
+    "debarkPort": "London (Southampton)",
+    "fare": 15899
+  },
+  {
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2027-05-21",
+    "nights": 12,
+    "itinerary": "LOTUS BLOOMS",
+    "itineraryCode": "NAV270521",
+    "embarkPort": "Singapore",
+    "debarkPort": "Bali (Benoa)",
+    "fare": 5499
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-06-08",
+    "nights": 18,
+    "itinerary": "TIMELESS SHORES",
+    "itineraryCode": "PRT270608A",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 16749
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-06-20",
+    "nights": 7,
+    "itinerary": "MYSTICAL ITALY & CROATIA",
+    "itineraryCode": "GRA270620",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Venice (Fusina)",
+    "fare": 6299
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-06-20",
+    "nights": 14,
+    "itinerary": "VILLAS & VENICE",
+    "itineraryCode": "GRA270620A",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Athens (Piraeus)",
+    "fare": 13149
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-06-20",
+    "nights": 10,
+    "itinerary": "NORTH SEA CANALS & CURRENTS",
+    "itineraryCode": "MAR270620",
+    "embarkPort": "Stockholm",
+    "debarkPort": "Amsterdam (Ijmuiden)",
+    "fare": 9649
+  },
+  {
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2027-06-27",
+    "nights": 16,
+    "itinerary": "WILDLIFE & WINE",
+    "itineraryCode": "NAV270627",
+    "embarkPort": "Darwin",
+    "debarkPort": "Sydney",
+    "fare": 8499
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-06-30",
+    "nights": 7,
+    "itinerary": "AN ALASKAN CELEBRATION",
+    "itineraryCode": "EXP270630",
+    "embarkPort": "Whittier",
+    "debarkPort": "Vancouver",
+    "fare": 6599
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-06-30",
+    "nights": 14,
+    "itinerary": "CELESTIAL NORWAY & ICELAND",
+    "itineraryCode": "MAR270630",
+    "embarkPort": "Amsterdam (Ijmuiden)",
+    "debarkPort": "Reykjavik",
+    "fare": 13999
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2027-07-02",
+    "nights": 12,
+    "itinerary": "LYRICAL LANDS & HARMONIC HORIZONS",
+    "itineraryCode": "VOY270702",
+    "embarkPort": "London (Southampton)",
+    "debarkPort": "Edinburgh (Leith)",
+    "fare": 10999
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-07-07",
+    "nights": 7,
+    "itinerary": "WILDLIFE EXPLORATION",
+    "itineraryCode": "EXP270707",
+    "embarkPort": "Vancouver",
+    "debarkPort": "Whittier",
+    "fare": 6899
+  },
+  {
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2027-07-13",
+    "nights": 21,
+    "itinerary": "CORAL COAST JOURNEY",
+    "itineraryCode": "NAV270713A",
+    "embarkPort": "Sydney",
+    "debarkPort": "Cairns",
+    "fare": 10399
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-07-14",
+    "nights": 7,
+    "itinerary": "GREAT ALASKA ENCOUNTER",
+    "itineraryCode": "EXP270714",
+    "embarkPort": "Whittier",
+    "debarkPort": "Vancouver",
+    "fare": 6699
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-07-14",
+    "nights": 16,
+    "itinerary": "ICELAND & THE ISLES ODYSSEY",
+    "itineraryCode": "MAR270714",
+    "embarkPort": "Reykjavik",
+    "debarkPort": "London (Southampton)",
+    "fare": 16099
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-07-15",
+    "nights": 7,
+    "itinerary": "CULTURES & CUISINES",
+    "itineraryCode": "PRT270715",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 7199
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-07-15",
+    "nights": 14,
+    "itinerary": "CULINARY COASTS",
+    "itineraryCode": "PRT270715A",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Trieste",
+    "fare": 13599
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2027-07-26",
+    "nights": 8,
+    "itinerary": "NORDIC & BALTIC JEWELS",
+    "itineraryCode": "VOY270726",
+    "embarkPort": "Stockholm",
+    "debarkPort": "Copenhagen",
+    "fare": 8099
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-07-29",
+    "nights": 9,
+    "itinerary": "ECLIPSE THE ORDINARY",
+    "itineraryCode": "GRA270729",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 9599
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-07-29",
+    "nights": 7,
+    "itinerary": "RETURN TO THE CLASSICS",
+    "itineraryCode": "PRT270729",
+    "embarkPort": "Trieste",
+    "debarkPort": "Athens (Piraeus)",
+    "fare": 6999
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-07-30",
+    "nights": 82,
+    "itinerary": "GRAND MEDITERRANEAN ODYSSEY",
+    "itineraryCode": "MAR270730G",
+    "embarkPort": "London (Southampton)",
+    "debarkPort": "Athens (Piraeus)",
+    "fare": 67949
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-08-07",
+    "nights": 20,
+    "itinerary": "LEGACIES & EMPIRES",
+    "itineraryCode": "GRA270807A",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "London (Southampton)",
+    "fare": 16849
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-08-08",
+    "nights": 10,
+    "itinerary": "JOURNEY OF FIRE & ICE",
+    "itineraryCode": "SPL270808",
+    "embarkPort": "Reykjavik",
+    "debarkPort": "Reykjavik",
+    "fare": 10599
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-08-17",
+    "nights": 10,
+    "itinerary": "CITIES OF WINES",
+    "itineraryCode": "GRA270817",
+    "embarkPort": "Lisbon",
+    "debarkPort": "London (Southampton)",
+    "fare": 9099
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-08-18",
+    "nights": 10,
+    "itinerary": "VERDANT ICELAND",
+    "itineraryCode": "SPL270818",
+    "embarkPort": "Reykjavik",
+    "debarkPort": "Reykjavik",
+    "fare": 10499
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-08-31",
+    "nights": 9,
+    "itinerary": "TOAST TO TOULON",
+    "itineraryCode": "PRT270831",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 8799
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-09-01",
+    "nights": 7,
+    "itinerary": "WINGS OVER ALASKA",
+    "itineraryCode": "EXP270901",
+    "embarkPort": "Vancouver",
+    "debarkPort": "Whittier",
+    "fare": 5999
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-09-02",
+    "nights": 8,
+    "itinerary": "CENTURIES OF ART",
+    "itineraryCode": "MAR270902",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Venice (Fusina)",
+    "fare": 6849
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-09-02",
+    "nights": 18,
+    "itinerary": "MYTH & MARBLE",
+    "itineraryCode": "MAR270902A",
+    "embarkPort": "Rome (Civitavecchia)",
+    "debarkPort": "Athens (Piraeus)",
+    "fare": 14499
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-09-08",
+    "nights": 7,
+    "itinerary": "BEAR VIEWING ON THE FRONTIER",
+    "itineraryCode": "EXP270908",
+    "embarkPort": "Whittier",
+    "debarkPort": "Vancouver",
+    "fare": 5999
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-09-10",
+    "nights": 11,
+    "itinerary": "CANADIAN CULINARY DELIGHTS",
+    "itineraryCode": "GRA270910",
+    "embarkPort": "Montréal",
+    "debarkPort": "New York",
+    "fare": 11599
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-09-10",
+    "nights": 10,
+    "itinerary": "ROMANTIC RESPITES IN GREECE",
+    "itineraryCode": "MAR270910",
+    "embarkPort": "Venice (Fusina)",
+    "debarkPort": "Athens (Piraeus)",
+    "fare": 8399
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2027-09-14",
+    "nights": 13,
+    "itinerary": "STORYBOOK VILLAGES & WORLDCLASS ART",
+    "itineraryCode": "VOY270914",
+    "embarkPort": "London (Southampton)",
+    "debarkPort": "Lisbon",
+    "fare": 12699
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-09-15",
+    "nights": 19,
+    "itinerary": "HUBBARD GLACIER TO MOUNT FUJI",
+    "itineraryCode": "EXP270915",
+    "embarkPort": "Vancouver",
+    "debarkPort": "Tokyo",
+    "fare": 10699
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-09-23",
+    "nights": 7,
+    "itinerary": "MYTHS, RUINS & AMALFI COAST",
+    "itineraryCode": "PRT270923",
+    "embarkPort": "Athens (Piraeus)",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 7049
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-09-25",
+    "nights": 13,
+    "itinerary": "SPARKLING WINES & GLIMMERING SEAS",
+    "itineraryCode": "SPL270925",
+    "embarkPort": "London (Southampton)",
+    "debarkPort": "Lisbon",
+    "fare": 12199
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-10-04",
+    "nights": 11,
+    "itinerary": "WAY OF THE BUSHIDO",
+    "itineraryCode": "EXP271004",
+    "embarkPort": "Tokyo",
+    "debarkPort": "Tokyo",
+    "fare": 9799
+  },
+  {
+    "shipName": "Seven Seas Navigator",
+    "departureDate": "2027-10-04",
+    "nights": 10,
+    "itinerary": "STARLIGHT SOJOURN",
+    "itineraryCode": "NAV271004",
+    "embarkPort": "Bali (Benoa)",
+    "debarkPort": "Perth (Fremantle)",
+    "fare": 4999
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-10-07",
+    "nights": 9,
+    "itinerary": "MEDITERRANEAN HORIZONS",
+    "itineraryCode": "PRT271007",
+    "embarkPort": "Barcelona",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 9099
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-10-08",
+    "nights": 9,
+    "itinerary": "CERULEAN CANARY ISLANDS",
+    "itineraryCode": "SPL271008",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Lisbon",
+    "fare": 8199
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-10-10",
+    "nights": 10,
+    "itinerary": "BEST OF GREECE",
+    "itineraryCode": "MAR271010",
+    "embarkPort": "Athens (Piraeus)",
+    "debarkPort": "Athens (Piraeus)",
+    "fare": 7899
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-10-13",
+    "nights": 11,
+    "itinerary": "LEAVES & LOBSTERS",
+    "itineraryCode": "GRA271013",
+    "embarkPort": "Boston",
+    "debarkPort": "Montréal",
+    "fare": 12299
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2027-10-17",
+    "nights": 14,
+    "itinerary": "SUBLIME SPAIN",
+    "itineraryCode": "SPL271017",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Rome (Civitavecchia)",
+    "fare": 11499
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-10-20",
+    "nights": 21,
+    "itinerary": "PATH OF THE GREAT EMPIRES",
+    "itineraryCode": "MAR271020",
+    "embarkPort": "Athens (Piraeus)",
+    "debarkPort": "Doha",
+    "fare": 13099
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-11-18",
+    "nights": 10,
+    "itinerary": "RAINFOREST TO REEF",
+    "itineraryCode": "GRA271118",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 5599
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-11-20",
+    "nights": 7,
+    "itinerary": "SEA, SUN & SALSA",
+    "itineraryCode": "PRT271120",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 5099
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-11-27",
+    "nights": 10,
+    "itinerary": "REGGAE RHYTHMS",
+    "itineraryCode": "PRT271127",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 6999
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-11-28",
+    "nights": 10,
+    "itinerary": "ISLAND RENDEZVOUS",
+    "itineraryCode": "GRA271128",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 5699
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-11-30",
+    "nights": 11,
+    "itinerary": "SOARING DRAGONS",
+    "itineraryCode": "EXP271130",
+    "embarkPort": "Hong Kong",
+    "debarkPort": "Singapore",
+    "fare": 8299
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-11-30",
+    "nights": 22,
+    "itinerary": "SILK & SKYLINE",
+    "itineraryCode": "EXP271130A",
+    "embarkPort": "Hong Kong",
+    "debarkPort": "Hong Kong",
+    "fare": 15249
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2027-12-18",
+    "nights": 10,
+    "itinerary": "SEASON TO CHEER",
+    "itineraryCode": "PRT271218",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 7099
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2027-12-19",
+    "nights": 25,
+    "itinerary": "ULTIMATE ISLAND HOLIDAY",
+    "itineraryCode": "VOY271219",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 15799
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2027-12-21",
+    "nights": 14,
+    "itinerary": "SURF & SANTA",
+    "itineraryCode": "MAR271221",
+    "embarkPort": "Sydney",
+    "debarkPort": "Auckland",
+    "fare": 13199
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2027-12-22",
+    "nights": 14,
+    "itinerary": "SERENITY & CELEBRATION",
+    "itineraryCode": "EXP271222",
+    "embarkPort": "Hong Kong",
+    "debarkPort": "Hong Kong",
+    "fare": 9999
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2027-12-22",
+    "nights": 14,
+    "itinerary": "A FESTIVE PASSAGE",
+    "itineraryCode": "GRA271222",
+    "embarkPort": "Miami",
+    "debarkPort": "Miami",
+    "fare": 8999
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2028-01-04",
+    "nights": 14,
+    "itinerary": "BESPOKE NEW ZEALAND ESCAPE",
+    "itineraryCode": "MAR280104",
+    "embarkPort": "Auckland",
+    "debarkPort": "Sydney",
+    "fare": 12999
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2028-01-15",
+    "nights": 10,
+    "itinerary": "UNTOUCHED TREASURES",
+    "itineraryCode": "GRA280115",
+    "embarkPort": "Bridgetown",
+    "debarkPort": "Bridgetown",
+    "fare": 6549
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2028-01-17",
+    "nights": 12,
+    "itinerary": "PEACEFUL SHORES & VIBRANT CITYSCAPE",
+    "itineraryCode": "EXP280117",
+    "embarkPort": "Bali (Benoa)",
+    "debarkPort": "Singapore",
+    "fare": 10599
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2028-02-04",
+    "nights": 14,
+    "itinerary": "REALM OF THE CORAL SKY",
+    "itineraryCode": "SPL280204",
+    "embarkPort": "Lautoka",
+    "debarkPort": "Sydney",
+    "fare": 10699
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2028-02-19",
+    "nights": 14,
+    "itinerary": "KIWI QUEST",
+    "itineraryCode": "MAR280219",
+    "embarkPort": "Sydney",
+    "debarkPort": "Auckland",
+    "fare": 14099
+  },
+  {
+    "shipName": "Seven Seas Voyager",
+    "departureDate": "2028-02-26",
+    "nights": 21,
+    "itinerary": "SECRETS OF THE SELVA",
+    "itineraryCode": "VOY280226",
+    "embarkPort": "Rio de Janeiro",
+    "debarkPort": "Miami",
+    "fare": 16999
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2028-03-14",
+    "nights": 26,
+    "itinerary": "AZURE TO IBERIA",
+    "itineraryCode": "PRT280314A",
+    "embarkPort": "Panama City",
+    "debarkPort": "Lisbon",
+    "fare": 17049
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2028-03-17",
+    "nights": 14,
+    "itinerary": "UNDER THE CHERRY TREES",
+    "itineraryCode": "EXP280317",
+    "embarkPort": "Tokyo",
+    "debarkPort": "Tokyo",
+    "fare": 12199
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2028-03-17",
+    "nights": 28,
+    "itinerary": "GOLDEN LATITTUDE",
+    "itineraryCode": "EXP280317A",
+    "embarkPort": "Tokyo",
+    "debarkPort": "Singapore",
+    "fare": 22899
+  },
+  {
+    "shipName": "Seven Seas Grandeur",
+    "departureDate": "2028-03-20",
+    "nights": 27,
+    "itinerary": "SPRINGTIME ATLANTIC CROSSING",
+    "itineraryCode": "GRA280320A",
+    "embarkPort": "Miami",
+    "debarkPort": "Barcelona",
+    "fare": 14899
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2028-03-26",
+    "nights": 11,
+    "itinerary": "SACRED SWORDS & TEMPLES",
+    "itineraryCode": "SPL280326",
+    "embarkPort": "Singapore",
+    "debarkPort": "Hong Kong",
+    "fare": 9199
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2028-03-28",
+    "nights": 17,
+    "itinerary": "DISCOVERIES OF WONDER & JOY",
+    "itineraryCode": "MAR280328",
+    "embarkPort": "Singapore",
+    "debarkPort": "Port Louis",
+    "fare": 12299
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2028-03-31",
+    "nights": 14,
+    "itinerary": "PRETTY IN PINK SPRING",
+    "itineraryCode": "EXP280331",
+    "embarkPort": "Tokyo",
+    "debarkPort": "Singapore",
+    "fare": 11899
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2028-04-06",
+    "nights": 21,
+    "itinerary": "FOLK TRADITIONS & FESTIVALS",
+    "itineraryCode": "SPL280406A",
+    "embarkPort": "Hong Kong",
+    "debarkPort": "Tokyo",
+    "fare": 17049
+  },
+  {
+    "shipName": "Seven Seas Prestige",
+    "departureDate": "2028-04-09",
+    "nights": 11,
+    "itinerary": "CRUISING THE CANARY ISLANDS",
+    "itineraryCode": "PRT280409",
+    "embarkPort": "Lisbon",
+    "debarkPort": "Lisbon",
+    "fare": 11399
+  },
+  {
+    "shipName": "Seven Seas Explorer",
+    "departureDate": "2028-04-14",
+    "nights": 16,
+    "itinerary": "ISLAND DELIGHTS & CITY LIGHTS",
+    "itineraryCode": "EXP280414",
+    "embarkPort": "Singapore",
+    "debarkPort": "Doha",
+    "fare": 12649
+  },
+  {
+    "shipName": "Seven Seas Mariner",
+    "departureDate": "2028-04-14",
+    "nights": 14,
+    "itinerary": "BOLD SUNSETS & LUSH RESERVES",
+    "itineraryCode": "MAR280414",
+    "embarkPort": "Port Louis",
+    "debarkPort": "Cape Town",
+    "fare": 9499
+  },
+  {
+    "shipName": "Seven Seas Splendor",
+    "departureDate": "2028-04-16",
+    "nights": 31,
+    "itinerary": "RISING SUN & GOLDEN GATE",
+    "itineraryCode": "SPL280416A",
+    "embarkPort": "Seoul (Incheon)",
+    "debarkPort": "San Francisco",
+    "fare": 25499
   },
   {
     "shipName": "Seven Seas Splendor",

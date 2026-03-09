@@ -61,6 +61,25 @@ const cliArgs = process.argv.slice(2);
 const shipFilter = cliArgs.includes('--ship') ? cliArgs[cliArgs.indexOf('--ship') + 1] : null;
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+// ── Retry wrapper for page.goto (Virgin site can be flaky) ─────────────
+async function gotoWithRetry(page, url, opts = {}, maxRetries = 2) {
+    const baseTimeout = opts.timeout || 90000;
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+        try {
+            const timeout = baseTimeout + (attempt - 1) * 30000; // 90s, 120s
+            await page.goto(url, { ...opts, timeout });
+            return;
+        } catch (err) {
+            if (attempt < maxRetries && err.message.includes('Timeout')) {
+                console.warn(`  ⚠️  Attempt ${attempt} timed out, retrying in 5s...`);
+                await sleep(5000);
+            } else {
+                throw err;
+            }
+        }
+    }
+}
+
 // ── Decode voyageId → structured data ──────────────────────────────────
 function decodeVoyageId(id) {
     // Format: SC2603134NKW → Ship=SC, Date=2026-03-13, Nights=4, PkgCode=NKW
@@ -123,7 +142,7 @@ async function main() {
 
     try {
         console.log(`\n  🌐 Navigating to search page...`);
-        await page.goto(SEARCH_URL, { waitUntil: 'networkidle', timeout: 60000 });
+        await gotoWithRetry(page, SEARCH_URL, { waitUntil: 'networkidle', timeout: 90000 });
         console.log(`  ✅ Search page loaded`);
         await sleep(3000);
 
@@ -171,23 +190,16 @@ async function main() {
                 const priceMatch = cardText.match(/\$\s*([\d,]+)/);
                 const price = priceMatch ? parseFloat(priceMatch[1].replace(/,/g, '')) : null;
 
-                // Extract departure port from card text
-                // Virgin cards typically show "Departing from <PortName>" or "from <PortName>"
-                let port = '';
-                const portMatch = cardText.match(/(?:Departing|Departs?|Sailing)\s+from\s+([A-Za-z\s,.]+?)(?:\s*[|·\n]|$)/i);
-                if (portMatch) port = portMatch[1].trim();
-
                 results.push({
                     voyageIds,
                     packageCode,
                     price,
-                    port,
+                    port: '',  // filled from portMap below
                 });
             });
 
             // ── Extract itinerary names from "Book Now" buttons with aria-labels ──
             const itineraryMap = {};  // packageCode → readable name
-            const portMap = {};       // packageCode/voyageId → departure port
             const cruiseBtns = document.querySelectorAll('a.cruiseBtn[aria-label]');
             cruiseBtns.forEach(btn => {
                 const label = btn.getAttribute('aria-label') || '';
@@ -203,12 +215,46 @@ async function main() {
                 } catch { /* skip */ }
             });
 
-            // Build port map from card results
+            // ── Build port map from UL.ports lists ──
+            // Virgin renders ports as <UL class="ports"><LI>City, State</LI>...</UL>
+            // The first <LI> is the departure port.
+            // Walk up from each UL.ports to find the parent section containing voyage links.
+            const portMap = {};
+            const portLists = document.querySelectorAll('ul.ports');
+            for (const ul of portLists) {
+                const firstLi = ul.querySelector('li');
+                if (!firstLi) continue;
+                const departurePort = firstLi.textContent.trim();
+                if (!departurePort) continue;
+
+                // Walk up to find the voyage section containing booking links
+                let parent = ul.parentElement;
+                for (let i = 0; i < 10 && parent; i++) {
+                    const voyageLinks = parent.querySelectorAll('a[href*="voyageId"], a[href*="packageCode"]');
+                    if (voyageLinks.length > 0) {
+                        for (const vl of voyageLinks) {
+                            try {
+                                const vUrl = new URL(vl.href, window.location.origin);
+                                const pkg = vUrl.searchParams.get('packageCode') || '';
+                                if (pkg) portMap[pkg] = departurePort;
+                                const vids = (vUrl.searchParams.get('voyageIds') || vUrl.searchParams.get('voyageId') || '').split(',').filter(Boolean);
+                                vids.forEach(vid => { portMap[vid] = departurePort; });
+                            } catch { /* skip */ }
+                        }
+                        break; // found the containing section, stop walking up
+                    }
+                    parent = parent.parentElement;
+                }
+            }
+
+            // Apply port map to card results
             for (const r of results) {
-                if (r.port) {
-                    if (r.packageCode) portMap[r.packageCode] = r.port;
+                if (r.packageCode && portMap[r.packageCode]) {
+                    r.port = portMap[r.packageCode];
+                }
+                if (!r.port) {
                     for (const vid of r.voyageIds) {
-                        portMap[vid] = r.port;
+                        if (portMap[vid]) { r.port = portMap[vid]; break; }
                     }
                 }
             }
@@ -219,6 +265,7 @@ async function main() {
         const { cards, itineraryMap, portMap } = cardData;
         console.log(`  📋 Extracted ${cards.length} voyage cards from DOM`);
         console.log(`  🏷️  Found ${Object.keys(itineraryMap).length} itinerary name mappings`);
+        console.log(`  📍 Port map: ${Object.keys(portMap).length} entries (${cards.filter(c => c.port).length} cards with ports)`);
         console.log(`  📡 Intercepted ${Object.keys(apiPricing).length} items from API`);
 
         // ── Build price map from card data (packageCode → price) ──
@@ -315,7 +362,7 @@ async function main() {
 
             try {
                 console.log(`    [${i + 1}/${sailingsToPrice.length}] ${r.shipName} ${r.departureDate} ...`);
-                await page.goto(cabinUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
+                await gotoWithRetry(page, cabinUrl, { waitUntil: 'domcontentloaded', timeout: 30000 }, 2);
                 await sleep(3000); // Wait for cabin cards to render
 
                 // Extract Rockstar "from" price from the cabin category cards
@@ -376,6 +423,12 @@ async function main() {
     } catch (err) {
         console.error(`\n  ❌ Fatal: ${err.message}`);
         runErrors.push(err.message);
+        // Record the failed run in ScraperRuns so failures are visible in the DB
+        try {
+            await upsertToDatabase([], runStartedAt, runErrors);
+        } catch (dbErr) {
+            console.error(`  ❌ Could not record failed run: ${dbErr.message}`);
+        }
     } finally {
         await browser.close();
     }
