@@ -544,7 +544,10 @@
                 <button class="analytics-toggle-btn" data-pricetype="suite">👑 Suite</button>
             </div>
         </div>
-        <div class="analytics-grid">
+        <div class="analytics-loading" id="analyticsLoading">
+            <div class="spinner"></div> Crunching analytics data...
+        </div>
+        <div class="analytics-grid" id="analyticsGrid">
             <div class="analytics-card">
                 <div class="analytics-card-title">Average Price by Cruise Line</div>
                 <div class="analytics-card-subtitle">Current balcony $/ppd averages (non-transatlantic)</div>
@@ -570,7 +573,7 @@
         </div>
     </div>
 
-    <script src="js/app.js?v=20260303_v5"></script>
+    <script src="js/app.js?v=20260311_suite_deals"></script>
     <script src="js/analytics.js?v=20260303_v2"></script>
 </body>
 

@@ -8,7 +8,7 @@
 //   GET  /api/price-history/{...}      → Historical price snapshots for a specific sailing
 //   GET  /api/ships                    → Full fleet reference data (ShipInfo records)
 //   GET  /api/deals                    → Cruises below hardcoded alert thresholds
-//   GET  /api/hot-deals               → Multi-signal heat-scored deals (price drop, peer outlier, quality-price gap)
+//   GET  /api/hot-deals               → Multi-signal heat-scored deals (price drop, peer outlier, quality-price gap). Params: `appMode`, `mode` (suite uses SuitePerDay + SuiteDiningScore)
 //   GET  /api/analytics               → Chart data (by-line, by-ship, departure curve, monthly heatmap)
 //
 // Dependencies: connectionString, ships dictionary, allRestaurants cache
@@ -129,13 +129,15 @@ public static class DashboardEndpoints
                     p.BalconyPrice, p.BalconyPerDay, p.SuitePrice, p.SuitePerDay, p.ScrapedAt,
                     p.FamilyInsidePrice, p.FamilyInsidePerDay, p.FamilyOceanviewPrice, p.FamilyOceanviewPerDay,
                     p.FamilyBalconyPrice, p.FamilyBalconyPerDay, p.FamilySuitePrice, p.FamilySuitePerDay,
+                    p.VerifiedSuitePrice, p.VerifiedSuitePerDay,
                     fl.FLResBalconyPrice, fl.FLResBalconyPerDay, fl.FLResSuitePrice, fl.FLResSuitePerDay, fl.FLResScrapedAt
                 FROM Cruises c
                 OUTER APPLY (
                     SELECT TOP 1 ph.InsidePrice, ph.InsidePerDay, ph.OceanviewPrice, ph.OceanviewPerDay,
                            ph.BalconyPrice, ph.BalconyPerDay, ph.SuitePrice, ph.SuitePerDay, ph.ScrapedAt,
                            ph.FamilyInsidePrice, ph.FamilyInsidePerDay, ph.FamilyOceanviewPrice, ph.FamilyOceanviewPerDay,
-                           ph.FamilyBalconyPrice, ph.FamilyBalconyPerDay, ph.FamilySuitePrice, ph.FamilySuitePerDay
+                           ph.FamilyBalconyPrice, ph.FamilyBalconyPerDay, ph.FamilySuitePrice, ph.FamilySuitePerDay,
+                           ph.VerifiedSuitePrice, ph.VerifiedSuitePerDay
                     FROM PriceHistory ph
                     WHERE ph.CruiseLine = c.CruiseLine AND ph.ShipName = c.ShipName AND ph.DepartureDate = c.DepartureDate
                     ORDER BY ph.ScrapedAt DESC
@@ -157,7 +159,7 @@ public static class DashboardEndpoints
             // Suite mode: exclude cruises with no suite pricing at all
             if (string.Equals(mode, "suite", StringComparison.OrdinalIgnoreCase))
             {
-                sql += " AND ISNULL(p.VerifiedSuitePerDay, 0) > 0";
+                sql += " AND (ISNULL(p.SuitePerDay, 0) > 0 OR ISNULL(p.VerifiedSuitePerDay, 0) > 0)";
             }
         
             // App mode: filter by cruise line category
@@ -232,6 +234,8 @@ public static class DashboardEndpoints
                     PackageDiningScore = si?.PackageDiningScore ?? 0,
                     SuiteDiningScore = si?.SuiteDiningScore ?? 0,
                     DiningPackageCostPerDay = si?.DiningPackageCostPerDay ?? 0m,
+                    VerifiedSuitePrice = (decimal?)(r.VerifiedSuitePrice),
+                    VerifiedSuitePerDay = (decimal?)(r.VerifiedSuitePerDay),
                     ScrapedAt = r.ScrapedAt != null ? ((DateTime)r.ScrapedAt).ToString("yyyy-MM-dd HH:mm") : null
                 };
             });
@@ -353,12 +357,17 @@ public static class DashboardEndpoints
             return Results.Ok(deals);
         });
         
-        // GET /api/hot-deals â€” cruises with exceptional value (multi-signal heat scoring)
-        app.MapGet("/api/hot-deals", async (string? appMode) =>
+        // GET /api/hot-deals — cruises with exceptional value (multi-signal heat scoring)
+        // mode=suite uses SuitePerDay + SuiteDiningScore; default uses BalconyPerDay + MainDiningScore
+        app.MapGet("/api/hot-deals", async (string? appMode, string? mode) =>
         {
             using var conn = new SqlConnection(connStr);
             var modeLines = ShipReferenceData.LinesForMode(ships, appMode);
             var lineFilter = string.Join(",", modeLines.Select(l => $"'{l}'"));
+            var isSuiteMode = string.Equals(mode, "suite", StringComparison.OrdinalIgnoreCase);
+            var priceCol = isSuiteMode ? "SuitePerDay" : "BalconyPerDay";
+            var priceTotalCol = isSuiteMode ? "SuitePrice" : "BalconyPrice";
+            var priceLabel = isSuiteMode ? "suite" : "balcony";
         
             // Single query: current prices + price history stats (peak, snapshot count)
             var rows = await conn.QueryAsync<dynamic>($@"
@@ -379,21 +388,24 @@ public static class DashboardEndpoints
                     ORDER BY ph.ScrapedAt DESC
                 ) p
                 OUTER APPLY (
-                    SELECT MAX(ph2.BalconyPerDay) AS PeakPpd, MIN(ph2.BalconyPerDay) AS LowestPpd, COUNT(*) AS Snapshots
+                    SELECT MAX(ph2.{priceCol}) AS PeakPpd, MIN(ph2.{priceCol}) AS LowestPpd, COUNT(*) AS Snapshots
                     FROM PriceHistory ph2
                     WHERE ph2.CruiseLine = c.CruiseLine AND ph2.ShipName = c.ShipName AND ph2.DepartureDate = c.DepartureDate
-                      AND ph2.BalconyPerDay > 0
+                      AND ph2.{priceCol} > 0
                       AND ph2.ScrapedAt >= '2026-02-28'
                 ) hist
                 WHERE c.IsDeparted = 0 AND c.DepartureDate >= CAST(GETDATE() AS DATE)
                   AND c.CruiseLine IN ({lineFilter})
-                  AND p.BalconyPerDay > 0
+                  AND p.{priceCol} > 0
                   AND p.ScrapedAt > DATEADD(hour, -36, (SELECT MaxScrapedAt FROM LatestScrapes ls WHERE ls.CruiseLine = c.CruiseLine))
                   AND (c.Itinerary IS NULL OR c.Itinerary NOT LIKE '%transatlantic%')
             ");
         
             var allRows = rows.ToList();
             if (allRows.Count == 0) return Results.Ok(Array.Empty<object>());
+        
+            // Helper to extract the mode-relevant PPD from a row
+            decimal GetPpd(dynamic r) => isSuiteMode ? (decimal)(r.SuitePerDay ?? 0m) : (decimal)r.BalconyPerDay;
         
             // Compute per-line, per-nights-bucket percentiles (P10, P25)
             string NightsBucket(int n) => n <= 4 ? "3-4" : n <= 6 ? "5-6" : n <= 8 ? "7-8" : n <= 11 ? "9-11" : "12+";
@@ -404,8 +416,9 @@ public static class DashboardEndpoints
                     g => g.Key,
                     g =>
                     {
-                        var prices = g.Select(r => (decimal)r.BalconyPerDay).OrderBy(p => p).ToList();
+                        var prices = g.Select(r => GetPpd(r)).Where(p => p > 0).OrderBy(p => p).ToList();
                         var cnt = prices.Count;
+                        if (cnt == 0) return new { P10 = 0m, P25 = 0m, Median = 0m, Count = 0 };
                         return new
                         {
                             P10 = prices[(int)(cnt * 0.10)],
@@ -416,6 +429,7 @@ public static class DashboardEndpoints
                     });
         
             // Compute per-line quality percentiles (ship + dining quality)
+            // Use SuiteDiningScore for suite mode, MainDiningScore otherwise
             var lineQualityThresholds = allRows
                 .GroupBy(r => (string)r.CruiseLine)
                 .ToDictionary(
@@ -425,7 +439,8 @@ public static class DashboardEndpoints
                         var quals = g.Select(r =>
                         {
                             var si = ShipReferenceData.LookupShip(ships, (string)r.ShipName);
-                            return (si?.ShipScore ?? 50) + (si?.MainDiningScore ?? 50);
+                            var diningScore = isSuiteMode ? (si?.SuiteDiningScore ?? 50) : (si?.MainDiningScore ?? 50);
+                            return (si?.ShipScore ?? 50) + diningScore;
                         }).OrderBy(q => q).ToList();
                         var cnt = quals.Count;
                         return new { Top30 = quals[(int)(cnt * 0.70)], Count = cnt };
@@ -437,7 +452,8 @@ public static class DashboardEndpoints
                     g => g.Key,
                     g =>
                     {
-                        var prices = g.Select(r => (decimal)r.BalconyPerDay).OrderBy(p => p).ToList();
+                        var prices = g.Select(r => GetPpd(r)).Where(p => p > 0).OrderBy(p => p).ToList();
+                        if (prices.Count == 0) return 0m;
                         return prices[(int)(prices.Count * 0.30)];
                     });
         
@@ -446,7 +462,7 @@ public static class DashboardEndpoints
             {
                 var line = (string)r.CruiseLine;
                 var shipName = (string)r.ShipName;
-                var ppd = (decimal)r.BalconyPerDay;
+                var ppd = GetPpd(r);
                 var nights = (int)(r.Nights ?? 7);
                 var si = ShipReferenceData.LookupShip(ships, shipName);
                 var heatScore = 0;
@@ -461,12 +477,12 @@ public static class DashboardEndpoints
                     if (dropPct >= 30)
                     {
                         heatScore += 2;
-                        reasons.Add($"📉 {(int)dropPct}% price drop from peak (${(int)peakPpd}/ppd â†’ ${(int)ppd})");
+                        reasons.Add($"📉 {(int)dropPct}% {priceLabel} price drop from peak (${(int)peakPpd}/ppd → ${(int)ppd})");
                     }
                     else if (dropPct >= 15)
                     {
                         heatScore += 1;
-                        reasons.Add($"📉 {(int)dropPct}% price drop from peak");
+                        reasons.Add($"📉 {(int)dropPct}% {priceLabel} price drop from peak");
                     }
                 }
         
@@ -478,35 +494,36 @@ public static class DashboardEndpoints
                     if (ppd <= peer.P10)
                     {
                         heatScore += 2;
-                        reasons.Add($"📊 Bottom 10% for {nights}-night {line} (${(int)ppd} vs median ${(int)peer.Median})");
+                        reasons.Add($"📊 Bottom 10% {priceLabel} for {nights}-night {line} (${(int)ppd} vs median ${(int)peer.Median})");
                     }
                     else if (ppd <= peer.P25)
                     {
                         heatScore += 1;
-                        reasons.Add($"📊 Bottom 25% for {nights}-night {line}");
+                        reasons.Add($"📊 Bottom 25% {priceLabel} for {nights}-night {line}");
                     }
                 }
         
                 // Signal 3: Quality-Price Gap
                 if (si != null)
                 {
-                    var qualScore = si.ShipScore + si.MainDiningScore;
+                    var diningScore = isSuiteMode ? si.SuiteDiningScore : si.MainDiningScore;
+                    var qualScore = si.ShipScore + diningScore;
                     var topQuality = lineQualityThresholds.TryGetValue(line, out var lq) && qualScore >= lq.Top30;
                     var lowPrice = linePriceP30.TryGetValue(line, out var lp) && ppd <= lp;
         
                     if (topQuality && lowPrice)
                     {
                         var shipQ = si.ShipScore;
-                        var dinQ = si.MainDiningScore;
+                        var dinQ = diningScore;
                         if (ppd <= (linePriceP30.GetValueOrDefault(line, 999) * 0.70m))
                         {
                             heatScore += 2;
-                            reasons.Add($"🏆 Top-tier ship (ship:{shipQ} dining:{dinQ}) at rock-bottom price");
+                            reasons.Add($"🏆 Top-tier ship (ship:{shipQ} dining:{dinQ}) at rock-bottom {priceLabel} price");
                         }
                         else
                         {
                             heatScore += 1;
-                            reasons.Add($"🏆 Top-tier ship (ship:{shipQ} dining:{dinQ}) at below-average price");
+                            reasons.Add($"🏆 Top-tier ship (ship:{shipQ} dining:{dinQ}) at below-average {priceLabel} price");
                         }
                     }
                 }
@@ -526,7 +543,7 @@ public static class DashboardEndpoints
                     Nights = nights,
                     DeparturePort = (string)(r.DeparturePort ?? ""),
                     BalconyPrice = (decimal?)(r.BalconyPrice),
-                    BalconyPerDay = ppd,
+                    BalconyPerDay = (decimal)(r.BalconyPerDay ?? 0m),
                     SuitePrice = (decimal?)(r.SuitePrice),
                     SuitePerDay = (decimal?)(r.SuitePerDay),
                     KidsScore = si?.KidsScore ?? 0,
@@ -542,7 +559,7 @@ public static class DashboardEndpoints
             })
             .Where(x => x.HeatScore >= 3)
             .OrderByDescending(x => x.HeatScore)
-            .ThenBy(x => x.BalconyPerDay)
+            .ThenBy(x => isSuiteMode ? (x.SuitePerDay ?? 99999m) : x.BalconyPerDay)
             .ToList();
         
             return Results.Ok(scored);

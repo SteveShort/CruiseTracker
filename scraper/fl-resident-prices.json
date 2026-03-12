@@ -11,17 +11,6 @@
     "suitePerDay": 0
   },
   {
-    "shipName": "Disney Fantasy",
-    "departureDate": "2026-04-12",
-    "nights": 5,
-    "itinerary": "4_bahamian_port_canaveral",
-    "port": "",
-    "balconyPrice": 2707.14,
-    "balconyPerDay": 541.43,
-    "suitePrice": 0,
-    "suitePerDay": 0
-  },
-  {
     "shipName": "Disney Wish",
     "departureDate": "2026-04-20",
     "nights": 4,
@@ -40,17 +29,6 @@
     "port": "",
     "balconyPrice": 2237.14,
     "balconyPerDay": 559.29,
-    "suitePrice": 0,
-    "suitePerDay": 0
-  },
-  {
-    "shipName": "Disney Treasure",
-    "departureDate": "2026-04-25",
-    "nights": 7,
-    "itinerary": "4_bahamian_port_canaveral",
-    "port": "",
-    "balconyPrice": 4424.24,
-    "balconyPerDay": 632.03,
     "suitePrice": 0,
     "suitePerDay": 0
   },

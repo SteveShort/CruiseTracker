@@ -272,15 +272,17 @@ function updateSectionTitle(isHotDeals, count) {
     } else {
         titleEl.firstChild.textContent = '🎯 Our Options ';
         if (valueBtn) valueBtn.style.display = '';
-        if (sortLabel) sortLabel.textContent = 'ranked by best balcony value';
+        const mode = getDiningMode();
+        if (sortLabel) sortLabel.textContent = mode === 'suite' ? 'ranked by best suite value' : 'ranked by best balcony value';
         if (orderBy) orderBy.style.display = '';
     }
 }
 
 async function loadHotDealsMode() {
     const appMode = getAppMode();
+    const mode = getDiningMode();
     try {
-        const deals = await fetch(`/api/hot-deals?appMode=${appMode}`).then(r => r.json());
+        const deals = await fetch(`/api/hot-deals?appMode=${appMode}&mode=${mode}`).then(r => r.json());
         hotDealsData = deals;
         applyDashboardFilters(); // This will use hotDealsData if hotDealsMode is on
     } catch (err) {
@@ -420,7 +422,12 @@ function initValueWeightSliders() {
                 totalSlider.value = totalSlider.max;
                 document.getElementById('dashFilterMaxTotalLabel').textContent = 'Max';
                 _valueDirty = true;
-                applyDashboardFilters();
+                // Re-fetch hot deals with new mode if hot deals toggle is active
+                if (hotDealsMode) {
+                    loadHotDealsMode();
+                } else {
+                    applyDashboardFilters();
+                }
             });
         });
     }

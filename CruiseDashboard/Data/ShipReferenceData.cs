@@ -50,6 +50,10 @@ public static class ShipReferenceData
             "Oceaneer Club (3-10), Edge (11-14), Vibe (14-17), Hideaway", "Concierge", 0m,
             "AquaMouse water ride, 6 pools", "Heroes & Villains theme; enters service Nov 2025; sails from Ft Lauderdale",
             98, 98, 88, 95, 0, 28m),
+        ["Disney Adventure"] = new("family", "Disney", "Disney Adventure", "Global Dream", 2025, "None", 208000, 6000, true,
+            "Oceaneer Club (3-10), Edge (11-14), Vibe (14-17)", "Concierge", 0m,
+            "AquaMouse, multiple pools, splash zones", "Repurposed Global Dream; largest Disney ship ever; sails from Singapore; Asia itineraries",
+            92, 90, 85, 90, 0, 25m),
 
         // NORWEGIAN                                                      SuiteName    Mult  KidsR ShipR  MainDin PkgDin SuiteDin PkgCost
         ["Norwegian Prima"] = new("family", "Norwegian", "Norwegian Prima", "Prima", 2022, "None", 142500, 3215, true,

@@ -542,6 +542,16 @@ body::before {
     display: inline-block;
 }
 
+.analytics-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    color: var(--text-muted);
+    gap: 12px;
+    font-size: 0.95rem;
+}
+
 .analytics-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

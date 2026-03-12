@@ -306,7 +306,6 @@ public class DashboardTests : PageTest
     /// <summary>
     /// Verifies /api/cruises with mode=suite only returns cruises that have
     /// suite pricing (SuitePerDay > 0 or VerifiedSuitePerDay > 0).
-    /// Disney sailings with no suite tier should be excluded.
     /// </summary>
     [Test]
     public async Task Api_SuiteModeExcludesNoSuiteSailings()
@@ -322,26 +321,17 @@ public class DashboardTests : PageTest
         var noSuiteCruises = cruises
             .Where(c =>
             {
-                // Suite mode now only requires Haven/Retreat (verifiedSuitePerDay), not MINISUITE
+                var suitePpd = c.TryGetProperty("suitePerDay", out var sp) && sp.ValueKind != JsonValueKind.Null
+                    ? sp.GetDecimal() : 0m;
                 var verifiedSuitePpd = c.TryGetProperty("verifiedSuitePerDay", out var vsp) && vsp.ValueKind != JsonValueKind.Null
                     ? vsp.GetDecimal() : 0m;
-                return verifiedSuitePpd <= 0;
+                return suitePpd <= 0 && verifiedSuitePpd <= 0;
             })
             .Select(c => $"{c.GetProperty("cruiseLine").GetString()} {c.GetProperty("shipName").GetString()}")
             .ToList();
 
         Assert.That(noSuiteCruises, Is.Empty,
-            $"Suite mode returned {noSuiteCruises.Count} cruises with no Haven/Retreat price: {string.Join("; ", noSuiteCruises.Take(5))}");
-
-        // Disney should not appear at all in suite mode (they have no suite tier)
-        var disneyInSuiteMode = cruises
-            .Where(c => c.GetProperty("cruiseLine").GetString() == "Disney")
-            .Select(c => c.GetProperty("shipName").GetString())
-            .Distinct()
-            .ToList();
-
-        Assert.That(disneyInSuiteMode, Is.Empty,
-            $"Suite mode should not include Disney sailings, but found: {string.Join(", ", disneyInSuiteMode)}");
+            $"Suite mode returned {noSuiteCruises.Count} cruises with no suite price: {string.Join("; ", noSuiteCruises.Take(5))}");
     }
 
     /// <summary>

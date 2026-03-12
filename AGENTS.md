@@ -158,6 +158,7 @@ All endpoints defined in `CruiseDashboard/Program.cs` using ASP.NET Minimal API 
 | GET | `/api/filter-options` | Distinct cruise lines, ship names, and ports for dropdowns | 340-351 |
 | GET | `/api/cruises` | Main data endpoint — all future cruises with latest prices + ship info. Params: `line`, `ship`, `port`, `sortBy`, `sortDir`, `mode` | 353-448 |
 | GET | `/api/deals` | Cruises below alert thresholds (Disney: $300 balcony/$500 suite, NCL: $150/$250) | 561-622 |
+| GET | `/api/hot-deals` | Multi-signal heat-scored deals. Params: `appMode`, `mode` (`suite` uses SuitePerDay + SuiteDiningScore; default uses BalconyPerDay + MainDiningScore) | — |
 | GET | `/api/price-history/{line}/{ship}/{date}` | Historical price snapshots for a specific sailing | 524-555 |
 | GET | `/api/ships` | Full fleet reference — all ships sorted by line then year | 556-558 |
 | GET | `/api/restaurants/{shipName}` | Restaurant data for a specific ship | 476-481 |

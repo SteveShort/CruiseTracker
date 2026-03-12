@@ -17,6 +17,11 @@ async function loadAnalytics(force) {
     if (heatmap) heatmap.innerHTML = '';
 
     const appMode = getAppMode();
+    // Show loading spinner, hide charts
+    const loadingEl = document.getElementById('analyticsLoading');
+    const gridEl = document.getElementById('analyticsGrid');
+    if (loadingEl) loadingEl.style.display = 'flex';
+    if (gridEl) gridEl.style.display = 'none';
     try {
         const data = await fetch(`/api/analytics?appMode=${appMode}&priceType=${analyticsPriceType}`).then(r => r.json());
         renderByLineChart(data.byLine);
@@ -28,8 +33,14 @@ async function loadAnalytics(force) {
         const totalSnaps = data.departureCurve.reduce((sum, d) => sum + d.snapshots, 0);
         const el = document.getElementById('analyticsSnapshots');
         if (el) el.textContent = totalSnaps.toLocaleString();
+
+        // Hide loading, show charts
+        if (loadingEl) loadingEl.style.display = 'none';
+        if (gridEl) gridEl.style.display = '';
     } catch (err) {
         console.error('Failed to load analytics:', err);
+        if (loadingEl) loadingEl.style.display = 'none';
+        if (gridEl) gridEl.style.display = '';
     }
 }
 
