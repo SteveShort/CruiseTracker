@@ -9,7 +9,8 @@
 //   GET  /api/ships                    → Full fleet reference data (ShipInfo records)
 //   GET  /api/deals                    → Cruises below hardcoded alert thresholds
 //   GET  /api/hot-deals               → Multi-signal heat-scored deals (price drop, peer outlier, quality-price gap). Params: `appMode`, `mode` (suite uses SuitePerDay + SuiteDiningScore)
-//   GET  /api/analytics               → Chart data (by-line, by-ship, departure curve, monthly heatmap)
+//   GET  /api/analytics               → Chart data (by-line, by-ship, departure curve, monthly heatmap). Params: `appMode`, `priceType`, `line`
+//   GET  /api/market-brief            → 24h price change intelligence (alerts, market pulse, per-line breakdown). Params: `appMode`, `priceType`, `line`
 //
 // Dependencies: connectionString, ships dictionary, allRestaurants cache
 // Shared records: ShipInfo, RestaurantData (in Data/ShipReferenceData.cs)

@@ -160,6 +160,7 @@ All endpoints defined in `CruiseDashboard/Endpoints/DashboardEndpoints.cs` using
 | GET | `/api/cruises` | Main data endpoint — all future cruises with latest prices + ship info. Params: `line`, `ship`, `port`, `sortBy`, `sortDir`, `mode` (suite mode filters on `SuitePerDay > 0 OR VerifiedSuitePerDay > 0`). Also returns `verifiedSuitePerDay` field. | — |
 | GET | `/api/deals` | Cruises below alert thresholds (Disney: $300 balcony/$500 suite, NCL: $150/$250) | 561-622 |
 | GET | `/api/hot-deals` | Multi-signal heat-scored deals. Params: `appMode`, `mode` (`suite` uses SuitePerDay + SuiteDiningScore; default uses BalconyPerDay + MainDiningScore) | — |
+| GET | `/api/market-brief` | 24h price change intelligence. Params: `appMode`, `priceType`, `line`. Returns alerts (>15% drops / >25% rises), market pulse summary, and per-line breakdowns | — |
 | GET | `/api/price-history/{line}/{ship}/{date}` | Historical price snapshots for a specific sailing | 524-555 |
 | GET | `/api/ships` | Full fleet reference — all ships sorted by line then year | 556-558 |
 | GET | `/api/restaurants/{shipName}` | Restaurant data for a specific ship | 476-481 |
