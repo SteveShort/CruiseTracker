@@ -255,7 +255,6 @@ public static class DashboardEndpoints
                            FLResBalconyPrice, FLResBalconyPerDay, FLResSuitePrice, FLResSuitePerDay,
                            FamilyInsidePrice, FamilyInsidePerDay, FamilyOceanviewPrice, FamilyOceanviewPerDay,
                            FamilyBalconyPrice, FamilyBalconyPerDay, FamilySuitePrice, FamilySuitePerDay,
-                           FamilySuitePrice, FamilySuitePerDay,
                            ROW_NUMBER() OVER (PARTITION BY CAST(ScrapedAt AS DATE) ORDER BY ScrapedAt DESC) AS rn
                     FROM PriceHistory
                     WHERE CruiseLine = @cruiseLine AND ShipName = @shipName AND DepartureDate = @departureDate
