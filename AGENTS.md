@@ -30,7 +30,8 @@ c:\Dev\Cruise Tracker\                  ← single git repo
 │   └── schema.sql                      ← DDL for all 4 CruiseTracker tables
 │
 ├── CruiseDashboard\                    ← ASP.NET 8 Minimal API + static frontend
-│   ├── Program.cs                      ← API endpoints, ship data, restaurants (~1260 lines)
+│   ├── Program.cs                      ← App startup + middleware (~85 lines)
+│   ├── Endpoints/DashboardEndpoints.cs ← All API endpoints (~690 lines)
 │   ├── CruiseDashboard.csproj
 │   ├── Deploy.ps1                      ← deployment script (used by scheduled task)
 │   ├── RegisterDeploy.ps1              ← registers deploy scheduled task
@@ -45,7 +46,7 @@ c:\Dev\Cruise Tracker\                  ← single git repo
 │   │   ├── index.html                  ← single-page app (~575 lines)
 │   │   └── img/                        ← cruise line SVG logos
 │   └── CruiseDashboard.Tests/
-│       └── DashboardTests.cs           ← 11 Playwright NUnit integration tests
+│       └── DashboardTests.cs           ← 12 Playwright NUnit integration tests
 │
 └── scraper\
     ├── ncl-scraper.js                  ← NCL pricing via REST API (437 lines)
@@ -147,16 +148,16 @@ sqlcmd -S "STEVEOFFICEPC\ORACLE2SQL" -E -Q "RESTORE DATABASE CruiseTracker FROM 
 
 ---
 
-## API Endpoints (Program.cs)
+## API Endpoints (Endpoints/DashboardEndpoints.cs)
 
-All endpoints defined in `CruiseDashboard/Program.cs` using ASP.NET Minimal API pattern.
+All endpoints defined in `CruiseDashboard/Endpoints/DashboardEndpoints.cs` using ASP.NET Minimal API pattern. `Program.cs` only handles startup + middleware.
 
 ### Data Endpoints
 | Method | Path | Description | Lines |
 |--------|------|-------------|-------|
 | GET | `/api/stats` | Dashboard summary: total sailings, cheapest PPD, ship count, scraper health | 278-337 |
 | GET | `/api/filter-options` | Distinct cruise lines, ship names, and ports for dropdowns | 340-351 |
-| GET | `/api/cruises` | Main data endpoint — all future cruises with latest prices + ship info. Params: `line`, `ship`, `port`, `sortBy`, `sortDir`, `mode` | 353-448 |
+| GET | `/api/cruises` | Main data endpoint — all future cruises with latest prices + ship info. Params: `line`, `ship`, `port`, `sortBy`, `sortDir`, `mode` (suite mode filters on `SuitePerDay > 0 OR VerifiedSuitePerDay > 0`). Also returns `verifiedSuitePerDay` field. | — |
 | GET | `/api/deals` | Cruises below alert thresholds (Disney: $300 balcony/$500 suite, NCL: $150/$250) | 561-622 |
 | GET | `/api/hot-deals` | Multi-signal heat-scored deals. Params: `appMode`, `mode` (`suite` uses SuitePerDay + SuiteDiningScore; default uses BalconyPerDay + MainDiningScore) | — |
 | GET | `/api/price-history/{line}/{ship}/{date}` | Historical price snapshots for a specific sailing | 524-555 |
@@ -193,7 +194,7 @@ All endpoints defined in `CruiseDashboard/Program.cs` using ASP.NET Minimal API 
 40+ ships hardcoded in a `Dictionary<string, ShipInfo>`. Each entry has: category (`"family"` or `"adult"`), cruise line, ship class, year built, last renovated, gross tonnage, passenger capacity, has kids programs, kids club description, suite tier name, suite multiplier, water features, notes, and 6 numeric scores (Kids, Ship, MainDining, PackageDining, SuiteDining, DiningPackageCostPerDay).
 
 Ships are grouped by line:
-- **Disney** (Magic, Fantasy, Dream, Wish, Treasure, Destiny)
+- **Disney** (Magic, Fantasy, Dream, Wish, Treasure, Destiny, Adventure)
 - **Norwegian** (Prima, Viva, Aqua, Luna, Aura, Encore, Bliss, Joy, Escape, Getaway, Breakaway, Epic, Gem, Jewel, Jade, Pearl, Dawn, Star, Sun, Sky, Spirit, Pride of America)
 - **Celebrity** (Edge, Apex, Beyond, Ascent, Xcel, Eclipse, Equinox, Solstice, Reflection, Silhouette, Constellation, Summit, Millennium, Infinity, Flora, Seeker, Compass, Wanderer, Roamer, Boundless)
 - **Oceania** (Vista, Allura, Marina, Riviera, Sirena, Insignia, Nautica, Regatta, Sonesta) — category: `"adult"`
