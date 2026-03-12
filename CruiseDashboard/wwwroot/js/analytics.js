@@ -188,7 +188,8 @@ function renderBriefAlerts(alerts, asOf, comparedTo) {
             // Close all other open charts
             el.querySelectorAll('.alert-chart-container.expanded').forEach(c => {
                 c.classList.remove('expanded');
-                c.closest('.alert-item')?.querySelector('.alert-expand-icon').textContent = '▸';
+                const expandIcon = c.closest('.alert-item')?.querySelector('.alert-expand-icon');
+                if (expandIcon) expandIcon.textContent = '▸';
             });
 
             if (!isOpen) {
