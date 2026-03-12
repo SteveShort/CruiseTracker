@@ -124,9 +124,20 @@ function renderBriefByLine(byLine) {
 function renderBriefAlerts(alerts, asOf, comparedTo) {
     const el = document.getElementById('briefAlerts');
     const countEl = document.getElementById('briefAlertCount');
+    const titleEl = el?.closest('.brief-card')?.querySelector('.brief-card-title');
     if (!el) return;
 
     if (countEl) countEl.textContent = alerts.length > 0 ? `(${alerts.length})` : '';
+
+    // Show timeframe in the card title
+    if (titleEl && comparedTo && asOf) {
+        const fmtTime = (ts) => {
+            const d = new Date(ts.replace(' ', 'T'));
+            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' ' +
+                d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+        };
+        titleEl.innerHTML = `🔔 Price Alerts <span class="brief-alert-count">${alerts.length > 0 ? `(${alerts.length})` : ''}</span> <span class="brief-timeframe">${fmtTime(comparedTo)} → ${fmtTime(asOf)}</span>`;
+    }
 
     if (!alerts || alerts.length === 0) {
         el.innerHTML = '<div class="brief-empty">No unusual price movements since last scrape</div>';
@@ -134,29 +145,65 @@ function renderBriefAlerts(alerts, asOf, comparedTo) {
     }
 
     let html = '<div class="alert-list">';
-    alerts.forEach(a => {
+    alerts.forEach((a, idx) => {
         const icon = a.direction === 'drop' ? '📉' : '📈';
         const badgeClass = a.direction === 'drop' ? 'badge-drop' : 'badge-rise';
         const prefix = a.changePct > 0 ? '+' : '';
         const depDate = new Date(a.departureDate + 'T00:00:00');
         const dateStr = depDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        const alertId = `alert-chart-${idx}`;
 
-        html += `<div class="alert-row alert-${a.direction}">
-            <span class="alert-icon">${icon}</span>
-            <div class="alert-info">
-                <span class="alert-ship">${a.shipName}</span>
-                <span class="alert-detail">${a.cruiseLine} · ${dateStr} · ${a.nights}n · ${a.departurePort}</span>
+        html += `<div class="alert-item">
+            <div class="alert-row alert-${a.direction} alert-clickable"
+                 data-line="${a.cruiseLine}" data-ship="${a.shipName}" data-date="${a.departureDate}" data-target="${alertId}">
+                <span class="alert-icon">${icon}</span>
+                <div class="alert-info">
+                    <span class="alert-ship">${a.shipName}</span>
+                    <span class="alert-detail">${a.cruiseLine} · ${dateStr} · ${a.nights}n · ${a.departurePort}</span>
+                </div>
+                <div class="alert-price">
+                    <span class="alert-old">$${a.previousPpd}</span>
+                    <span class="alert-arrow">→</span>
+                    <span class="alert-new">$${a.currentPpd}</span>
+                </div>
+                <span class="change-badge ${badgeClass}">${prefix}${a.changePct.toFixed(1)}%</span>
+                <span class="alert-expand-icon">▸</span>
             </div>
-            <div class="alert-price">
-                <span class="alert-old">$${a.previousPpd}</span>
-                <span class="alert-arrow">→</span>
-                <span class="alert-new">$${a.currentPpd}</span>
+            <div class="alert-chart-container" id="${alertId}">
+                <div class="alert-chart-wrap"><canvas></canvas></div>
             </div>
-            <span class="change-badge ${badgeClass}">${prefix}${a.changePct.toFixed(1)}%</span>
         </div>`;
     });
     html += '</div>';
     el.innerHTML = html;
+
+    // Wire up click-to-expand
+    el.querySelectorAll('.alert-clickable').forEach(row => {
+        row.addEventListener('click', async () => {
+            const targetId = row.dataset.target;
+            const chartContainer = document.getElementById(targetId);
+            if (!chartContainer) return;
+
+            const isOpen = chartContainer.classList.contains('expanded');
+            // Close all other open charts
+            el.querySelectorAll('.alert-chart-container.expanded').forEach(c => {
+                c.classList.remove('expanded');
+                c.closest('.alert-item')?.querySelector('.alert-expand-icon').textContent = '▸';
+            });
+
+            if (!isOpen) {
+                chartContainer.classList.add('expanded');
+                row.querySelector('.alert-expand-icon').textContent = '▾';
+                // Load chart if not already loaded
+                if (!chartContainer._loaded) {
+                    chartContainer._loaded = true;
+                    const wrap = chartContainer.querySelector('.alert-chart-wrap');
+                    const mode = analyticsPriceType === 'suite' ? 'suite' : 'balcony';
+                    await loadInlineChart(wrap, row.dataset.line, row.dataset.ship, row.dataset.date, mode);
+                }
+            }
+        });
+    });
 }
 
 // ── Existing analytics charts ───────────────────────────────────────
@@ -203,13 +250,18 @@ async function loadAnalytics(force) {
 // Reset analytics when mode changes
 function resetAnalytics() {
     analyticsLoaded = false;
+    analyticsLineFilter = '';
     Object.values(analyticsCharts).forEach(c => { if (c && c.destroy) c.destroy(); });
     analyticsCharts = {};
     const heatmap = document.getElementById('monthlyHeatmap');
     if (heatmap) heatmap.innerHTML = '';
+    // Reset line filter selection
+    const lineSelect = document.getElementById('analyticsLineFilter');
+    if (lineSelect) lineSelect.value = '';
     // Reload if tab is currently visible
     const tab = document.getElementById('tab-analytics');
     if (tab && tab.classList.contains('active')) {
+        populateLineFilter();
         loadMarketBrief();
         loadAnalytics(true);
     }

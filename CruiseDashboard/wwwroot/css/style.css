@@ -1065,6 +1065,48 @@ body::before {
     color: var(--text-primary);
 }
 
+/* ── Expandable alert charts ─────────────────────────────────────── */
+.alert-clickable {
+    cursor: pointer;
+}
+
+.alert-clickable:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.alert-expand-icon {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    transition: transform 0.15s ease;
+    width: 16px;
+    text-align: center;
+}
+
+.alert-chart-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 12px;
+}
+
+.alert-chart-container.expanded {
+    max-height: 250px;
+    padding: 8px 12px 16px;
+}
+
+.alert-chart-wrap {
+    position: relative;
+    height: 180px;
+}
+
+.brief-timeframe {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-left: 8px;
+}
+
 @media (max-width: 768px) {
     #briefContent {
         grid-template-columns: 1fr;

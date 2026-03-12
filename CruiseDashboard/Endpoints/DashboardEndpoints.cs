@@ -735,7 +735,9 @@ public static class DashboardEndpoints
                     PreviousPpd = (int)Math.Round((decimal)c.PreviousPpd),
                     CurrentPpd = (int)Math.Round((decimal)c.CurrentPpd),
                     ChangePct = (decimal)c.ChangePct,
-                    Direction = (decimal)c.ChangePct < 0 ? "drop" : "rise"
+                    Direction = (decimal)c.ChangePct < 0 ? "drop" : "rise",
+                    LatestScrape = ((DateTime)c.LatestScrape).ToString("yyyy-MM-dd HH:mm"),
+                    PrevScrape = ((DateTime)c.PrevScrape).ToString("yyyy-MM-dd HH:mm")
                 })
                 .OrderBy(a => a.ChangePct)
                 .Take(20)

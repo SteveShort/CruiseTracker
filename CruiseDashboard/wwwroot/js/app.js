@@ -115,6 +115,12 @@ function initTabs() {
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
             tab.classList.add('active');
             document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+            // Trigger analytics loading when analytics tab is activated
+            if (tab.dataset.tab === 'analytics' && typeof loadAnalytics === 'function') {
+                if (typeof populateLineFilter === 'function') populateLineFilter();
+                if (typeof loadMarketBrief === 'function') loadMarketBrief();
+                loadAnalytics();
+            }
         });
     });
 }
