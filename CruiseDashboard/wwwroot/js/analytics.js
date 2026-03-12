@@ -1,10 +1,165 @@
 // ================================================================
-//  ANALYTICS TAB — Chart.js visualizations
+//  ANALYTICS TAB — Chart.js visualizations + Market Brief
 // ================================================================
 
 let analyticsLoaded = false;
 let analyticsCharts = {};
 let analyticsPriceType = 'balcony';
+let analyticsLineFilter = '';
+
+// ── Market Brief ────────────────────────────────────────────────────
+
+async function loadMarketBrief() {
+    const appMode = getAppMode();
+    const loadingEl = document.getElementById('briefLoading');
+    const contentEl = document.getElementById('briefContent');
+    if (loadingEl) loadingEl.style.display = 'flex';
+    if (contentEl) contentEl.style.display = 'none';
+
+    try {
+        const lineParam = analyticsLineFilter ? `&line=${encodeURIComponent(analyticsLineFilter)}` : '';
+        const data = await fetch(`/api/market-brief?appMode=${appMode}&priceType=${analyticsPriceType}${lineParam}`).then(r => r.json());
+        renderMarketPulse(data);
+        renderBriefByLine(data.byLine);
+        renderBriefAlerts(data.alerts, data.asOf, data.comparedTo);
+        if (loadingEl) loadingEl.style.display = 'none';
+        if (contentEl) contentEl.style.display = '';
+    } catch (err) {
+        console.error('Failed to load market brief:', err);
+        if (loadingEl) loadingEl.style.display = 'none';
+        if (contentEl) contentEl.style.display = '';
+    }
+}
+
+function renderMarketPulse(data) {
+    const el = document.getElementById('briefPulse');
+    if (!el) return;
+    const ms = data.marketSummary;
+    const arrow = ms.avgChangePct < -0.5 ? '↘' : ms.avgChangePct > 0.5 ? '↗' : '→';
+    const arrowClass = ms.avgChangePct < -0.5 ? 'pulse-down' : ms.avgChangePct > 0.5 ? 'pulse-up' : 'pulse-flat';
+    const priceLabel = analyticsPriceType === 'suite' ? 'Suite' : 'Balcony';
+
+    const total = ms.dropsCount + ms.risesCount + ms.unchangedCount;
+    const dropsPct = total > 0 ? Math.round(ms.dropsCount / total * 100) : 0;
+    const risesPct = total > 0 ? Math.round(ms.risesCount / total * 100) : 0;
+    const flatPct = 100 - dropsPct - risesPct;
+
+    let biggestHtml = '';
+    if (ms.biggestDrop) {
+        biggestHtml += `<span class="pulse-mover pulse-mover-drop">📉 ${ms.biggestDrop.shipName} <span class="change-badge badge-drop">${ms.biggestDrop.changePct.toFixed(1)}%</span></span>`;
+    }
+    if (ms.biggestRise) {
+        biggestHtml += `<span class="pulse-mover pulse-mover-rise">📈 ${ms.biggestRise.shipName} <span class="change-badge badge-rise">+${ms.biggestRise.changePct.toFixed(1)}%</span></span>`;
+    }
+
+    el.innerHTML = `
+        <div class="brief-card-title">📊 Market Pulse</div>
+        <div class="pulse-grid">
+            <div class="pulse-main">
+                <div class="pulse-arrow ${arrowClass}">${arrow}</div>
+                <div class="pulse-avg">
+                    <div class="pulse-avg-value">$${ms.avgPpdNow}<span class="pulse-unit">/ppd</span></div>
+                    <div class="pulse-avg-label">Avg ${priceLabel} ${ms.avgChangePct > 0 ? '+' : ''}${ms.avgChangePct}% vs last scrape</div>
+                </div>
+            </div>
+            <div class="pulse-bar-container">
+                <div class="pulse-bar">
+                    <div class="pulse-bar-seg pulse-bar-drops" style="width:${dropsPct}%" title="${ms.dropsCount} drops"></div>
+                    <div class="pulse-bar-seg pulse-bar-flat" style="width:${flatPct}%" title="${ms.unchangedCount} unchanged"></div>
+                    <div class="pulse-bar-seg pulse-bar-rises" style="width:${risesPct}%" title="${ms.risesCount} rises"></div>
+                </div>
+                <div class="pulse-bar-labels">
+                    <span class="pulse-bar-label lbl-drop">▼ ${ms.dropsCount} drops</span>
+                    <span class="pulse-bar-label lbl-flat">— ${ms.unchangedCount} flat</span>
+                    <span class="pulse-bar-label lbl-rise">▲ ${ms.risesCount} rises</span>
+                </div>
+            </div>
+            <div class="pulse-movers">${biggestHtml || '<span class="pulse-mover-empty">No extreme movers</span>'}</div>
+        </div>
+        <div class="pulse-meta">${ms.totalSailings.toLocaleString()} sailings compared${data.asOf ? ` · as of ${data.asOf}` : ''}</div>
+    `;
+}
+
+function renderBriefByLine(byLine) {
+    const el = document.getElementById('briefByLine');
+    if (!el) return;
+    if (!byLine || byLine.length === 0) {
+        el.innerHTML = '<div class="brief-empty">No line data available</div>';
+        return;
+    }
+
+    let html = `<table class="byline-table">
+        <thead><tr><th>Line</th><th>Avg $/ppd</th><th>Change</th><th>▼ Drops</th><th>▲ Rises</th><th>Sailings</th></tr></thead>
+        <tbody>`;
+
+    byLine.forEach(l => {
+        const changeClass = l.avgChangePct < -0.5 ? 'change-drop' : l.avgChangePct > 0.5 ? 'change-rise' : 'change-flat';
+        const changePrefix = l.avgChangePct > 0 ? '+' : '';
+        html += `<tr class="byline-row" data-line="${l.cruiseLine}">
+            <td class="byline-name">${l.cruiseLine}</td>
+            <td class="byline-ppd">$${l.avgPpdNow}</td>
+            <td class="byline-change ${changeClass}">${changePrefix}${l.avgChangePct}%</td>
+            <td class="byline-drops">${l.dropsCount}</td>
+            <td class="byline-rises">${l.risesCount}</td>
+            <td class="byline-count">${l.sailings}</td>
+        </tr>`;
+    });
+
+    html += '</tbody></table>';
+    el.innerHTML = html;
+
+    // Click a line row to filter
+    el.querySelectorAll('.byline-row').forEach(row => {
+        row.addEventListener('click', () => {
+            const lineName = row.dataset.line;
+            const select = document.getElementById('analyticsLineFilter');
+            if (select) {
+                select.value = lineName;
+                select.dispatchEvent(new Event('change'));
+            }
+        });
+    });
+}
+
+function renderBriefAlerts(alerts, asOf, comparedTo) {
+    const el = document.getElementById('briefAlerts');
+    const countEl = document.getElementById('briefAlertCount');
+    if (!el) return;
+
+    if (countEl) countEl.textContent = alerts.length > 0 ? `(${alerts.length})` : '';
+
+    if (!alerts || alerts.length === 0) {
+        el.innerHTML = '<div class="brief-empty">No unusual price movements since last scrape</div>';
+        return;
+    }
+
+    let html = '<div class="alert-list">';
+    alerts.forEach(a => {
+        const icon = a.direction === 'drop' ? '📉' : '📈';
+        const badgeClass = a.direction === 'drop' ? 'badge-drop' : 'badge-rise';
+        const prefix = a.changePct > 0 ? '+' : '';
+        const depDate = new Date(a.departureDate + 'T00:00:00');
+        const dateStr = depDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+        html += `<div class="alert-row alert-${a.direction}">
+            <span class="alert-icon">${icon}</span>
+            <div class="alert-info">
+                <span class="alert-ship">${a.shipName}</span>
+                <span class="alert-detail">${a.cruiseLine} · ${dateStr} · ${a.nights}n · ${a.departurePort}</span>
+            </div>
+            <div class="alert-price">
+                <span class="alert-old">$${a.previousPpd}</span>
+                <span class="alert-arrow">→</span>
+                <span class="alert-new">$${a.currentPpd}</span>
+            </div>
+            <span class="change-badge ${badgeClass}">${prefix}${a.changePct.toFixed(1)}%</span>
+        </div>`;
+    });
+    html += '</div>';
+    el.innerHTML = html;
+}
+
+// ── Existing analytics charts ───────────────────────────────────────
 
 async function loadAnalytics(force) {
     if (analyticsLoaded && !force) return;
@@ -17,13 +172,14 @@ async function loadAnalytics(force) {
     if (heatmap) heatmap.innerHTML = '';
 
     const appMode = getAppMode();
+    const lineParam = analyticsLineFilter ? `&line=${encodeURIComponent(analyticsLineFilter)}` : '';
     // Show loading spinner, hide charts
     const loadingEl = document.getElementById('analyticsLoading');
     const gridEl = document.getElementById('analyticsGrid');
     if (loadingEl) loadingEl.style.display = 'flex';
     if (gridEl) gridEl.style.display = 'none';
     try {
-        const data = await fetch(`/api/analytics?appMode=${appMode}&priceType=${analyticsPriceType}`).then(r => r.json());
+        const data = await fetch(`/api/analytics?appMode=${appMode}&priceType=${analyticsPriceType}${lineParam}`).then(r => r.json());
         renderByLineChart(data.byLine);
         renderDepartureChart(data.departureCurve);
         renderByShipChart(data.byShip);
@@ -54,6 +210,7 @@ function resetAnalytics() {
     // Reload if tab is currently visible
     const tab = document.getElementById('tab-analytics');
     if (tab && tab.classList.contains('active')) {
+        loadMarketBrief();
         loadAnalytics(true);
     }
 }
@@ -338,13 +495,36 @@ function renderMonthlyHeatmap(monthly) {
     container.innerHTML = html;
 }
 
-// ── Tab switching hook + price toggle ───────────────────────────────
+// ── Populate line filter dropdown ───────────────────────────────────
+
+async function populateLineFilter() {
+    const select = document.getElementById('analyticsLineFilter');
+    if (!select) return;
+    try {
+        const appMode = getAppMode();
+        const opts = await fetch(`/api/filter-options?appMode=${appMode}`).then(r => r.json());
+        // Keep "All Lines" option, add cruise lines
+        select.innerHTML = '<option value="">All Lines</option>';
+        (opts.lines || []).forEach(l => {
+            const opt = document.createElement('option');
+            opt.value = l;
+            opt.textContent = l;
+            select.appendChild(opt);
+        });
+    } catch (err) {
+        console.error('Failed to load line filter options:', err);
+    }
+}
+
+// ── Tab switching hook + price toggle + line filter ─────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
     // Load analytics lazily when tab is activated
     const observer = new MutationObserver(() => {
         const analyticsTab = document.getElementById('tab-analytics');
         if (analyticsTab && analyticsTab.classList.contains('active') && !analyticsLoaded) {
+            populateLineFilter();
+            loadMarketBrief();
             loadAnalytics();
         }
     });
@@ -364,8 +544,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.classList.add('active');
                 analyticsPriceType = btn.dataset.pricetype;
                 analyticsLoaded = false;
+                loadMarketBrief();
                 loadAnalytics(true);
             });
+        });
+    }
+
+    // Line filter
+    const lineSelect = document.getElementById('analyticsLineFilter');
+    if (lineSelect) {
+        lineSelect.addEventListener('change', () => {
+            analyticsLineFilter = lineSelect.value;
+            analyticsLoaded = false;
+            loadMarketBrief();
+            loadAnalytics(true);
         });
     }
 });

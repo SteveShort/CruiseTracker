@@ -566,13 +566,14 @@ public static class DashboardEndpoints
         });
         
         // GET /api/analytics â€” pricing statistics for charts
-        app.MapGet("/api/analytics", async (string? appMode, string? priceType) =>
+        app.MapGet("/api/analytics", async (string? appMode, string? priceType, string? line) =>
         {
             using var conn = new SqlConnection(connStr);
             var modeLines = ShipReferenceData.LinesForMode(ships, appMode);
             var lineFilter = string.Join(",", modeLines.Select(l => $"'{l}'"));
             var minDate = "2026-02-28"; // Exclude pre-2/28 cruise.com data
             var priceCol = priceType == "suite" ? "SuitePerDay" : "BalconyPerDay";
+            var singleLineFilter = !string.IsNullOrEmpty(line) ? $" AND CruiseLine = '{line.Replace("'", "''")}' " : "";
         
             // 1. Per-line averages
             var byLine = await conn.QueryAsync<dynamic>($@"
@@ -580,7 +581,7 @@ public static class DashboardEndpoints
                        COUNT(DISTINCT CONCAT(ShipName,'|',DepartureDate)) AS Sailings
                 FROM PriceHistory
                 WHERE {priceCol} > 0 AND ScrapedAt >= '{minDate}'
-                  AND CruiseLine IN ({lineFilter})
+                  AND CruiseLine IN ({lineFilter}) {singleLineFilter}
                   AND ScrapedAt = (SELECT MAX(p2.ScrapedAt) FROM PriceHistory p2
                                   WHERE p2.CruiseLine = PriceHistory.CruiseLine AND p2.ShipName = PriceHistory.ShipName
                                   AND p2.DepartureDate = PriceHistory.DepartureDate)
@@ -594,7 +595,7 @@ public static class DashboardEndpoints
                            ROW_NUMBER() OVER (PARTITION BY CruiseLine, ShipName, DepartureDate ORDER BY ScrapedAt DESC) AS rn
                     FROM PriceHistory
                     WHERE {priceCol} > 0 AND ScrapedAt >= '{minDate}'
-                      AND CruiseLine IN ({lineFilter})
+                      AND CruiseLine IN ({lineFilter}) {singleLineFilter}
                       AND DepartureDate >= CAST(GETDATE() AS DATE)
                 )
                 SELECT CruiseLine, ShipName, CAST(AVG(PricePerDay) AS int) AS AvgPpd,
@@ -621,7 +622,7 @@ public static class DashboardEndpoints
                 FROM PriceHistory ph
                 INNER JOIN Cruises c ON c.CruiseLine = ph.CruiseLine AND c.ShipName = ph.ShipName AND c.DepartureDate = ph.DepartureDate
                 WHERE ph.{priceCol} > 0 AND ph.ScrapedAt >= '{minDate}'
-                  AND ph.CruiseLine IN ({lineFilter})
+                  AND ph.CruiseLine IN ({lineFilter}) {singleLineFilter}
                   AND ph.DepartureDate >= '2026-01-01'
                   AND (c.Itinerary IS NULL OR c.Itinerary NOT LIKE '%transatlantic%')
                 GROUP BY
@@ -645,7 +646,7 @@ public static class DashboardEndpoints
                     FROM PriceHistory ph
                     INNER JOIN Cruises c ON c.CruiseLine = ph.CruiseLine AND c.ShipName = ph.ShipName AND c.DepartureDate = ph.DepartureDate
                     WHERE ph.{priceCol} > 0 AND ph.ScrapedAt >= '{minDate}'
-                      AND ph.CruiseLine IN ({lineFilter})
+                      AND ph.CruiseLine IN ({lineFilter}) {singleLineFilter}
                       AND ph.DepartureDate >= CAST(GETDATE() AS DATE)
                       AND (c.Itinerary IS NULL OR c.Itinerary NOT LIKE '%transatlantic%')
                 )
@@ -683,5 +684,134 @@ public static class DashboardEndpoints
             });
         });
         
+        // GET /api/market-brief — 24h price change intelligence
+        app.MapGet("/api/market-brief", async (string? appMode, string? priceType, string? line) =>
+        {
+            using var conn = new SqlConnection(connStr);
+            var modeLines = ShipReferenceData.LinesForMode(ships, appMode);
+            var lineFilter = string.Join(",", modeLines.Select(l => $"'{l}'"));
+            var priceCol = priceType == "suite" ? "SuitePerDay" : "BalconyPerDay";
+            var singleLineFilter = !string.IsNullOrEmpty(line) ? $" AND ph.CruiseLine = '{line.Replace("'", "''")}' " : "";
+
+            // Compare latest snapshot per sailing vs the previous one
+            var changes = await conn.QueryAsync<dynamic>($@"
+                WITH RankedPrices AS (
+                    SELECT ph.CruiseLine, ph.ShipName, ph.DepartureDate, ph.{priceCol} AS Ppd, ph.ScrapedAt,
+                           ROW_NUMBER() OVER (PARTITION BY ph.CruiseLine, ph.ShipName, ph.DepartureDate ORDER BY ph.ScrapedAt DESC) AS rn
+                    FROM PriceHistory ph
+                    INNER JOIN Cruises c ON c.CruiseLine = ph.CruiseLine AND c.ShipName = ph.ShipName AND c.DepartureDate = ph.DepartureDate
+                    WHERE ph.{priceCol} > 0 AND ph.ScrapedAt >= '2026-02-28'
+                      AND ph.CruiseLine IN ({lineFilter}) {singleLineFilter}
+                      AND ph.DepartureDate >= CAST(GETDATE() AS DATE)
+                      AND c.IsDeparted = 0
+                )
+                SELECT cur.CruiseLine, cur.ShipName, cur.DepartureDate,
+                       c.Nights, c.DeparturePort,
+                       cur.Ppd AS CurrentPpd, prev.Ppd AS PreviousPpd, cur.ScrapedAt AS LatestScrape, prev.ScrapedAt AS PrevScrape,
+                       CAST(((cur.Ppd - prev.Ppd) / prev.Ppd) * 100 AS decimal(8,1)) AS ChangePct
+                FROM RankedPrices cur
+                INNER JOIN RankedPrices prev ON prev.CruiseLine = cur.CruiseLine AND prev.ShipName = cur.ShipName AND prev.DepartureDate = cur.DepartureDate AND prev.rn = 2
+                INNER JOIN Cruises c ON c.CruiseLine = cur.CruiseLine AND c.ShipName = cur.ShipName AND c.DepartureDate = cur.DepartureDate
+                WHERE cur.rn = 1 AND cur.Ppd <> prev.Ppd
+                ORDER BY ChangePct ASC");
+
+            var changeList = changes.ToList();
+
+            // Timestamps
+            var latestScrape = changeList.Any() ? ((DateTime)changeList[0].LatestScrape).ToString("yyyy-MM-dd HH:mm") : null;
+            var prevScrape = changeList.Any() ? ((DateTime)changeList[0].PrevScrape).ToString("yyyy-MM-dd HH:mm") : null;
+
+            // 1. Alerts: extreme movers (>15% drop or >25% rise)
+            var alerts = changeList
+                .Where(c => (decimal)c.ChangePct <= -15m || (decimal)c.ChangePct >= 25m)
+                .Select(c => new
+                {
+                    CruiseLine = (string)c.CruiseLine,
+                    ShipName = (string)c.ShipName,
+                    DepartureDate = ((DateTime)c.DepartureDate).ToString("yyyy-MM-dd"),
+                    Nights = (int)(c.Nights ?? 0),
+                    DeparturePort = (string)(c.DeparturePort ?? ""),
+                    PreviousPpd = (int)Math.Round((decimal)c.PreviousPpd),
+                    CurrentPpd = (int)Math.Round((decimal)c.CurrentPpd),
+                    ChangePct = (decimal)c.ChangePct,
+                    Direction = (decimal)c.ChangePct < 0 ? "drop" : "rise"
+                })
+                .OrderBy(a => a.ChangePct)
+                .Take(20)
+                .ToList();
+
+            // 2. Market summary
+            var allWithPrev = await conn.QueryAsync<dynamic>($@"
+                WITH RankedPrices AS (
+                    SELECT ph.CruiseLine, ph.ShipName, ph.DepartureDate, ph.{priceCol} AS Ppd,
+                           ROW_NUMBER() OVER (PARTITION BY ph.CruiseLine, ph.ShipName, ph.DepartureDate ORDER BY ph.ScrapedAt DESC) AS rn
+                    FROM PriceHistory ph
+                    INNER JOIN Cruises c ON c.CruiseLine = ph.CruiseLine AND c.ShipName = ph.ShipName AND c.DepartureDate = ph.DepartureDate
+                    WHERE ph.{priceCol} > 0 AND ph.ScrapedAt >= '2026-02-28'
+                      AND ph.CruiseLine IN ({lineFilter}) {singleLineFilter}
+                      AND ph.DepartureDate >= CAST(GETDATE() AS DATE) AND c.IsDeparted = 0
+                )
+                SELECT cur.CruiseLine, cur.Ppd AS CurrentPpd, prev.Ppd AS PreviousPpd
+                FROM RankedPrices cur
+                INNER JOIN RankedPrices prev ON prev.CruiseLine = cur.CruiseLine AND prev.ShipName = cur.ShipName AND prev.DepartureDate = cur.DepartureDate AND prev.rn = 2
+                WHERE cur.rn = 1");
+
+            var allRows = allWithPrev.ToList();
+            var totalSailings = allRows.Count;
+            var dropsCount = allRows.Count(r => (decimal)r.CurrentPpd < (decimal)r.PreviousPpd);
+            var risesCount = allRows.Count(r => (decimal)r.CurrentPpd > (decimal)r.PreviousPpd);
+            var unchangedCount = allRows.Count(r => (decimal)r.CurrentPpd == (decimal)r.PreviousPpd);
+            var avgPpdNow = totalSailings > 0 ? (int)Math.Round(allRows.Average(r => (decimal)r.CurrentPpd)) : 0;
+            var avgPpdPrev = totalSailings > 0 ? (int)Math.Round(allRows.Average(r => (decimal)r.PreviousPpd)) : 0;
+            var avgChangePct = avgPpdPrev > 0 ? Math.Round(((decimal)avgPpdNow - avgPpdPrev) / avgPpdPrev * 100, 1) : 0m;
+
+            // Biggest movers from the change list (which already excludes unchanged)
+            var biggestDrop = changeList.Any(c => (decimal)c.ChangePct < 0)
+                ? changeList.Where(c => (decimal)c.ChangePct < 0).OrderBy(c => (decimal)c.ChangePct).First()
+                : null;
+            var biggestRise = changeList.Any(c => (decimal)c.ChangePct > 0)
+                ? changeList.Where(c => (decimal)c.ChangePct > 0).OrderByDescending(c => (decimal)c.ChangePct).First()
+                : null;
+
+            // 3. By-line breakdown
+            var byLineGroups = allRows.GroupBy(r => (string)r.CruiseLine).Select(g =>
+            {
+                var lineAvgNow = (int)Math.Round(g.Average(r => (decimal)r.CurrentPpd));
+                var lineAvgPrev = (int)Math.Round(g.Average(r => (decimal)r.PreviousPpd));
+                var lineChangePct = lineAvgPrev > 0 ? Math.Round(((decimal)lineAvgNow - lineAvgPrev) / lineAvgPrev * 100, 1) : 0m;
+                return new
+                {
+                    CruiseLine = g.Key,
+                    Sailings = g.Count(),
+                    AvgPpdNow = lineAvgNow,
+                    AvgPpdPrev = lineAvgPrev,
+                    AvgChangePct = lineChangePct,
+                    DropsCount = g.Count(r => (decimal)r.CurrentPpd < (decimal)r.PreviousPpd),
+                    RisesCount = g.Count(r => (decimal)r.CurrentPpd > (decimal)r.PreviousPpd),
+                    UnchangedCount = g.Count(r => (decimal)r.CurrentPpd == (decimal)r.PreviousPpd)
+                };
+            }).OrderBy(l => l.AvgChangePct).ToList();
+
+            return Results.Ok(new
+            {
+                asOf = latestScrape,
+                comparedTo = prevScrape,
+                alerts,
+                marketSummary = new
+                {
+                    totalSailings,
+                    avgPpdNow,
+                    avgPpdPrev,
+                    avgChangePct,
+                    dropsCount,
+                    risesCount,
+                    unchangedCount,
+                    biggestDrop = biggestDrop != null ? new { ShipName = (string)biggestDrop.ShipName, CruiseLine = (string)biggestDrop.CruiseLine, ChangePct = (decimal)biggestDrop.ChangePct } : null,
+                    biggestRise = biggestRise != null ? new { ShipName = (string)biggestRise.ShipName, CruiseLine = (string)biggestRise.CruiseLine, ChangePct = (decimal)biggestRise.ChangePct } : null
+                },
+                byLine = byLineGroups
+            });
+        });
+
     }
 }

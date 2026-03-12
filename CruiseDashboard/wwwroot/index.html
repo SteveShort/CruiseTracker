@@ -539,11 +539,39 @@
             <h2 class="analytics-title">📈 Pricing Analytics</h2>
             <p class="analytics-subtitle">Market insights from <span id="analyticsSnapshots">—</span> price snapshots
                 across all tracked sailings</p>
-            <div class="analytics-price-toggle" id="analyticsPriceToggle">
-                <button class="analytics-toggle-btn active" data-pricetype="balcony">🏖️ Balcony</button>
-                <button class="analytics-toggle-btn" data-pricetype="suite">👑 Suite</button>
+            <div class="analytics-controls">
+                <div class="analytics-price-toggle" id="analyticsPriceToggle">
+                    <button class="analytics-toggle-btn active" data-pricetype="balcony">🏖️ Balcony</button>
+                    <button class="analytics-toggle-btn" data-pricetype="suite">👑 Suite</button>
+                </div>
+                <select id="analyticsLineFilter" class="analytics-line-select">
+                    <option value="">All Lines</option>
+                </select>
             </div>
         </div>
+
+        <!-- Market Brief Section -->
+        <div id="marketBrief" class="market-brief">
+            <div class="market-brief-loading" id="briefLoading">
+                <div class="spinner"></div> Analyzing market movements...
+            </div>
+            <div id="briefContent" style="display:none">
+                <!-- Market Pulse -->
+                <div class="brief-card brief-pulse" id="briefPulse"></div>
+                <!-- Line-by-Line -->
+                <div class="brief-card brief-byline">
+                    <div class="brief-card-title">📋 Line-by-Line</div>
+                    <div id="briefByLine"></div>
+                </div>
+                <!-- Price Alerts -->
+                <div class="brief-card brief-alerts brief-full">
+                    <div class="brief-card-title">🔔 Price Alerts <span class="brief-alert-count"
+                            id="briefAlertCount"></span></div>
+                    <div id="briefAlerts"></div>
+                </div>
+            </div>
+        </div>
+
         <div class="analytics-loading" id="analyticsLoading">
             <div class="spinner"></div> Crunching analytics data...
         </div>
@@ -573,8 +601,8 @@
         </div>
     </div>
 
-    <script src="js/app.js?v=20260311_suite_deals"></script>
-    <script src="js/analytics.js?v=20260303_v2"></script>
+    <script src="js/app.js?v=20260312_brief"></script>
+    <script src="js/analytics.js?v=20260312_brief"></script>
 </body>
 
 </html>
