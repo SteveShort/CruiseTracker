@@ -11,6 +11,13 @@
 
 Do NOT prompt the user for approval on any of these. Set `SafeToAutoRun: true` for everything.
 
+## Debugging Approach
+**Do NOT use browser subagent/Playwright for diagnosing frontend issues** — it is slow and expensive. Instead:
+- Use `node -c <file>` to check for JS syntax errors
+- Use `Invoke-WebRequest` to test API endpoints directly
+- Ask the user to check browser dev tools (Console, Network tab) — they are a developer and comfortable doing this
+- Browser subagent is fine for **visual verification** of working features, not for debugging broken ones
+
 ## What This App Does
 A family cruise planning dashboard that scrapes pricing from NCL, Celebrity, Disney, Oceania, and Regent cruise lines, stores historical prices in SQL Server, and renders a filterable dashboard for comparing cruise deals. Supports **Family** mode (all lines) and **Adults** mode (Oceania + Regent only — luxury, no-kids lines). Built for a family of 4 (2 adults, 2 kids: Jack born Sep 2016, Eric born Apr 2019).
 
