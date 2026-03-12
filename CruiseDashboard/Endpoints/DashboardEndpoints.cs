@@ -249,14 +249,23 @@ public static class DashboardEndpoints
         {
             using var conn = new SqlConnection(connStr);
             var rows = await conn.QueryAsync<dynamic>(@"
+                WITH DailyPrices AS (
+                    SELECT ScrapedAt, BalconyPrice, BalconyPerDay, SuitePrice, SuitePerDay,
+                           InsidePrice, InsidePerDay, OceanviewPrice, OceanviewPerDay,
+                           FLResBalconyPrice, FLResBalconyPerDay, FLResSuitePrice, FLResSuitePerDay,
+                           FamilyInsidePrice, FamilyInsidePerDay, FamilyOceanviewPrice, FamilyOceanviewPerDay,
+                           FamilyBalconyPrice, FamilyBalconyPerDay, FamilySuitePrice, FamilySuitePerDay,
+                           FamilySuitePrice, FamilySuitePerDay,
+                           ROW_NUMBER() OVER (PARTITION BY CAST(ScrapedAt AS DATE) ORDER BY ScrapedAt DESC) AS rn
+                    FROM PriceHistory
+                    WHERE CruiseLine = @cruiseLine AND ShipName = @shipName AND DepartureDate = @departureDate
+                )
                 SELECT ScrapedAt, BalconyPrice, BalconyPerDay, SuitePrice, SuitePerDay,
                        InsidePrice, InsidePerDay, OceanviewPrice, OceanviewPerDay,
                        FLResBalconyPrice, FLResBalconyPerDay, FLResSuitePrice, FLResSuitePerDay,
                        FamilyInsidePrice, FamilyInsidePerDay, FamilyOceanviewPrice, FamilyOceanviewPerDay,
-                       FamilyBalconyPrice, FamilyBalconyPerDay, FamilySuitePrice, FamilySuitePerDay,
-                       FamilySuitePrice, FamilySuitePerDay
-                FROM PriceHistory
-                WHERE CruiseLine = @cruiseLine AND ShipName = @shipName AND DepartureDate = @departureDate
+                       FamilyBalconyPrice, FamilyBalconyPerDay, FamilySuitePrice, FamilySuitePerDay
+                FROM DailyPrices WHERE rn = 1
                 ORDER BY ScrapedAt ASC",
                 new { cruiseLine, shipName, departureDate });
         
