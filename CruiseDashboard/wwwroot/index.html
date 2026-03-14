@@ -577,23 +577,53 @@
         </div>
         <div class="analytics-grid" id="analyticsGrid">
             <div class="analytics-card">
-                <div class="analytics-card-title">Average Price by Cruise Line</div>
+                <div class="analytics-card-title">Average Price by Cruise Line
+                    <span class="chart-info-icon"
+                        title="Shows the current average price per day ($/ppd) for each cruise line. Calculated from the latest price snapshot of every active sailing. Helps you quickly compare which lines are cheapest right now.">ℹ️</span>
+                </div>
                 <div class="analytics-card-subtitle">Current balcony $/ppd averages (non-transatlantic)</div>
                 <div class="chart-container"><canvas id="chartByLine"></canvas></div>
             </div>
             <div class="analytics-card">
-                <div class="analytics-card-title">📉 Price vs Days to Departure</div>
+                <div class="analytics-card-title">📉 Price vs Days to Departure
+                    <span class="chart-info-icon"
+                        title="Shows how pricing changes as the sailing date gets closer. Prices are bucketed by 'days until departure' (e.g. 7, 22, 45, 75 days out) and averaged across all sailings. This is the 'when to buy' chart — look for where prices dip before rising near departure.">ℹ️</span>
+                </div>
                 <div class="analytics-card-subtitle">How pricing changes as sailing date approaches — the "when to buy"
                     chart</div>
                 <div class="chart-container chart-wide"><canvas id="chartDeparture"></canvas></div>
             </div>
             <div class="analytics-card analytics-card-full">
-                <div class="analytics-card-title">🚢 Price by Ship</div>
+                <div class="analytics-card-title">🌡️ Market Sentiment Index
+                    <span class="chart-info-icon"
+                        title="Measures overall market pricing direction on a scale from -100 (all prices falling) to +100 (all prices rising). Each day, every sailing's price is compared to its 7-day trailing average. Drops minus rises, divided by total, gives the raw score. A 3-day moving average smooths out daily noise. Below zero = buyer's market (prices trending down). Above zero = seller's market (prices trending up).">ℹ️</span>
+                </div>
+                <div class="analytics-card-subtitle">Daily pricing momentum — negative = buyer's market, positive =
+                    seller's market (3-day smoothed)</div>
+                <div class="chart-container chart-wide"><canvas id="chartSentiment"></canvas></div>
+            </div>
+            <div class="analytics-card analytics-card-full">
+                <div class="analytics-card-title">📊 Near-Term Pricing Trend
+                    <span class="chart-info-icon"
+                        title="Tracks the average $/ppd for sailings departing within the next 2 months, plotted by scrape date. Shows how each cruise line is adjusting near-term prices over time. A downward trend means they're discounting to fill cabins; upward means demand is rising.">ℹ️</span>
+                </div>
+                <div class="analytics-card-subtitle">Avg $/ppd for sailings departing within 2 months — shows how each
+                    line adjusts near-term pricing over time</div>
+                <div class="chart-container chart-wide"><canvas id="chartNearTerm"></canvas></div>
+            </div>
+            <div class="analytics-card analytics-card-full">
+                <div class="analytics-card-title">🚢 Price by Ship
+                    <span class="chart-info-icon"
+                        title="Average price per day for each ship across all its active sailings. Bars are colored by ship quality score — brighter green means a higher-quality ship. Helps spot high-quality ships at lower-than-expected prices.">ℹ️</span>
+                </div>
                 <div class="analytics-card-subtitle">Average $/ppd per ship, colored by ship quality score</div>
                 <div class="chart-container chart-tall"><canvas id="chartByShip"></canvas></div>
             </div>
             <div class="analytics-card analytics-card-full">
-                <div class="analytics-card-title">📅 Monthly Price Heatmap</div>
+                <div class="analytics-card-title">📅 Monthly Price Heatmap
+                    <span class="chart-info-icon"
+                        title="Average price per day by departure month for each cruise line. Darker/warmer colors indicate higher prices. Use this to find the cheapest months to sail on each line.">ℹ️</span>
+                </div>
                 <div class="analytics-card-subtitle">Average $/ppd by departure month — find the cheapest time to sail
                 </div>
                 <div id="monthlyHeatmap" class="monthly-heatmap"></div>
@@ -601,8 +631,8 @@
         </div>
     </div>
 
-    <script src="js/app.js?v=20260312_brief3"></script>
-    <script src="js/analytics.js?v=20260312_brief3"></script>
+    <script src="js/app.js?v=20260314_sentiment"></script>
+    <script src="js/analytics.js?v=20260314_sentiment"></script>
 </body>
 
 </html>

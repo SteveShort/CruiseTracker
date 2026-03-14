@@ -130,31 +130,31 @@ function renderBriefAlerts(alerts, asOf, comparedTo) {
     if (countEl) countEl.textContent = alerts.length > 0 ? `(${alerts.length})` : '';
 
     // Show timeframe in the card title
-    if (titleEl && comparedTo && asOf) {
+    if (titleEl && asOf) {
         const fmtTime = (ts) => {
             const d = new Date(ts.replace(' ', 'T'));
             return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' ' +
                 d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
         };
-        titleEl.innerHTML = `🔔 Price Alerts <span class="brief-alert-count">${alerts.length > 0 ? `(${alerts.length})` : ''}</span> <span class="brief-timeframe">${fmtTime(comparedTo)} → ${fmtTime(asOf)}</span>`;
+        titleEl.innerHTML = `🔔 Near Historic Low <span class="brief-alert-count">${alerts.length > 0 ? `(${alerts.length})` : ''}</span> <span class="brief-timeframe">${asOf ? `as of ${fmtTime(asOf)}` : ''}</span>`;
     }
 
     if (!alerts || alerts.length === 0) {
-        el.innerHTML = '<div class="brief-empty">No unusual price movements since last scrape</div>';
+        el.innerHTML = '<div class="brief-empty">No sailings currently near their historic low price</div>';
         return;
     }
 
     let html = '<div class="alert-list">';
     alerts.forEach((a, idx) => {
-        const icon = a.direction === 'drop' ? '📉' : '📈';
-        const badgeClass = a.direction === 'drop' ? 'badge-drop' : 'badge-rise';
-        const prefix = a.changePct > 0 ? '+' : '';
+        const icon = '📉';
+        const badgeClass = 'badge-drop';
+        const prefix = '';
         const depDate = new Date(a.departureDate + 'T00:00:00');
         const dateStr = depDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
         const alertId = `alert-chart-${idx}`;
 
         html += `<div class="alert-item">
-            <div class="alert-row alert-${a.direction} alert-clickable"
+            <div class="alert-row alert-drop alert-clickable"
                  data-line="${a.cruiseLine}" data-ship="${a.shipName}" data-date="${a.departureDate}" data-target="${alertId}">
                 <span class="alert-icon">${icon}</span>
                 <div class="alert-info">
@@ -162,11 +162,11 @@ function renderBriefAlerts(alerts, asOf, comparedTo) {
                     <span class="alert-detail">${a.cruiseLine} · ${dateStr} · ${a.nights}n · ${a.departurePort}</span>
                 </div>
                 <div class="alert-price">
-                    <span class="alert-old">$${a.previousPpd}</span>
+                    <span class="alert-old" title="Peak price">$${a.previousPpd}</span>
                     <span class="alert-arrow">→</span>
-                    <span class="alert-new">$${a.currentPpd}</span>
+                    <span class="alert-new" title="Current price">$${a.currentPpd}</span>
                 </div>
-                <span class="change-badge ${badgeClass}">${prefix}${a.changePct.toFixed(1)}%</span>
+                <span class="change-badge ${badgeClass}">${a.changePct.toFixed(1)}% vs peak</span>
                 <span class="alert-expand-icon">▸</span>
             </div>
             <div class="alert-chart-container" id="${alertId}">
@@ -227,9 +227,14 @@ async function loadAnalytics(force) {
     if (loadingEl) loadingEl.style.display = 'flex';
     if (gridEl) gridEl.style.display = 'none';
     try {
-        const data = await fetch(`/api/analytics?appMode=${appMode}&priceType=${analyticsPriceType}${lineParam}`).then(r => r.json());
+        const [data, sentimentData] = await Promise.all([
+            fetch(`/api/analytics?appMode=${appMode}&priceType=${analyticsPriceType}${lineParam}`).then(r => r.json()),
+            fetch(`/api/market-sentiment?appMode=${appMode}&priceType=${analyticsPriceType}`).then(r => r.json())
+        ]);
         renderByLineChart(data.byLine);
         renderDepartureChart(data.departureCurve);
+        renderSentimentChart(sentimentData);
+        renderNearTermChart(data.nearTermTrend);
         renderByShipChart(data.byShip);
         renderMonthlyHeatmap(data.monthly);
 
@@ -497,7 +502,219 @@ function renderByShipChart(byShip) {
     `;
 }
 
-// ── 4. Monthly Price Heatmap ────────────────────────────────────────
+// ── 4. Market Sentiment Index ───────────────────────────────────────
+
+function renderSentimentChart(sentimentData) {
+    const ctx = document.getElementById('chartSentiment');
+    if (!ctx || !sentimentData || sentimentData.length === 0) return;
+
+    const dates = sentimentData.map(d => d.date);
+    const dateLabels = dates.map(d => {
+        const dt = new Date(d + 'T00:00:00');
+        return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    });
+
+    const smoothedData = sentimentData.map(d => d.smoothedScore);
+    const rawData = sentimentData.map(d => d.rawScore);
+
+    // Create gradient fills for above/below zero
+    const canvas = ctx.getContext('2d');
+    const greenGrad = canvas.createLinearGradient(0, 0, 0, ctx.parentElement?.offsetHeight || 350);
+    greenGrad.addColorStop(0, 'rgba(16, 185, 129, 0)');
+    greenGrad.addColorStop(0.5, 'rgba(16, 185, 129, 0)');
+    greenGrad.addColorStop(1, 'rgba(16, 185, 129, 0.15)');
+
+    const redGrad = canvas.createLinearGradient(0, 0, 0, ctx.parentElement?.offsetHeight || 350);
+    redGrad.addColorStop(0, 'rgba(239, 68, 68, 0.15)');
+    redGrad.addColorStop(0.5, 'rgba(239, 68, 68, 0)');
+    redGrad.addColorStop(1, 'rgba(239, 68, 68, 0)');
+
+    analyticsCharts.sentiment = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: dateLabels,
+            datasets: [
+                {
+                    label: 'Smoothed (3-day)',
+                    data: smoothedData,
+                    borderColor: '#22d3ee',
+                    backgroundColor: 'transparent',
+                    tension: 0.3,
+                    pointRadius: 2,
+                    pointHoverRadius: 6,
+                    borderWidth: 2.5,
+                    fill: false,
+                },
+                {
+                    label: 'Raw Score',
+                    data: rawData,
+                    borderColor: 'rgba(148, 163, 184, 0.4)',
+                    backgroundColor: 'transparent',
+                    tension: 0.2,
+                    pointRadius: 0,
+                    borderWidth: 1,
+                    borderDash: [4, 3],
+                    fill: false,
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+                legend: { labels: { color: chartDefaults.color, font: chartDefaults.font, usePointStyle: true } },
+                tooltip: {
+                    callbacks: {
+                        title: (items) => {
+                            if (!items.length) return '';
+                            const idx = items[0].dataIndex;
+                            return dates[idx] || dateLabels[idx];
+                        },
+                        afterBody: (items) => {
+                            if (!items.length) return '';
+                            const idx = items[0].dataIndex;
+                            const d = sentimentData[idx];
+                            if (!d) return '';
+                            return [
+                                `▼ ${d.drops} drops  ▲ ${d.rises} rises  — ${d.unchanged} flat`,
+                                `Avg PPD: $${d.avgPpd}`,
+                                d.smoothedScore <= -50 ? '🟢 Strong buyer\'s market' :
+                                    d.smoothedScore <= -20 ? '🟡 Prices softening' :
+                                        d.smoothedScore >= 50 ? '🔴 Seller\'s market' :
+                                            d.smoothedScore >= 20 ? '🟠 Prices firming up' :
+                                                '⚪ Stable/neutral'
+                            ];
+                        }
+                    }
+                },
+                // Zero line annotation via custom plugin
+                annotation: undefined
+            },
+            scales: {
+                y: {
+                    min: -100,
+                    max: 100,
+                    grid: {
+                        color: (ctx) => ctx.tick.value === 0 ? 'rgba(255, 255, 255, 0.3)' : chartDefaults.borderColor,
+                        lineWidth: (ctx) => ctx.tick.value === 0 ? 2 : 1,
+                    },
+                    ticks: {
+                        color: (ctx) => {
+                            const v = ctx.tick.value;
+                            if (v <= -50) return '#10b981';
+                            if (v >= 50) return '#ef4444';
+                            return chartDefaults.color;
+                        },
+                        stepSize: 25,
+                        callback: v => {
+                            if (v === 100) return '+100 (all rising)';
+                            if (v === -100) return '-100 (all falling)';
+                            if (v === 0) return '0 (neutral)';
+                            return v > 0 ? `+${v}` : `${v}`;
+                        }
+                    },
+                    title: { display: true, text: 'Sentiment Score', color: chartDefaults.color }
+                },
+                x: {
+                    grid: { color: chartDefaults.borderColor },
+                    ticks: {
+                        color: chartDefaults.color,
+                        maxTicksLimit: 15,
+                        maxRotation: 45
+                    },
+                    title: { display: true, text: 'Date', color: chartDefaults.color }
+                }
+            }
+        }
+    });
+}
+
+// ── 5. Near-Term Pricing Trend ──────────────────────────────────────
+
+function renderNearTermChart(nearTermTrend) {
+    const ctx = document.getElementById('chartNearTerm');
+    if (!ctx || !nearTermTrend || nearTermTrend.length === 0) return;
+
+    const lines = [...new Set(nearTermTrend.map(d => d.cruiseLine))];
+    const dates = [...new Set(nearTermTrend.map(d => d.scrapeDate))].sort();
+
+    // Format date labels: "Mar 1", "Mar 2", etc.
+    const dateLabels = dates.map(d => {
+        const dt = new Date(d + 'T00:00:00');
+        return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    });
+
+    const datasets = lines.map(line => {
+        const lineData = nearTermTrend.filter(d => d.cruiseLine === line);
+        const color = getLineColor(line);
+        return {
+            label: line,
+            data: dates.map(date => {
+                const match = lineData.find(d => d.scrapeDate === date);
+                return match ? match.avgPpd : null;
+            }),
+            borderColor: color.border,
+            backgroundColor: color.bg,
+            tension: 0.3,
+            pointRadius: 2,
+            pointHoverRadius: 5,
+            borderWidth: 2,
+            spanGaps: true,
+        };
+    });
+
+    const priceLabel = analyticsPriceType === 'suite' ? 'Suite' : 'Balcony';
+
+    analyticsCharts.nearTerm = new Chart(ctx, {
+        type: 'line',
+        data: { labels: dateLabels, datasets },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+                legend: { labels: { color: chartDefaults.color, font: chartDefaults.font, usePointStyle: true } },
+                tooltip: {
+                    callbacks: {
+                        title: (items) => {
+                            if (!items.length) return '';
+                            const idx = items[0].dataIndex;
+                            return dates[idx] || dateLabels[idx];
+                        },
+                        label: ctx => {
+                            if (ctx.parsed.y == null) return null;
+                            const idx = ctx.dataIndex;
+                            const line = ctx.dataset.label;
+                            const match = nearTermTrend.find(d => d.scrapeDate === dates[idx] && d.cruiseLine === line);
+                            const sailings = match ? match.sailings : '?';
+                            return `${line}: $${ctx.parsed.y}/ppd (${sailings} sailings)`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    grid: { color: chartDefaults.borderColor },
+                    ticks: { color: chartDefaults.color, callback: v => `$${v}` },
+                    title: { display: true, text: `Avg ${priceLabel} $/ppd (next 2mo)`, color: chartDefaults.color }
+                },
+                x: {
+                    grid: { color: chartDefaults.borderColor },
+                    ticks: {
+                        color: chartDefaults.color,
+                        maxTicksLimit: 15,
+                        maxRotation: 45
+                    },
+                    title: { display: true, text: 'Scrape date', color: chartDefaults.color }
+                }
+            }
+        }
+    });
+}
+
+// ── 5. Monthly Price Heatmap ────────────────────────────────────────
 
 function renderMonthlyHeatmap(monthly) {
     const container = document.getElementById('monthlyHeatmap');

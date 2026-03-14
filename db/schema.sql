@@ -64,6 +64,10 @@ CREATE TABLE PriceHistory (
 CREATE NONCLUSTERED INDEX IX_PriceHistory_Sailing
     ON PriceHistory (CruiseLine, ShipName, DepartureDate, ScrapedAt);
 
+-- Index for MAX(ScrapedAt) GROUP BY CruiseLine queries (used by stats, cruises, hot-deals)
+CREATE NONCLUSTERED INDEX IX_PriceHistory_CruiseLine_ScrapedAt
+    ON PriceHistory (CruiseLine, ScrapedAt DESC);
+
 -- ── Restaurants ─────────────────────────────────────────────────
 -- Restaurant data per ship, with hand-scored ratings
 

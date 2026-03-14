@@ -1,13 +1,13 @@
 [
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2026-03-14",
-    "nights": 7,
-    "itinerary": "7-Day Caribbean Gems",
-    "itineraryCode": "8630",
-    "embarkPort": "Bridgetown, Barbados",
-    "debarkPort": "Bridgetown, Barbados",
-    "suitePrice": 4999
+    "shipName": "Seabourn Encore",
+    "departureDate": "2026-03-16",
+    "nights": 14,
+    "itinerary": "14-Day Japan's Crafts & Cherry Blossoms",
+    "itineraryCode": "7622",
+    "embarkPort": "Tokyo, Japan",
+    "debarkPort": "Yokohama, Japan",
+    "suitePrice": 10999
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -38,6 +38,16 @@
     "embarkPort": "Buenos Aires",
     "debarkPort": "Rio de Janeiro, Brazil",
     "suitePrice": 9499
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2026-03-21",
+    "nights": 7,
+    "itinerary": "7-Day Classic Caribbean Yacht Harbors",
+    "itineraryCode": "8631",
+    "embarkPort": "Bridgetown, Barbados",
+    "debarkPort": "Philipsburg, Sint Maarten",
+    "suitePrice": 4999
   },
   {
     "shipName": "Seabourn Ovation",
@@ -90,14 +100,14 @@
     "suitePrice": 10999
   },
   {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2026-04-13",
-    "nights": 14,
-    "itinerary": "14-Day Japan's Crafts & Cherry Blossoms",
-    "itineraryCode": "7626",
-    "embarkPort": "Tokyo, Japan",
-    "debarkPort": "Tokyo, Japan",
-    "suitePrice": 11999
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2026-04-04",
+    "nights": 13,
+    "itinerary": "13-Day Caribbean & Atlantic Passage",
+    "itineraryCode": "8635",
+    "embarkPort": "Bridgetown, Barbados",
+    "debarkPort": "Lisbon, Portugal",
+    "suitePrice": 5299
   },
   {
     "shipName": "Seabourn Encore",
@@ -122,22 +132,22 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2026-04-17",
+    "nights": 29,
+    "itinerary": "29-Day Spain, France & British Isles Explorer",
+    "itineraryCode": "8638A",
+    "embarkPort": "Lisbon, Portugal",
+    "debarkPort": "Dover (London), England, UK",
+    "suitePrice": 17099
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2026-04-17",
     "nights": 15,
     "itinerary": "15-Day Bay Of Biscay: Spain & France Explorer",
     "itineraryCode": "8638",
     "embarkPort": "Lisbon, Portugal",
     "debarkPort": "Dover (London), England, UK",
     "suitePrice": 6999
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2026-04-17",
-    "nights": 29,
-    "itinerary": "29-Day Spain, France & British Isles Explorer",
-    "itineraryCode": "8638A",
-    "embarkPort": "Lisbon, Portugal",
-    "debarkPort": "Dover (London), England, UK",
-    "suitePrice": 17599
   },
   {
     "shipName": "Seabourn Venture",
@@ -148,6 +158,16 @@
     "embarkPort": "Barcelona, Spain",
     "debarkPort": "Civitavecchia (Rome), Italy",
     "suitePrice": 13699
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-04-26",
+    "nights": 14,
+    "itinerary": "14-Day Atlantic Crossing",
+    "itineraryCode": "6629",
+    "embarkPort": "Miami, Florida, US",
+    "debarkPort": "Lisbon, Portugal",
+    "suitePrice": 5299
   },
   {
     "shipName": "Seabourn Encore",
@@ -162,22 +182,22 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2026-05-02",
-    "nights": 7,
-    "itinerary": "7-Day Scottish Isles, Irish Coasts & Wales",
-    "itineraryCode": "8639B",
-    "embarkPort": "Dover (London), England, UK",
-    "debarkPort": "Greenock (Glasgow), Scotland, United Kingdom",
-    "suitePrice": 5399
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2026-05-02",
     "nights": 14,
     "itinerary": "14-Day Jewels Of The British Isles",
     "itineraryCode": "8639",
     "embarkPort": "Dover (London), England, UK",
     "debarkPort": "Dover (London), England, UK",
-    "suitePrice": 12499
+    "suitePrice": 11999
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2026-05-02",
+    "nights": 7,
+    "itinerary": "7-Day Scottish Isles, Irish Coasts & Wales",
+    "itineraryCode": "8639B",
+    "embarkPort": "Dover (London), England, UK",
+    "debarkPort": "Greenock (Glasgow), Scotland, United Kingdom",
+    "suitePrice": 4999
   },
   {
     "shipName": "Seabourn Ovation",
@@ -187,7 +207,7 @@
     "itineraryCode": "8639A",
     "embarkPort": "Dover (London), England, UK",
     "debarkPort": "Dover (London), England, UK",
-    "suitePrice": 19399
+    "suitePrice": 18499
   },
   {
     "shipName": "Seabourn Ovation",
@@ -197,7 +217,7 @@
     "itineraryCode": "8639C",
     "embarkPort": "Greenock (Glasgow), Scotland, United Kingdom",
     "debarkPort": "Dover (London), England, UK",
-    "suitePrice": 5299
+    "suitePrice": 4999
   },
   {
     "shipName": "Seabourn Ovation",
@@ -232,22 +252,12 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2026-05-16",
-    "nights": 14,
-    "itinerary": "14-Day In Search Of The Midnight Sun",
-    "itineraryCode": "8642",
-    "embarkPort": "Dover (London), England, UK",
-    "debarkPort": "Dover (London), England, UK",
-    "suitePrice": 8999
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2026-05-16",
     "nights": 21,
     "itinerary": "21-Day Norwegian Fjords & Icelandic Intrigue",
     "itineraryCode": "8642A",
     "embarkPort": "Dover (London), England, UK",
     "debarkPort": "Reykjavik, Iceland",
-    "suitePrice": 12399
+    "suitePrice": 11699
   },
   {
     "shipName": "Seabourn Ovation",
@@ -257,7 +267,17 @@
     "itineraryCode": "8642B",
     "embarkPort": "Dover (London), England, UK",
     "debarkPort": "Dover (London), England, UK",
-    "suitePrice": 17799
+    "suitePrice": 17099
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2026-05-16",
+    "nights": 14,
+    "itinerary": "14-Day In Search Of The Midnight Sun",
+    "itineraryCode": "8642",
+    "embarkPort": "Dover (London), England, UK",
+    "debarkPort": "Dover (London), England, UK",
+    "suitePrice": 8499
   },
   {
     "shipName": "Seabourn Encore",
@@ -272,22 +292,22 @@
   {
     "shipName": "Seabourn Encore",
     "departureDate": "2026-05-29",
+    "nights": 7,
+    "itinerary": "7-Day Glaciers & Alaska Inside Passage",
+    "itineraryCode": "7634",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Juneau, Alaska, US",
+    "suitePrice": 6389
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2026-05-29",
     "nights": 14,
     "itinerary": "14-Day Alaska Glaciers, Fjords & Inside Passage",
     "itineraryCode": "7634A",
     "embarkPort": "Vancouver, B.C., CA",
     "debarkPort": "Vancouver, B.C., CA",
     "suitePrice": 10499
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2026-05-29",
-    "nights": 7,
-    "itinerary": "7-Day Glaciers & Alaska Inside Passage",
-    "itineraryCode": "7634",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Juneau, Alaska, US",
-    "suitePrice": 5999
   },
   {
     "shipName": "Seabourn Ovation",
@@ -297,7 +317,7 @@
     "itineraryCode": "8643",
     "embarkPort": "Dover (London), England, UK",
     "debarkPort": "Reykjavik, Iceland",
-    "suitePrice": 4699
+    "suitePrice": 4399
   },
   {
     "shipName": "Seabourn Ovation",
@@ -307,7 +327,7 @@
     "itineraryCode": "8643A",
     "embarkPort": "Dover (London), England, UK",
     "debarkPort": "Dover (London), England, UK",
-    "suitePrice": 9699
+    "suitePrice": 9399
   },
   {
     "shipName": "Seabourn Encore",
@@ -362,16 +382,6 @@
   {
     "shipName": "Seabourn Encore",
     "departureDate": "2026-06-12",
-    "nights": 14,
-    "itinerary": "14-Day Alaska Glaciers, Fjords & Inside Passage",
-    "itineraryCode": "7638A",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Vancouver, B.C., CA",
-    "suitePrice": 9599
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2026-06-12",
     "nights": 7,
     "itinerary": "7-Day Glaciers & Alaska Inside Passage",
     "itineraryCode": "7638",
@@ -380,14 +390,14 @@
     "suitePrice": 5699
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2026-06-13",
-    "nights": 28,
-    "itinerary": "28-Day Midnight Sun Midsummer & The British Isles",
-    "itineraryCode": "8647A",
-    "embarkPort": "Dover (London), England, UK",
-    "debarkPort": "Dover (London), England, UK",
-    "suitePrice": 20899
+    "shipName": "Seabourn Encore",
+    "departureDate": "2026-06-12",
+    "nights": 14,
+    "itinerary": "14-Day Alaska Glaciers, Fjords & Inside Passage",
+    "itineraryCode": "7638A",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Vancouver, B.C., CA",
+    "suitePrice": 9599
   },
   {
     "shipName": "Seabourn Ovation",
@@ -400,6 +410,16 @@
     "suitePrice": 11899
   },
   {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2026-06-13",
+    "nights": 28,
+    "itinerary": "28-Day Midnight Sun Midsummer & The British Isles",
+    "itineraryCode": "8647A",
+    "embarkPort": "Dover (London), England, UK",
+    "debarkPort": "Dover (London), England, UK",
+    "suitePrice": 20899
+  },
+  {
     "shipName": "Seabourn Quest",
     "departureDate": "2026-06-14",
     "nights": 7,
@@ -407,7 +427,7 @@
     "itineraryCode": "6637",
     "embarkPort": "Dubrovnik, Croatia",
     "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 6399
+    "suitePrice": 6899
   },
   {
     "shipName": "Seabourn Encore",
@@ -427,7 +447,27 @@
     "itineraryCode": "6640",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Istanbul, Turkey",
-    "suitePrice": 6499
+    "suitePrice": 6799
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-06-21",
+    "nights": 14,
+    "itinerary": "14-Day Greek Isles & Ephesus",
+    "itineraryCode": "6640A",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 16614
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2026-06-26",
+    "nights": 7,
+    "itinerary": "7-Day Glaciers & Alaska Inside Passage",
+    "itineraryCode": "7642",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Juneau, Alaska, US",
+    "suitePrice": 6199
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -450,16 +490,6 @@
     "suitePrice": 10699
   },
   {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2026-06-26",
-    "nights": 7,
-    "itinerary": "7-Day Glaciers & Alaska Inside Passage",
-    "itineraryCode": "7642",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Juneau, Alaska, US",
-    "suitePrice": 6199
-  },
-  {
     "shipName": "Seabourn Ovation",
     "departureDate": "2026-06-27",
     "nights": 14,
@@ -472,22 +502,22 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2026-06-28",
-    "nights": 14,
-    "itinerary": "14-Day Jewels Of The Adriatic & Aegean",
-    "itineraryCode": "6641A",
-    "embarkPort": "Istanbul, Turkey",
-    "debarkPort": "Fusina (Venice), Italy",
-    "suitePrice": 10959
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2026-06-28",
     "nights": 7,
     "itinerary": "7-Day Turkey & Greek Isle Gems",
     "itineraryCode": "6641",
     "embarkPort": "Istanbul, Turkey",
     "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 6199
+    "suitePrice": 6799
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-06-28",
+    "nights": 14,
+    "itinerary": "14-Day Jewels Of The Adriatic & Aegean",
+    "itineraryCode": "6641A",
+    "embarkPort": "Istanbul, Turkey",
+    "debarkPort": "Fusina (Venice), Italy",
+    "suitePrice": 11064
   },
   {
     "shipName": "Seabourn Encore",
@@ -507,7 +537,7 @@
     "itineraryCode": "6644A",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 12999
+    "suitePrice": 12099
   },
   {
     "shipName": "Seabourn Quest",
@@ -517,7 +547,7 @@
     "itineraryCode": "6644",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Fusina (Venice), Italy",
-    "suitePrice": 5499
+    "suitePrice": 4999
   },
   {
     "shipName": "Seabourn Venture",
@@ -530,16 +560,6 @@
     "suitePrice": 11299
   },
   {
-    "shipName": "Seabourn Pursuit",
-    "departureDate": "2026-07-06",
-    "nights": 10,
-    "itinerary": "10-Day Kimberley Expedition: Waterfalls & Wanjinas",
-    "itineraryCode": "P641",
-    "embarkPort": "Broome, Western Australia, Australia",
-    "debarkPort": "Darwin, Australia",
-    "suitePrice": 14699
-  },
-  {
     "shipName": "Seabourn Venture",
     "departureDate": "2026-07-06",
     "nights": 20,
@@ -548,6 +568,16 @@
     "embarkPort": "Dublin, Ireland",
     "debarkPort": "Reykjavik, Iceland",
     "suitePrice": 24299
+  },
+  {
+    "shipName": "Seabourn Pursuit",
+    "departureDate": "2026-07-06",
+    "nights": 10,
+    "itinerary": "10-Day Kimberley Expedition: Waterfalls & Wanjinas",
+    "itineraryCode": "P641",
+    "embarkPort": "Broome, Western Australia, Australia",
+    "debarkPort": "Darwin, Australia",
+    "suitePrice": 14699
   },
   {
     "shipName": "Seabourn Encore",
@@ -572,22 +602,22 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2026-07-12",
-    "nights": 7,
-    "itinerary": "7-Day Adriatic & Grecian Gems",
-    "itineraryCode": "6645",
-    "embarkPort": "Fusina (Venice), Italy",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 5299
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2026-07-12",
     "nights": 14,
     "itinerary": "14-Day Ephesus, Grecian Gems & Adriatic",
     "itineraryCode": "6645A",
     "embarkPort": "Fusina (Venice), Italy",
     "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 11999
+    "suitePrice": 11599
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-07-12",
+    "nights": 7,
+    "itinerary": "7-Day Adriatic & Grecian Gems",
+    "itineraryCode": "6645",
+    "embarkPort": "Fusina (Venice), Italy",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 4799
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -622,22 +652,12 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2026-07-19",
-    "nights": 21,
-    "itinerary": "21-Day Grecian Gems, Ephesus & Dalmatian Delights",
-    "itineraryCode": "6648B",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 14399
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2026-07-19",
     "nights": 14,
     "itinerary": "14-Day Grecian Gems, Ephesus & Dalmatian Delights",
     "itineraryCode": "6648A",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 9399
+    "suitePrice": 9599
   },
   {
     "shipName": "Seabourn Quest",
@@ -647,7 +667,17 @@
     "itineraryCode": "6648",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 5299
+    "suitePrice": 5699
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-07-19",
+    "nights": 21,
+    "itinerary": "21-Day Grecian Gems, Ephesus & Dalmatian Delights",
+    "itineraryCode": "6648B",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Dubrovnik, Croatia",
+    "suitePrice": 14399
   },
   {
     "shipName": "Seabourn Encore",
@@ -677,7 +707,7 @@
     "itineraryCode": "6649",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 5099
+    "suitePrice": 4899
   },
   {
     "shipName": "Seabourn Venture",
@@ -692,22 +722,22 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2026-07-26",
-    "nights": 14,
-    "itinerary": "14-Day Grecian Gems & Dalmatian Delights",
-    "itineraryCode": "6649A",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 9924
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2026-07-26",
     "nights": 21,
     "itinerary": "21-Day Grecian Gems & Dalmatian Coast",
     "itineraryCode": "6649B",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 14099
+    "suitePrice": 13699
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-07-26",
+    "nights": 14,
+    "itinerary": "14-Day Grecian Gems & Dalmatian Delights",
+    "itineraryCode": "6649A",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Dubrovnik, Croatia",
+    "suitePrice": 9514
   },
   {
     "shipName": "Seabourn Venture",
@@ -742,22 +772,12 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2026-08-02",
-    "nights": 7,
-    "itinerary": "7-Day Jewels Of The Dalmatian Coast",
-    "itineraryCode": "6652",
-    "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 5499
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2026-08-02",
     "nights": 14,
     "itinerary": "14-Day Grecian Gems & Dalmatian Delights",
     "itineraryCode": "6652A",
     "embarkPort": "Dubrovnik, Croatia",
     "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 9499
+    "suitePrice": 9299
   },
   {
     "shipName": "Seabourn Quest",
@@ -768,6 +788,16 @@
     "embarkPort": "Dubrovnik, Croatia",
     "debarkPort": "Dubrovnik, Croatia",
     "suitePrice": 17699
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-08-02",
+    "nights": 7,
+    "itinerary": "7-Day Jewels Of The Dalmatian Coast",
+    "itineraryCode": "6652",
+    "embarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Dubrovnik, Croatia",
+    "suitePrice": 5299
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -812,22 +842,22 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2026-08-09",
-    "nights": 14,
-    "itinerary": "14-Day Dalmatian Delights & Grecian Gems",
-    "itineraryCode": "6653A",
-    "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 8789
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2026-08-09",
     "nights": 7,
     "itinerary": "7-Day Greece & Dalmatian Delights",
     "itineraryCode": "6653",
     "embarkPort": "Dubrovnik, Croatia",
     "debarkPort": "Piraeus (Athens), Greece",
     "suitePrice": 5169
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-08-09",
+    "nights": 14,
+    "itinerary": "14-Day Dalmatian Delights & Grecian Gems",
+    "itineraryCode": "6653A",
+    "embarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Dubrovnik, Croatia",
+    "suitePrice": 10899
   },
   {
     "shipName": "Seabourn Encore",
@@ -842,6 +872,16 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2026-08-16",
+    "nights": 14,
+    "itinerary": "14-Day Grecian Gems & Dalmatian Delights",
+    "itineraryCode": "6656A",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 8399
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-08-16",
     "nights": 7,
     "itinerary": "7-Day Greece & Dalmatian Delights",
     "itineraryCode": "6656",
@@ -852,22 +892,12 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2026-08-16",
-    "nights": 14,
-    "itinerary": "14-Day Grecian Gems & Dalmatian Delights",
-    "itineraryCode": "6656A",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 8799
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2026-08-16",
     "nights": 21,
     "itinerary": "21-Day Adriatic Coasts, Grecian Gems & Dalmatian Delights",
     "itineraryCode": "6656B",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Fusina (Venice), Italy",
-    "suitePrice": 14899
+    "suitePrice": 14499
   },
   {
     "shipName": "Seabourn Encore",
@@ -892,16 +922,6 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2026-08-22",
-    "nights": 34,
-    "itinerary": "34-Day Fire & Ice Passage & Canada's Fall Foliage",
-    "itineraryCode": "8661A",
-    "embarkPort": "Reykjavik, Iceland",
-    "debarkPort": "Montreal, Quebec, Canada",
-    "suitePrice": 21999
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2026-08-22",
     "nights": 22,
     "itinerary": "22-Day Fire & Ice Passage",
     "itineraryCode": "8661",
@@ -910,24 +930,14 @@
     "suitePrice": 13499
   },
   {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2026-08-23",
-    "nights": 21,
-    "itinerary": "21-Day Adriatic Coasts, Grecian Gems & Dalmatian Delights",
-    "itineraryCode": "6657B",
-    "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 24299
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2026-08-23",
-    "nights": 7,
-    "itinerary": "7-Day Greece & Dalmatian Delights",
-    "itineraryCode": "6657",
-    "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 5479
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2026-08-22",
+    "nights": 34,
+    "itinerary": "34-Day Fire & Ice Passage & Canada's Fall Foliage",
+    "itineraryCode": "8661A",
+    "embarkPort": "Reykjavik, Iceland",
+    "debarkPort": "Montreal, Quebec, Canada",
+    "suitePrice": 21999
   },
   {
     "shipName": "Seabourn Quest",
@@ -937,7 +947,7 @@
     "itineraryCode": "6657A",
     "embarkPort": "Dubrovnik, Croatia",
     "debarkPort": "Fusina (Venice), Italy",
-    "suitePrice": 10899
+    "suitePrice": 10599
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -948,6 +958,26 @@
     "embarkPort": "Darwin, Australia",
     "debarkPort": "Broome, Western Australia, Australia",
     "suitePrice": 15299
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-08-23",
+    "nights": 21,
+    "itinerary": "21-Day Adriatic Coasts, Grecian Gems & Dalmatian Delights",
+    "itineraryCode": "6657B",
+    "embarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 24999
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-08-23",
+    "nights": 7,
+    "itinerary": "7-Day Greece & Dalmatian Delights",
+    "itineraryCode": "6657",
+    "embarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 5064
   },
   {
     "shipName": "Seabourn Encore",
@@ -982,16 +1012,6 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2026-08-30",
-    "nights": 14,
-    "itinerary": "14-Day Adriatic & Grecian Gems",
-    "itineraryCode": "6660A",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 12799
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2026-08-30",
     "nights": 7,
     "itinerary": "7-Day Adriatic & Grecian Gems",
     "itineraryCode": "6660",
@@ -1000,14 +1020,14 @@
     "suitePrice": 6799
   },
   {
-    "shipName": "Seabourn Pursuit",
-    "departureDate": "2026-09-02",
-    "nights": 10,
-    "itinerary": "10-Day Kimberley Expedition: Waterfalls & Wanjinas",
-    "itineraryCode": "P653",
-    "embarkPort": "Broome, Western Australia, Australia",
-    "debarkPort": "Darwin, Australia",
-    "suitePrice": 14699
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-08-30",
+    "nights": 14,
+    "itinerary": "14-Day Adriatic & Grecian Gems",
+    "itineraryCode": "6660A",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 12499
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -1020,14 +1040,14 @@
     "suitePrice": 40799
   },
   {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2026-09-04",
-    "nights": 7,
-    "itinerary": "7-Day Glaciers & Alaska Inside Passage",
-    "itineraryCode": "7662",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Juneau, Alaska, US",
-    "suitePrice": 5799
+    "shipName": "Seabourn Pursuit",
+    "departureDate": "2026-09-02",
+    "nights": 10,
+    "itinerary": "10-Day Kimberley Expedition: Waterfalls & Wanjinas",
+    "itineraryCode": "P653",
+    "embarkPort": "Broome, Western Australia, Australia",
+    "debarkPort": "Darwin, Australia",
+    "suitePrice": 14699
   },
   {
     "shipName": "Seabourn Encore",
@@ -1040,6 +1060,16 @@
     "suitePrice": 9899
   },
   {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2026-09-04",
+    "nights": 7,
+    "itinerary": "7-Day Glaciers & Alaska Inside Passage",
+    "itineraryCode": "7662",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Juneau, Alaska, US",
+    "suitePrice": 5799
+  },
+  {
     "shipName": "Seabourn Quest",
     "departureDate": "2026-09-06",
     "nights": 7,
@@ -1047,7 +1077,7 @@
     "itineraryCode": "6661",
     "embarkPort": "Fusina (Venice), Italy",
     "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 7399
+    "suitePrice": 6999
   },
   {
     "shipName": "Seabourn Encore",
@@ -1072,22 +1102,22 @@
   {
     "shipName": "Seabourn Pursuit",
     "departureDate": "2026-09-12",
-    "nights": 54,
-    "itinerary": "54-Day Indonesia, Papua New Guinea & Islands Of The Pacific",
-    "itineraryCode": "P656B",
-    "embarkPort": "Darwin, Australia",
-    "debarkPort": "San Antonio (Santiago), Chile",
-    "suitePrice": 60099
-  },
-  {
-    "shipName": "Seabourn Pursuit",
-    "departureDate": "2026-09-12",
     "nights": 22,
     "itinerary": "22-Day Remote Indonesia & Islands Of The Pacific Theatre",
     "itineraryCode": "P656",
     "embarkPort": "Darwin, Australia",
     "debarkPort": "Lautoka, Fiji",
     "suitePrice": 30599
+  },
+  {
+    "shipName": "Seabourn Pursuit",
+    "departureDate": "2026-09-12",
+    "nights": 54,
+    "itinerary": "54-Day Indonesia, Papua New Guinea & Islands Of The Pacific",
+    "itineraryCode": "P656B",
+    "embarkPort": "Darwin, Australia",
+    "debarkPort": "San Antonio (Santiago), Chile",
+    "suitePrice": 60099
   },
   {
     "shipName": "Seabourn Ovation",
@@ -1107,17 +1137,17 @@
     "itineraryCode": "6664",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 7999
+    "suitePrice": 8299
   },
   {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2026-09-18",
-    "nights": 21,
-    "itinerary": "21-Day Pacific Passage & Jewels Of Japan",
-    "itineraryCode": "7667",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Tokyo, Japan",
-    "suitePrice": 10799
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-09-13",
+    "nights": 14,
+    "itinerary": "14-Day Grecian Gems, Ephesus & Dalmatian Delights",
+    "itineraryCode": "6664A",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Dubrovnik, Croatia",
+    "suitePrice": 19399
   },
   {
     "shipName": "Seabourn Encore",
@@ -1130,44 +1160,14 @@
     "suitePrice": 20299
   },
   {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2026-09-20",
-    "nights": 7,
-    "itinerary": "7-Day Greece & Dalmatian Delights",
-    "itineraryCode": "6665",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 7299
-  },
-  {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2026-09-20",
-    "nights": 23,
-    "itinerary": "23-Day Wild Labrador Coast & Southern Caribbean",
-    "itineraryCode": "V650A",
-    "embarkPort": "Reykjavik, Iceland",
-    "debarkPort": "Bridgetown, Barbados",
-    "suitePrice": 23399
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2026-09-20",
-    "nights": 14,
-    "itinerary": "14-Day Grecian Gems & Dalmatian Delights",
-    "itineraryCode": "6665A",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 13199
-  },
-  {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2026-09-20",
-    "nights": 39,
-    "itinerary": "39-Day Wild Labrador Coast, Caribbean & South   America",
-    "itineraryCode": "V650B",
-    "embarkPort": "Reykjavik, Iceland",
-    "debarkPort": "Rio de Janeiro, Brazil",
-    "suitePrice": 32699
+    "shipName": "Seabourn Encore",
+    "departureDate": "2026-09-18",
+    "nights": 21,
+    "itinerary": "21-Day Pacific Passage & Jewels Of Japan",
+    "itineraryCode": "7667",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Tokyo, Japan",
+    "suitePrice": 10799
   },
   {
     "shipName": "Seabourn Venture",
@@ -1182,12 +1182,52 @@
   {
     "shipName": "Seabourn Venture",
     "departureDate": "2026-09-20",
+    "nights": 39,
+    "itinerary": "39-Day Wild Labrador Coast, Caribbean & South   America",
+    "itineraryCode": "V650B",
+    "embarkPort": "Reykjavik, Iceland",
+    "debarkPort": "Rio de Janeiro, Brazil",
+    "suitePrice": 32699
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-09-20",
+    "nights": 14,
+    "itinerary": "14-Day Grecian Gems & Dalmatian Delights",
+    "itineraryCode": "6665A",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Dubrovnik, Croatia",
+    "suitePrice": 13199
+  },
+  {
+    "shipName": "Seabourn Venture",
+    "departureDate": "2026-09-20",
+    "nights": 23,
+    "itinerary": "23-Day Wild Labrador Coast & Southern Caribbean",
+    "itineraryCode": "V650A",
+    "embarkPort": "Reykjavik, Iceland",
+    "debarkPort": "Bridgetown, Barbados",
+    "suitePrice": 23399
+  },
+  {
+    "shipName": "Seabourn Venture",
+    "departureDate": "2026-09-20",
     "nights": 15,
     "itinerary": "15-Day Wild Labrador Coast: Missions, Fjords    & Wilderness",
     "itineraryCode": "V650",
     "embarkPort": "Reykjavik, Iceland",
     "debarkPort": "Halifax, Nova Scotia, Canada",
     "suitePrice": 18999
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-09-20",
+    "nights": 7,
+    "itinerary": "7-Day Greece & Dalmatian Delights",
+    "itineraryCode": "6665",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Dubrovnik, Croatia",
+    "suitePrice": 6999
   },
   {
     "shipName": "Seabourn Ovation",
@@ -1197,7 +1237,7 @@
     "itineraryCode": "8665",
     "embarkPort": "Montreal, Quebec, Canada",
     "debarkPort": "Montreal, Quebec, Canada",
-    "suitePrice": 12299
+    "suitePrice": 12699
   },
   {
     "shipName": "Seabourn Quest",
@@ -1207,7 +1247,27 @@
     "itineraryCode": "6668",
     "embarkPort": "Dubrovnik, Croatia",
     "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 7299
+    "suitePrice": 7599
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-10-04",
+    "nights": 7,
+    "itinerary": "7-Day Greece & Dalmatian Delights",
+    "itineraryCode": "6669",
+    "embarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 7134
+  },
+  {
+    "shipName": "Seabourn Pursuit",
+    "departureDate": "2026-10-04",
+    "nights": 13,
+    "itinerary": "13-Day Melanesia & Polynesia: Island Cultures & Coral Coasts",
+    "itineraryCode": "P657",
+    "embarkPort": "Lautoka, Fiji",
+    "debarkPort": "Papeete, French Polynesia",
+    "suitePrice": 18599
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -1220,24 +1280,14 @@
     "suitePrice": 32499
   },
   {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2026-10-04",
-    "nights": 7,
-    "itinerary": "7-Day Greece & Dalmatian Delights",
-    "itineraryCode": "6669",
-    "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 6824
-  },
-  {
-    "shipName": "Seabourn Pursuit",
-    "departureDate": "2026-10-04",
-    "nights": 13,
-    "itinerary": "13-Day Melanesia & Polynesia: Island Cultures & Coral Coasts",
-    "itineraryCode": "P657",
-    "embarkPort": "Lautoka, Fiji",
-    "debarkPort": "Papeete, French Polynesia",
-    "suitePrice": 18599
+    "shipName": "Seabourn Venture",
+    "departureDate": "2026-10-05",
+    "nights": 8,
+    "itinerary": "8-Day Southern Caribbean Yacht Harbors",
+    "itineraryCode": "V653",
+    "embarkPort": "Halifax, Nova Scotia, Canada",
+    "debarkPort": "Bridgetown, Barbados",
+    "suitePrice": 6999
   },
   {
     "shipName": "Seabourn Venture",
@@ -1258,16 +1308,6 @@
     "embarkPort": "Halifax, Nova Scotia, Canada",
     "debarkPort": "Buenos Aires",
     "suitePrice": 31799
-  },
-  {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2026-10-05",
-    "nights": 8,
-    "itinerary": "8-Day Southern Caribbean Yacht Harbors",
-    "itineraryCode": "V653",
-    "embarkPort": "Halifax, Nova Scotia, Canada",
-    "debarkPort": "Bridgetown, Barbados",
-    "suitePrice": 6999
   },
   {
     "shipName": "Seabourn Ovation",
@@ -1292,22 +1332,22 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2026-10-11",
+    "nights": 21,
+    "itinerary": "21-Day Ephesus, Grecian Gems, Turkey & Rome",
+    "itineraryCode": "6672B",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Civitavecchia (Rome), Italy",
+    "suitePrice": 17679
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-10-11",
     "nights": 7,
     "itinerary": "7-Day Greek Isles & Ephesus",
     "itineraryCode": "6672",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Istanbul, Turkey",
-    "suitePrice": 7299
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2026-10-11",
-    "nights": 14,
-    "itinerary": "14-Day Greek Isles, Turkey & Ephesus",
-    "itineraryCode": "6672A",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 11889
+    "suitePrice": 7599
   },
   {
     "shipName": "Seabourn Venture",
@@ -1342,22 +1382,12 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2026-10-18",
-    "nights": 23,
-    "itinerary": "23-Day Turkey, Greece & Andalusia",
-    "itineraryCode": "6673B",
-    "embarkPort": "Istanbul, Turkey",
-    "debarkPort": "Lisbon, Portugal",
-    "suitePrice": 17699
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2026-10-18",
     "nights": 14,
     "itinerary": "14-Day Turkey, Greece & Roman Gems",
     "itineraryCode": "6673A",
     "embarkPort": "Istanbul, Turkey",
     "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 10899
+    "suitePrice": 10299
   },
   {
     "shipName": "Seabourn Quest",
@@ -1367,7 +1397,17 @@
     "itineraryCode": "6673",
     "embarkPort": "Istanbul, Turkey",
     "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 5399
+    "suitePrice": 5274
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2026-10-18",
+    "nights": 23,
+    "itinerary": "23-Day Turkey, Greece & Andalusia",
+    "itineraryCode": "6673B",
+    "embarkPort": "Istanbul, Turkey",
+    "debarkPort": "Lisbon, Portugal",
+    "suitePrice": 16699
   },
   {
     "shipName": "Seabourn Ovation",
@@ -1407,7 +1447,7 @@
     "itineraryCode": "6676B",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Miami, Florida, US",
-    "suitePrice": 18099
+    "suitePrice": 17099
   },
   {
     "shipName": "Seabourn Quest",
@@ -1417,7 +1457,7 @@
     "itineraryCode": "6676",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 6929
+    "suitePrice": 6514
   },
   {
     "shipName": "Seabourn Quest",
@@ -1427,17 +1467,7 @@
     "itineraryCode": "6676A",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Lisbon, Portugal",
-    "suitePrice": 12799
-  },
-  {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2026-10-29",
-    "nights": 21,
-    "itinerary": "21-Day Wild South Atlantic & Antarctic          Peninsula",
-    "itineraryCode": "V657",
-    "embarkPort": "Rio de Janeiro, Brazil",
-    "debarkPort": "Buenos Aires",
-    "suitePrice": 0
+    "suitePrice": 16699
   },
   {
     "shipName": "Seabourn Ovation",
@@ -1447,7 +1477,7 @@
     "itineraryCode": "8672",
     "embarkPort": "Montreal, Quebec, Canada",
     "debarkPort": "Miami, Florida, US",
-    "suitePrice": 6599
+    "suitePrice": 6999
   },
   {
     "shipName": "Seabourn Quest",
@@ -1457,7 +1487,7 @@
     "itineraryCode": "6677A",
     "embarkPort": "Civitavecchia (Rome), Italy",
     "debarkPort": "Miami, Florida, US",
-    "suitePrice": 12099
+    "suitePrice": 11399
   },
   {
     "shipName": "Seabourn Quest",
@@ -1467,17 +1497,7 @@
     "itineraryCode": "6677",
     "embarkPort": "Civitavecchia (Rome), Italy",
     "debarkPort": "Lisbon, Portugal",
-    "suitePrice": 9199
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2026-11-03",
-    "nights": 12,
-    "itinerary": "12-Day Exploration Of Japan & South Korea",
-    "itineraryCode": "7672",
-    "embarkPort": "Tokyo, Japan",
-    "debarkPort": "Osaka, Japan",
-    "suitePrice": 11699
+    "suitePrice": 9799
   },
   {
     "shipName": "Seabourn Encore",
@@ -1490,6 +1510,16 @@
     "suitePrice": 18199
   },
   {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2026-11-03",
+    "nights": 12,
+    "itinerary": "12-Day Exploration Of Japan & South Korea",
+    "itineraryCode": "7672",
+    "embarkPort": "Tokyo, Japan",
+    "debarkPort": "Osaka, Japan",
+    "suitePrice": 11699
+  },
+  {
     "shipName": "Seabourn Quest",
     "departureDate": "2026-11-10",
     "nights": 12,
@@ -1497,7 +1527,7 @@
     "itineraryCode": "6680",
     "embarkPort": "Lisbon, Portugal",
     "debarkPort": "Miami, Florida, US",
-    "suitePrice": 5899
+    "suitePrice": 5499
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -1582,16 +1612,6 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2026-11-28",
-    "nights": 14,
-    "itinerary": "14-Day Exotic Caribbean In Depth",
-    "itineraryCode": "8677A",
-    "embarkPort": "Bridgetown, Barbados",
-    "debarkPort": "Bridgetown, Barbados",
-    "suitePrice": 7999
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2026-11-28",
     "nights": 7,
     "itinerary": "7-Day Classic Caribbean Yacht Harbors",
     "itineraryCode": "8677",
@@ -1601,13 +1621,13 @@
   },
   {
     "shipName": "Seabourn Ovation",
-    "departureDate": "2026-12-05",
+    "departureDate": "2026-11-28",
     "nights": 14,
-    "itinerary": "14-Day Yachtsman's Caribbean In Depth",
-    "itineraryCode": "8680A",
-    "embarkPort": "Philipsburg, Sint Maarten",
+    "itinerary": "14-Day Exotic Caribbean In Depth",
+    "itineraryCode": "8677A",
+    "embarkPort": "Bridgetown, Barbados",
     "debarkPort": "Bridgetown, Barbados",
-    "suitePrice": 7299
+    "suitePrice": 7999
   },
   {
     "shipName": "Seabourn Ovation",
@@ -1618,6 +1638,16 @@
     "embarkPort": "Philipsburg, Sint Maarten",
     "debarkPort": "Bridgetown, Barbados",
     "suitePrice": 4299
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2026-12-05",
+    "nights": 14,
+    "itinerary": "14-Day Yachtsman's Caribbean In Depth",
+    "itineraryCode": "8680A",
+    "embarkPort": "Philipsburg, Sint Maarten",
+    "debarkPort": "Bridgetown, Barbados",
+    "suitePrice": 7299
   },
   {
     "shipName": "Seabourn Quest",
@@ -1720,16 +1750,6 @@
     "suitePrice": 10999
   },
   {
-    "shipName": "Seabourn Pursuit",
-    "departureDate": "2026-12-21",
-    "nights": 21,
-    "itinerary": "21-Day Antarctica, South Georgia & Falkland     Islands",
-    "itineraryCode": "P668",
-    "embarkPort": "Buenos Aires",
-    "debarkPort": "Buenos Aires",
-    "suitePrice": 35799
-  },
-  {
     "shipName": "Seabourn Encore",
     "departureDate": "2026-12-21",
     "nights": 14,
@@ -1738,6 +1758,16 @@
     "embarkPort": "Singapore",
     "debarkPort": "Hong Kong, China",
     "suitePrice": 11499
+  },
+  {
+    "shipName": "Seabourn Pursuit",
+    "departureDate": "2026-12-21",
+    "nights": 21,
+    "itinerary": "21-Day Antarctica, South Georgia & Falkland     Islands",
+    "itineraryCode": "P668",
+    "embarkPort": "Buenos Aires",
+    "debarkPort": "Buenos Aires",
+    "suitePrice": 35799
   },
   {
     "shipName": "Seabourn Ovation",
@@ -1782,6 +1812,26 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2027-01-05",
+    "nights": 126,
+    "itinerary": "126-Day World Cruise: Australia & South Pacific Panorama",
+    "itineraryCode": "6711B",
+    "embarkPort": "Miami, Florida, US",
+    "debarkPort": "Long Beach, California, US",
+    "suitePrice": 80099
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2027-01-05",
+    "nights": 62,
+    "itinerary": "62-Day World Cruise: Panama Canal, Polynesia & New Zealand",
+    "itineraryCode": "6711C",
+    "embarkPort": "Miami, Florida, US",
+    "debarkPort": "Sydney, Australia",
+    "suitePrice": 35299
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2027-01-05",
     "nights": 35,
     "itinerary": "35-Day World Cruise: Panama Canal Crossing & Polynesia",
     "itineraryCode": "6711D",
@@ -1798,26 +1848,6 @@
     "embarkPort": "Miami, Florida, US",
     "debarkPort": "Callao (Lima), Peru",
     "suitePrice": 6299
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2027-01-05",
-    "nights": 62,
-    "itinerary": "62-Day World Cruise: Panama Canal, Polynesia & New Zealand",
-    "itineraryCode": "6711C",
-    "embarkPort": "Miami, Florida, US",
-    "debarkPort": "Sydney, Australia",
-    "suitePrice": 35299
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2027-01-05",
-    "nights": 126,
-    "itinerary": "126-Day World Cruise: Australia & South Pacific Panorama",
-    "itineraryCode": "6711B",
-    "embarkPort": "Miami, Florida, US",
-    "debarkPort": "Long Beach, California, US",
-    "suitePrice": 80099
   },
   {
     "shipName": "Seabourn Quest",
@@ -1842,22 +1872,22 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-01-09",
-    "nights": 7,
-    "itinerary": "7-Day Classic Caribbean Yacht Harbors",
-    "itineraryCode": "8711",
-    "embarkPort": "Bridgetown, Barbados",
-    "debarkPort": "Philipsburg, Sint Maarten",
-    "suitePrice": 5299
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-01-09",
     "nights": 14,
     "itinerary": "14-Day Exotic Caribbean In Depth",
     "itineraryCode": "8711A",
     "embarkPort": "Bridgetown, Barbados",
     "debarkPort": "Bridgetown, Barbados",
     "suitePrice": 10099
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-01-09",
+    "nights": 7,
+    "itinerary": "7-Day Classic Caribbean Yacht Harbors",
+    "itineraryCode": "8711",
+    "embarkPort": "Bridgetown, Barbados",
+    "debarkPort": "Philipsburg, Sint Maarten",
+    "suitePrice": 5299
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -1932,22 +1962,22 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-01-23",
-    "nights": 7,
-    "itinerary": "7-Day Classic Caribbean Yacht Harbors",
-    "itineraryCode": "8715",
-    "embarkPort": "Bridgetown, Barbados",
-    "debarkPort": "Philipsburg, Sint Maarten",
-    "suitePrice": 5799
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-01-23",
     "nights": 14,
     "itinerary": "14-Day Exotic Caribbean In Depth",
     "itineraryCode": "8715A",
     "embarkPort": "Bridgetown, Barbados",
     "debarkPort": "Bridgetown, Barbados",
     "suitePrice": 10599
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-01-23",
+    "nights": 7,
+    "itinerary": "7-Day Classic Caribbean Yacht Harbors",
+    "itineraryCode": "8715",
+    "embarkPort": "Bridgetown, Barbados",
+    "debarkPort": "Philipsburg, Sint Maarten",
+    "suitePrice": 5799
   },
   {
     "shipName": "Seabourn Venture",
@@ -1972,32 +2002,12 @@
   {
     "shipName": "Seabourn Encore",
     "departureDate": "2027-02-01",
-    "nights": 54,
-    "itinerary": "54-Day Southeast Asia & Japan Exploration",
-    "itineraryCode": "7714C",
-    "embarkPort": "Singapore",
-    "debarkPort": "Tokyo, Japan",
-    "suitePrice": 39899
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2027-02-01",
     "nights": 40,
     "itinerary": "40-Day Southeast Asia & Japan's Plum Blossoms",
     "itineraryCode": "7714B",
     "embarkPort": "Singapore",
     "debarkPort": "Tokyo, Japan",
     "suitePrice": 28699
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2027-02-01",
-    "nights": 14,
-    "itinerary": "14-Day Thailand, Cambodia & Vietnam",
-    "itineraryCode": "7714",
-    "embarkPort": "Singapore",
-    "debarkPort": "Hong Kong, China",
-    "suitePrice": 13499
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -2020,6 +2030,26 @@
     "suitePrice": 19399
   },
   {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2027-02-01",
+    "nights": 54,
+    "itinerary": "54-Day Southeast Asia & Japan Exploration",
+    "itineraryCode": "7714C",
+    "embarkPort": "Singapore",
+    "debarkPort": "Tokyo, Japan",
+    "suitePrice": 39899
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2027-02-01",
+    "nights": 14,
+    "itinerary": "14-Day Thailand, Cambodia & Vietnam",
+    "itineraryCode": "7714",
+    "embarkPort": "Singapore",
+    "debarkPort": "Hong Kong, China",
+    "suitePrice": 13499
+  },
+  {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-02-06",
     "nights": 7,
@@ -2032,22 +2062,22 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2027-02-09",
-    "nights": 12,
-    "itinerary": "12-Day World Cruise: South Pacific Explorer",
-    "itineraryCode": "6716",
-    "embarkPort": "Papeete, French Polynesia",
-    "debarkPort": "Auckland, New Zealand",
-    "suitePrice": 5999
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2027-02-09",
     "nights": 27,
     "itinerary": "27-Day World Cruise: South Pacific Isles & New Zealand",
     "itineraryCode": "6716A",
     "embarkPort": "Papeete, French Polynesia",
     "debarkPort": "Sydney, Australia",
     "suitePrice": 17099
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2027-02-09",
+    "nights": 12,
+    "itinerary": "12-Day World Cruise: South Pacific Explorer",
+    "itineraryCode": "6716",
+    "embarkPort": "Papeete, French Polynesia",
+    "debarkPort": "Auckland, New Zealand",
+    "suitePrice": 6999
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -2062,22 +2092,22 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-02-13",
-    "nights": 14,
-    "itinerary": "14-Day Exotic Caribbean In Depth",
-    "itineraryCode": "8722A",
-    "embarkPort": "Bridgetown, Barbados",
-    "debarkPort": "Bridgetown, Barbados",
-    "suitePrice": 10799
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-02-13",
     "nights": 7,
     "itinerary": "7-Day Classic Caribbean Yacht Harbors",
     "itineraryCode": "8722",
     "embarkPort": "Bridgetown, Barbados",
     "debarkPort": "Philipsburg, Sint Maarten",
     "suitePrice": 5999
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-02-13",
+    "nights": 14,
+    "itinerary": "14-Day Exotic Caribbean In Depth",
+    "itineraryCode": "8722A",
+    "embarkPort": "Bridgetown, Barbados",
+    "debarkPort": "Bridgetown, Barbados",
+    "suitePrice": 10799
   },
   {
     "shipName": "Seabourn Encore",
@@ -2092,22 +2122,22 @@
   {
     "shipName": "Seabourn Encore",
     "departureDate": "2027-02-15",
-    "nights": 26,
-    "itinerary": "26-Day Taiwan & Japan's Plum Blossoms",
-    "itineraryCode": "7715A",
-    "embarkPort": "Hong Kong, China",
-    "debarkPort": "Tokyo, Japan",
-    "suitePrice": 16499
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2027-02-15",
     "nights": 12,
     "itinerary": "12-Day Jewels Of Taiwan & Japan",
     "itineraryCode": "7715",
     "embarkPort": "Hong Kong, China",
     "debarkPort": "Tokyo, Japan",
     "suitePrice": 7999
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2027-02-15",
+    "nights": 26,
+    "itinerary": "26-Day Taiwan & Japan's Plum Blossoms",
+    "itineraryCode": "7715A",
+    "embarkPort": "Hong Kong, China",
+    "debarkPort": "Tokyo, Japan",
+    "suitePrice": 16499
   },
   {
     "shipName": "Seabourn Venture",
@@ -2122,22 +2152,22 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-02-20",
-    "nights": 7,
-    "itinerary": "7-Day Yachtsman's Caribbean",
-    "itineraryCode": "8723",
-    "embarkPort": "Philipsburg, Sint Maarten",
-    "debarkPort": "Bridgetown, Barbados",
-    "suitePrice": 5999
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-02-20",
     "nights": 14,
     "itinerary": "14-Day Caribbean Gems In Depth",
     "itineraryCode": "8723A",
     "embarkPort": "Philipsburg, Sint Maarten",
     "debarkPort": "Philipsburg, Sint Maarten",
     "suitePrice": 9899
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-02-20",
+    "nights": 7,
+    "itinerary": "7-Day Yachtsman's Caribbean",
+    "itineraryCode": "8723",
+    "embarkPort": "Philipsburg, Sint Maarten",
+    "debarkPort": "Bridgetown, Barbados",
+    "suitePrice": 5999
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -2148,6 +2178,16 @@
     "embarkPort": "Buenos Aires",
     "debarkPort": "Buenos Aires",
     "suitePrice": 18399
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2027-02-22",
+    "nights": 15,
+    "itinerary": "15-Day World Cruise: New Zealand Explorer",
+    "itineraryCode": "6719",
+    "embarkPort": "Auckland, New Zealand",
+    "debarkPort": "Sydney, Australia",
+    "suitePrice": 20099
   },
   {
     "shipName": "Seabourn Ovation",
@@ -2170,16 +2210,6 @@
     "suitePrice": 10299
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-02-27",
-    "nights": 7,
-    "itinerary": "7-Day Classic Caribbean Yacht Harbors",
-    "itineraryCode": "8726",
-    "embarkPort": "Bridgetown, Barbados",
-    "debarkPort": "Philipsburg, Sint Maarten",
-    "suitePrice": 4999
-  },
-  {
     "shipName": "Seabourn Encore",
     "departureDate": "2027-02-27",
     "nights": 28,
@@ -2190,14 +2220,14 @@
     "suitePrice": 20599
   },
   {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2027-03-02",
-    "nights": 35,
-    "itinerary": "35-Day Epic Antarctica, Falklands & South       Georgia",
-    "itineraryCode": "V722A",
-    "embarkPort": "Buenos Aires",
-    "debarkPort": "Rio de Janeiro, Brazil",
-    "suitePrice": 37799
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-02-27",
+    "nights": 7,
+    "itinerary": "7-Day Classic Caribbean Yacht Harbors",
+    "itineraryCode": "8726",
+    "embarkPort": "Bridgetown, Barbados",
+    "debarkPort": "Philipsburg, Sint Maarten",
+    "suitePrice": 4999
   },
   {
     "shipName": "Seabourn Venture",
@@ -2222,6 +2252,16 @@
   {
     "shipName": "Seabourn Venture",
     "departureDate": "2027-03-02",
+    "nights": 35,
+    "itinerary": "35-Day Epic Antarctica, Falklands & South       Georgia",
+    "itineraryCode": "V722A",
+    "embarkPort": "Buenos Aires",
+    "debarkPort": "Rio de Janeiro, Brazil",
+    "suitePrice": 37799
+  },
+  {
+    "shipName": "Seabourn Venture",
+    "departureDate": "2027-03-02",
     "nights": 56,
     "itinerary": "56-Day Scotia Arc, Canary Islands & Spain",
     "itineraryCode": "V722B",
@@ -2242,16 +2282,6 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-03-06",
-    "nights": 14,
-    "itinerary": "14-Day Caribbean Gems In Depth",
-    "itineraryCode": "8727A",
-    "embarkPort": "Philipsburg, Sint Maarten",
-    "debarkPort": "Philipsburg, Sint Maarten",
-    "suitePrice": 8899
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-03-06",
     "nights": 7,
     "itinerary": "7-Day Yachtsman's Caribbean",
     "itineraryCode": "8727",
@@ -2260,14 +2290,14 @@
     "suitePrice": 4999
   },
   {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2027-03-09",
-    "nights": 83,
-    "itinerary": "83-Day World Cruise: Australia In-depth & Panama Canal",
-    "itineraryCode": "6722A",
-    "embarkPort": "Sydney, Australia",
-    "debarkPort": "Miami, Florida, US",
-    "suitePrice": 55099
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-03-06",
+    "nights": 14,
+    "itinerary": "14-Day Caribbean Gems In Depth",
+    "itineraryCode": "8727A",
+    "embarkPort": "Philipsburg, Sint Maarten",
+    "debarkPort": "Philipsburg, Sint Maarten",
+    "suitePrice": 8899
   },
   {
     "shipName": "Seabourn Quest",
@@ -2282,12 +2312,12 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2027-03-09",
-    "nights": 17,
-    "itinerary": "17-Day World Cruise: Australia Explorer",
-    "itineraryCode": "6722",
+    "nights": 83,
+    "itinerary": "83-Day World Cruise: Australia In-depth & Panama Canal",
+    "itineraryCode": "6722A",
     "embarkPort": "Sydney, Australia",
-    "debarkPort": "Fremantle (Perth), Australia",
-    "suitePrice": 11099
+    "debarkPort": "Miami, Florida, US",
+    "suitePrice": 55099
   },
   {
     "shipName": "Seabourn Quest",
@@ -2297,7 +2327,17 @@
     "itineraryCode": "6722C",
     "embarkPort": "Sydney, Australia",
     "debarkPort": "Brisbane, Australia",
-    "suitePrice": 24099
+    "suitePrice": 24919
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2027-03-09",
+    "nights": 17,
+    "itinerary": "17-Day World Cruise: Australia Explorer",
+    "itineraryCode": "6722",
+    "embarkPort": "Sydney, Australia",
+    "debarkPort": "Fremantle (Perth), Australia",
+    "suitePrice": 11099
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -2310,16 +2350,6 @@
     "suitePrice": 28099
   },
   {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2027-03-13",
-    "nights": 14,
-    "itinerary": "14-Day Japan's Crafts & Cherry Blossoms",
-    "itineraryCode": "7719",
-    "embarkPort": "Tokyo, Japan",
-    "debarkPort": "Tokyo, Japan",
-    "suitePrice": 12499
-  },
-  {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-03-13",
     "nights": 14,
@@ -2328,6 +2358,16 @@
     "embarkPort": "Bridgetown, Barbados",
     "debarkPort": "Bridgetown, Barbados",
     "suitePrice": 8899
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2027-03-13",
+    "nights": 14,
+    "itinerary": "14-Day Japan's Crafts & Cherry Blossoms",
+    "itineraryCode": "7719",
+    "embarkPort": "Tokyo, Japan",
+    "debarkPort": "Tokyo, Japan",
+    "suitePrice": 12499
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -2362,6 +2402,16 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-03-20",
+    "nights": 19,
+    "itinerary": "19-Day Yachtsman's Caribbean & Atlantic Passage",
+    "itineraryCode": "8731A",
+    "embarkPort": "Philipsburg, Sint Maarten",
+    "debarkPort": "Lisbon, Portugal",
+    "suitePrice": 10199
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-03-20",
     "nights": 7,
     "itinerary": "7-Day Yachtsman's Caribbean",
     "itineraryCode": "8731",
@@ -2370,14 +2420,14 @@
     "suitePrice": 4999
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-03-20",
-    "nights": 19,
-    "itinerary": "19-Day Yachtsman's Caribbean & Atlantic Passage",
-    "itineraryCode": "8731A",
-    "embarkPort": "Philipsburg, Sint Maarten",
-    "debarkPort": "Lisbon, Portugal",
-    "suitePrice": 10199
+    "shipName": "Seabourn Venture",
+    "departureDate": "2027-03-22",
+    "nights": 36,
+    "itinerary": "36-Day Falklands, South America, Canary Islands & Spain",
+    "itineraryCode": "V725A",
+    "embarkPort": "Buenos Aires",
+    "debarkPort": "Seville, Spain",
+    "suitePrice": 20099
   },
   {
     "shipName": "Seabourn Venture",
@@ -2400,14 +2450,14 @@
     "suitePrice": 10299
   },
   {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2027-03-22",
-    "nights": 36,
-    "itinerary": "36-Day Falklands, South America, Canary Islands & Spain",
-    "itineraryCode": "V725A",
+    "shipName": "Seabourn Pursuit",
+    "departureDate": "2027-03-23",
+    "nights": 34,
+    "itinerary": "34-Day Chilean Fjords, Easter & Pitcairn Islands",
+    "itineraryCode": "P723A",
     "embarkPort": "Buenos Aires",
-    "debarkPort": "Seville, Spain",
-    "suitePrice": 20099
+    "debarkPort": "Papeete, French Polynesia",
+    "suitePrice": 29699
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -2420,16 +2470,6 @@
     "suitePrice": 15599
   },
   {
-    "shipName": "Seabourn Pursuit",
-    "departureDate": "2027-03-23",
-    "nights": 34,
-    "itinerary": "34-Day Chilean Fjords, Easter & Pitcairn Islands",
-    "itineraryCode": "P723A",
-    "embarkPort": "Buenos Aires",
-    "debarkPort": "Papeete, French Polynesia",
-    "suitePrice": 29699
-  },
-  {
     "shipName": "Seabourn Quest",
     "departureDate": "2027-03-26",
     "nights": 20,
@@ -2437,7 +2477,17 @@
     "itineraryCode": "6725",
     "embarkPort": "Fremantle (Perth), Australia",
     "debarkPort": "Brisbane, Australia",
-    "suitePrice": 18599
+    "suitePrice": 12999
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2027-03-27",
+    "nights": 28,
+    "itinerary": "28-Day Japan's Crafts & Cherry Blossoms",
+    "itineraryCode": "7722A",
+    "embarkPort": "Tokyo, Japan",
+    "debarkPort": "Tokyo, Japan",
+    "suitePrice": 26999
   },
   {
     "shipName": "Seabourn Encore",
@@ -2450,16 +2500,6 @@
     "suitePrice": 35999
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-03-27",
-    "nights": 12,
-    "itinerary": "12-Day Caribbean & Atlantic Passage",
-    "itineraryCode": "8734",
-    "embarkPort": "Bridgetown, Barbados",
-    "debarkPort": "Lisbon, Portugal",
-    "suitePrice": 6289
-  },
-  {
     "shipName": "Seabourn Encore",
     "departureDate": "2027-03-27",
     "nights": 14,
@@ -2470,14 +2510,14 @@
     "suitePrice": 14999
   },
   {
-    "shipName": "Seabourn Encore",
+    "shipName": "Seabourn Ovation",
     "departureDate": "2027-03-27",
-    "nights": 28,
-    "itinerary": "28-Day Japan's Crafts & Cherry Blossoms",
-    "itineraryCode": "7722A",
-    "embarkPort": "Tokyo, Japan",
-    "debarkPort": "Tokyo, Japan",
-    "suitePrice": 26999
+    "nights": 12,
+    "itinerary": "12-Day Caribbean & Atlantic Passage",
+    "itineraryCode": "8734",
+    "embarkPort": "Bridgetown, Barbados",
+    "debarkPort": "Lisbon, Portugal",
+    "suitePrice": 6289
   },
   {
     "shipName": "Seabourn Venture",
@@ -2592,12 +2632,12 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-04-30",
-    "nights": 8,
-    "itinerary": "8-Day Italy, France & Tunisia",
-    "itineraryCode": "8739",
+    "nights": 29,
+    "itinerary": "29-Day Mediterranean Medley: Italy, Greece & Ephesus",
+    "itineraryCode": "8739C",
     "embarkPort": "Genoa, Italy",
-    "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 6729
+    "debarkPort": "Istanbul, Turkey",
+    "suitePrice": 28199
   },
   {
     "shipName": "Seabourn Ovation",
@@ -2622,22 +2662,12 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-04-30",
-    "nights": 29,
-    "itinerary": "29-Day Mediterranean Medley: Italy, Greece & Ephesus",
-    "itineraryCode": "8739C",
+    "nights": 8,
+    "itinerary": "8-Day Italy, France & Tunisia",
+    "itineraryCode": "8739",
     "embarkPort": "Genoa, Italy",
-    "debarkPort": "Istanbul, Turkey",
-    "suitePrice": 28199
-  },
-  {
-    "shipName": "Seabourn Pursuit",
-    "departureDate": "2027-05-08",
-    "nights": 26,
-    "itinerary": "26-Day Papua New Guinea & Kimberley Expedition",
-    "itineraryCode": "P730A",
-    "embarkPort": "Lautoka, Fiji",
-    "debarkPort": "Broome, Western Australia, Australia",
-    "suitePrice": 26799
+    "debarkPort": "Civitavecchia (Rome), Italy",
+    "suitePrice": 6729
   },
   {
     "shipName": "Seabourn Ovation",
@@ -2662,6 +2692,16 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-05-08",
+    "nights": 28,
+    "itinerary": "28-Day Mediterranean Medley: Italy, Greece & Ephesus",
+    "itineraryCode": "8740C",
+    "embarkPort": "Civitavecchia (Rome), Italy",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 29299
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-05-08",
     "nights": 7,
     "itinerary": "7-Day Italy, Malta, Croatia & Montenegro",
     "itineraryCode": "8740",
@@ -2680,14 +2720,14 @@
     "suitePrice": 14399
   },
   {
-    "shipName": "Seabourn Ovation",
+    "shipName": "Seabourn Pursuit",
     "departureDate": "2027-05-08",
-    "nights": 28,
-    "itinerary": "28-Day Mediterranean Medley: Italy, Greece & Ephesus",
-    "itineraryCode": "8740C",
-    "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 29299
+    "nights": 26,
+    "itinerary": "26-Day Papua New Guinea & Kimberley Expedition",
+    "itineraryCode": "P730A",
+    "embarkPort": "Lautoka, Fiji",
+    "debarkPort": "Broome, Western Australia, Australia",
+    "suitePrice": 26799
   },
   {
     "shipName": "Seabourn Quest",
@@ -2702,16 +2742,6 @@
   {
     "shipName": "Seabourn Encore",
     "departureDate": "2027-05-14",
-    "nights": 14,
-    "itinerary": "14-Day Glacier Bay, Fjords & Inside Passage",
-    "itineraryCode": "7727A",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Vancouver, B.C., CA",
-    "suitePrice": 10499
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2027-05-14",
     "nights": 7,
     "itinerary": "7-Day Alaska Inside Passage & Glacier Bay",
     "itineraryCode": "7727",
@@ -2720,14 +2750,14 @@
     "suitePrice": 5899
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-05-15",
-    "nights": 37,
-    "itinerary": "37-Day Ultimate Mediterranean: Italy & The Dalmatian Coast",
-    "itineraryCode": "8741D",
-    "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 37299
+    "shipName": "Seabourn Encore",
+    "departureDate": "2027-05-14",
+    "nights": 14,
+    "itinerary": "14-Day Glacier Bay, Fjords & Inside Passage",
+    "itineraryCode": "7727A",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Vancouver, B.C., CA",
+    "suitePrice": 10499
   },
   {
     "shipName": "Seabourn Ovation",
@@ -2738,6 +2768,16 @@
     "embarkPort": "Dubrovnik, Croatia",
     "debarkPort": "Istanbul, Turkey",
     "suitePrice": 15499
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-05-15",
+    "nights": 21,
+    "itinerary": "21-Day Mediterranean Mosaic: Italy, Ephesus & Greece",
+    "itineraryCode": "8741B",
+    "embarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 22699
   },
   {
     "shipName": "Seabourn Ovation",
@@ -2762,12 +2802,12 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-05-15",
-    "nights": 21,
-    "itinerary": "21-Day Mediterranean Mosaic: Italy, Ephesus & Greece",
-    "itineraryCode": "8741B",
+    "nights": 37,
+    "itinerary": "37-Day Ultimate Mediterranean: Italy & The Dalmatian Coast",
+    "itineraryCode": "8741D",
     "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 22699
+    "debarkPort": "Civitavecchia (Rome), Italy",
+    "suitePrice": 37299
   },
   {
     "shipName": "Seabourn Encore",
@@ -2782,12 +2822,12 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-05-22",
-    "nights": 22,
-    "itinerary": "22-Day Mediterranean Mosaic: Greek Isles, Ephesus & Croatia",
-    "itineraryCode": "8744B",
+    "nights": 14,
+    "itinerary": "14-Day Greek Isles & Ephesus",
+    "itineraryCode": "8744A",
     "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Fusina (Venice), Italy",
-    "suitePrice": 21999
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 14899
   },
   {
     "shipName": "Seabourn Ovation",
@@ -2802,12 +2842,12 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-05-22",
-    "nights": 14,
-    "itinerary": "14-Day Greek Isles & Ephesus",
-    "itineraryCode": "8744A",
+    "nights": 22,
+    "itinerary": "22-Day Mediterranean Mosaic: Greek Isles, Ephesus & Croatia",
+    "itineraryCode": "8744B",
     "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 14899
+    "debarkPort": "Fusina (Venice), Italy",
+    "suitePrice": 21999
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -2842,6 +2882,16 @@
   {
     "shipName": "Seabourn Encore",
     "departureDate": "2027-05-28",
+    "nights": 14,
+    "itinerary": "14-Day Alaska Glaciers, Fjords & Inside Passage",
+    "itineraryCode": "7731A",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Vancouver, B.C., CA",
+    "suitePrice": 10299
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2027-05-28",
     "nights": 7,
     "itinerary": "7-Day Glaciers & Alaska Inside Passage",
     "itineraryCode": "7731",
@@ -2850,14 +2900,14 @@
     "suitePrice": 5899
   },
   {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2027-05-28",
-    "nights": 14,
-    "itinerary": "14-Day Alaska Glaciers, Fjords & Inside Passage",
-    "itineraryCode": "7731A",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Vancouver, B.C., CA",
-    "suitePrice": 10299
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-05-29",
+    "nights": 7,
+    "itinerary": "7-Day Hidden Gems Of Turkey & Greece",
+    "itineraryCode": "8745",
+    "embarkPort": "Istanbul, Turkey",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 7999
   },
   {
     "shipName": "Seabourn Ovation",
@@ -2878,16 +2928,6 @@
     "embarkPort": "Istanbul, Turkey",
     "debarkPort": "Fusina (Venice), Italy",
     "suitePrice": 14399
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-05-29",
-    "nights": 7,
-    "itinerary": "7-Day Hidden Gems Of Turkey & Greece",
-    "itineraryCode": "8745",
-    "embarkPort": "Istanbul, Turkey",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 7999
   },
   {
     "shipName": "Seabourn Quest",
@@ -2912,6 +2952,16 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-06-05",
+    "nights": 16,
+    "itinerary": "16-Day Montenegro, Croatia, Corsica & Italy",
+    "itineraryCode": "8746A",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Civitavecchia (Rome), Italy",
+    "suitePrice": 14599
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-06-05",
     "nights": 24,
     "itinerary": "24-Day Mediterranean Mosaic: Croatia, Corsica & Italy",
     "itineraryCode": "8746B",
@@ -2928,16 +2978,6 @@
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Fusina (Venice), Italy",
     "suitePrice": 7899
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-06-05",
-    "nights": 16,
-    "itinerary": "16-Day Montenegro, Croatia, Corsica & Italy",
-    "itineraryCode": "8746A",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 14599
   },
   {
     "shipName": "Seabourn Venture",
@@ -2960,14 +3000,24 @@
     "suitePrice": 26399
   },
   {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2027-06-07",
-    "nights": 12,
-    "itinerary": "12-Day Wild British Isles",
-    "itineraryCode": "V739",
-    "embarkPort": "Greenwich (London), England, United Kingdom",
-    "debarkPort": "Belfast, Northern Ireland, United Kingdom",
-    "suitePrice": 12699
+    "shipName": "Seabourn Encore",
+    "departureDate": "2027-06-11",
+    "nights": 14,
+    "itinerary": "14-Day Alaska Glaciers, Fjords & Inside Passage",
+    "itineraryCode": "7735A",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Vancouver, B.C., CA",
+    "suitePrice": 10499
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2027-06-11",
+    "nights": 7,
+    "itinerary": "7-Day Glaciers & Alaska Inside Passage",
+    "itineraryCode": "7735",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Juneau, Alaska, US",
+    "suitePrice": 5899
   },
   {
     "shipName": "Seabourn Quest",
@@ -2980,16 +3030,6 @@
     "suitePrice": 5029
   },
   {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2027-06-11",
-    "nights": 14,
-    "itinerary": "14-Day Alaska Glaciers, Fjords & Inside Passage",
-    "itineraryCode": "7735A",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Vancouver, B.C., CA",
-    "suitePrice": 10499
-  },
-  {
     "shipName": "Seabourn Quest",
     "departureDate": "2027-06-11",
     "nights": 22,
@@ -2997,17 +3037,7 @@
     "itineraryCode": "6737A",
     "embarkPort": "Lisbon, Portugal",
     "debarkPort": "Dover (London), England, UK",
-    "suitePrice": 14699
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2027-06-11",
-    "nights": 7,
-    "itinerary": "7-Day Glaciers & Alaska Inside Passage",
-    "itineraryCode": "7735",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Juneau, Alaska, US",
-    "suitePrice": 5899
+    "suitePrice": 14899
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -3032,22 +3062,22 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-06-13",
-    "nights": 24,
-    "itinerary": "24-Day Mediterranean Mosaic: Croatia, Italy, France & Spain",
-    "itineraryCode": "8749B",
-    "embarkPort": "Fusina (Venice), Italy",
-    "debarkPort": "Barcelona, Spain",
-    "suitePrice": 21199
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-06-13",
     "nights": 8,
     "itinerary": "8-Day Croatia, Malta & Italy",
     "itineraryCode": "8749",
     "embarkPort": "Fusina (Venice), Italy",
     "debarkPort": "Civitavecchia (Rome), Italy",
     "suitePrice": 8299
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-06-13",
+    "nights": 24,
+    "itinerary": "24-Day Mediterranean Mosaic: Croatia, Italy, France & Spain",
+    "itineraryCode": "8749B",
+    "embarkPort": "Fusina (Venice), Italy",
+    "debarkPort": "Barcelona, Spain",
+    "suitePrice": 21199
   },
   {
     "shipName": "Seabourn Encore",
@@ -3060,26 +3090,6 @@
     "suitePrice": 5699
   },
   {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2027-06-19",
-    "nights": 28,
-    "itinerary": "28-Day Wild Isles Of The North Atlantic, Greenland & Iceland",
-    "itineraryCode": "V741A",
-    "embarkPort": "Belfast, Northern Ireland, United Kingdom",
-    "debarkPort": "Reykjavik, Iceland",
-    "suitePrice": 30299
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2027-06-19",
-    "nights": 14,
-    "itinerary": "14-Day Midsummer In The Land Of The Midnight Sun",
-    "itineraryCode": "6738",
-    "embarkPort": "Dover (London), England, UK",
-    "debarkPort": "Dover (London), England, UK",
-    "suitePrice": 11299
-  },
-  {
     "shipName": "Seabourn Quest",
     "departureDate": "2027-06-19",
     "nights": 28,
@@ -3087,7 +3097,7 @@
     "itineraryCode": "6738A",
     "embarkPort": "Dover (London), England, UK",
     "debarkPort": "Dover (London), England, UK",
-    "suitePrice": 20099
+    "suitePrice": 20599
   },
   {
     "shipName": "Seabourn Venture",
@@ -3100,14 +3110,24 @@
     "suitePrice": 16599
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-06-21",
-    "nights": 8,
-    "itinerary": "8-Day Mediterranean Islands",
-    "itineraryCode": "8750",
-    "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 8199
+    "shipName": "Seabourn Quest",
+    "departureDate": "2027-06-19",
+    "nights": 14,
+    "itinerary": "14-Day Midsummer In The Land Of The Midnight Sun",
+    "itineraryCode": "6738",
+    "embarkPort": "Dover (London), England, UK",
+    "debarkPort": "Dover (London), England, UK",
+    "suitePrice": 11499
+  },
+  {
+    "shipName": "Seabourn Venture",
+    "departureDate": "2027-06-19",
+    "nights": 28,
+    "itinerary": "28-Day Wild Isles Of The North Atlantic, Greenland & Iceland",
+    "itineraryCode": "V741A",
+    "embarkPort": "Belfast, Northern Ireland, United Kingdom",
+    "debarkPort": "Reykjavik, Iceland",
+    "suitePrice": 30299
   },
   {
     "shipName": "Seabourn Ovation",
@@ -3120,14 +3140,14 @@
     "suitePrice": 13699
   },
   {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2027-06-25",
-    "nights": 14,
-    "itinerary": "14-Day Alaska Glaciers, Fjords & Inside Passage",
-    "itineraryCode": "7739A",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Vancouver, B.C., CA",
-    "suitePrice": 10599
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-06-21",
+    "nights": 8,
+    "itinerary": "8-Day Mediterranean Islands",
+    "itineraryCode": "8750",
+    "embarkPort": "Civitavecchia (Rome), Italy",
+    "debarkPort": "Civitavecchia (Rome), Italy",
+    "suitePrice": 8199
   },
   {
     "shipName": "Seabourn Encore",
@@ -3138,6 +3158,16 @@
     "embarkPort": "Vancouver, B.C., CA",
     "debarkPort": "Juneau, Alaska, US",
     "suitePrice": 5999
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2027-06-25",
+    "nights": 14,
+    "itinerary": "14-Day Alaska Glaciers, Fjords & Inside Passage",
+    "itineraryCode": "7739A",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Vancouver, B.C., CA",
+    "suitePrice": 10599
   },
   {
     "shipName": "Seabourn Ovation",
@@ -3170,14 +3200,24 @@
     "suitePrice": 5699
   },
   {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2027-07-03",
+    "nights": 14,
+    "itinerary": "14-Day Jewels Of The British Isles",
+    "itineraryCode": "6741",
+    "embarkPort": "Dover (London), England, UK",
+    "debarkPort": "Dover (London), England, UK",
+    "suitePrice": 11299
+  },
+  {
     "shipName": "Seabourn Venture",
     "departureDate": "2027-07-03",
-    "nights": 29,
-    "itinerary": "29-Day Iceland, Greenland & Exploring           Scoresbysund",
-    "itineraryCode": "V744A",
+    "nights": 77,
+    "itinerary": "77-Day Ultimate Arctic Expedition",
+    "itineraryCode": "V744D",
     "embarkPort": "Reykjavik, Iceland",
     "debarkPort": "Reykjavik, Iceland",
-    "suitePrice": 32899
+    "suitePrice": 117499
   },
   {
     "shipName": "Seabourn Venture",
@@ -3192,42 +3232,22 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2027-07-03",
-    "nights": 14,
-    "itinerary": "14-Day Jewels Of The British Isles",
-    "itineraryCode": "6741",
-    "embarkPort": "Dover (London), England, UK",
-    "debarkPort": "Dover (London), England, UK",
-    "suitePrice": 10999
-  },
-  {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2027-07-03",
-    "nights": 77,
-    "itinerary": "77-Day Ultimate Arctic Expedition",
-    "itineraryCode": "V744D",
-    "embarkPort": "Reykjavik, Iceland",
-    "debarkPort": "Reykjavik, Iceland",
-    "suitePrice": 117499
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2027-07-03",
     "nights": 28,
     "itinerary": "28-Day The British Isles & Norwegian Fjords",
     "itineraryCode": "6741A",
     "embarkPort": "Dover (London), England, UK",
     "debarkPort": "Dover (London), England, UK",
-    "suitePrice": 19099
+    "suitePrice": 19399
   },
   {
     "shipName": "Seabourn Venture",
     "departureDate": "2027-07-03",
-    "nights": 59,
-    "itinerary": "59-Day Iceland, Greenland, Northwest Passage    & High Arctic",
-    "itineraryCode": "V744C",
+    "nights": 29,
+    "itinerary": "29-Day Iceland, Greenland & Exploring           Scoresbysund",
+    "itineraryCode": "V744A",
     "embarkPort": "Reykjavik, Iceland",
     "debarkPort": "Reykjavik, Iceland",
-    "suitePrice": 86899
+    "suitePrice": 32899
   },
   {
     "shipName": "Seabourn Venture",
@@ -3240,14 +3260,14 @@
     "suitePrice": 16999
   },
   {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2027-07-09",
-    "nights": 14,
-    "itinerary": "14-Day Alaska Glaciers, Fjords & Inside Passage",
-    "itineraryCode": "7743A",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Vancouver, B.C., CA",
-    "suitePrice": 11699
+    "shipName": "Seabourn Venture",
+    "departureDate": "2027-07-03",
+    "nights": 59,
+    "itinerary": "59-Day Iceland, Greenland, Northwest Passage    & High Arctic",
+    "itineraryCode": "V744C",
+    "embarkPort": "Reykjavik, Iceland",
+    "debarkPort": "Reykjavik, Iceland",
+    "suitePrice": 86899
   },
   {
     "shipName": "Seabourn Encore",
@@ -3260,34 +3280,14 @@
     "suitePrice": 6799
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-07-15",
-    "nights": 8,
-    "itinerary": "8-Day Spanish & French Coastal Charm",
-    "itineraryCode": "8756",
-    "embarkPort": "Barcelona, Spain",
-    "debarkPort": "Monte Carlo, Monaco",
-    "suitePrice": 8799
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-07-15",
-    "nights": 37,
-    "itinerary": "37-Day Solar Eclipse: Riviera Gems & Greek Isles",
-    "itineraryCode": "8756C",
-    "embarkPort": "Barcelona, Spain",
-    "debarkPort": "Istanbul, Turkey",
-    "suitePrice": 37799
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-07-15",
-    "nights": 22,
-    "itinerary": "22-Day Solar Eclipse: Spain, France & Italy",
-    "itineraryCode": "8756A",
-    "embarkPort": "Barcelona, Spain",
-    "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 24199
+    "shipName": "Seabourn Encore",
+    "departureDate": "2027-07-09",
+    "nights": 14,
+    "itinerary": "14-Day Alaska Glaciers, Fjords & Inside Passage",
+    "itineraryCode": "7743A",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Vancouver, B.C., CA",
+    "suitePrice": 11699
   },
   {
     "shipName": "Seabourn Ovation",
@@ -3297,7 +3297,37 @@
     "itineraryCode": "8756B",
     "embarkPort": "Barcelona, Spain",
     "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 31799
+    "suitePrice": 31999
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-07-15",
+    "nights": 8,
+    "itinerary": "8-Day Spanish & French Coastal Charm",
+    "itineraryCode": "8756",
+    "embarkPort": "Barcelona, Spain",
+    "debarkPort": "Monte Carlo, Monaco",
+    "suitePrice": 8999
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-07-15",
+    "nights": 22,
+    "itinerary": "22-Day Solar Eclipse: Spain, France & Italy",
+    "itineraryCode": "8756A",
+    "embarkPort": "Barcelona, Spain",
+    "debarkPort": "Dubrovnik, Croatia",
+    "suitePrice": 24299
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-07-15",
+    "nights": 37,
+    "itinerary": "37-Day Solar Eclipse: Riviera Gems & Greek Isles",
+    "itineraryCode": "8756C",
+    "embarkPort": "Barcelona, Spain",
+    "debarkPort": "Istanbul, Turkey",
+    "suitePrice": 37999
   },
   {
     "shipName": "Seabourn Encore",
@@ -3308,36 +3338,6 @@
     "embarkPort": "Juneau, Alaska, US",
     "debarkPort": "Vancouver, B.C., CA",
     "suitePrice": 6099
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2027-07-17",
-    "nights": 14,
-    "itinerary": "14-Day North Cape & Norwegian Fjords",
-    "itineraryCode": "6747",
-    "embarkPort": "Dover (London), England, UK",
-    "debarkPort": "Dover (London), England, UK",
-    "suitePrice": 10149
-  },
-  {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2027-07-17",
-    "nights": 15,
-    "itinerary": "15-Day Greenland & Exploring Scoresbysund",
-    "itineraryCode": "V745",
-    "embarkPort": "Reykjavik, Iceland",
-    "debarkPort": "Reykjavik, Iceland",
-    "suitePrice": 19499
-  },
-  {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2027-07-17",
-    "nights": 45,
-    "itinerary": "45-Day Scoresbysund, Northwest Passage & High   High Arctic",
-    "itineraryCode": "V745B",
-    "embarkPort": "Reykjavik, Iceland",
-    "debarkPort": "Reykjavik, Iceland",
-    "suitePrice": 71599
   },
   {
     "shipName": "Seabourn Venture",
@@ -3352,6 +3352,16 @@
   {
     "shipName": "Seabourn Venture",
     "departureDate": "2027-07-17",
+    "nights": 45,
+    "itinerary": "45-Day Scoresbysund, Northwest Passage & High   High Arctic",
+    "itineraryCode": "V745B",
+    "embarkPort": "Reykjavik, Iceland",
+    "debarkPort": "Reykjavik, Iceland",
+    "suitePrice": 71599
+  },
+  {
+    "shipName": "Seabourn Venture",
+    "departureDate": "2027-07-17",
     "nights": 63,
     "itinerary": "63-Day Scoresbysund, Northwest Passage & High   Arctic",
     "itineraryCode": "V745C",
@@ -3360,14 +3370,24 @@
     "suitePrice": 102199
   },
   {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2027-07-23",
-    "nights": 7,
-    "itinerary": "7-Day Glaciers & Alaska Inside Passage",
-    "itineraryCode": "7747",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Juneau, Alaska, US",
-    "suitePrice": 6999
+    "shipName": "Seabourn Venture",
+    "departureDate": "2027-07-17",
+    "nights": 15,
+    "itinerary": "15-Day Greenland & Exploring Scoresbysund",
+    "itineraryCode": "V745",
+    "embarkPort": "Reykjavik, Iceland",
+    "debarkPort": "Reykjavik, Iceland",
+    "suitePrice": 19499
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2027-07-17",
+    "nights": 14,
+    "itinerary": "14-Day North Cape & Norwegian Fjords",
+    "itineraryCode": "6747",
+    "embarkPort": "Dover (London), England, UK",
+    "debarkPort": "Dover (London), England, UK",
+    "suitePrice": 10149
   },
   {
     "shipName": "Seabourn Ovation",
@@ -3382,6 +3402,16 @@
   {
     "shipName": "Seabourn Encore",
     "departureDate": "2027-07-23",
+    "nights": 7,
+    "itinerary": "7-Day Glaciers & Alaska Inside Passage",
+    "itineraryCode": "7747",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Juneau, Alaska, US",
+    "suitePrice": 6999
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2027-07-23",
     "nights": 14,
     "itinerary": "14-Day Alaska Glaciers, Fjords & Inside Passage",
     "itineraryCode": "7747A",
@@ -3392,22 +3422,22 @@
   {
     "shipName": "Seabourn Venture",
     "departureDate": "2027-07-30",
-    "nights": 32,
-    "itinerary": "32-Day Northwest Passage & Beyond Baffin Bay",
-    "itineraryCode": "V748A",
-    "embarkPort": "Reykjavik, Iceland",
-    "debarkPort": "Reykjavik, Iceland",
-    "suitePrice": 53999
-  },
-  {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2027-07-30",
     "nights": 50,
     "itinerary": "50-Day Northwest Passage, Baffin Bay & Nunavut  Expedition",
     "itineraryCode": "V748B",
     "embarkPort": "Reykjavik, Iceland",
     "debarkPort": "Reykjavik, Iceland",
     "suitePrice": 84599
+  },
+  {
+    "shipName": "Seabourn Venture",
+    "departureDate": "2027-07-30",
+    "nights": 32,
+    "itinerary": "32-Day Northwest Passage & Beyond Baffin Bay",
+    "itineraryCode": "V748A",
+    "embarkPort": "Reykjavik, Iceland",
+    "debarkPort": "Reykjavik, Iceland",
+    "suitePrice": 53999
   },
   {
     "shipName": "Seabourn Venture",
@@ -3430,24 +3460,14 @@
     "suitePrice": 5899
   },
   {
-    "shipName": "Seabourn Encore",
+    "shipName": "Seabourn Ovation",
     "departureDate": "2027-08-06",
-    "nights": 7,
-    "itinerary": "7-Day Glaciers & Alaska Inside Passage",
-    "itineraryCode": "7751",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Juneau, Alaska, US",
-    "suitePrice": 6599
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2027-08-06",
-    "nights": 14,
-    "itinerary": "14-Day Alaska Glaciers, Fjords & Inside Passage",
-    "itineraryCode": "7751A",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Vancouver, B.C., CA",
-    "suitePrice": 11299
+    "nights": 22,
+    "itinerary": "22-Day Mediterranean Mosaic: Croatia, Greece & Ephesus",
+    "itineraryCode": "8758B",
+    "embarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 19299
   },
   {
     "shipName": "Seabourn Ovation",
@@ -3460,6 +3480,36 @@
     "suitePrice": 13699
   },
   {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2027-08-06",
+    "nights": 14,
+    "itinerary": "14-Day Alaska Glaciers, Fjords & Inside Passage",
+    "itineraryCode": "7751A",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Vancouver, B.C., CA",
+    "suitePrice": 11299
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2027-08-06",
+    "nights": 7,
+    "itinerary": "7-Day Glaciers & Alaska Inside Passage",
+    "itineraryCode": "7751",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Juneau, Alaska, US",
+    "suitePrice": 6599
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-08-06",
+    "nights": 29,
+    "itinerary": "29-Day Mediterranean Medley: Croatia, Greece & Italy",
+    "itineraryCode": "8758C",
+    "embarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Dubrovnik, Croatia",
+    "suitePrice": 24899
+  },
+  {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-08-06",
     "nights": 8,
@@ -3470,36 +3520,6 @@
     "suitePrice": 8509
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-08-06",
-    "nights": 29,
-    "itinerary": "29-Day Mediterranean Medley: Croatia, Greece & Italy",
-    "itineraryCode": "8758C",
-    "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 24499
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-08-06",
-    "nights": 22,
-    "itinerary": "22-Day Mediterranean Mosaic: Croatia, Greece & Ephesus",
-    "itineraryCode": "8758B",
-    "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 18899
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2027-08-07",
-    "nights": 7,
-    "itinerary": "7-Day Sweden, Denmark & Kiel Canal",
-    "itineraryCode": "6751",
-    "embarkPort": "Copenhagen, Denmark",
-    "debarkPort": "Dover (London), England, UK",
-    "suitePrice": 5599
-  },
-  {
     "shipName": "Seabourn Quest",
     "departureDate": "2027-08-07",
     "nights": 14,
@@ -3507,7 +3527,7 @@
     "itineraryCode": "6751A",
     "embarkPort": "Copenhagen, Denmark",
     "debarkPort": "Copenhagen, Denmark",
-    "suitePrice": 11699
+    "suitePrice": 12399
   },
   {
     "shipName": "Seabourn Quest",
@@ -3517,7 +3537,17 @@
     "itineraryCode": "6751B",
     "embarkPort": "Copenhagen, Denmark",
     "debarkPort": "Copenhagen, Denmark",
-    "suitePrice": 22299
+    "suitePrice": 23399
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2027-08-07",
+    "nights": 7,
+    "itinerary": "7-Day Sweden, Denmark & Kiel Canal",
+    "itineraryCode": "6751",
+    "embarkPort": "Copenhagen, Denmark",
+    "debarkPort": "Dover (London), England, UK",
+    "suitePrice": 5999
   },
   {
     "shipName": "Seabourn Encore",
@@ -3530,14 +3560,14 @@
     "suitePrice": 5899
   },
   {
-    "shipName": "Seabourn Quest",
+    "shipName": "Seabourn Ovation",
     "departureDate": "2027-08-14",
-    "nights": 18,
-    "itinerary": "18-Day Norwegian Fjords & Baltic Nights",
-    "itineraryCode": "6752A",
-    "embarkPort": "Dover (London), England, UK",
-    "debarkPort": "Copenhagen, Denmark",
-    "suitePrice": 22499
+    "nights": 14,
+    "itinerary": "14-Day Greek Isles & Ephesus",
+    "itineraryCode": "8761A",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 11699
   },
   {
     "shipName": "Seabourn Quest",
@@ -3547,7 +3577,27 @@
     "itineraryCode": "6752B",
     "embarkPort": "Dover (London), England, UK",
     "debarkPort": "Reykjavik, Iceland",
-    "suitePrice": 33299
+    "suitePrice": 34699
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2027-08-14",
+    "nights": 18,
+    "itinerary": "18-Day Norwegian Fjords & Baltic Nights",
+    "itineraryCode": "6752A",
+    "embarkPort": "Dover (London), England, UK",
+    "debarkPort": "Copenhagen, Denmark",
+    "suitePrice": 23399
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2027-08-14",
+    "nights": 7,
+    "itinerary": "7-Day Sweden, Norway, Denmark & Belgium",
+    "itineraryCode": "6752",
+    "embarkPort": "Dover (London), England, UK",
+    "debarkPort": "Copenhagen, Denmark",
+    "suitePrice": 7699
   },
   {
     "shipName": "Seabourn Ovation",
@@ -3557,17 +3607,7 @@
     "itineraryCode": "8761B",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 16799
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-08-14",
-    "nights": 14,
-    "itinerary": "14-Day Greek Isles & Ephesus",
-    "itineraryCode": "8761A",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 11299
+    "suitePrice": 17199
   },
   {
     "shipName": "Seabourn Ovation",
@@ -3578,46 +3618,6 @@
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Istanbul, Turkey",
     "suitePrice": 6619
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2027-08-14",
-    "nights": 7,
-    "itinerary": "7-Day Sweden, Norway, Denmark & Belgium",
-    "itineraryCode": "6752",
-    "embarkPort": "Dover (London), England, UK",
-    "debarkPort": "Copenhagen, Denmark",
-    "suitePrice": 7299
-  },
-  {
-    "shipName": "Seabourn Pursuit",
-    "departureDate": "2027-08-16",
-    "nights": 10,
-    "itinerary": "10-Day Kimberley Expedition: Waterfalls & Wanjinas",
-    "itineraryCode": "P749",
-    "embarkPort": "Broome, Western Australia, Australia",
-    "debarkPort": "Darwin, Australia",
-    "suitePrice": 16299
-  },
-  {
-    "shipName": "Seabourn Pursuit",
-    "departureDate": "2027-08-16",
-    "nights": 64,
-    "itinerary": "64-Day Kimberley Expedition & Islands Of The Pacific",
-    "itineraryCode": "P749C",
-    "embarkPort": "Broome, Western Australia, Australia",
-    "debarkPort": "San Antonio (Santiago), Chile",
-    "suitePrice": 73699
-  },
-  {
-    "shipName": "Seabourn Pursuit",
-    "departureDate": "2027-08-16",
-    "nights": 32,
-    "itinerary": "32-Day Kimberley Expedition, Indonesia & Papua New Guinea",
-    "itineraryCode": "P749A",
-    "embarkPort": "Broome, Western Australia, Australia",
-    "debarkPort": "Lautoka, Fiji",
-    "suitePrice": 40399
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -3640,6 +3640,36 @@
     "suitePrice": 54799
   },
   {
+    "shipName": "Seabourn Pursuit",
+    "departureDate": "2027-08-16",
+    "nights": 64,
+    "itinerary": "64-Day Kimberley Expedition & Islands Of The Pacific",
+    "itineraryCode": "P749C",
+    "embarkPort": "Broome, Western Australia, Australia",
+    "debarkPort": "San Antonio (Santiago), Chile",
+    "suitePrice": 73699
+  },
+  {
+    "shipName": "Seabourn Pursuit",
+    "departureDate": "2027-08-16",
+    "nights": 10,
+    "itinerary": "10-Day Kimberley Expedition: Waterfalls & Wanjinas",
+    "itineraryCode": "P749",
+    "embarkPort": "Broome, Western Australia, Australia",
+    "debarkPort": "Darwin, Australia",
+    "suitePrice": 16299
+  },
+  {
+    "shipName": "Seabourn Pursuit",
+    "departureDate": "2027-08-16",
+    "nights": 32,
+    "itinerary": "32-Day Kimberley Expedition, Indonesia & Papua New Guinea",
+    "itineraryCode": "P749A",
+    "embarkPort": "Broome, Western Australia, Australia",
+    "debarkPort": "Lautoka, Fiji",
+    "suitePrice": 40399
+  },
+  {
     "shipName": "Seabourn Venture",
     "departureDate": "2027-08-17",
     "nights": 14,
@@ -3648,6 +3678,16 @@
     "embarkPort": "Reykjavik, Iceland",
     "debarkPort": "Reykjavik, Iceland",
     "suitePrice": 26999
+  },
+  {
+    "shipName": "Seabourn Venture",
+    "departureDate": "2027-08-17",
+    "nights": 45,
+    "itinerary": "45-Day High Arctic, Northwest Passage & Wild    Labrador Coast",
+    "itineraryCode": "V749B",
+    "embarkPort": "Reykjavik, Iceland",
+    "debarkPort": "Halifax, Nova Scotia, Canada",
+    "suitePrice": 74299
   },
   {
     "shipName": "Seabourn Venture",
@@ -3672,32 +3712,22 @@
   {
     "shipName": "Seabourn Venture",
     "departureDate": "2027-08-17",
-    "nights": 32,
-    "itinerary": "32-Day High Arctic, Northwest Passage & Nunavut Expedition",
-    "itineraryCode": "V749A",
-    "embarkPort": "Reykjavik, Iceland",
-    "debarkPort": "Reykjavik, Iceland",
-    "suitePrice": 54899
-  },
-  {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2027-08-17",
-    "nights": 45,
-    "itinerary": "45-Day High Arctic, Northwest Passage & Wild    Labrador Coast",
-    "itineraryCode": "V749B",
-    "embarkPort": "Reykjavik, Iceland",
-    "debarkPort": "Halifax, Nova Scotia, Canada",
-    "suitePrice": 74299
-  },
-  {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2027-08-17",
     "nights": 94,
     "itinerary": "94-Day Grand Expedition: Pole To Pole",
     "itineraryCode": "V749E",
     "embarkPort": "Reykjavik, Iceland",
     "debarkPort": "Buenos Aires",
     "suitePrice": 104999
+  },
+  {
+    "shipName": "Seabourn Venture",
+    "departureDate": "2027-08-17",
+    "nights": 32,
+    "itinerary": "32-Day High Arctic, Northwest Passage & Nunavut Expedition",
+    "itineraryCode": "V749A",
+    "embarkPort": "Reykjavik, Iceland",
+    "debarkPort": "Reykjavik, Iceland",
+    "suitePrice": 54899
   },
   {
     "shipName": "Seabourn Encore",
@@ -3722,52 +3752,12 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2027-08-21",
-    "nights": 11,
-    "itinerary": "11-Day Baltic Explorer: Estonia, Latvia, Lithuania & Poland",
-    "itineraryCode": "6755",
-    "embarkPort": "Copenhagen, Denmark",
-    "debarkPort": "Copenhagen, Denmark",
-    "suitePrice": 14699
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-08-21",
-    "nights": 21,
-    "itinerary": "21-Day Mediterranean Mosaic: Turkey, Greece & Croatia",
-    "itineraryCode": "8762B",
-    "embarkPort": "Istanbul, Turkey",
-    "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 18899
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2027-08-21",
     "nights": 35,
     "itinerary": "35-Day Baltic Explorer, Iceland & Canada Fall Foliage",
     "itineraryCode": "6755B",
     "embarkPort": "Copenhagen, Denmark",
     "debarkPort": "Montreal, Quebec, Canada",
-    "suitePrice": 25999
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-08-21",
-    "nights": 7,
-    "itinerary": "7-Day Hidden Gems Of Turkey & Greece",
-    "itineraryCode": "8762",
-    "embarkPort": "Istanbul, Turkey",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 5849
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-08-21",
-    "nights": 14,
-    "itinerary": "14-Day Hidden Gems Of Turkey, Ancient Greek Ports & Italy",
-    "itineraryCode": "8762A",
-    "embarkPort": "Istanbul, Turkey",
-    "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 10899
+    "suitePrice": 26899
   },
   {
     "shipName": "Seabourn Quest",
@@ -3777,27 +3767,47 @@
     "itineraryCode": "6755A",
     "embarkPort": "Copenhagen, Denmark",
     "debarkPort": "Reykjavik, Iceland",
-    "suitePrice": 18799
+    "suitePrice": 19699
   },
   {
-    "shipName": "Seabourn Pursuit",
-    "departureDate": "2027-08-26",
-    "nights": 71,
-    "itinerary": "72-Day Papua New Guinea, Indonesia, Patagonia & Antarctica",
-    "itineraryCode": "P751C",
-    "embarkPort": "Darwin, Australia",
-    "debarkPort": "Buenos Aires",
-    "suitePrice": 76399
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-08-21",
+    "nights": 21,
+    "itinerary": "21-Day Mediterranean Mosaic: Turkey, Greece & Croatia",
+    "itineraryCode": "8762B",
+    "embarkPort": "Istanbul, Turkey",
+    "debarkPort": "Dubrovnik, Croatia",
+    "suitePrice": 19299
   },
   {
-    "shipName": "Seabourn Pursuit",
-    "departureDate": "2027-08-26",
-    "nights": 22,
-    "itinerary": "22-Day Remote Indonesia & Islands Of The Pacific Theatre",
-    "itineraryCode": "P751",
-    "embarkPort": "Darwin, Australia",
-    "debarkPort": "Lautoka, Fiji",
-    "suitePrice": 28499
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-08-21",
+    "nights": 7,
+    "itinerary": "7-Day Hidden Gems Of Turkey & Greece",
+    "itineraryCode": "8762",
+    "embarkPort": "Istanbul, Turkey",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 6299
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-08-21",
+    "nights": 14,
+    "itinerary": "14-Day Hidden Gems Of Turkey, Ancient Greek Ports & Italy",
+    "itineraryCode": "8762A",
+    "embarkPort": "Istanbul, Turkey",
+    "debarkPort": "Dubrovnik, Croatia",
+    "suitePrice": 11299
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2027-08-21",
+    "nights": 11,
+    "itinerary": "11-Day Baltic Explorer: Estonia, Latvia, Lithuania & Poland",
+    "itineraryCode": "6755",
+    "embarkPort": "Copenhagen, Denmark",
+    "debarkPort": "Copenhagen, Denmark",
+    "suitePrice": 15299
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -3820,6 +3830,26 @@
     "suitePrice": 40099
   },
   {
+    "shipName": "Seabourn Pursuit",
+    "departureDate": "2027-08-26",
+    "nights": 22,
+    "itinerary": "22-Day Remote Indonesia & Islands Of The Pacific Theatre",
+    "itineraryCode": "P751",
+    "embarkPort": "Darwin, Australia",
+    "debarkPort": "Lautoka, Fiji",
+    "suitePrice": 28499
+  },
+  {
+    "shipName": "Seabourn Pursuit",
+    "departureDate": "2027-08-26",
+    "nights": 71,
+    "itinerary": "72-Day Papua New Guinea, Indonesia, Patagonia & Antarctica",
+    "itineraryCode": "P751C",
+    "embarkPort": "Darwin, Australia",
+    "debarkPort": "Buenos Aires",
+    "suitePrice": 76399
+  },
+  {
     "shipName": "Seabourn Encore",
     "departureDate": "2027-08-27",
     "nights": 7,
@@ -3828,6 +3858,16 @@
     "embarkPort": "Juneau, Alaska, US",
     "debarkPort": "Vancouver, B.C., CA",
     "suitePrice": 5699
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-08-28",
+    "nights": 21,
+    "itinerary": "21-Day Mediterranean Mosaic: Greece, Italy & Dalmatian Gems",
+    "itineraryCode": "8763B",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Civitavecchia (Rome), Italy",
+    "suitePrice": 19499
   },
   {
     "shipName": "Seabourn Ovation",
@@ -3842,22 +3882,22 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-08-28",
-    "nights": 21,
-    "itinerary": "21-Day Mediterranean Mosaic: Greece, Italy & Dalmatian Gems",
-    "itineraryCode": "8763B",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 19199
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-08-28",
     "nights": 7,
     "itinerary": "7-Day Montenegro, Italy & Greece",
     "itineraryCode": "8763",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Dubrovnik, Croatia",
     "suitePrice": 6169
+  },
+  {
+    "shipName": "Seabourn Venture",
+    "departureDate": "2027-08-29",
+    "nights": 20,
+    "itinerary": "20-Day Northwest Passage & Nunavut Expedition",
+    "itineraryCode": "V752",
+    "embarkPort": "Reykjavik, Iceland",
+    "debarkPort": "Reykjavik, Iceland",
+    "suitePrice": 33999
   },
   {
     "shipName": "Seabourn Venture",
@@ -3872,12 +3912,12 @@
   {
     "shipName": "Seabourn Venture",
     "departureDate": "2027-08-29",
-    "nights": 20,
-    "itinerary": "20-Day Northwest Passage & Nunavut Expedition",
-    "itineraryCode": "V752",
+    "nights": 41,
+    "itinerary": "41-Day Northwest Passage, Labrador Coast &      Caribbean",
+    "itineraryCode": "V752B",
     "embarkPort": "Reykjavik, Iceland",
-    "debarkPort": "Reykjavik, Iceland",
-    "suitePrice": 33999
+    "debarkPort": "Bridgetown, Barbados",
+    "suitePrice": 56299
   },
   {
     "shipName": "Seabourn Venture",
@@ -3900,14 +3940,14 @@
     "suitePrice": 88899
   },
   {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2027-08-29",
-    "nights": 41,
-    "itinerary": "41-Day Northwest Passage, Labrador Coast &      Caribbean",
-    "itineraryCode": "V752B",
-    "embarkPort": "Reykjavik, Iceland",
-    "debarkPort": "Bridgetown, Barbados",
-    "suitePrice": 56299
+    "shipName": "Seabourn Quest",
+    "departureDate": "2027-09-01",
+    "nights": 24,
+    "itinerary": "24-Day Fjords, Folklore & Canada Fall Foliage",
+    "itineraryCode": "6756A",
+    "embarkPort": "Copenhagen, Denmark",
+    "debarkPort": "Montreal, Quebec, Canada",
+    "suitePrice": 22099
   },
   {
     "shipName": "Seabourn Quest",
@@ -3917,17 +3957,7 @@
     "itineraryCode": "6756",
     "embarkPort": "Copenhagen, Denmark",
     "debarkPort": "Reykjavik, Iceland",
-    "suitePrice": 11999
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2027-09-01",
-    "nights": 24,
-    "itinerary": "24-Day Fjords, Folklore & Canada Fall Foliage",
-    "itineraryCode": "6756A",
-    "embarkPort": "Copenhagen, Denmark",
-    "debarkPort": "Montreal, Quebec, Canada",
-    "suitePrice": 21599
+    "suitePrice": 12499
   },
   {
     "shipName": "Seabourn Encore",
@@ -3967,7 +3997,7 @@
     "itineraryCode": "8766B",
     "embarkPort": "Dubrovnik, Croatia",
     "debarkPort": "Barcelona, Spain",
-    "suitePrice": 20299
+    "suitePrice": 20899
   },
   {
     "shipName": "Seabourn Ovation",
@@ -3977,7 +4007,7 @@
     "itineraryCode": "8766A",
     "embarkPort": "Dubrovnik, Croatia",
     "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 13599
+    "suitePrice": 13899
   },
   {
     "shipName": "Seabourn Ovation",
@@ -4000,16 +4030,6 @@
     "suitePrice": 5899
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-09-11",
-    "nights": 21,
-    "itinerary": "21-Day Mediterranean Mosaic: Croatia, Italy, France & Spain",
-    "itineraryCode": "8767B",
-    "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 18599
-  },
-  {
     "shipName": "Seabourn Quest",
     "departureDate": "2027-09-11",
     "nights": 14,
@@ -4017,7 +4037,17 @@
     "itineraryCode": "6759",
     "embarkPort": "Reykjavik, Iceland",
     "debarkPort": "Montreal, Quebec, Canada",
-    "suitePrice": 11999
+    "suitePrice": 7999
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-09-11",
+    "nights": 21,
+    "itinerary": "21-Day Mediterranean Mosaic: Croatia, Italy, France & Spain",
+    "itineraryCode": "8767B",
+    "embarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Civitavecchia (Rome), Italy",
+    "suitePrice": 19499
   },
   {
     "shipName": "Seabourn Ovation",
@@ -4027,7 +4057,7 @@
     "itineraryCode": "8767",
     "embarkPort": "Dubrovnik, Croatia",
     "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 6169
+    "suitePrice": 6499
   },
   {
     "shipName": "Seabourn Ovation",
@@ -4037,7 +4067,7 @@
     "itineraryCode": "8767A",
     "embarkPort": "Dubrovnik, Croatia",
     "debarkPort": "Barcelona, Spain",
-    "suitePrice": 12299
+    "suitePrice": 12899
   },
   {
     "shipName": "Seabourn Venture",
@@ -4082,6 +4112,16 @@
   {
     "shipName": "Seabourn Pursuit",
     "departureDate": "2027-09-17",
+    "nights": 49,
+    "itinerary": "50-Day Fiji To The Chilean Coast & Antarctica",
+    "itineraryCode": "P754B",
+    "embarkPort": "Lautoka, Fiji",
+    "debarkPort": "Buenos Aires",
+    "suitePrice": 50699
+  },
+  {
+    "shipName": "Seabourn Pursuit",
+    "departureDate": "2027-09-17",
     "nights": 13,
     "itinerary": "13-Day Polynesia & Melanesia: Island Cultures & Coral Reefs",
     "itineraryCode": "P754",
@@ -4100,26 +4140,6 @@
     "suitePrice": 33299
   },
   {
-    "shipName": "Seabourn Pursuit",
-    "departureDate": "2027-09-17",
-    "nights": 49,
-    "itinerary": "50-Day Fiji To The Chilean Coast & Antarctica",
-    "itineraryCode": "P754B",
-    "embarkPort": "Lautoka, Fiji",
-    "debarkPort": "Buenos Aires",
-    "suitePrice": 50699
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-09-18",
-    "nights": 21,
-    "itinerary": "21-Day Mediterranean Mosaic: Italy, France, Spain & Malta",
-    "itineraryCode": "8768B",
-    "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Fusina (Venice), Italy",
-    "suitePrice": 19799
-  },
-  {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-09-18",
     "nights": 7,
@@ -4127,17 +4147,7 @@
     "itineraryCode": "8768",
     "embarkPort": "Civitavecchia (Rome), Italy",
     "debarkPort": "Barcelona, Spain",
-    "suitePrice": 7399
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-09-18",
-    "nights": 14,
-    "itinerary": "14-Day Italy, Monaco, France & Spain",
-    "itineraryCode": "8768A",
-    "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 12999
+    "suitePrice": 7799
   },
   {
     "shipName": "Seabourn Encore",
@@ -4148,6 +4158,26 @@
     "embarkPort": "Vancouver, B.C., CA",
     "debarkPort": "Tokyo, Japan",
     "suitePrice": 10499
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-09-18",
+    "nights": 14,
+    "itinerary": "14-Day Italy, Monaco, France & Spain",
+    "itineraryCode": "8768A",
+    "embarkPort": "Civitavecchia (Rome), Italy",
+    "debarkPort": "Civitavecchia (Rome), Italy",
+    "suitePrice": 13599
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-09-18",
+    "nights": 21,
+    "itinerary": "21-Day Mediterranean Mosaic: Italy, France, Spain & Malta",
+    "itineraryCode": "8768B",
+    "embarkPort": "Civitavecchia (Rome), Italy",
+    "debarkPort": "Fusina (Venice), Italy",
+    "suitePrice": 20699
   },
   {
     "shipName": "Seabourn Encore",
@@ -4162,32 +4192,12 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-09-25",
-    "nights": 21,
-    "itinerary": "21-Day Mediterranean Mosaic: Spain, France, Italy & Greece",
-    "itineraryCode": "8771B",
-    "embarkPort": "Barcelona, Spain",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 19599
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-09-25",
     "nights": 35,
     "itinerary": "35-Day Ultimate Mediterranean: From Spain To Turkey",
     "itineraryCode": "8771D",
     "embarkPort": "Barcelona, Spain",
     "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 32599
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-09-25",
-    "nights": 14,
-    "itinerary": "14-Day Spain, France, Italy, Croatia & Malta",
-    "itineraryCode": "8771A",
-    "embarkPort": "Barcelona, Spain",
-    "debarkPort": "Fusina (Venice), Italy",
-    "suitePrice": 13099
+    "suitePrice": 33699
   },
   {
     "shipName": "Seabourn Ovation",
@@ -4197,7 +4207,7 @@
     "itineraryCode": "8771C",
     "embarkPort": "Barcelona, Spain",
     "debarkPort": "Istanbul, Turkey",
-    "suitePrice": 26799
+    "suitePrice": 27899
   },
   {
     "shipName": "Seabourn Ovation",
@@ -4207,7 +4217,27 @@
     "itineraryCode": "8771",
     "embarkPort": "Barcelona, Spain",
     "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 6999
+    "suitePrice": 7299
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-09-25",
+    "nights": 14,
+    "itinerary": "14-Day Spain, France, Italy, Croatia & Malta",
+    "itineraryCode": "8771A",
+    "embarkPort": "Barcelona, Spain",
+    "debarkPort": "Fusina (Venice), Italy",
+    "suitePrice": 13599
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-09-25",
+    "nights": 21,
+    "itinerary": "21-Day Mediterranean Mosaic: Spain, France, Italy & Greece",
+    "itineraryCode": "8771B",
+    "embarkPort": "Barcelona, Spain",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 20399
   },
   {
     "shipName": "Seabourn Quest",
@@ -4222,6 +4252,16 @@
   {
     "shipName": "Seabourn Pursuit",
     "departureDate": "2027-09-29",
+    "nights": 37,
+    "itinerary": "37-Day South Pacific Explorer & Antarctica",
+    "itineraryCode": "P757A",
+    "embarkPort": "Papeete, French Polynesia",
+    "debarkPort": "Buenos Aires",
+    "suitePrice": 36299
+  },
+  {
+    "shipName": "Seabourn Pursuit",
+    "departureDate": "2027-09-29",
     "nights": 19,
     "itinerary": "19-Day Easter & Pitcairn Islands: Marooned, Moai & Mutineers",
     "itineraryCode": "P757",
@@ -4230,14 +4270,14 @@
     "suitePrice": 20999
   },
   {
-    "shipName": "Seabourn Pursuit",
-    "departureDate": "2027-09-29",
-    "nights": 37,
-    "itinerary": "37-Day South Pacific Explorer & Antarctica",
-    "itineraryCode": "P757A",
-    "embarkPort": "Papeete, French Polynesia",
-    "debarkPort": "Buenos Aires",
-    "suitePrice": 36299
+    "shipName": "Seabourn Venture",
+    "departureDate": "2027-10-01",
+    "nights": 24,
+    "itinerary": "24-Day Southern Caribbean & South American Expedition",
+    "itineraryCode": "V756A",
+    "embarkPort": "Halifax, Nova Scotia, Canada",
+    "debarkPort": "Rio de Janeiro, Brazil",
+    "suitePrice": 16599
   },
   {
     "shipName": "Seabourn Venture",
@@ -4260,16 +4300,6 @@
     "suitePrice": 39599
   },
   {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2027-10-01",
-    "nights": 24,
-    "itinerary": "24-Day Southern Caribbean & South American Expedition",
-    "itineraryCode": "V756A",
-    "embarkPort": "Halifax, Nova Scotia, Canada",
-    "debarkPort": "Rio de Janeiro, Brazil",
-    "suitePrice": 16599
-  },
-  {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-10-02",
     "nights": 14,
@@ -4277,17 +4307,7 @@
     "itineraryCode": "8772A",
     "embarkPort": "Civitavecchia (Rome), Italy",
     "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 13299
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-10-02",
-    "nights": 21,
-    "itinerary": "21-Day Mediterranean Mosaic: Dalmatian Gems, Malta & Ephesus",
-    "itineraryCode": "8772B",
-    "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Istanbul, Turkey",
-    "suitePrice": 20499
+    "suitePrice": 13799
   },
   {
     "shipName": "Seabourn Ovation",
@@ -4297,7 +4317,17 @@
     "itineraryCode": "8772",
     "embarkPort": "Civitavecchia (Rome), Italy",
     "debarkPort": "Fusina (Venice), Italy",
-    "suitePrice": 7499
+    "suitePrice": 7799
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-10-02",
+    "nights": 21,
+    "itinerary": "21-Day Mediterranean Mosaic: Dalmatian Gems, Malta & Ephesus",
+    "itineraryCode": "8772B",
+    "embarkPort": "Civitavecchia (Rome), Italy",
+    "debarkPort": "Istanbul, Turkey",
+    "suitePrice": 21299
   },
   {
     "shipName": "Seabourn Quest",
@@ -4308,6 +4338,56 @@
     "embarkPort": "Montreal, Quebec, Canada",
     "debarkPort": "New York, New York, US",
     "suitePrice": 7599
+  },
+  {
+    "shipName": "Seabourn Venture",
+    "departureDate": "2027-10-09",
+    "nights": 16,
+    "itinerary": "16-Day Trinidad To Rio: South American Expedition",
+    "itineraryCode": "V757",
+    "embarkPort": "Bridgetown, Barbados",
+    "debarkPort": "Rio de Janeiro, Brazil",
+    "suitePrice": 11399
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2027-10-09",
+    "nights": 28,
+    "itinerary": "28-Day Autumn Reverie: Japan's Hidden Gems",
+    "itineraryCode": "7766A",
+    "embarkPort": "Tokyo, Japan",
+    "debarkPort": "Tokyo, Japan",
+    "suitePrice": 20699
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-10-09",
+    "nights": 36,
+    "itinerary": "36-Day Ultimate Mediterranean: From Balkan Gems To Spain",
+    "itineraryCode": "8773D",
+    "embarkPort": "Fusina (Venice), Italy",
+    "debarkPort": "Lisbon, Portugal",
+    "suitePrice": 32099
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-10-09",
+    "nights": 21,
+    "itinerary": "21-Day Mediterranean Mosaic: Dalmatian Gems, Greece & Turkey",
+    "itineraryCode": "8773B",
+    "embarkPort": "Fusina (Venice), Italy",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 20099
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-10-09",
+    "nights": 14,
+    "itinerary": "14-Day Dalmatian Gems, Malta, Italy, Greece & Turkey",
+    "itineraryCode": "8773A",
+    "embarkPort": "Fusina (Venice), Italy",
+    "debarkPort": "Istanbul, Turkey",
+    "suitePrice": 14299
   },
   {
     "shipName": "Seabourn Encore",
@@ -4322,22 +4402,12 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-10-09",
-    "nights": 14,
-    "itinerary": "14-Day Dalmatian Gems, Malta, Italy, Greece & Turkey",
-    "itineraryCode": "8773A",
+    "nights": 28,
+    "itinerary": "28-Day Mediterranean Medley: Greece, Ephesus & Spain",
+    "itineraryCode": "8773C",
     "embarkPort": "Fusina (Venice), Italy",
-    "debarkPort": "Istanbul, Turkey",
-    "suitePrice": 13699
-  },
-  {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2027-10-09",
-    "nights": 16,
-    "itinerary": "16-Day Trinidad To Rio: South American Expedition",
-    "itineraryCode": "V757",
-    "embarkPort": "Bridgetown, Barbados",
-    "debarkPort": "Rio de Janeiro, Brazil",
-    "suitePrice": 11399
+    "debarkPort": "Barcelona, Spain",
+    "suitePrice": 25799
   },
   {
     "shipName": "Seabourn Venture",
@@ -4357,57 +4427,7 @@
     "itineraryCode": "8773",
     "embarkPort": "Fusina (Venice), Italy",
     "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 7199
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-10-09",
-    "nights": 36,
-    "itinerary": "36-Day Ultimate Mediterranean: From Balkan Gems To Spain",
-    "itineraryCode": "8773D",
-    "embarkPort": "Fusina (Venice), Italy",
-    "debarkPort": "Lisbon, Portugal",
-    "suitePrice": 31499
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2027-10-09",
-    "nights": 28,
-    "itinerary": "28-Day Autumn Reverie: Japan's Hidden Gems",
-    "itineraryCode": "7766A",
-    "embarkPort": "Tokyo, Japan",
-    "debarkPort": "Tokyo, Japan",
-    "suitePrice": 20699
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-10-09",
-    "nights": 21,
-    "itinerary": "21-Day Mediterranean Mosaic: Dalmatian Gems, Greece & Turkey",
-    "itineraryCode": "8773B",
-    "embarkPort": "Fusina (Venice), Italy",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 19599
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-10-09",
-    "nights": 28,
-    "itinerary": "28-Day Mediterranean Medley: Greece, Ephesus & Spain",
-    "itineraryCode": "8773C",
-    "embarkPort": "Fusina (Venice), Italy",
-    "debarkPort": "Barcelona, Spain",
-    "suitePrice": 25199
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-10-16",
-    "nights": 21,
-    "itinerary": "21-Day Mediterranean Mosaic: Greece, Ephesus, Italy & Spain",
-    "itineraryCode": "8776B",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Barcelona, Spain",
-    "suitePrice": 18799
+    "suitePrice": 7499
   },
   {
     "shipName": "Seabourn Ovation",
@@ -4417,7 +4437,17 @@
     "itineraryCode": "8776",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Istanbul, Turkey",
-    "suitePrice": 7999
+    "suitePrice": 8299
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-10-16",
+    "nights": 21,
+    "itinerary": "21-Day Mediterranean Mosaic: Greece, Ephesus, Italy & Spain",
+    "itineraryCode": "8776B",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Barcelona, Spain",
+    "suitePrice": 18999
   },
   {
     "shipName": "Seabourn Ovation",
@@ -4427,7 +4457,7 @@
     "itineraryCode": "8776A",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 13099
+    "suitePrice": 13399
   },
   {
     "shipName": "Seabourn Pursuit",
@@ -4452,16 +4482,6 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-10-23",
-    "nights": 22,
-    "itinerary": "22-Day Mediterranean Mosaic: Turkey, Greece, Italy & Spain",
-    "itineraryCode": "8777B",
-    "embarkPort": "Istanbul, Turkey",
-    "debarkPort": "Lisbon, Portugal",
-    "suitePrice": 17899
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-10-23",
     "nights": 14,
     "itinerary": "14-Day Hidden Gems Of Turkey, Greece, Malta, Italy & Spain",
     "itineraryCode": "8777A",
@@ -4470,14 +4490,14 @@
     "suitePrice": 11599
   },
   {
-    "shipName": "Seabourn Ovation",
+    "shipName": "Seabourn Encore",
     "departureDate": "2027-10-23",
-    "nights": 7,
-    "itinerary": "7-Day Hidden Gems Of Turkey & Greece",
-    "itineraryCode": "8777",
-    "embarkPort": "Istanbul, Turkey",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 6499
+    "nights": 14,
+    "itinerary": "14-Day Harvest Horizons: Japan's Coastal Charms",
+    "itineraryCode": "7767",
+    "embarkPort": "Tokyo, Japan",
+    "debarkPort": "Tokyo, Japan",
+    "suitePrice": 11499
   },
   {
     "shipName": "Seabourn Encore",
@@ -4490,14 +4510,24 @@
     "suitePrice": 21199
   },
   {
-    "shipName": "Seabourn Encore",
+    "shipName": "Seabourn Ovation",
     "departureDate": "2027-10-23",
-    "nights": 14,
-    "itinerary": "14-Day Harvest Horizons: Japan's Coastal Charms",
-    "itineraryCode": "7767",
-    "embarkPort": "Tokyo, Japan",
-    "debarkPort": "Tokyo, Japan",
-    "suitePrice": 11499
+    "nights": 7,
+    "itinerary": "7-Day Hidden Gems Of Turkey & Greece",
+    "itineraryCode": "8777",
+    "embarkPort": "Istanbul, Turkey",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 6499
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-10-23",
+    "nights": 22,
+    "itinerary": "22-Day Mediterranean Mosaic: Turkey, Greece, Italy & Spain",
+    "itineraryCode": "8777B",
+    "embarkPort": "Istanbul, Turkey",
+    "debarkPort": "Lisbon, Portugal",
+    "suitePrice": 17899
   },
   {
     "shipName": "Seabourn Venture",
@@ -4512,12 +4542,12 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-10-30",
-    "nights": 15,
-    "itinerary": "15-Day Malta, Italy, Spain & Portugal",
-    "itineraryCode": "8778A",
+    "nights": 28,
+    "itinerary": "28-Day Mediterranean Medley & Atlantic Crossing",
+    "itineraryCode": "8778B",
     "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Lisbon, Portugal",
-    "suitePrice": 11999
+    "debarkPort": "Bridgetown, Barbados",
+    "suitePrice": 17699
   },
   {
     "shipName": "Seabourn Ovation",
@@ -4532,12 +4562,12 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-10-30",
-    "nights": 28,
-    "itinerary": "28-Day Mediterranean Medley & Atlantic Crossing",
-    "itineraryCode": "8778B",
+    "nights": 15,
+    "itinerary": "15-Day Malta, Italy, Spain & Portugal",
+    "itineraryCode": "8778A",
     "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Bridgetown, Barbados",
-    "suitePrice": 17699
+    "debarkPort": "Lisbon, Portugal",
+    "suitePrice": 11999
   },
   {
     "shipName": "Seabourn Quest",
@@ -4582,22 +4612,22 @@
   {
     "shipName": "Seabourn Encore",
     "departureDate": "2027-11-06",
-    "nights": 14,
-    "itinerary": "14-Day Harvest Horizons: Japan's Coastal Charms",
-    "itineraryCode": "7770",
-    "embarkPort": "Tokyo, Japan",
-    "debarkPort": "Tokyo, Japan",
-    "suitePrice": 11999
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2027-11-06",
     "nights": 30,
     "itinerary": "30-Day Japan Fall Foliage, Shanghai Nights & Seoul Sunsets",
     "itineraryCode": "7770A",
     "embarkPort": "Tokyo, Japan",
     "debarkPort": "Hong Kong, China",
     "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2027-11-06",
+    "nights": 14,
+    "itinerary": "14-Day Harvest Horizons: Japan's Coastal Charms",
+    "itineraryCode": "7770",
+    "embarkPort": "Tokyo, Japan",
+    "debarkPort": "Tokyo, Japan",
+    "suitePrice": 11999
   },
   {
     "shipName": "Seabourn Quest",
@@ -4610,16 +4640,6 @@
     "suitePrice": 4999
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-11-14",
-    "nights": 13,
-    "itinerary": "13-Day Atlantic Crossing",
-    "itineraryCode": "8782",
-    "embarkPort": "Lisbon, Portugal",
-    "debarkPort": "Bridgetown, Barbados",
-    "suitePrice": 6289
-  },
-  {
     "shipName": "Seabourn Pursuit",
     "departureDate": "2027-11-14",
     "nights": 11,
@@ -4628,6 +4648,16 @@
     "embarkPort": "Buenos Aires",
     "debarkPort": "Buenos Aires",
     "suitePrice": 15599
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-11-14",
+    "nights": 13,
+    "itinerary": "13-Day Atlantic Crossing",
+    "itineraryCode": "8782",
+    "embarkPort": "Lisbon, Portugal",
+    "debarkPort": "Bridgetown, Barbados",
+    "suitePrice": 6289
   },
   {
     "shipName": "Seabourn Venture",
@@ -4780,16 +4810,6 @@
     "suitePrice": 32999
   },
   {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2027-12-18",
-    "nights": 11,
-    "itinerary": "11-Day The Great White Continent",
-    "itineraryCode": "V773",
-    "embarkPort": "Buenos Aires",
-    "debarkPort": "Buenos Aires",
-    "suitePrice": 19999
-  },
-  {
     "shipName": "Seabourn Quest",
     "departureDate": "2027-12-18",
     "nights": 10,
@@ -4802,21 +4822,31 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-12-18",
-    "nights": 10,
-    "itinerary": "10-Day Caribbean Yacht Harbor Holiday",
-    "itineraryCode": "8790",
-    "embarkPort": "Bridgetown, Barbados",
-    "debarkPort": "Philipsburg, Sint Maarten",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2027-12-18",
     "nights": 21,
     "itinerary": "21-Day Bonaire, Curacao & Southern Caribbean Holiday",
     "itineraryCode": "8790A",
     "embarkPort": "Bridgetown, Barbados",
     "debarkPort": "Bridgetown, Barbados",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Venture",
+    "departureDate": "2027-12-18",
+    "nights": 11,
+    "itinerary": "11-Day The Great White Continent",
+    "itineraryCode": "V773",
+    "embarkPort": "Buenos Aires",
+    "debarkPort": "Buenos Aires",
+    "suitePrice": 19999
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2027-12-18",
+    "nights": 10,
+    "itinerary": "10-Day Caribbean Yacht Harbor Holiday",
+    "itineraryCode": "8790",
+    "embarkPort": "Bridgetown, Barbados",
+    "debarkPort": "Philipsburg, Sint Maarten",
     "suitePrice": 0
   },
   {
@@ -4840,16 +4870,6 @@
     "suitePrice": 20999
   },
   {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2027-12-28",
-    "nights": 10,
-    "itinerary": "10-Day Leeward Islands Holiday",
-    "itineraryCode": "6778",
-    "embarkPort": "Miami, Florida, US",
-    "debarkPort": "Miami, Florida, US",
-    "suitePrice": 4999
-  },
-  {
     "shipName": "Seabourn Ovation",
     "departureDate": "2027-12-28",
     "nights": 11,
@@ -4858,6 +4878,16 @@
     "embarkPort": "Philipsburg, Sint Maarten",
     "debarkPort": "Bridgetown, Barbados",
     "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2027-12-28",
+    "nights": 10,
+    "itinerary": "10-Day Leeward Islands Holiday",
+    "itineraryCode": "6778",
+    "embarkPort": "Miami, Florida, US",
+    "debarkPort": "Miami, Florida, US",
+    "suitePrice": 4999
   },
   {
     "shipName": "Seabourn Encore",
@@ -4882,32 +4912,12 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2028-01-07",
-    "nights": 57,
-    "itinerary": "57-Day Panama Canal, Chilean Fjords, Antarctica & Falklands",
-    "itineraryCode": "6810D",
+    "nights": 120,
+    "itinerary": "120-Day Cape To Cape World Cruise: Miami To Dover",
+    "itineraryCode": "6810A",
     "embarkPort": "Miami, Florida, US",
-    "debarkPort": "Buenos Aires, Argentina",
-    "suitePrice": 37999
-  },
-  {
-    "shipName": "Seabourn Venture",
-    "departureDate": "2028-01-07",
-    "nights": 11,
-    "itinerary": "11-Day The Great White Continent",
-    "itineraryCode": "V810",
-    "embarkPort": "Buenos Aires",
-    "debarkPort": "Buenos Aires",
-    "suitePrice": 18299
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2028-01-07",
-    "nights": 82,
-    "itinerary": "82-Day South America, Antarctica, South Atlantic & Africa",
-    "itineraryCode": "6810C",
-    "embarkPort": "Miami, Florida, US",
-    "debarkPort": "Cape Town, South Africa",
-    "suitePrice": 54999
+    "debarkPort": "Dover (London), England, UK",
+    "suitePrice": 77999
   },
   {
     "shipName": "Seabourn Quest",
@@ -4922,12 +4932,32 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2028-01-07",
-    "nights": 120,
-    "itinerary": "120-Day Cape To Cape World Cruise: Miami To Dover",
-    "itineraryCode": "6810A",
+    "nights": 57,
+    "itinerary": "57-Day Panama Canal, Chilean Fjords, Antarctica & Falklands",
+    "itineraryCode": "6810D",
     "embarkPort": "Miami, Florida, US",
-    "debarkPort": "Dover (London), England, UK",
-    "suitePrice": 77999
+    "debarkPort": "Buenos Aires, Argentina",
+    "suitePrice": 37999
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2028-01-07",
+    "nights": 82,
+    "itinerary": "82-Day South America, Antarctica, South Atlantic & Africa",
+    "itineraryCode": "6810C",
+    "embarkPort": "Miami, Florida, US",
+    "debarkPort": "Cape Town, South Africa",
+    "suitePrice": 54999
+  },
+  {
+    "shipName": "Seabourn Venture",
+    "departureDate": "2028-01-07",
+    "nights": 11,
+    "itinerary": "11-Day The Great White Continent",
+    "itineraryCode": "V810",
+    "embarkPort": "Buenos Aires",
+    "debarkPort": "Buenos Aires",
+    "suitePrice": 18299
   },
   {
     "shipName": "Seabourn Ovation",
@@ -4950,26 +4980,6 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Pursuit",
-    "departureDate": "2028-01-15",
-    "nights": 21,
-    "itinerary": "21-Day Ultimate Antarctica, Falklands & South   Georgia",
-    "itineraryCode": "P812",
-    "embarkPort": "Buenos Aires",
-    "debarkPort": "Buenos Aires",
-    "suitePrice": 31999
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-01-15",
-    "nights": 14,
-    "itinerary": "14-Day Caribbean Yacht Explorer",
-    "itineraryCode": "8811A",
-    "embarkPort": "Bridgetown, Barbados",
-    "debarkPort": "Bridgetown, Barbados",
-    "suitePrice": 0
-  },
-  {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-01-15",
     "nights": 7,
@@ -4978,6 +4988,16 @@
     "embarkPort": "Bridgetown, Barbados",
     "debarkPort": "Philipsburg, Sint Maarten",
     "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Pursuit",
+    "departureDate": "2028-01-15",
+    "nights": 21,
+    "itinerary": "21-Day Ultimate Antarctica, Falklands & South   Georgia",
+    "itineraryCode": "P812",
+    "embarkPort": "Buenos Aires",
+    "debarkPort": "Buenos Aires",
+    "suitePrice": 31999
   },
   {
     "shipName": "Seabourn Venture",
@@ -4992,9 +5012,9 @@
   {
     "shipName": "Seabourn Encore",
     "departureDate": "2028-01-17",
-    "nights": 14,
-    "itinerary": "14-Day Thailand, Cambodia & Vietnam",
-    "itineraryCode": "7811",
+    "nights": 26,
+    "itinerary": "26-Day Southeast Asia, Shanghai, Taiwan Lanterns & Japan",
+    "itineraryCode": "7811A",
     "embarkPort": "Singapore",
     "debarkPort": "Hong Kong, China",
     "suitePrice": 0
@@ -5002,9 +5022,9 @@
   {
     "shipName": "Seabourn Encore",
     "departureDate": "2028-01-17",
-    "nights": 26,
-    "itinerary": "26-Day Southeast Asia, Shanghai, Taiwan Lanterns & Japan",
-    "itineraryCode": "7811A",
+    "nights": 14,
+    "itinerary": "14-Day Thailand, Cambodia & Vietnam",
+    "itineraryCode": "7811",
     "embarkPort": "Singapore",
     "debarkPort": "Hong Kong, China",
     "suitePrice": 0
@@ -5032,21 +5052,21 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-01-29",
-    "nights": 14,
-    "itinerary": "14-Day Caribbean Yacht Explorer",
-    "itineraryCode": "8815A",
-    "embarkPort": "Bridgetown, Barbados",
-    "debarkPort": "Bridgetown, Barbados",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-01-29",
     "nights": 7,
     "itinerary": "7-Day Classic Caribbean Yacht Harbors",
     "itineraryCode": "8815",
     "embarkPort": "Bridgetown, Barbados",
     "debarkPort": "Philipsburg, Sint Maarten",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-01-29",
+    "nights": 14,
+    "itinerary": "14-Day Caribbean Yacht Explorer",
+    "itineraryCode": "8815A",
+    "embarkPort": "Bridgetown, Barbados",
+    "debarkPort": "Bridgetown, Barbados",
     "suitePrice": 0
   },
   {
@@ -5092,6 +5112,16 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-02-05",
+    "nights": 14,
+    "itinerary": "14-Day Caribbean Yacht Harbors In Depth",
+    "itineraryCode": "8816A",
+    "embarkPort": "Philipsburg, Sint Maarten",
+    "debarkPort": "Philipsburg, Sint Maarten",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-02-05",
     "nights": 7,
     "itinerary": "7-Day Yachtsman's Caribbean",
     "itineraryCode": "8816",
@@ -5101,11 +5131,11 @@
   },
   {
     "shipName": "Seabourn Ovation",
-    "departureDate": "2028-02-05",
-    "nights": 14,
-    "itinerary": "14-Day Caribbean Yacht Harbors In Depth",
-    "itineraryCode": "8816A",
-    "embarkPort": "Philipsburg, Sint Maarten",
+    "departureDate": "2028-02-12",
+    "nights": 7,
+    "itinerary": "7-Day Classic Caribbean Yacht Harbors",
+    "itineraryCode": "8819",
+    "embarkPort": "Bridgetown, Barbados",
     "debarkPort": "Philipsburg, Sint Maarten",
     "suitePrice": 0
   },
@@ -5137,16 +5167,6 @@
     "itineraryCode": "7815",
     "embarkPort": "Hong Kong, China",
     "debarkPort": "Tokyo, Japan",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-02-12",
-    "nights": 7,
-    "itinerary": "7-Day Classic Caribbean Yacht Harbors",
-    "itineraryCode": "8819",
-    "embarkPort": "Bridgetown, Barbados",
-    "debarkPort": "Philipsburg, Sint Maarten",
     "suitePrice": 0
   },
   {
@@ -5200,13 +5220,13 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Encore",
+    "shipName": "Seabourn Ovation",
     "departureDate": "2028-02-26",
-    "nights": 14,
-    "itinerary": "14-Day Sea Of Japan & Plum Blossoms",
-    "itineraryCode": "7818",
-    "embarkPort": "Tokyo, Japan",
-    "debarkPort": "Tokyo, Japan",
+    "nights": 7,
+    "itinerary": "7-Day Classic Caribbean Yacht Harbors",
+    "itineraryCode": "8821",
+    "embarkPort": "Bridgetown, Barbados",
+    "debarkPort": "Philipsburg, Sint Maarten",
     "suitePrice": 0
   },
   {
@@ -5220,13 +5240,13 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Ovation",
+    "shipName": "Seabourn Encore",
     "departureDate": "2028-02-26",
-    "nights": 7,
-    "itinerary": "7-Day Classic Caribbean Yacht Harbors",
-    "itineraryCode": "8821",
-    "embarkPort": "Bridgetown, Barbados",
-    "debarkPort": "Philipsburg, Sint Maarten",
+    "nights": 14,
+    "itinerary": "14-Day Sea Of Japan & Plum Blossoms",
+    "itineraryCode": "7818",
+    "embarkPort": "Tokyo, Japan",
+    "debarkPort": "Tokyo, Japan",
     "suitePrice": 0
   },
   {
@@ -5252,22 +5272,22 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-03-04",
+    "nights": 7,
+    "itinerary": "7-Day Yachtsman's Caribbean",
+    "itineraryCode": "8824",
+    "embarkPort": "Philipsburg, Sint Maarten",
+    "debarkPort": "Bridgetown, Barbados",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-03-04",
     "nights": 14,
     "itinerary": "14-Day Caribbean Yacht Harbors In Depth",
     "itineraryCode": "8824A",
     "embarkPort": "Philipsburg, Sint Maarten",
     "debarkPort": "Philipsburg, Sint Maarten",
     "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2028-03-04",
-    "nights": 55,
-    "itinerary": "55-Day South Atlantic, West Coast Of Africa & Spain",
-    "itineraryCode": "6816B",
-    "embarkPort": "Buenos Aires, Argentina",
-    "debarkPort": "Lisbon, Portugal",
-    "suitePrice": 36999
   },
   {
     "shipName": "Seabourn Quest",
@@ -5280,12 +5300,22 @@
     "suitePrice": 42299
   },
   {
-    "shipName": "Seabourn Ovation",
+    "shipName": "Seabourn Quest",
     "departureDate": "2028-03-04",
-    "nights": 7,
-    "itinerary": "7-Day Yachtsman's Caribbean",
-    "itineraryCode": "8824",
-    "embarkPort": "Philipsburg, Sint Maarten",
+    "nights": 55,
+    "itinerary": "55-Day South Atlantic, West Coast Of Africa & Spain",
+    "itineraryCode": "6816B",
+    "embarkPort": "Buenos Aires, Argentina",
+    "debarkPort": "Lisbon, Portugal",
+    "suitePrice": 36999
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-03-11",
+    "nights": 14,
+    "itinerary": "14-Day Caribbean Yacht Explorer",
+    "itineraryCode": "8825A",
+    "embarkPort": "Bridgetown, Barbados",
     "debarkPort": "Bridgetown, Barbados",
     "suitePrice": 0
   },
@@ -5320,16 +5350,6 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-03-11",
-    "nights": 14,
-    "itinerary": "14-Day Caribbean Yacht Explorer",
-    "itineraryCode": "8825A",
-    "embarkPort": "Bridgetown, Barbados",
-    "debarkPort": "Bridgetown, Barbados",
-    "suitePrice": 0
-  },
-  {
     "shipName": "Seabourn Pursuit",
     "departureDate": "2028-03-15",
     "nights": 11,
@@ -5342,21 +5362,21 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-03-18",
-    "nights": 7,
-    "itinerary": "7-Day Yachtsman's Caribbean",
-    "itineraryCode": "8826",
-    "embarkPort": "Philipsburg, Sint Maarten",
-    "debarkPort": "Bridgetown, Barbados",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-03-18",
     "nights": 19,
     "itinerary": "19-Day Yacht Harbors & Atlantic Crossing",
     "itineraryCode": "8826A",
     "embarkPort": "Philipsburg, Sint Maarten",
     "debarkPort": "Lisbon, Portugal",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-03-18",
+    "nights": 7,
+    "itinerary": "7-Day Yachtsman's Caribbean",
+    "itineraryCode": "8826",
+    "embarkPort": "Philipsburg, Sint Maarten",
+    "debarkPort": "Bridgetown, Barbados",
     "suitePrice": 0
   },
   {
@@ -5368,6 +5388,16 @@
     "embarkPort": "Buenos Aires",
     "debarkPort": "Rio de Janeiro, Brazil",
     "suitePrice": 26999
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-03-25",
+    "nights": 21,
+    "itinerary": "21-Day Atlantic Crossing From The Caribbean To Spain",
+    "itineraryCode": "8829A",
+    "embarkPort": "Bridgetown, Barbados",
+    "debarkPort": "Barcelona, Spain",
+    "suitePrice": 0
   },
   {
     "shipName": "Seabourn Ovation",
@@ -5387,16 +5417,6 @@
     "itineraryCode": "7822A",
     "embarkPort": "Tokyo, Japan",
     "debarkPort": "Tokyo, Japan",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-03-25",
-    "nights": 21,
-    "itinerary": "21-Day Atlantic Crossing From The Caribbean To Spain",
-    "itineraryCode": "8829A",
-    "embarkPort": "Bridgetown, Barbados",
-    "debarkPort": "Barcelona, Spain",
     "suitePrice": 0
   },
   {
@@ -5420,23 +5440,13 @@
     "suitePrice": 25299
   },
   {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2028-03-29",
-    "nights": 30,
-    "itinerary": "30-Day Africa's West Coast: Cape Town To Cabo Verde",
-    "itineraryCode": "6819",
-    "embarkPort": "Cape Town, South Africa",
-    "debarkPort": "Lisbon, Portugal",
-    "suitePrice": 19999
-  },
-  {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-04-06",
-    "nights": 23,
-    "itinerary": "23-Day Exploring Spain, France, Italy, Malta & Montenegro",
-    "itineraryCode": "8830B",
+    "nights": 30,
+    "itinerary": "30-Day Hidden Riviera Gems, Malta, Montenegro & Greece",
+    "itineraryCode": "8830C",
     "embarkPort": "Lisbon, Portugal",
-    "debarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Piraeus (Athens), Greece",
     "suitePrice": 0
   },
   {
@@ -5447,6 +5457,16 @@
     "itineraryCode": "8830D",
     "embarkPort": "Lisbon, Portugal",
     "debarkPort": "Istanbul, Turkey",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-04-06",
+    "nights": 23,
+    "itinerary": "23-Day Exploring Spain, France, Italy, Malta & Montenegro",
+    "itineraryCode": "8830B",
+    "embarkPort": "Lisbon, Portugal",
+    "debarkPort": "Dubrovnik, Croatia",
     "suitePrice": 0
   },
   {
@@ -5470,13 +5490,13 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-04-06",
-    "nights": 30,
-    "itinerary": "30-Day Hidden Riviera Gems, Malta, Montenegro & Greece",
-    "itineraryCode": "8830C",
-    "embarkPort": "Lisbon, Portugal",
-    "debarkPort": "Piraeus (Athens), Greece",
+    "shipName": "Seabourn Encore",
+    "departureDate": "2028-04-08",
+    "nights": 35,
+    "itinerary": "35-Day Japan's Cherry Blossoms & Pacific Passage",
+    "itineraryCode": "7823A",
+    "embarkPort": "Yokohama, Japan",
+    "debarkPort": "Vancouver, B.C., CA",
     "suitePrice": 0
   },
   {
@@ -5487,16 +5507,6 @@
     "itineraryCode": "7823",
     "embarkPort": "Yokohama, Japan",
     "debarkPort": "Tokyo, Japan",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2028-04-08",
-    "nights": 35,
-    "itinerary": "35-Day Japan's Cherry Blossoms & Pacific Passage",
-    "itineraryCode": "7823A",
-    "embarkPort": "Yokohama, Japan",
-    "debarkPort": "Vancouver, B.C., CA",
     "suitePrice": 0
   },
   {
@@ -5512,11 +5522,11 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-04-15",
-    "nights": 14,
-    "itinerary": "14-Day Exploring French Yacht Harbors & Mediterranean Isles",
-    "itineraryCode": "8833A",
+    "nights": 28,
+    "itinerary": "28-Day Exploring Spain, Greek Isles & Evening At Ephesus",
+    "itineraryCode": "8833C",
     "embarkPort": "Barcelona, Spain",
-    "debarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Istanbul, Turkey",
     "suitePrice": 0
   },
   {
@@ -5532,10 +5542,40 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-04-15",
-    "nights": 28,
-    "itinerary": "28-Day Exploring Spain, Greek Isles & Evening At Ephesus",
-    "itineraryCode": "8833C",
+    "nights": 14,
+    "itinerary": "14-Day Exploring French Yacht Harbors & Mediterranean Isles",
+    "itineraryCode": "8833A",
     "embarkPort": "Barcelona, Spain",
+    "debarkPort": "Dubrovnik, Croatia",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-04-22",
+    "nights": 14,
+    "itinerary": "14-Day Exploring Italy, Malta, Montenegro & Greece",
+    "itineraryCode": "8834A",
+    "embarkPort": "Civitavecchia (Rome), Italy",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-04-22",
+    "nights": 28,
+    "itinerary": "28-Day Evening At Ephesus & Aegean Yacht Harbors",
+    "itineraryCode": "8834C",
+    "embarkPort": "Civitavecchia (Rome), Italy",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-04-22",
+    "nights": 21,
+    "itinerary": "21-Day Exploring Italy, Malta, Greece & Evening At Ephesus",
+    "itineraryCode": "8834B",
+    "embarkPort": "Civitavecchia (Rome), Italy",
     "debarkPort": "Istanbul, Turkey",
     "suitePrice": 0
   },
@@ -5557,36 +5597,6 @@
     "itineraryCode": "7826",
     "embarkPort": "Tokyo, Japan",
     "debarkPort": "Vancouver, B.C., CA",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-04-22",
-    "nights": 21,
-    "itinerary": "21-Day Exploring Italy, Malta, Greece & Evening At Ephesus",
-    "itineraryCode": "8834B",
-    "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Istanbul, Turkey",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-04-22",
-    "nights": 28,
-    "itinerary": "28-Day Evening At Ephesus & Aegean Yacht Harbors",
-    "itineraryCode": "8834C",
-    "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-04-22",
-    "nights": 14,
-    "itinerary": "14-Day Exploring Italy, Malta, Montenegro & Greece",
-    "itineraryCode": "8834A",
-    "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Piraeus (Athens), Greece",
     "suitePrice": 0
   },
   {
@@ -5640,23 +5650,13 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Quest",
+    "shipName": "Seabourn Ovation",
     "departureDate": "2028-05-06",
-    "nights": 7,
-    "itinerary": "7-Day Exploring Stonehenge, Antwerp & Beyond",
-    "itineraryCode": "6825",
-    "embarkPort": "Dover (London), England, UK",
-    "debarkPort": "Hamburg, Germany",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2028-05-06",
-    "nights": 14,
-    "itinerary": "14-Day Exploring Norway, Sweden & Denmark",
-    "itineraryCode": "6825A",
-    "embarkPort": "Dover (London), England, UK",
-    "debarkPort": "Copenhagen, Denmark",
+    "nights": 28,
+    "itinerary": "28-Day Greek Isles, Evening At Ephesus & Dalmatian Gems",
+    "itineraryCode": "8838C",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Civitavecchia (Rome), Italy",
     "suitePrice": 0
   },
   {
@@ -5667,6 +5667,16 @@
     "itineraryCode": "8838",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Istanbul, Turkey",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2028-05-06",
+    "nights": 7,
+    "itinerary": "7-Day Exploring Stonehenge, Antwerp & Beyond",
+    "itineraryCode": "6825",
+    "embarkPort": "Dover (London), England, UK",
+    "debarkPort": "Hamburg, Germany",
     "suitePrice": 0
   },
   {
@@ -5690,23 +5700,13 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Ovation",
+    "shipName": "Seabourn Quest",
     "departureDate": "2028-05-06",
-    "nights": 28,
-    "itinerary": "28-Day Greek Isles, Evening At Ephesus & Dalmatian Gems",
-    "itineraryCode": "8838C",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2028-05-12",
     "nights": 14,
-    "itinerary": "14-Day Glacier Bay, Fjords & Inside Passage",
-    "itineraryCode": "7827A",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Vancouver, B.C., CA",
+    "itinerary": "14-Day Exploring Norway, Sweden & Denmark",
+    "itineraryCode": "6825A",
+    "embarkPort": "Dover (London), England, UK",
+    "debarkPort": "Copenhagen, Denmark",
     "suitePrice": 0
   },
   {
@@ -5720,23 +5720,13 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-05-13",
-    "nights": 7,
-    "itinerary": "7-Day Yacht Harbors Of The Aegean Sea",
-    "itineraryCode": "8839",
-    "embarkPort": "Istanbul, Turkey",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2028-05-13",
-    "nights": 7,
-    "itinerary": "7-Day Harbors Of Norway, Sweden & Denmark",
-    "itineraryCode": "6826",
-    "embarkPort": "Hamburg, Germany",
-    "debarkPort": "Copenhagen, Denmark",
+    "shipName": "Seabourn Encore",
+    "departureDate": "2028-05-12",
+    "nights": 14,
+    "itinerary": "14-Day Glacier Bay, Fjords & Inside Passage",
+    "itineraryCode": "7827A",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Vancouver, B.C., CA",
     "suitePrice": 0
   },
   {
@@ -5762,11 +5752,11 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-05-13",
-    "nights": 21,
-    "itinerary": "21-Day Yacht Harbors Of Greece & Dalmatian Gems",
-    "itineraryCode": "8839B",
+    "nights": 7,
+    "itinerary": "7-Day Yacht Harbors Of The Aegean Sea",
+    "itineraryCode": "8839",
     "embarkPort": "Istanbul, Turkey",
-    "debarkPort": "Civitavecchia (Rome), Italy",
+    "debarkPort": "Piraeus (Athens), Greece",
     "suitePrice": 0
   },
   {
@@ -5780,6 +5770,26 @@
     "suitePrice": 0
   },
   {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-05-13",
+    "nights": 21,
+    "itinerary": "21-Day Yacht Harbors Of Greece & Dalmatian Gems",
+    "itineraryCode": "8839B",
+    "embarkPort": "Istanbul, Turkey",
+    "debarkPort": "Civitavecchia (Rome), Italy",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2028-05-13",
+    "nights": 7,
+    "itinerary": "7-Day Harbors Of Norway, Sweden & Denmark",
+    "itineraryCode": "6826",
+    "embarkPort": "Hamburg, Germany",
+    "debarkPort": "Copenhagen, Denmark",
+    "suitePrice": 0
+  },
+  {
     "shipName": "Seabourn Encore",
     "departureDate": "2028-05-19",
     "nights": 7,
@@ -5787,36 +5797,6 @@
     "itineraryCode": "7830",
     "embarkPort": "Juneau, Alaska, US",
     "debarkPort": "Vancouver, B.C., CA",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-05-20",
-    "nights": 7,
-    "itinerary": "7-Day Hidden Gems Of Greece, Croatia & Slovenia",
-    "itineraryCode": "8840",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Fusina (Venice), Italy",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2028-05-20",
-    "nights": 12,
-    "itinerary": "12-Day Scandinavia Spring & Baltic Explorer",
-    "itineraryCode": "6830",
-    "embarkPort": "Copenhagen, Denmark",
-    "debarkPort": "Copenhagen, Denmark",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-05-20",
-    "nights": 14,
-    "itinerary": "14-Day Hidden Gems Of Greece, Croatia, Malta & Italy",
-    "itineraryCode": "8840A",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Civitavecchia (Rome), Italy",
     "suitePrice": 0
   },
   {
@@ -5842,11 +5822,51 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-05-20",
+    "nights": 7,
+    "itinerary": "7-Day Hidden Gems Of Greece, Croatia & Slovenia",
+    "itineraryCode": "8840",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Fusina (Venice), Italy",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-05-20",
+    "nights": 14,
+    "itinerary": "14-Day Hidden Gems Of Greece, Croatia, Malta & Italy",
+    "itineraryCode": "8840A",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Civitavecchia (Rome), Italy",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2028-05-20",
+    "nights": 12,
+    "itinerary": "12-Day Scandinavia Spring & Baltic Explorer",
+    "itineraryCode": "6830",
+    "embarkPort": "Copenhagen, Denmark",
+    "debarkPort": "Copenhagen, Denmark",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-05-20",
     "nights": 28,
     "itinerary": "28-Day Greece, Croatia, Slovenia & French Yacht Harbors",
     "itineraryCode": "8840C",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Monte Carlo, Monaco",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2028-05-26",
+    "nights": 14,
+    "itinerary": "14-Day Glacier Bay, Fjords & Inside Passage",
+    "itineraryCode": "7831A",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Vancouver, B.C., CA",
     "suitePrice": 0
   },
   {
@@ -5860,13 +5880,13 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2028-05-26",
-    "nights": 14,
-    "itinerary": "14-Day Glacier Bay, Fjords & Inside Passage",
-    "itineraryCode": "7831A",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Vancouver, B.C., CA",
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-05-27",
+    "nights": 21,
+    "itinerary": "21-Day Dalmatian Gems, Cote D'azur, Sardinia & Corsica",
+    "itineraryCode": "8843B",
+    "embarkPort": "Fusina (Venice), Italy",
+    "debarkPort": "Monte Carlo, Monaco",
     "suitePrice": 0
   },
   {
@@ -5887,16 +5907,6 @@
     "itineraryCode": "8843",
     "embarkPort": "Fusina (Venice), Italy",
     "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-05-27",
-    "nights": 21,
-    "itinerary": "21-Day Dalmatian Gems, Cote D'azur, Sardinia & Corsica",
-    "itineraryCode": "8843B",
-    "embarkPort": "Fusina (Venice), Italy",
-    "debarkPort": "Monte Carlo, Monaco",
     "suitePrice": 0
   },
   {
@@ -5952,26 +5962,6 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-06-03",
-    "nights": 21,
-    "itinerary": "21-Day French Yacht Harbors, Sardinia & Corsica",
-    "itineraryCode": "8844B",
-    "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-06-03",
-    "nights": 14,
-    "itinerary": "14-Day French Yacht Harbors, Southern France & Corsica",
-    "itineraryCode": "8844A",
-    "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Monte Carlo, Monaco",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-06-03",
     "nights": 7,
     "itinerary": "7-Day Yacht Harbors Of The Cote D'azur",
     "itineraryCode": "8844",
@@ -5987,6 +5977,26 @@
     "itineraryCode": "8844C",
     "embarkPort": "Civitavecchia (Rome), Italy",
     "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-06-03",
+    "nights": 14,
+    "itinerary": "14-Day French Yacht Harbors, Southern France & Corsica",
+    "itineraryCode": "8844A",
+    "embarkPort": "Civitavecchia (Rome), Italy",
+    "debarkPort": "Monte Carlo, Monaco",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-06-03",
+    "nights": 21,
+    "itinerary": "21-Day French Yacht Harbors, Sardinia & Corsica",
+    "itineraryCode": "8844B",
+    "embarkPort": "Civitavecchia (Rome), Italy",
+    "debarkPort": "Dubrovnik, Croatia",
     "suitePrice": 0
   },
   {
@@ -6042,21 +6052,21 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-06-10",
-    "nights": 14,
-    "itinerary": "14-Day Exploring French Yacht Harbors & Mediterranean Isles",
-    "itineraryCode": "8845A",
-    "embarkPort": "Barcelona, Spain",
-    "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-06-10",
     "nights": 21,
     "itinerary": "21-Day French Yacht Harbors, Montenegro, Italy & Greece",
     "itineraryCode": "8845B",
     "embarkPort": "Barcelona, Spain",
     "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-06-10",
+    "nights": 14,
+    "itinerary": "14-Day Exploring French Yacht Harbors & Mediterranean Isles",
+    "itineraryCode": "8845A",
+    "embarkPort": "Barcelona, Spain",
+    "debarkPort": "Dubrovnik, Croatia",
     "suitePrice": 0
   },
   {
@@ -6112,21 +6122,21 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-06-17",
-    "nights": 7,
-    "itinerary": "7-Day Pompeii, Sicily, Malta & Montenegro",
-    "itineraryCode": "8848",
-    "embarkPort": "Monte Carlo, Monaco",
-    "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-06-17",
     "nights": 21,
     "itinerary": "21-Day Mediterranean Isle Exploration & Evening At Ephesus",
     "itineraryCode": "8848B",
     "embarkPort": "Monte Carlo, Monaco",
     "debarkPort": "Istanbul, Turkey",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-06-17",
+    "nights": 7,
+    "itinerary": "7-Day Pompeii, Sicily, Malta & Montenegro",
+    "itineraryCode": "8848",
+    "embarkPort": "Monte Carlo, Monaco",
+    "debarkPort": "Dubrovnik, Croatia",
     "suitePrice": 0
   },
   {
@@ -6152,6 +6162,16 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-06-24",
+    "nights": 14,
+    "itinerary": "14-Day Montenegro, Italy, Greek Isles & Evening At Ephesus",
+    "itineraryCode": "8849A",
+    "embarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Istanbul, Turkey",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-06-24",
     "nights": 28,
     "itinerary": "28-Day Italy, Greek Yacht Harbors, Croatia & Slovenia",
     "itineraryCode": "8849C",
@@ -6172,16 +6192,6 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-06-24",
-    "nights": 14,
-    "itinerary": "14-Day Montenegro, Italy, Greek Isles & Evening At Ephesus",
-    "itineraryCode": "8849A",
-    "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Istanbul, Turkey",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-06-24",
     "nights": 7,
     "itinerary": "7-Day Hidden Gems Of Montenegro, Italy & Greece",
     "itineraryCode": "8849",
@@ -6192,11 +6202,11 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2028-06-29",
-    "nights": 26,
-    "itinerary": "26-Day Sweden, Baltic Explorer & Norwegian Fjords",
-    "itineraryCode": "6840A",
+    "nights": 12,
+    "itinerary": "12-Day Scandinavian Summer & Baltic Explorer",
+    "itineraryCode": "6840",
     "embarkPort": "Copenhagen, Denmark",
-    "debarkPort": "Dover (London), England, UK",
+    "debarkPort": "Copenhagen, Denmark",
     "suitePrice": 0
   },
   {
@@ -6212,11 +6222,11 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2028-06-29",
-    "nights": 12,
-    "itinerary": "12-Day Scandinavian Summer & Baltic Explorer",
-    "itineraryCode": "6840",
+    "nights": 26,
+    "itinerary": "26-Day Sweden, Baltic Explorer & Norwegian Fjords",
+    "itineraryCode": "6840A",
     "embarkPort": "Copenhagen, Denmark",
-    "debarkPort": "Copenhagen, Denmark",
+    "debarkPort": "Dover (London), England, UK",
     "suitePrice": 0
   },
   {
@@ -6242,11 +6252,11 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-07-01",
-    "nights": 21,
-    "itinerary": "21-Day Greek Isles, Evening At Ephesus, Croatia & Slovenia",
-    "itineraryCode": "8850B",
+    "nights": 7,
+    "itinerary": "7-Day Crete, Mykonos & Evening At Ephesus",
+    "itineraryCode": "8850",
     "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Fusina (Venice), Italy",
+    "debarkPort": "Istanbul, Turkey",
     "suitePrice": 0
   },
   {
@@ -6272,11 +6282,11 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-07-01",
-    "nights": 7,
-    "itinerary": "7-Day Crete, Mykonos & Evening At Ephesus",
-    "itineraryCode": "8850",
+    "nights": 21,
+    "itinerary": "21-Day Greek Isles, Evening At Ephesus, Croatia & Slovenia",
+    "itineraryCode": "8850B",
     "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Istanbul, Turkey",
+    "debarkPort": "Fusina (Venice), Italy",
     "suitePrice": 0
   },
   {
@@ -6292,11 +6302,31 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-07-08",
+    "nights": 7,
+    "itinerary": "7-Day Yacht Harbors Of The Aegean Sea",
+    "itineraryCode": "8853",
+    "embarkPort": "Istanbul, Turkey",
+    "debarkPort": "Piraeus (Athens), Greece",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-07-08",
     "nights": 28,
     "itinerary": "28-Day Yacht Harbor Exploration: The Aegean To Cote D'azur",
     "itineraryCode": "8853C",
     "embarkPort": "Istanbul, Turkey",
     "debarkPort": "Barcelona, Spain",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-07-08",
+    "nights": 14,
+    "itinerary": "14-Day Yacht Harbors Of Greece, Croatia & Slovenia",
+    "itineraryCode": "8853A",
+    "embarkPort": "Istanbul, Turkey",
+    "debarkPort": "Fusina (Venice), Italy",
     "suitePrice": 0
   },
   {
@@ -6310,23 +6340,13 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-07-08",
-    "nights": 7,
-    "itinerary": "7-Day Yacht Harbors Of The Aegean Sea",
-    "itineraryCode": "8853",
-    "embarkPort": "Istanbul, Turkey",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-07-08",
-    "nights": 14,
-    "itinerary": "14-Day Yacht Harbors Of Greece, Croatia & Slovenia",
-    "itineraryCode": "8853A",
-    "embarkPort": "Istanbul, Turkey",
-    "debarkPort": "Fusina (Venice), Italy",
+    "shipName": "Seabourn Quest",
+    "departureDate": "2028-07-11",
+    "nights": 36,
+    "itinerary": "36-Day Northern Europe Explorer: Norway & The British Isles",
+    "itineraryCode": "6841B",
+    "embarkPort": "Copenhagen, Denmark",
+    "debarkPort": "Copenhagen, Denmark",
     "suitePrice": 0
   },
   {
@@ -6350,26 +6370,6 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2028-07-11",
-    "nights": 36,
-    "itinerary": "36-Day Northern Europe Explorer: Norway & The British Isles",
-    "itineraryCode": "6841B",
-    "embarkPort": "Copenhagen, Denmark",
-    "debarkPort": "Copenhagen, Denmark",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2028-07-14",
-    "nights": 14,
-    "itinerary": "14-Day Alaska Glaciers, Fjords & Inside Passage",
-    "itineraryCode": "7843A",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Vancouver, B.C., CA",
-    "suitePrice": 0
-  },
-  {
     "shipName": "Seabourn Encore",
     "departureDate": "2028-07-14",
     "nights": 7,
@@ -6380,23 +6380,13 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-07-15",
-    "nights": 7,
-    "itinerary": "7-Day Hidden Gems Of Greece, Croatia & Slovenia",
-    "itineraryCode": "8854",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Fusina (Venice), Italy",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-07-15",
+    "shipName": "Seabourn Encore",
+    "departureDate": "2028-07-14",
     "nights": 14,
-    "itinerary": "14-Day Hidden Gems Of Greece, Croatia, Malta & Italy",
-    "itineraryCode": "8854A",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Civitavecchia (Rome), Italy",
+    "itinerary": "14-Day Alaska Glaciers, Fjords & Inside Passage",
+    "itineraryCode": "7843A",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Vancouver, B.C., CA",
     "suitePrice": 0
   },
   {
@@ -6412,11 +6402,31 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-07-15",
+    "nights": 7,
+    "itinerary": "7-Day Hidden Gems Of Greece, Croatia & Slovenia",
+    "itineraryCode": "8854",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Fusina (Venice), Italy",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-07-15",
     "nights": 21,
     "itinerary": "21-Day Hidden Gems Of Greece & Yacht Harbors Of France",
     "itineraryCode": "8854B",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Barcelona, Spain",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-07-15",
+    "nights": 14,
+    "itinerary": "14-Day Hidden Gems Of Greece, Croatia, Malta & Italy",
+    "itineraryCode": "8854A",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Civitavecchia (Rome), Italy",
     "suitePrice": 0
   },
   {
@@ -6452,16 +6462,6 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-07-22",
-    "nights": 28,
-    "itinerary": "28-Day Dalmatian Coast, Cote D'azur, Sardinia & Corsica",
-    "itineraryCode": "8855C",
-    "embarkPort": "Fusina (Venice), Italy",
-    "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-07-22",
     "nights": 14,
     "itinerary": "14-Day Dalmatian Gems, Malta & Southern France",
     "itineraryCode": "8855A",
@@ -6470,13 +6470,23 @@
     "suitePrice": 0
   },
   {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-07-22",
+    "nights": 28,
+    "itinerary": "28-Day Dalmatian Coast, Cote D'azur, Sardinia & Corsica",
+    "itineraryCode": "8855C",
+    "embarkPort": "Fusina (Venice), Italy",
+    "debarkPort": "Dubrovnik, Croatia",
+    "suitePrice": 0
+  },
+  {
     "shipName": "Seabourn Quest",
     "departureDate": "2028-07-25",
-    "nights": 14,
-    "itinerary": "14-Day Exploration Of Scottish Isles & Irish Coasts",
-    "itineraryCode": "6845",
+    "nights": 22,
+    "itinerary": "22-Day British Isles, Norway & Sweden",
+    "itineraryCode": "6845A",
     "embarkPort": "Dover (London), England, UK",
-    "debarkPort": "Dover (London), England, UK",
+    "debarkPort": "Copenhagen, Denmark",
     "suitePrice": 0
   },
   {
@@ -6492,11 +6502,11 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2028-07-25",
-    "nights": 22,
-    "itinerary": "22-Day British Isles, Norway & Sweden",
-    "itineraryCode": "6845A",
+    "nights": 14,
+    "itinerary": "14-Day Exploration Of Scottish Isles & Irish Coasts",
+    "itineraryCode": "6845",
     "embarkPort": "Dover (London), England, UK",
-    "debarkPort": "Copenhagen, Denmark",
+    "debarkPort": "Dover (London), England, UK",
     "suitePrice": 0
   },
   {
@@ -6517,6 +6527,16 @@
     "itineraryCode": "7847",
     "embarkPort": "Vancouver, B.C., CA",
     "debarkPort": "Juneau, Alaska, US",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-07-29",
+    "nights": 7,
+    "itinerary": "7-Day Yacht Harbors Of The Cote D'azur",
+    "itineraryCode": "8858",
+    "embarkPort": "Civitavecchia (Rome), Italy",
+    "debarkPort": "Barcelona, Spain",
     "suitePrice": 0
   },
   {
@@ -6550,16 +6570,6 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-07-29",
-    "nights": 7,
-    "itinerary": "7-Day Yacht Harbors Of The Cote D'azur",
-    "itineraryCode": "8858",
-    "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Barcelona, Spain",
-    "suitePrice": 0
-  },
-  {
     "shipName": "Seabourn Encore",
     "departureDate": "2028-08-04",
     "nights": 7,
@@ -6572,21 +6582,11 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-08-05",
-    "nights": 28,
-    "itinerary": "28-Day Exploring Spain, Greek Isles & Evening At Ephesus",
-    "itineraryCode": "8859C",
+    "nights": 21,
+    "itinerary": "21-Day French Yacht Harbors, Montenegro, Italy & Greece",
+    "itineraryCode": "8859B",
     "embarkPort": "Barcelona, Spain",
-    "debarkPort": "Istanbul, Turkey",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-08-05",
-    "nights": 14,
-    "itinerary": "14-Day Exploring French Yacht Harbors & Mediterranean Isles",
-    "itineraryCode": "8859A",
-    "embarkPort": "Barcelona, Spain",
-    "debarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Piraeus (Athens), Greece",
     "suitePrice": 0
   },
   {
@@ -6602,21 +6602,21 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-08-05",
-    "nights": 21,
-    "itinerary": "21-Day French Yacht Harbors, Montenegro, Italy & Greece",
-    "itineraryCode": "8859B",
+    "nights": 14,
+    "itinerary": "14-Day Exploring French Yacht Harbors & Mediterranean Isles",
+    "itineraryCode": "8859A",
     "embarkPort": "Barcelona, Spain",
-    "debarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Dubrovnik, Croatia",
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2028-08-08",
-    "nights": 8,
-    "itinerary": "8-Day North Sea Legends",
-    "itineraryCode": "6846",
-    "embarkPort": "Dover (London), England, UK",
-    "debarkPort": "Copenhagen, Denmark",
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-08-05",
+    "nights": 28,
+    "itinerary": "28-Day Exploring Spain, Greek Isles & Evening At Ephesus",
+    "itineraryCode": "8859C",
+    "embarkPort": "Barcelona, Spain",
+    "debarkPort": "Istanbul, Turkey",
     "suitePrice": 0
   },
   {
@@ -6640,13 +6640,13 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2028-08-11",
-    "nights": 7,
-    "itinerary": "7-Day Glaciers & Alaska Inside Passage",
-    "itineraryCode": "7851",
-    "embarkPort": "Vancouver, B.C., CA",
-    "debarkPort": "Juneau, Alaska, US",
+    "shipName": "Seabourn Quest",
+    "departureDate": "2028-08-08",
+    "nights": 8,
+    "itinerary": "8-Day North Sea Legends",
+    "itineraryCode": "6846",
+    "embarkPort": "Dover (London), England, UK",
+    "debarkPort": "Copenhagen, Denmark",
     "suitePrice": 0
   },
   {
@@ -6657,6 +6657,26 @@
     "itineraryCode": "7851A",
     "embarkPort": "Vancouver, B.C., CA",
     "debarkPort": "Vancouver, B.C., CA",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2028-08-11",
+    "nights": 7,
+    "itinerary": "7-Day Glaciers & Alaska Inside Passage",
+    "itineraryCode": "7851",
+    "embarkPort": "Vancouver, B.C., CA",
+    "debarkPort": "Juneau, Alaska, US",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-08-12",
+    "nights": 21,
+    "itinerary": "21-Day Exploring Italy, Malta, Greece & Evening At Ephesus",
+    "itineraryCode": "8860B",
+    "embarkPort": "Civitavecchia (Rome), Italy",
+    "debarkPort": "Istanbul, Turkey",
     "suitePrice": 0
   },
   {
@@ -6672,16 +6692,6 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-08-12",
-    "nights": 14,
-    "itinerary": "14-Day Exploring Italy, Malta, Montenegro & Greece",
-    "itineraryCode": "8860A",
-    "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-08-12",
     "nights": 28,
     "itinerary": "28-Day Evening At Ephesus & Aegean Yacht Harbors",
     "itineraryCode": "8860C",
@@ -6692,11 +6702,11 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-08-12",
-    "nights": 21,
-    "itinerary": "21-Day Exploring Italy, Malta, Greece & Evening At Ephesus",
-    "itineraryCode": "8860B",
+    "nights": 14,
+    "itinerary": "14-Day Exploring Italy, Malta, Montenegro & Greece",
+    "itineraryCode": "8860A",
     "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Istanbul, Turkey",
+    "debarkPort": "Piraeus (Athens), Greece",
     "suitePrice": 0
   },
   {
@@ -6742,9 +6752,9 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-08-19",
-    "nights": 21,
-    "itinerary": "21-Day Montenegro, Italy, Greece & Evening At Ephesus",
-    "itineraryCode": "8863B",
+    "nights": 7,
+    "itinerary": "7-Day Hidden Gems Of Montenegro, Italy & Greece",
+    "itineraryCode": "8863",
     "embarkPort": "Dubrovnik, Croatia",
     "debarkPort": "Piraeus (Athens), Greece",
     "suitePrice": 0
@@ -6772,9 +6782,9 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-08-19",
-    "nights": 7,
-    "itinerary": "7-Day Hidden Gems Of Montenegro, Italy & Greece",
-    "itineraryCode": "8863",
+    "nights": 21,
+    "itinerary": "21-Day Montenegro, Italy, Greece & Evening At Ephesus",
+    "itineraryCode": "8863B",
     "embarkPort": "Dubrovnik, Croatia",
     "debarkPort": "Piraeus (Athens), Greece",
     "suitePrice": 0
@@ -6812,9 +6822,9 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-08-26",
-    "nights": 21,
-    "itinerary": "21-Day Aegean Harbors, Evening At Ephesus, Italy & Greece",
-    "itineraryCode": "8864B",
+    "nights": 28,
+    "itinerary": "28-Day Yacht Harbors Of The Greek Isles & Dalmatian Coast",
+    "itineraryCode": "8864C",
     "embarkPort": "Piraeus (Athens), Greece",
     "debarkPort": "Dubrovnik, Croatia",
     "suitePrice": 0
@@ -6822,11 +6832,11 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-08-26",
-    "nights": 7,
-    "itinerary": "7-Day Crete, Mykonos & Evening At Ephesus",
-    "itineraryCode": "8864",
+    "nights": 21,
+    "itinerary": "21-Day Aegean Harbors, Evening At Ephesus, Italy & Greece",
+    "itineraryCode": "8864B",
     "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Istanbul, Turkey",
+    "debarkPort": "Dubrovnik, Croatia",
     "suitePrice": 0
   },
   {
@@ -6842,21 +6852,21 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-08-26",
-    "nights": 28,
-    "itinerary": "28-Day Yacht Harbors Of The Greek Isles & Dalmatian Coast",
-    "itineraryCode": "8864C",
+    "nights": 7,
+    "itinerary": "7-Day Crete, Mykonos & Evening At Ephesus",
+    "itineraryCode": "8864",
     "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Istanbul, Turkey",
     "suitePrice": 0
   },
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2028-08-28",
-    "nights": 37,
-    "itinerary": "37-Day North Atlantic Icons: Iceland, Greenland & Canada",
-    "itineraryCode": "6851B",
+    "nights": 10,
+    "itinerary": "10-Day Norway, Shetland Islands, Faroe Islands & Iceland",
+    "itineraryCode": "6851",
     "embarkPort": "Copenhagen, Denmark",
-    "debarkPort": "Montreal, Quebec, Canada",
+    "debarkPort": "Reykjavik, Iceland",
     "suitePrice": 0
   },
   {
@@ -6872,11 +6882,11 @@
   {
     "shipName": "Seabourn Quest",
     "departureDate": "2028-08-28",
-    "nights": 10,
-    "itinerary": "10-Day Norway, Shetland Islands, Faroe Islands & Iceland",
-    "itineraryCode": "6851",
+    "nights": 37,
+    "itinerary": "37-Day North Atlantic Icons: Iceland, Greenland & Canada",
+    "itineraryCode": "6851B",
     "embarkPort": "Copenhagen, Denmark",
-    "debarkPort": "Reykjavik, Iceland",
+    "debarkPort": "Montreal, Quebec, Canada",
     "suitePrice": 0
   },
   {
@@ -6892,9 +6902,9 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-09-02",
-    "nights": 14,
-    "itinerary": "14-Day Hidden Gems Of Greece, Montenegro & Italy",
-    "itineraryCode": "8865A",
+    "nights": 21,
+    "itinerary": "21-Day Yacht Harbors Of Greece & Croatian Gems",
+    "itineraryCode": "8865B",
     "embarkPort": "Istanbul, Turkey",
     "debarkPort": "Dubrovnik, Croatia",
     "suitePrice": 0
@@ -6902,19 +6912,9 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-09-02",
-    "nights": 28,
-    "itinerary": "28-Day Yacht Harbor Exploration: From The Aegean To Italy",
-    "itineraryCode": "8865C",
-    "embarkPort": "Istanbul, Turkey",
-    "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-09-02",
-    "nights": 21,
-    "itinerary": "21-Day Yacht Harbors Of Greece & Croatian Gems",
-    "itineraryCode": "8865B",
+    "nights": 14,
+    "itinerary": "14-Day Hidden Gems Of Greece, Montenegro & Italy",
+    "itineraryCode": "8865A",
     "embarkPort": "Istanbul, Turkey",
     "debarkPort": "Dubrovnik, Croatia",
     "suitePrice": 0
@@ -6930,13 +6930,13 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Quest",
-    "departureDate": "2028-09-07",
-    "nights": 27,
-    "itinerary": "27-Day Iceland, Greenland & Canada Fall Foliage Exploration",
-    "itineraryCode": "6854A",
-    "embarkPort": "Reykjavik, Iceland",
-    "debarkPort": "Montreal, Quebec, Canada",
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-09-02",
+    "nights": 28,
+    "itinerary": "28-Day Yacht Harbor Exploration: From The Aegean To Italy",
+    "itineraryCode": "8865C",
+    "embarkPort": "Istanbul, Turkey",
+    "debarkPort": "Civitavecchia (Rome), Italy",
     "suitePrice": 0
   },
   {
@@ -6945,6 +6945,16 @@
     "nights": 14,
     "itinerary": "14-Day Iceland, Greenland & Canada Fall Foliage",
     "itineraryCode": "6854",
+    "embarkPort": "Reykjavik, Iceland",
+    "debarkPort": "Montreal, Quebec, Canada",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Quest",
+    "departureDate": "2028-09-07",
+    "nights": 27,
+    "itinerary": "27-Day Iceland, Greenland & Canada Fall Foliage Exploration",
+    "itineraryCode": "6854A",
     "embarkPort": "Reykjavik, Iceland",
     "debarkPort": "Montreal, Quebec, Canada",
     "suitePrice": 0
@@ -6972,16 +6982,6 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-09-09",
-    "nights": 14,
-    "itinerary": "14-Day Montenegro, Italy, Greece & The Dalmatian Coast",
-    "itineraryCode": "8868A",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Dubrovnik, Croatia",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-09-09",
     "nights": 21,
     "itinerary": "21-Day Exploring Montenegro, Italy, Greece, Malta & Sicily",
     "itineraryCode": "8868B",
@@ -6992,11 +6992,11 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-09-09",
-    "nights": 28,
-    "itinerary": "28-Day Hidden Gems Of Italy, Greece & French Yacht Harbors",
-    "itineraryCode": "8868C",
+    "nights": 14,
+    "itinerary": "14-Day Montenegro, Italy, Greece & The Dalmatian Coast",
+    "itineraryCode": "8868A",
     "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Barcelona, Spain",
+    "debarkPort": "Dubrovnik, Croatia",
     "suitePrice": 0
   },
   {
@@ -7011,22 +7011,12 @@
   },
   {
     "shipName": "Seabourn Ovation",
-    "departureDate": "2028-09-16",
-    "nights": 14,
-    "itinerary": "14-Day Dalmatian Coast, Montenegro, Malta & Sicily",
-    "itineraryCode": "8869A",
-    "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-09-16",
+    "departureDate": "2028-09-09",
     "nights": 28,
-    "itinerary": "28-Day Exploring The Dalmatian Coast, Cote D'azur & Corsica",
-    "itineraryCode": "8869C",
-    "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Monte Carlo, Monaco",
+    "itinerary": "28-Day Hidden Gems Of Italy, Greece & French Yacht Harbors",
+    "itineraryCode": "8868C",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Barcelona, Spain",
     "suitePrice": 0
   },
   {
@@ -7050,6 +7040,26 @@
     "suitePrice": 0
   },
   {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-09-16",
+    "nights": 28,
+    "itinerary": "28-Day Exploring The Dalmatian Coast, Cote D'azur & Corsica",
+    "itineraryCode": "8869C",
+    "embarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Monte Carlo, Monaco",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-09-16",
+    "nights": 14,
+    "itinerary": "14-Day Dalmatian Coast, Montenegro, Malta & Sicily",
+    "itineraryCode": "8869A",
+    "embarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Civitavecchia (Rome), Italy",
+    "suitePrice": 0
+  },
+  {
     "shipName": "Seabourn Quest",
     "departureDate": "2028-09-21",
     "nights": 13,
@@ -7062,11 +7072,11 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-09-23",
-    "nights": 28,
-    "itinerary": "28-Day French Yacht Harbors, Pompeii, Sicily & Montenegro",
-    "itineraryCode": "8870C",
+    "nights": 7,
+    "itinerary": "7-Day Exploring Montenegro, Malta & Sicily",
+    "itineraryCode": "8870",
     "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Civitavecchia (Rome), Italy",
     "suitePrice": 0
   },
   {
@@ -7082,21 +7092,21 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-09-23",
-    "nights": 21,
-    "itinerary": "21-Day Exploring Malta, Sicily, France, Sardinia & Corsica",
-    "itineraryCode": "8870B",
+    "nights": 28,
+    "itinerary": "28-Day French Yacht Harbors, Pompeii, Sicily & Montenegro",
+    "itineraryCode": "8870C",
     "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Monte Carlo, Monaco",
+    "debarkPort": "Dubrovnik, Croatia",
     "suitePrice": 0
   },
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-09-23",
-    "nights": 7,
-    "itinerary": "7-Day Exploring Montenegro, Malta & Sicily",
-    "itineraryCode": "8870",
+    "nights": 21,
+    "itinerary": "21-Day Exploring Malta, Sicily, France, Sardinia & Corsica",
+    "itineraryCode": "8870B",
     "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Civitavecchia (Rome), Italy",
+    "debarkPort": "Monte Carlo, Monaco",
     "suitePrice": 0
   },
   {
@@ -7122,21 +7132,11 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-09-30",
-    "nights": 28,
-    "itinerary": "28-Day Hidden Harbors Of France, Spain, Italy & Greece",
-    "itineraryCode": "8873C",
+    "nights": 14,
+    "itinerary": "14-Day French Yacht Harbors, Southern France & Corsica",
+    "itineraryCode": "8873A",
     "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Piraeus (Athens), Greece",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-09-30",
-    "nights": 21,
-    "itinerary": "21-Day French Yacht Harbors, Sardinia & Corsica",
-    "itineraryCode": "8873B",
-    "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Monte Carlo, Monaco",
     "suitePrice": 0
   },
   {
@@ -7152,30 +7152,20 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-09-30",
-    "nights": 14,
-    "itinerary": "14-Day French Yacht Harbors, Southern France & Corsica",
-    "itineraryCode": "8873A",
+    "nights": 21,
+    "itinerary": "21-Day French Yacht Harbors, Sardinia & Corsica",
+    "itineraryCode": "8873B",
     "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Monte Carlo, Monaco",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-10-07",
-    "nights": 14,
-    "itinerary": "14-Day Exploring French Yacht Harbors & Mediterranean Isles",
-    "itineraryCode": "8876A",
-    "embarkPort": "Barcelona, Spain",
     "debarkPort": "Dubrovnik, Croatia",
     "suitePrice": 0
   },
   {
     "shipName": "Seabourn Ovation",
-    "departureDate": "2028-10-07",
-    "nights": 21,
-    "itinerary": "21-Day French Yacht Harbors, Montenegro, Italy & Greece",
-    "itineraryCode": "8876B",
-    "embarkPort": "Barcelona, Spain",
+    "departureDate": "2028-09-30",
+    "nights": 28,
+    "itinerary": "28-Day Hidden Harbors Of France, Spain, Italy & Greece",
+    "itineraryCode": "8873C",
+    "embarkPort": "Civitavecchia (Rome), Italy",
     "debarkPort": "Piraeus (Athens), Greece",
     "suitePrice": 0
   },
@@ -7197,6 +7187,26 @@
     "itineraryCode": "8876C",
     "embarkPort": "Barcelona, Spain",
     "debarkPort": "Fusina (Venice), Italy",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-10-07",
+    "nights": 14,
+    "itinerary": "14-Day Exploring French Yacht Harbors & Mediterranean Isles",
+    "itineraryCode": "8876A",
+    "embarkPort": "Barcelona, Spain",
+    "debarkPort": "Dubrovnik, Croatia",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-10-07",
+    "nights": 21,
+    "itinerary": "21-Day French Yacht Harbors, Montenegro, Italy & Greece",
+    "itineraryCode": "8876B",
+    "embarkPort": "Barcelona, Spain",
+    "debarkPort": "Piraeus (Athens), Greece",
     "suitePrice": 0
   },
   {
@@ -7222,11 +7232,11 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-10-14",
-    "nights": 14,
-    "itinerary": "14-Day Exploring Pompeii, Sicily, Montenegro & Greece",
-    "itineraryCode": "8877A",
+    "nights": 28,
+    "itinerary": "28-Day Exploring Italy, Sicily & Dalmatian Coast",
+    "itineraryCode": "8877C",
     "embarkPort": "Monte Carlo, Monaco",
-    "debarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Civitavecchia (Rome), Italy",
     "suitePrice": 0
   },
   {
@@ -7242,21 +7252,21 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-10-14",
-    "nights": 28,
-    "itinerary": "28-Day Exploring Italy, Sicily & Dalmatian Coast",
-    "itineraryCode": "8877C",
-    "embarkPort": "Monte Carlo, Monaco",
-    "debarkPort": "Civitavecchia (Rome), Italy",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-10-14",
     "nights": 7,
     "itinerary": "7-Day Pompeii, Sicily, Malta & Montenegro",
     "itineraryCode": "8877",
     "embarkPort": "Monte Carlo, Monaco",
     "debarkPort": "Dubrovnik, Croatia",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-10-14",
+    "nights": 14,
+    "itinerary": "14-Day Exploring Pompeii, Sicily, Montenegro & Greece",
+    "itineraryCode": "8877A",
+    "embarkPort": "Monte Carlo, Monaco",
+    "debarkPort": "Piraeus (Athens), Greece",
     "suitePrice": 0
   },
   {
@@ -7272,21 +7282,21 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-10-21",
-    "nights": 28,
-    "itinerary": "28-Day Hidden Gems Of Italy, Greece, Croatia & France",
-    "itineraryCode": "8880C",
-    "embarkPort": "Dubrovnik, Croatia",
-    "debarkPort": "Barcelona, Spain",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-10-21",
     "nights": 14,
     "itinerary": "14-Day Hidden Gems Of Montenegro, Greece, Croatia & Slovenia",
     "itineraryCode": "8880A",
     "embarkPort": "Dubrovnik, Croatia",
     "debarkPort": "Fusina (Venice), Italy",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-10-21",
+    "nights": 28,
+    "itinerary": "28-Day Hidden Gems Of Italy, Greece, Croatia & France",
+    "itineraryCode": "8880C",
+    "embarkPort": "Dubrovnik, Croatia",
+    "debarkPort": "Barcelona, Spain",
     "suitePrice": 0
   },
   {
@@ -7312,16 +7322,6 @@
   {
     "shipName": "Seabourn Encore",
     "departureDate": "2028-10-27",
-    "nights": 14,
-    "itinerary": "14-Day Exploring Japan's Fall Foliage",
-    "itineraryCode": "7866",
-    "embarkPort": "Tokyo, Japan",
-    "debarkPort": "Tokyo, Japan",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2028-10-27",
     "nights": 28,
     "itinerary": "28-Day In-depth Exploration Of Japan's Fall Foliage",
     "itineraryCode": "7866A",
@@ -7330,33 +7330,13 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-10-28",
-    "nights": 30,
-    "itinerary": "30-Day Hidden Riviera Gems, Malta, Montenegro & Greece",
-    "itineraryCode": "8881C",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Lisbon, Portugal",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-10-28",
-    "nights": 21,
-    "itinerary": "21-Day Hidden Gems Of Greece & Yacht Harbors Of France",
-    "itineraryCode": "8881B",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Barcelona, Spain",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-10-28",
-    "nights": 7,
-    "itinerary": "7-Day Hidden Gems Of Greece, Croatia & Slovenia",
-    "itineraryCode": "8881",
-    "embarkPort": "Piraeus (Athens), Greece",
-    "debarkPort": "Fusina (Venice), Italy",
+    "shipName": "Seabourn Encore",
+    "departureDate": "2028-10-27",
+    "nights": 14,
+    "itinerary": "14-Day Exploring Japan's Fall Foliage",
+    "itineraryCode": "7866",
+    "embarkPort": "Tokyo, Japan",
+    "debarkPort": "Tokyo, Japan",
     "suitePrice": 0
   },
   {
@@ -7381,6 +7361,46 @@
   },
   {
     "shipName": "Seabourn Ovation",
+    "departureDate": "2028-10-28",
+    "nights": 30,
+    "itinerary": "30-Day Hidden Riviera Gems, Malta, Montenegro & Greece",
+    "itineraryCode": "8881C",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Lisbon, Portugal",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-10-28",
+    "nights": 7,
+    "itinerary": "7-Day Hidden Gems Of Greece, Croatia & Slovenia",
+    "itineraryCode": "8881",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Fusina (Venice), Italy",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-10-28",
+    "nights": 21,
+    "itinerary": "21-Day Hidden Gems Of Greece & Yacht Harbors Of France",
+    "itineraryCode": "8881B",
+    "embarkPort": "Piraeus (Athens), Greece",
+    "debarkPort": "Barcelona, Spain",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-11-04",
+    "nights": 23,
+    "itinerary": "23-Day Exploring Dalmatian Gems, France & Spain",
+    "itineraryCode": "8884B",
+    "embarkPort": "Fusina (Venice), Italy",
+    "debarkPort": "Lisbon, Portugal",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
     "departureDate": "2028-11-04",
     "nights": 7,
     "itinerary": "7-Day Dalmatian Gems, Malta & Italy",
@@ -7400,13 +7420,13 @@
     "suitePrice": 0
   },
   {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-11-04",
-    "nights": 23,
-    "itinerary": "23-Day Exploring Dalmatian Gems, France & Spain",
-    "itineraryCode": "8884B",
-    "embarkPort": "Fusina (Venice), Italy",
-    "debarkPort": "Lisbon, Portugal",
+    "shipName": "Seabourn Encore",
+    "departureDate": "2028-11-10",
+    "nights": 40,
+    "itinerary": "40-Day Exploring Japan's Fall Foliage & Southeast Asia",
+    "itineraryCode": "7867B",
+    "embarkPort": "Tokyo, Japan",
+    "debarkPort": "Singapore",
     "suitePrice": 0
   },
   {
@@ -7417,16 +7437,6 @@
     "itineraryCode": "7867",
     "embarkPort": "Tokyo, Japan",
     "debarkPort": "Tokyo, Japan",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2028-11-10",
-    "nights": 40,
-    "itinerary": "40-Day Exploring Japan's Fall Foliage & Southeast Asia",
-    "itineraryCode": "7867B",
-    "embarkPort": "Tokyo, Japan",
-    "debarkPort": "Singapore",
     "suitePrice": 0
   },
   {
@@ -7452,21 +7462,21 @@
   {
     "shipName": "Seabourn Ovation",
     "departureDate": "2028-11-11",
-    "nights": 7,
-    "itinerary": "7-Day Florence, Monte Carlo & Southern France",
-    "itineraryCode": "8885",
-    "embarkPort": "Civitavecchia (Rome), Italy",
-    "debarkPort": "Barcelona, Spain",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Ovation",
-    "departureDate": "2028-11-11",
     "nights": 16,
     "itinerary": "16-Day Riviera Yacht Harbors Of France & Spain",
     "itineraryCode": "8885A",
     "embarkPort": "Civitavecchia (Rome), Italy",
     "debarkPort": "Lisbon, Portugal",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Ovation",
+    "departureDate": "2028-11-11",
+    "nights": 7,
+    "itinerary": "7-Day Florence, Monte Carlo & Southern France",
+    "itineraryCode": "8885",
+    "embarkPort": "Civitavecchia (Rome), Italy",
+    "debarkPort": "Barcelona, Spain",
     "suitePrice": 0
   },
   {
@@ -7492,21 +7502,21 @@
   {
     "shipName": "Seabourn Encore",
     "departureDate": "2028-11-24",
-    "nights": 12,
-    "itinerary": "12-Day Exploring Osaka, Okinawa & Taiwan",
-    "itineraryCode": "7870",
-    "embarkPort": "Tokyo, Japan",
-    "debarkPort": "Hong Kong, China",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2028-11-24",
     "nights": 26,
     "itinerary": "26-Day Osaka Nights, Taiwan & Southeast Asia",
     "itineraryCode": "7870A",
     "embarkPort": "Tokyo, Japan",
     "debarkPort": "Singapore",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2028-11-24",
+    "nights": 12,
+    "itinerary": "12-Day Exploring Osaka, Okinawa & Taiwan",
+    "itineraryCode": "7870",
+    "embarkPort": "Tokyo, Japan",
+    "debarkPort": "Hong Kong, China",
     "suitePrice": 0
   },
   {
@@ -7602,16 +7612,6 @@
   {
     "shipName": "Seabourn Encore",
     "departureDate": "2029-02-12",
-    "nights": 26,
-    "itinerary": "26-Day Exploring Taiwan, Japan's Gems & Plum Blossoms",
-    "itineraryCode": "7915A",
-    "embarkPort": "Hong Kong, China",
-    "debarkPort": "Tokyo, Japan",
-    "suitePrice": 0
-  },
-  {
-    "shipName": "Seabourn Encore",
-    "departureDate": "2029-02-12",
     "nights": 12,
     "itinerary": "12-Day Exploring Taiwan & Japan Charming Harbors",
     "itineraryCode": "7915",
@@ -7621,11 +7621,11 @@
   },
   {
     "shipName": "Seabourn Encore",
-    "departureDate": "2029-02-24",
-    "nights": 14,
-    "itinerary": "14-Day Sea Of Japan & Plum Blossoms",
-    "itineraryCode": "7918",
-    "embarkPort": "Tokyo, Japan",
+    "departureDate": "2029-02-12",
+    "nights": 26,
+    "itinerary": "26-Day Exploring Taiwan, Japan's Gems & Plum Blossoms",
+    "itineraryCode": "7915A",
+    "embarkPort": "Hong Kong, China",
     "debarkPort": "Tokyo, Japan",
     "suitePrice": 0
   },
@@ -7641,10 +7641,10 @@
   },
   {
     "shipName": "Seabourn Encore",
-    "departureDate": "2029-03-10",
+    "departureDate": "2029-02-24",
     "nights": 14,
-    "itinerary": "14-Day Japan's Cherry Blossoms & Kobe Nights",
-    "itineraryCode": "7919",
+    "itinerary": "14-Day Sea Of Japan & Plum Blossoms",
+    "itineraryCode": "7918",
     "embarkPort": "Tokyo, Japan",
     "debarkPort": "Tokyo, Japan",
     "suitePrice": 0
@@ -7661,10 +7661,10 @@
   },
   {
     "shipName": "Seabourn Encore",
-    "departureDate": "2029-03-24",
-    "nights": 28,
-    "itinerary": "28-Day Japan's Cherry Blossom Exploration",
-    "itineraryCode": "7922A",
+    "departureDate": "2029-03-10",
+    "nights": 14,
+    "itinerary": "14-Day Japan's Cherry Blossoms & Kobe Nights",
+    "itineraryCode": "7919",
     "embarkPort": "Tokyo, Japan",
     "debarkPort": "Tokyo, Japan",
     "suitePrice": 0
@@ -7681,10 +7681,10 @@
   },
   {
     "shipName": "Seabourn Encore",
-    "departureDate": "2029-04-07",
-    "nights": 14,
-    "itinerary": "14-Day Japan's Cherry Blossoms & Kanazawa Nights",
-    "itineraryCode": "7923",
+    "departureDate": "2029-03-24",
+    "nights": 28,
+    "itinerary": "28-Day Japan's Cherry Blossom Exploration",
+    "itineraryCode": "7922A",
     "embarkPort": "Tokyo, Japan",
     "debarkPort": "Tokyo, Japan",
     "suitePrice": 0
@@ -7697,6 +7697,16 @@
     "itineraryCode": "7923A",
     "embarkPort": "Tokyo, Japan",
     "debarkPort": "Vancouver, B.C., CA",
+    "suitePrice": 0
+  },
+  {
+    "shipName": "Seabourn Encore",
+    "departureDate": "2029-04-07",
+    "nights": 14,
+    "itinerary": "14-Day Japan's Cherry Blossoms & Kanazawa Nights",
+    "itineraryCode": "7923",
+    "embarkPort": "Tokyo, Japan",
+    "debarkPort": "Tokyo, Japan",
     "suitePrice": 0
   },
   {

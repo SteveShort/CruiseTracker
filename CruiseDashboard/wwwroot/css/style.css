@@ -577,6 +577,20 @@ body::before {
     color: var(--text-primary);
 }
 
+.chart-info-icon {
+    display: inline-block;
+    cursor: help;
+    font-size: 0.75rem;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+.chart-info-icon:hover {
+    opacity: 1;
+}
+
 .analytics-card-subtitle {
     font-size: 0.75rem;
     color: var(--text-muted);
