@@ -22,7 +22,7 @@
     "packageCode": "5NCZ",
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
-    "balconyPrice": 400,
+    "balconyPrice": 1366,
     "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
@@ -121,7 +121,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 973,
-    "suitePrice": 3360,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -176,7 +176,7 @@
     "packageCode": "5NCZ",
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
-    "balconyPrice": 795,
+    "balconyPrice": 400,
     "suitePrice": 2195,
     "insidePrice": null,
     "oceanviewPrice": null
@@ -191,7 +191,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2156,
+    "suitePrice": 2500,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -204,7 +204,7 @@
     "packageCode": "5NPP",
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
-    "balconyPrice": 1145,
+    "balconyPrice": 1032,
     "suitePrice": 3200,
     "insidePrice": null,
     "oceanviewPrice": null
@@ -261,7 +261,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2036,
+    "suitePrice": 2380,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -485,7 +485,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2245,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -555,7 +555,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 973,
-    "suitePrice": 4053,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -583,7 +583,7 @@
     "embarkPort": "",
     "debarkPort": "",
     "balconyPrice": 675,
-    "suitePrice": 2100,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -597,7 +597,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 1032,
-    "suitePrice": 3912,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -625,7 +625,7 @@
     "embarkPort": "",
     "debarkPort": "",
     "balconyPrice": 954,
-    "suitePrice": null,
+    "suitePrice": 3414,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -638,8 +638,8 @@
     "packageCode": "10NMM",
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
-    "balconyPrice": 1090,
-    "suitePrice": null,
+    "balconyPrice": 1486,
+    "suitePrice": 4990,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -653,7 +653,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 654,
-    "suitePrice": null,
+    "suitePrice": 2814,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -737,7 +737,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 833,
-    "suitePrice": null,
+    "suitePrice": 3983,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -778,7 +778,7 @@
     "packageCode": "4NKW",
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
-    "balconyPrice": 400,
+    "balconyPrice": 505,
     "suitePrice": 2100,
     "insidePrice": null,
     "oceanviewPrice": null
@@ -835,7 +835,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2100,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -849,7 +849,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 2575,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -891,7 +891,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 981,
-    "suitePrice": 4491,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -919,7 +919,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 1113,
-    "suitePrice": null,
+    "suitePrice": 4123,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -947,7 +947,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 973,
-    "suitePrice": 3983,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1002,7 +1002,7 @@
     "packageCode": "5NTC",
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
-    "balconyPrice": 595,
+    "balconyPrice": 400,
     "suitePrice": 2600,
     "insidePrice": null,
     "oceanviewPrice": null
@@ -1045,7 +1045,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 1396,
-    "suitePrice": null,
+    "suitePrice": 5290,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1059,7 +1059,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2100,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1073,7 +1073,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 973,
-    "suitePrice": 3983,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1101,7 +1101,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 595,
-    "suitePrice": 2550,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1115,7 +1115,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2100,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1128,7 +1128,7 @@
     "packageCode": "5NTC",
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
-    "balconyPrice": 400,
+    "balconyPrice": 595,
     "suitePrice": 2575,
     "insidePrice": null,
     "oceanviewPrice": null
@@ -1185,7 +1185,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2100,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1199,7 +1199,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 1112,
-    "suitePrice": null,
+    "suitePrice": 4552,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1269,7 +1269,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 1043,
-    "suitePrice": null,
+    "suitePrice": 3983,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1297,7 +1297,7 @@
     "embarkPort": "",
     "debarkPort": "",
     "balconyPrice": 1539,
-    "suitePrice": null,
+    "suitePrice": 4990,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1339,7 +1339,7 @@
     "embarkPort": "",
     "debarkPort": "",
     "balconyPrice": 400,
-    "suitePrice": 3283,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1353,7 +1353,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 595,
-    "suitePrice": null,
+    "suitePrice": 2575,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1366,7 +1366,7 @@
     "packageCode": "4NKW",
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
-    "balconyPrice": 476,
+    "balconyPrice": 400,
     "suitePrice": 2100,
     "insidePrice": null,
     "oceanviewPrice": null
@@ -1381,7 +1381,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 2575,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1409,7 +1409,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 3423,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1451,7 +1451,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 1043,
-    "suitePrice": 3983,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1465,7 +1465,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 973,
-    "suitePrice": 3283,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1479,7 +1479,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 2525,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1493,7 +1493,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 2060,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1521,7 +1521,7 @@
     "embarkPort": "",
     "debarkPort": "",
     "balconyPrice": 1043,
-    "suitePrice": null,
+    "suitePrice": 3983,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1549,7 +1549,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 5290,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1577,7 +1577,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 894,
-    "suitePrice": 3414,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1591,7 +1591,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 1032,
-    "suitePrice": null,
+    "suitePrice": 3592,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1661,7 +1661,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 834,
-    "suitePrice": null,
+    "suitePrice": 2874,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1745,7 +1745,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2575,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1759,7 +1759,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 400,
-    "suitePrice": 3983,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1787,7 +1787,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2100,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1829,7 +1829,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2575,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1843,7 +1843,7 @@
     "embarkPort": "",
     "debarkPort": "",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 3703,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1927,7 +1927,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2240,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1941,7 +1941,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2875,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -1997,7 +1997,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2360,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2039,7 +2039,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2360,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2067,7 +2067,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 2925,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2109,7 +2109,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2875,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2137,7 +2137,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2875,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2179,7 +2179,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2875,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2221,7 +2221,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2875,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2235,7 +2235,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 2925,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2277,7 +2277,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2925,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2291,7 +2291,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2360,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2305,7 +2305,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2875,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2319,7 +2319,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2950,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2333,7 +2333,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2360,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2431,7 +2431,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2875,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2487,7 +2487,7 @@
     "embarkPort": "",
     "debarkPort": "",
     "balconyPrice": 795,
-    "suitePrice": null,
+    "suitePrice": 2950,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2557,7 +2557,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 714,
-    "suitePrice": null,
+    "suitePrice": 3000,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2585,7 +2585,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 763,
-    "suitePrice": 3850,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2613,7 +2613,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 3000,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2627,7 +2627,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 763,
-    "suitePrice": null,
+    "suitePrice": 3850,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2641,7 +2641,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 3000,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2655,7 +2655,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 3000,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2683,7 +2683,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 400,
-    "suitePrice": 3850,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2697,7 +2697,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 952,
-    "suitePrice": null,
+    "suitePrice": 3920,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2711,7 +2711,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 595,
-    "suitePrice": null,
+    "suitePrice": 3000,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2725,7 +2725,7 @@
     "embarkPort": "",
     "debarkPort": "",
     "balconyPrice": 833,
-    "suitePrice": null,
+    "suitePrice": 3850,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2823,7 +2823,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 1673,
-    "suitePrice": null,
+    "suitePrice": 4480,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2837,7 +2837,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 507,
-    "suitePrice": null,
+    "suitePrice": 2040,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2907,7 +2907,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 400,
-    "suitePrice": 3850,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2963,7 +2963,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 763,
-    "suitePrice": 3850,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -2977,7 +2977,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 833,
-    "suitePrice": 3500,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3005,7 +3005,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 763,
-    "suitePrice": null,
+    "suitePrice": 3850,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3019,7 +3019,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 3000,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3033,7 +3033,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 715,
-    "suitePrice": null,
+    "suitePrice": 3000,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3047,7 +3047,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 2400,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3061,7 +3061,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 763,
-    "suitePrice": 3850,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3089,7 +3089,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 3000,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3145,7 +3145,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 2400,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3173,7 +3173,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 1033,
-    "suitePrice": null,
+    "suitePrice": 3920,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3187,7 +3187,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 3000,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3201,7 +3201,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 3850,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3215,7 +3215,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 3000,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3341,7 +3341,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 2400,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3369,7 +3369,7 @@
     "embarkPort": "",
     "debarkPort": "",
     "balconyPrice": 1033,
-    "suitePrice": null,
+    "suitePrice": 3920,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3383,7 +3383,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 3000,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3397,7 +3397,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 903,
-    "suitePrice": 3850,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3411,7 +3411,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 3000,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3439,7 +3439,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2400,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3523,7 +3523,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": null,
+    "suitePrice": 3000,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3551,7 +3551,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 903,
-    "suitePrice": null,
+    "suitePrice": 3850,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3565,7 +3565,7 @@
     "embarkPort": "",
     "debarkPort": "",
     "balconyPrice": 1112,
-    "suitePrice": null,
+    "suitePrice": 3920,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3607,7 +3607,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 2400,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3621,7 +3621,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 400,
-    "suitePrice": 3000,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3677,7 +3677,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 2471,
-    "suitePrice": null,
+    "suitePrice": 9104,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3690,8 +3690,36 @@
     "packageCode": "7NRT",
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
-    "balconyPrice": 2337,
+    "balconyPrice": 4165,
     "suitePrice": 4165,
+    "insidePrice": null,
+    "oceanviewPrice": null
+  },
+  {
+    "shipName": "Scarlet Lady",
+    "departureDate": "2026-03-27",
+    "nights": 5,
+    "itinerary": "Grand Turk & Bimini Beach Club",
+    "itineraryCode": "SC2603275NTC",
+    "packageCode": "5NTC",
+    "embarkPort": "Miami, Florida",
+    "debarkPort": "Miami, Florida",
+    "balconyPrice": 1387,
+    "suitePrice": null,
+    "insidePrice": null,
+    "oceanviewPrice": null
+  },
+  {
+    "shipName": "Resilient Lady",
+    "departureDate": "2026-05-02",
+    "nights": 5,
+    "itinerary": "Grand Turk & Bimini Beach Club",
+    "itineraryCode": "RS2605025NTC",
+    "packageCode": "5NTC",
+    "embarkPort": "Miami, Florida",
+    "debarkPort": "Miami, Florida",
+    "balconyPrice": 1198,
+    "suitePrice": 2895,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3718,7 +3746,7 @@
     "packageCode": "4NKW2",
     "embarkPort": "",
     "debarkPort": "",
-    "balconyPrice": 916,
+    "balconyPrice": 1056,
     "suitePrice": 1716,
     "insidePrice": null,
     "oceanviewPrice": null
@@ -3746,7 +3774,7 @@
     "packageCode": "5NNYB",
     "embarkPort": "New York City, New York",
     "debarkPort": "New York City, New York",
-    "balconyPrice": 1156,
+    "balconyPrice": 1275,
     "suitePrice": 2825,
     "insidePrice": null,
     "oceanviewPrice": null
@@ -3817,7 +3845,7 @@
     "embarkPort": "New York City, New York",
     "debarkPort": "New York City, New York",
     "balconyPrice": 1666,
-    "suitePrice": 7350,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3831,7 +3859,7 @@
     "embarkPort": "Los Angeles, California",
     "debarkPort": "Los Angeles, California",
     "balconyPrice": 833,
-    "suitePrice": null,
+    "suitePrice": 3500,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3873,35 +3901,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 1246,
-    "suitePrice": null,
-    "insidePrice": null,
-    "oceanviewPrice": null
-  },
-  {
-    "shipName": "Resilient Lady",
-    "departureDate": "2026-05-02",
-    "nights": 5,
-    "itinerary": "Grand Turk & Bimini Beach Club",
-    "itineraryCode": "RS2605025NTC",
-    "packageCode": "5NTC",
-    "embarkPort": "Miami, Florida",
-    "debarkPort": "Miami, Florida",
-    "balconyPrice": 1198,
-    "suitePrice": 2895,
-    "insidePrice": null,
-    "oceanviewPrice": null
-  },
-  {
-    "shipName": "Resilient Lady",
-    "departureDate": "2026-05-16",
-    "nights": 5,
-    "itinerary": "Grand Turk & Bimini Beach Club",
-    "itineraryCode": "RS2605165NTC",
-    "packageCode": "5NTC",
-    "embarkPort": "Miami, Florida",
-    "debarkPort": "Miami, Florida",
-    "balconyPrice": 1317,
-    "suitePrice": null,
+    "suitePrice": 3906,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -3914,7 +3914,7 @@
     "packageCode": "8NLAV",
     "embarkPort": "Los Angeles, California",
     "debarkPort": "Los Angeles, California",
-    "balconyPrice": 792,
+    "balconyPrice": 817,
     "suitePrice": 5080,
     "insidePrice": null,
     "oceanviewPrice": null
@@ -3984,7 +3984,7 @@
     "packageCode": "7NGM",
     "embarkPort": "Athens (Piraeus)",
     "debarkPort": "Athens (Piraeus)",
-    "balconyPrice": 1548,
+    "balconyPrice": 1603,
     "suitePrice": 3143,
     "insidePrice": null,
     "oceanviewPrice": null
@@ -4041,7 +4041,7 @@
     "embarkPort": "Seattle, Washington",
     "debarkPort": "Seattle, Washington",
     "balconyPrice": 1183,
-    "suitePrice": null,
+    "suitePrice": 4403,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4082,7 +4082,7 @@
     "packageCode": "7NCB2",
     "embarkPort": "Barcelona",
     "debarkPort": "Barcelona",
-    "balconyPrice": 1463,
+    "balconyPrice": 1533,
     "suitePrice": 4263,
     "insidePrice": null,
     "oceanviewPrice": null
@@ -4097,7 +4097,7 @@
     "embarkPort": "Seattle, Washington",
     "debarkPort": "Seattle, Washington",
     "balconyPrice": 903,
-    "suitePrice": 4403,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4110,7 +4110,7 @@
     "packageCode": "7NSBC",
     "embarkPort": "Seattle, Washington",
     "debarkPort": "Seattle, Washington",
-    "balconyPrice": 1346,
+    "balconyPrice": 1446,
     "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
@@ -4125,7 +4125,7 @@
     "embarkPort": "Seattle, Washington",
     "debarkPort": "Seattle, Washington",
     "balconyPrice": 1646,
-    "suitePrice": 4403,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4167,7 +4167,7 @@
     "embarkPort": "Seattle, Washington",
     "debarkPort": "Seattle, Washington",
     "balconyPrice": 2508,
-    "suitePrice": null,
+    "suitePrice": 9720,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4181,7 +4181,7 @@
     "embarkPort": "Barcelona",
     "debarkPort": "Barcelona",
     "balconyPrice": 1393,
-    "suitePrice": null,
+    "suitePrice": 3703,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4223,7 +4223,7 @@
     "embarkPort": "Seattle, Washington",
     "debarkPort": "Seattle, Washington",
     "balconyPrice": 2241,
-    "suitePrice": null,
+    "suitePrice": 7515,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4265,7 +4265,7 @@
     "embarkPort": "Barcelona",
     "debarkPort": "Barcelona",
     "balconyPrice": 1393,
-    "suitePrice": null,
+    "suitePrice": 3563,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4321,7 +4321,7 @@
     "embarkPort": "Barcelona",
     "debarkPort": "Barcelona",
     "balconyPrice": 2090,
-    "suitePrice": 7200,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4447,7 +4447,7 @@
     "embarkPort": "Vancouver, British Columbia",
     "debarkPort": "Vancouver, British Columbia",
     "balconyPrice": 872,
-    "suitePrice": null,
+    "suitePrice": 4800,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4629,7 +4629,7 @@
     "embarkPort": "",
     "debarkPort": "",
     "balconyPrice": 716,
-    "suitePrice": 2100,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4671,7 +4671,7 @@
     "embarkPort": "Miami, Florida",
     "debarkPort": "Miami, Florida",
     "balconyPrice": 795,
-    "suitePrice": 3200,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4699,7 +4699,7 @@
     "embarkPort": "San Juan, Puerto Rico",
     "debarkPort": "San Juan, Puerto Rico",
     "balconyPrice": 1743,
-    "suitePrice": null,
+    "suitePrice": 4473,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4755,7 +4755,7 @@
     "embarkPort": "Los Angeles, California",
     "debarkPort": "Los Angeles, California",
     "balconyPrice": 891,
-    "suitePrice": 4221,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4797,7 +4797,7 @@
     "embarkPort": "Vancouver, British Columbia",
     "debarkPort": "Vancouver, British Columbia",
     "balconyPrice": 1161,
-    "suitePrice": 5121,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4811,7 +4811,7 @@
     "embarkPort": "Barcelona",
     "debarkPort": "Barcelona",
     "balconyPrice": 1113,
-    "suitePrice": 3885,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4839,7 +4839,7 @@
     "embarkPort": "Barcelona",
     "debarkPort": "Barcelona",
     "balconyPrice": 1463,
-    "suitePrice": 4305,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4895,7 +4895,7 @@
     "embarkPort": "Athens (Piraeus)",
     "debarkPort": "Athens (Piraeus)",
     "balconyPrice": 1323,
-    "suitePrice": 4725,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4965,7 +4965,7 @@
     "embarkPort": "Seattle, Washington",
     "debarkPort": "Seattle, Washington",
     "balconyPrice": 903,
-    "suitePrice": null,
+    "suitePrice": 4403,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -4993,7 +4993,7 @@
     "embarkPort": "Seattle, Washington",
     "debarkPort": "Seattle, Washington",
     "balconyPrice": 903,
-    "suitePrice": 4403,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -5007,7 +5007,7 @@
     "embarkPort": "Barcelona",
     "debarkPort": "Barcelona",
     "balconyPrice": 1990,
-    "suitePrice": null,
+    "suitePrice": 6150,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -5035,7 +5035,7 @@
     "embarkPort": "Athens (Piraeus)",
     "debarkPort": "Athens (Piraeus)",
     "balconyPrice": 2079,
-    "suitePrice": null,
+    "suitePrice": 6765,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -5049,7 +5049,7 @@
     "embarkPort": "Athens (Piraeus)",
     "debarkPort": "Athens (Piraeus)",
     "balconyPrice": 1463,
-    "suitePrice": null,
+    "suitePrice": 4725,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -5091,7 +5091,7 @@
     "embarkPort": "Barcelona",
     "debarkPort": "Barcelona",
     "balconyPrice": 1253,
-    "suitePrice": 4305,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -5105,7 +5105,7 @@
     "embarkPort": "Barcelona",
     "debarkPort": "Barcelona",
     "balconyPrice": 1253,
-    "suitePrice": 4305,
+    "suitePrice": null,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -5119,7 +5119,7 @@
     "embarkPort": "Athens (Piraeus)",
     "debarkPort": "Athens (Piraeus)",
     "balconyPrice": 1253,
-    "suitePrice": null,
+    "suitePrice": 4725,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -5133,7 +5133,7 @@
     "embarkPort": "Athens (Piraeus)",
     "debarkPort": "Athens (Piraeus)",
     "balconyPrice": 2348,
-    "suitePrice": null,
+    "suitePrice": 6750,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -5147,7 +5147,7 @@
     "embarkPort": "Barcelona",
     "debarkPort": "Barcelona",
     "balconyPrice": 1914,
-    "suitePrice": null,
+    "suitePrice": 6700,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -5287,7 +5287,7 @@
     "embarkPort": "Athens (Piraeus)",
     "debarkPort": "Athens (Piraeus)",
     "balconyPrice": 1463,
-    "suitePrice": null,
+    "suitePrice": 4725,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -5301,7 +5301,7 @@
     "embarkPort": "Barcelona",
     "debarkPort": "Barcelona",
     "balconyPrice": 1183,
-    "suitePrice": null,
+    "suitePrice": 4305,
     "insidePrice": null,
     "oceanviewPrice": null
   },
@@ -5328,7 +5328,7 @@
     "packageCode": "7NBCT",
     "embarkPort": "Barcelona",
     "debarkPort": "Barcelona",
-    "balconyPrice": 1393,
+    "balconyPrice": 1183,
     "suitePrice": 4305,
     "insidePrice": null,
     "oceanviewPrice": null
@@ -5371,7 +5371,7 @@
     "embarkPort": "Barcelona",
     "debarkPort": "Barcelona",
     "balconyPrice": 1386,
-    "suitePrice": null,
+    "suitePrice": 6300,
     "insidePrice": null,
     "oceanviewPrice": null
   },

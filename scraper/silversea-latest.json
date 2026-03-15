@@ -110,26 +110,15 @@
     "originalFare": 6200
   },
   {
-    "shipName": "Silver Nova",
-    "departureDate": "2026-05-11",
-    "nights": 19,
-    "itinerary": "Seattle (Washington) to Miami, FL",
-    "itineraryCode": "SN260511020",
-    "embarkPort": "Seattle (Washington)",
+    "shipName": "Silver Ray",
+    "departureDate": "2026-11-28",
+    "nights": 12,
+    "itinerary": "Lisbon to Miami, FL",
+    "itineraryCode": "RA261128013",
+    "embarkPort": "Lisbon",
     "debarkPort": "Miami, FL",
-    "fare": 58500,
-    "originalFare": null
-  },
-  {
-    "shipName": "Silver Wind",
-    "departureDate": "2026-10-20",
-    "nights": 8,
-    "itinerary": "Puerto Williams to King George Island",
-    "itineraryCode": "WI261020009",
-    "embarkPort": "Puerto Williams",
-    "debarkPort": "King George Island",
-    "fare": 14700,
-    "originalFare": 24500
+    "fare": 4480,
+    "originalFare": 6400
   },
   {
     "shipName": "Silver Ray",
@@ -143,17 +132,6 @@
     "originalFare": null
   },
   {
-    "shipName": "Silver Ray",
-    "departureDate": "2026-11-28",
-    "nights": 12,
-    "itinerary": "Lisbon to Miami, FL",
-    "itineraryCode": "RA261128013",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Miami, FL",
-    "fare": 4270,
-    "originalFare": 6100
-  },
-  {
     "shipName": "Silver Whisper",
     "departureDate": "2027-05-27",
     "nights": 6,
@@ -163,6 +141,28 @@
     "debarkPort": "Vancouver",
     "fare": 3990,
     "originalFare": 5700
+  },
+  {
+    "shipName": "Silver Wind",
+    "departureDate": "2026-10-20",
+    "nights": 8,
+    "itinerary": "Puerto Williams to King George Island",
+    "itineraryCode": "WI261020009",
+    "embarkPort": "Puerto Williams",
+    "debarkPort": "King George Island",
+    "fare": 14700,
+    "originalFare": 24500
+  },
+  {
+    "shipName": "Silver Nova",
+    "departureDate": "2026-05-11",
+    "nights": 19,
+    "itinerary": "Seattle (Washington) to Miami, FL",
+    "itineraryCode": "SN260511020",
+    "embarkPort": "Seattle (Washington)",
+    "debarkPort": "Miami, FL",
+    "fare": 58500,
+    "originalFare": null
   },
   {
     "shipName": "Silver Whisper",
@@ -183,8 +183,8 @@
     "itineraryCode": "SM261021020",
     "embarkPort": "Lisbon",
     "debarkPort": "Cape Town",
-    "fare": 8400,
-    "originalFare": 14000
+    "fare": 9180,
+    "originalFare": 15300
   },
   {
     "shipName": "Silver Spirit",
@@ -198,15 +198,15 @@
     "originalFare": null
   },
   {
-    "shipName": "Silver Ray",
-    "departureDate": "2026-05-29",
-    "nights": 10,
-    "itinerary": "Civitavecchia (Rome) to Barcelona",
-    "itineraryCode": "RA260529011",
-    "embarkPort": "Civitavecchia (Rome)",
-    "debarkPort": "Barcelona",
-    "fare": 7950,
-    "originalFare": null
+    "shipName": "Silver Shadow",
+    "departureDate": "2026-11-30",
+    "nights": 9,
+    "itinerary": "Miami, FL to Miami, FL",
+    "itineraryCode": "SS261130010",
+    "embarkPort": "Miami, FL",
+    "debarkPort": "Miami, FL",
+    "fare": 4560,
+    "originalFare": 5700
   },
   {
     "shipName": "Silver Ray",
@@ -218,28 +218,6 @@
     "debarkPort": "Miami, FL",
     "fare": 5680,
     "originalFare": 7100
-  },
-  {
-    "shipName": "Silver Muse",
-    "departureDate": "2026-03-15",
-    "nights": 9,
-    "itinerary": "Civitavecchia (Rome) to Athens (Piraeus)",
-    "itineraryCode": "SM260315010",
-    "embarkPort": "Civitavecchia (Rome)",
-    "debarkPort": "Athens (Piraeus)",
-    "fare": 8370,
-    "originalFare": 9300
-  },
-  {
-    "shipName": "Silver Spirit",
-    "departureDate": "2026-03-15",
-    "nights": 6,
-    "itinerary": "Lisbon to Civitavecchia (Rome)",
-    "itineraryCode": "SL260315007",
-    "embarkPort": "Lisbon",
-    "debarkPort": "Civitavecchia (Rome)",
-    "fare": 3420,
-    "originalFare": 5700
   },
   {
     "shipName": "Silver Wind",
@@ -392,8 +370,8 @@
     "itineraryCode": "SS260327012",
     "embarkPort": "Nice",
     "debarkPort": "Nice",
-    "fare": 8220,
-    "originalFare": 13700
+    "fare": 8400,
+    "originalFare": 14000
   },
   {
     "shipName": "Silver Cloud ",
@@ -425,7 +403,7 @@
     "itineraryCode": "MO260330S07",
     "embarkPort": "Busan",
     "debarkPort": "Tokyo",
-    "fare": 5300,
+    "fare": 8200,
     "originalFare": null
   },
   {
@@ -480,8 +458,8 @@
     "itineraryCode": "RA260405011",
     "embarkPort": "Lisbon",
     "debarkPort": "Barcelona",
-    "fare": 7210,
-    "originalFare": 10300
+    "fare": 7000,
+    "originalFare": 10000
   },
   {
     "shipName": "Silver Wind",
@@ -513,8 +491,8 @@
     "itineraryCode": "MO260406014",
     "embarkPort": "Tokyo",
     "debarkPort": "Tokyo",
-    "fare": 31100,
-    "originalFare": null
+    "fare": 16560,
+    "originalFare": 18400
   },
   {
     "shipName": "Silver Shadow",
@@ -612,8 +590,8 @@
     "itineraryCode": "RA260416011",
     "embarkPort": "Barcelona",
     "debarkPort": "Barcelona",
-    "fare": 7420,
-    "originalFare": 10600
+    "fare": 10800,
+    "originalFare": 13500
   },
   {
     "shipName": "Silver Dawn",
@@ -744,8 +722,8 @@
     "itineraryCode": "RA260427011",
     "embarkPort": "Barcelona",
     "debarkPort": "Barcelona",
-    "fare": 8050,
-    "originalFare": 11500
+    "fare": 10720,
+    "originalFare": 13400
   },
   {
     "shipName": "Silver Moon",
@@ -755,7 +733,7 @@
     "itineraryCode": "MO260430015",
     "embarkPort": "Tokyo",
     "debarkPort": "Seward (Anchorage, Alaska)",
-    "fare": 3650,
+    "fare": 3850,
     "originalFare": null
   },
   {
@@ -766,7 +744,7 @@
     "itineraryCode": "SS260502S06",
     "embarkPort": "Nice",
     "debarkPort": "Valletta",
-    "fare": 3350,
+    "fare": 23200,
     "originalFare": null
   },
   {
@@ -854,7 +832,7 @@
     "itineraryCode": "SM260506011",
     "embarkPort": "Fusina (Venice)",
     "debarkPort": "Civitavecchia (Rome)",
-    "fare": 8800,
+    "fare": 10900,
     "originalFare": null
   },
   {
@@ -865,7 +843,7 @@
     "itineraryCode": "SS260508S06",
     "embarkPort": "Valletta",
     "debarkPort": "Nice",
-    "fare": 3350,
+    "fare": 23200,
     "originalFare": null
   },
   {
@@ -1144,6 +1122,17 @@
     "originalFare": null
   },
   {
+    "shipName": "Silver Ray",
+    "departureDate": "2026-05-29",
+    "nights": 10,
+    "itinerary": "Civitavecchia (Rome) to Barcelona",
+    "itineraryCode": "RA260529011",
+    "embarkPort": "Civitavecchia (Rome)",
+    "debarkPort": "Barcelona",
+    "fare": 7950,
+    "originalFare": null
+  },
+  {
     "shipName": "Silver Origin",
     "departureDate": "2026-05-30",
     "nights": 6,
@@ -1250,8 +1239,8 @@
     "itineraryCode": "SS260607S06",
     "embarkPort": "Nice",
     "debarkPort": "Valletta",
-    "fare": 4920,
-    "originalFare": 8200
+    "fare": 23000,
+    "originalFare": null
   },
   {
     "shipName": "Silver Shadow",
@@ -1327,8 +1316,8 @@
     "itineraryCode": "SS260613S06",
     "embarkPort": "Valletta",
     "debarkPort": "Nice",
-    "fare": 5400,
-    "originalFare": 9000
+    "fare": 23600,
+    "originalFare": null
   },
   {
     "shipName": "Silver Origin",
@@ -2097,8 +2086,8 @@
     "itineraryCode": "MO260730007",
     "embarkPort": "Vancouver",
     "debarkPort": "Seward (Anchorage, Alaska)",
-    "fare": 5880,
-    "originalFare": 8400
+    "fare": 6090,
+    "originalFare": 8700
   },
   {
     "shipName": "Silver Shadow",
@@ -2548,8 +2537,8 @@
     "itineraryCode": "MO260827007",
     "embarkPort": "Vancouver",
     "debarkPort": "Seward (Anchorage, Alaska)",
-    "fare": 7070,
-    "originalFare": 10100
+    "fare": 7560,
+    "originalFare": 10800
   },
   {
     "shipName": "Silver Dawn",
@@ -3241,8 +3230,8 @@
     "itineraryCode": "MO261017014",
     "embarkPort": "Tokyo",
     "debarkPort": "Tokyo",
-    "fare": 13860,
-    "originalFare": 15400
+    "fare": 13050,
+    "originalFare": 14500
   },
   {
     "shipName": "Silver Whisper",
@@ -3307,7 +3296,7 @@
     "itineraryCode": "SM261021C42",
     "embarkPort": "Lisbon",
     "debarkPort": "Mumbai",
-    "fare": 15700,
+    "fare": 16100,
     "originalFare": null
   },
   {
@@ -3648,7 +3637,7 @@
     "itineraryCode": "RA261118C23",
     "embarkPort": "Barcelona",
     "debarkPort": "Miami, FL",
-    "fare": 9500,
+    "fare": 9800,
     "originalFare": null
   },
   {
@@ -3795,17 +3784,6 @@
     "originalFare": 9600
   },
   {
-    "shipName": "Silver Shadow",
-    "departureDate": "2026-11-30",
-    "nights": 9,
-    "itinerary": "Miami, FL to Miami, FL",
-    "itineraryCode": "SS261130010",
-    "embarkPort": "Miami, FL",
-    "debarkPort": "Miami, FL",
-    "fare": 4560,
-    "originalFare": 5700
-  },
-  {
     "shipName": "Silver Nova",
     "departureDate": "2026-11-30",
     "nights": 8,
@@ -3912,8 +3890,8 @@
     "itineraryCode": "SN261209012",
     "embarkPort": "Lisbon",
     "debarkPort": "Bridgetown",
-    "fare": 3720,
-    "originalFare": 6200
+    "fare": 3840,
+    "originalFare": 6400
   },
   {
     "shipName": "Silver Cloud ",
@@ -3967,8 +3945,8 @@
     "itineraryCode": "SL261212007",
     "embarkPort": "Bridgetown",
     "debarkPort": "Bridgetown",
-    "fare": 3150,
-    "originalFare": 4500
+    "fare": 3290,
+    "originalFare": 4700
   },
   {
     "shipName": "Silver Origin",
@@ -5034,8 +5012,8 @@
     "itineraryCode": "EV270304021",
     "embarkPort": "Puerto Williams",
     "debarkPort": "Buenos Aires",
-    "fare": 76800,
-    "originalFare": null
+    "fare": 31950,
+    "originalFare": 35500
   },
   {
     "shipName": "Silver Nova",
@@ -5056,7 +5034,7 @@
     "itineraryCode": "OR270306C14",
     "embarkPort": "San Cristóbal, Galapagos",
     "debarkPort": "San Cristóbal, Galapagos",
-    "fare": 45000,
+    "fare": 25900,
     "originalFare": null
   },
   {
@@ -5067,8 +5045,8 @@
     "itineraryCode": "OR270306007",
     "embarkPort": "San Cristóbal, Galapagos",
     "debarkPort": "San Cristóbal, Galapagos",
-    "fare": 16110,
-    "originalFare": 17900
+    "fare": 15660,
+    "originalFare": 17400
   },
   {
     "shipName": "Silver Whisper",
@@ -5969,7 +5947,7 @@
     "itineraryCode": "OR270515C14",
     "embarkPort": "San Cristóbal, Galapagos",
     "debarkPort": "San Cristóbal, Galapagos",
-    "fare": 26300,
+    "fare": 25300,
     "originalFare": null
   },
   {
@@ -6057,8 +6035,8 @@
     "itineraryCode": "OR270522007",
     "embarkPort": "San Cristóbal, Galapagos",
     "debarkPort": "San Cristóbal, Galapagos",
-    "fare": 13860,
-    "originalFare": 15400
+    "fare": 13410,
+    "originalFare": 14900
   },
   {
     "shipName": "Silver Shadow",
@@ -9478,7 +9456,7 @@
     "itineraryCode": "SS280105132",
     "embarkPort": "Miami, FL",
     "debarkPort": "Nice",
-    "fare": 91000,
+    "fare": 104000,
     "originalFare": null
   },
   {

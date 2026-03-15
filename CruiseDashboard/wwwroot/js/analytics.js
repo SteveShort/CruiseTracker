@@ -53,7 +53,7 @@ function renderMarketPulse(data) {
     }
 
     el.innerHTML = `
-        <div class="brief-card-title">📊 Market Pulse</div>
+        <div class="brief-card-title">📊 Market Pulse <span class="chart-info-icon" title="Shows today's overall pricing direction. Compares each sailing's current price to its previous day's price, then counts how many dropped vs rose. The bar shows the ratio — more green (drops) = buyer's market, more red (rises) = seller's market.">ℹ️</span></div>
         <div class="pulse-grid">
             <div class="pulse-main">
                 <div class="pulse-arrow ${arrowClass}">${arrow}</div>
@@ -89,7 +89,7 @@ function renderBriefByLine(byLine) {
     }
 
     let html = `<table class="byline-table">
-        <thead><tr><th>Line</th><th>Avg $/ppd</th><th>Change</th><th>▼ Drops</th><th>▲ Rises</th><th>Sailings</th></tr></thead>
+        <thead><tr><th>Line <span class="chart-info-icon" title="Breaks down pricing changes by cruise line. Each line's avg $/ppd is compared to its recent baseline (average of its 2nd-4th most recent scrapes). Drop/rise counts show how many sailings moved in each direction. Click a row to filter all analytics to that line.">ℹ️</span></th><th>Avg $/ppd</th><th>Change</th><th>▼ Drops</th><th>▲ Rises</th><th>Sailings</th></tr></thead>
         <tbody>`;
 
     byLine.forEach(l => {
@@ -234,6 +234,7 @@ async function loadAnalytics(force) {
         renderByLineChart(data.byLine);
         renderDepartureChart(data.departureCurve);
         renderSentimentChart(sentimentData);
+        renderMarketPulseHistory(sentimentData);
         renderNearTermChart(data.nearTermTrend);
         renderByShipChart(data.byShip);
         renderMonthlyHeatmap(data.monthly);
@@ -624,6 +625,107 @@ function renderSentimentChart(sentimentData) {
                         maxRotation: 45
                     },
                     title: { display: true, text: 'Date', color: chartDefaults.color }
+                }
+            }
+        }
+    });
+}
+
+// ── Market Pulse History (diverging bar chart) ──────────────────────
+
+function renderMarketPulseHistory(sentimentData) {
+    const ctx = document.getElementById('chartPulseHistory');
+    if (!ctx || !sentimentData || sentimentData.length === 0) return;
+
+    // Destroy existing chart if any
+    if (analyticsCharts.pulseHistory) {
+        analyticsCharts.pulseHistory.destroy();
+    }
+
+    const dates = sentimentData.map(d => d.date);
+    const dateLabels = dates.map(d => {
+        const dt = new Date(d + 'T00:00:00');
+        return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    });
+
+    // Net = rises - drops: positive means more rises (red up), negative means more drops (green down)
+    const netValues = sentimentData.map(d => d.rises - d.drops);
+
+    // Color each bar: red for positive (more rises), green for negative (more drops)
+    const barColors = netValues.map(v =>
+        v > 0 ? 'rgba(239, 68, 68, 0.7)' : 'rgba(16, 185, 129, 0.7)'
+    );
+    const borderColors = netValues.map(v =>
+        v > 0 ? '#ef4444' : '#10b981'
+    );
+
+    analyticsCharts.pulseHistory = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: dateLabels,
+            datasets: [{
+                label: 'Net Rises − Drops',
+                data: netValues,
+                backgroundColor: barColors,
+                borderColor: borderColors,
+                borderWidth: 1,
+                borderRadius: 3,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        title: (items) => {
+                            if (!items.length) return '';
+                            const idx = items[0].dataIndex;
+                            return dates[idx] || dateLabels[idx];
+                        },
+                        label: (ctx) => {
+                            const idx = ctx.dataIndex;
+                            const d = sentimentData[idx];
+                            if (!d) return '';
+                            const net = d.rises - d.drops;
+                            const dir = net > 0 ? '▲ More rises' : net < 0 ? '▼ More drops' : '— Balanced';
+                            return [
+                                dir,
+                                `▼ ${d.drops} drops  ▲ ${d.rises} rises  — ${d.unchanged} flat`,
+                                `Avg PPD: $${d.avgPpd}`
+                            ];
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    grid: {
+                        color: (ctx) => ctx.tick.value === 0 ? 'rgba(255, 255, 255, 0.3)' : chartDefaults.borderColor,
+                        lineWidth: (ctx) => ctx.tick.value === 0 ? 2 : 1,
+                    },
+                    ticks: {
+                        color: (ctx) => {
+                            const v = ctx.tick.value;
+                            if (v < 0) return '#10b981';
+                            if (v > 0) return '#ef4444';
+                            return chartDefaults.color;
+                        },
+                        callback: v => {
+                            if (v === 0) return '0';
+                            return v > 0 ? `+${v}` : `${v}`;
+                        }
+                    },
+                    title: { display: true, text: 'Net (rises − drops)', color: chartDefaults.color }
+                },
+                x: {
+                    grid: { color: chartDefaults.borderColor },
+                    ticks: {
+                        color: chartDefaults.color,
+                        maxTicksLimit: 15,
+                        maxRotation: 45
+                    }
                 }
             }
         }

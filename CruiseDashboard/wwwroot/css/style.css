@@ -781,6 +781,11 @@ body::before {
     font-style: italic;
 }
 
+/* ── Market Pulse History Chart ──────────────────────────────────── */
+.chart-pulse-history {
+    height: 220px;
+}
+
 /* ── Market Pulse Card ───────────────────────────────────────────── */
 .pulse-grid {
     display: flex;

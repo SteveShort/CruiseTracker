@@ -5468,17 +5468,6 @@
   },
   {
     "shipName": "Oceania Riviera",
-    "departureDate": "2026-03-15",
-    "nights": 15,
-    "itinerary": "COLLECTOR'S NEW ZEALAND",
-    "itineraryCode": "RVA260315",
-    "embarkPort": "Sydney",
-    "debarkPort": "Auckland",
-    "fare": 8099,
-    "brochureFare": 16198
-  },
-  {
-    "shipName": "Oceania Riviera",
     "departureDate": "2028-02-07",
     "nights": 24,
     "itinerary": "SAND, SURF, SILK & SUSHI",
