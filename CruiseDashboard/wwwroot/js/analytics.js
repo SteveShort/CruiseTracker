@@ -59,7 +59,7 @@ function renderMarketPulse(data) {
                 <div class="pulse-arrow ${arrowClass}">${arrow}</div>
                 <div class="pulse-avg">
                     <div class="pulse-avg-value">$${ms.avgPpdNow}<span class="pulse-unit">/ppd</span></div>
-                    <div class="pulse-avg-label">Avg ${priceLabel} ${ms.avgChangePct > 0 ? '+' : ''}${ms.avgChangePct}% vs last scrape</div>
+                    <div class="pulse-avg-label">Avg ${priceLabel} ${ms.avgChangePct > 0 ? '+' : ''}${ms.avgChangePct}% vs previous day</div>
                 </div>
             </div>
             <div class="pulse-bar-container">

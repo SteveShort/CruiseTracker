@@ -1,4 +1,4 @@
-﻿// ═══════════════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════════════
 // DashboardEndpoints.cs — Main dashboard API routes
 // 
 // Routes:
@@ -791,7 +791,7 @@ public static class DashboardEndpoints
                 .Take(20)
                 .ToList();
 
-            // 2. Market summary (same baseline logic as alerts for consistency)
+            // 2. Market summary (day-over-day: current vs previous scrape)
             var allWithPrev = await conn.QueryAsync<dynamic>($@"
                 WITH RankedPrices AS (
                     SELECT ph.CruiseLine, ph.ShipName, ph.DepartureDate, ph.{priceCol} AS Ppd,
@@ -801,18 +801,11 @@ public static class DashboardEndpoints
                     WHERE ph.{priceCol} > 0 AND ph.ScrapedAt >= '2026-02-28'
                       AND ph.CruiseLine IN ({lineFilter}) {singleLineFilter}
                       AND ph.DepartureDate >= CAST(GETDATE() AS DATE) AND c.IsDeparted = 0
-                ),
-                Baseline AS (
-                    SELECT CruiseLine, ShipName, DepartureDate,
-                           AVG(Ppd) AS BaselinePpd, COUNT(*) AS BaselineCount
-                    FROM RankedPrices
-                    WHERE rn BETWEEN 2 AND 4
-                    GROUP BY CruiseLine, ShipName, DepartureDate
                 )
-                SELECT cur.CruiseLine, cur.Ppd AS CurrentPpd, b.BaselinePpd AS PreviousPpd
+                SELECT cur.CruiseLine, cur.Ppd AS CurrentPpd, prev.Ppd AS PreviousPpd
                 FROM RankedPrices cur
-                INNER JOIN Baseline b ON b.CruiseLine = cur.CruiseLine AND b.ShipName = cur.ShipName AND b.DepartureDate = cur.DepartureDate
-                WHERE cur.rn = 1 AND b.BaselineCount >= 2");
+                INNER JOIN RankedPrices prev ON prev.CruiseLine = cur.CruiseLine AND prev.ShipName = cur.ShipName AND prev.DepartureDate = cur.DepartureDate AND prev.rn = 2
+                WHERE cur.rn = 1");
 
             var allRows = allWithPrev.ToList();
             var totalSailings = allRows.Count;
