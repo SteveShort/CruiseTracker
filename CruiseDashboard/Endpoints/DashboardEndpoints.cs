@@ -791,21 +791,28 @@ public static class DashboardEndpoints
                 .Take(20)
                 .ToList();
 
-            // 2. Market summary (day-over-day: current vs previous scrape)
+            // 2. Market summary (day-over-day: today's price vs yesterday's, per-day grouping + LAG)
             var allWithPrev = await conn.QueryAsync<dynamic>($@"
-                WITH RankedPrices AS (
-                    SELECT ph.CruiseLine, ph.ShipName, ph.DepartureDate, ph.{priceCol} AS Ppd,
-                           ROW_NUMBER() OVER (PARTITION BY ph.CruiseLine, ph.ShipName, ph.DepartureDate ORDER BY ph.ScrapedAt DESC) AS rn
+                WITH DailyPrices AS (
+                    SELECT ph.CruiseLine, ph.ShipName, ph.DepartureDate,
+                           CAST(ph.ScrapedAt AS DATE) AS ScrapeDay,
+                           ph.{priceCol} AS Ppd,
+                           ROW_NUMBER() OVER (PARTITION BY ph.CruiseLine, ph.ShipName, ph.DepartureDate, CAST(ph.ScrapedAt AS DATE) ORDER BY ph.ScrapedAt DESC) AS rn
                     FROM PriceHistory ph
                     INNER JOIN Cruises c ON c.CruiseLine = ph.CruiseLine AND c.ShipName = ph.ShipName AND c.DepartureDate = ph.DepartureDate
                     WHERE ph.{priceCol} > 0 AND ph.ScrapedAt >= '2026-02-28'
                       AND ph.CruiseLine IN ({lineFilter}) {singleLineFilter}
                       AND ph.DepartureDate >= CAST(GETDATE() AS DATE) AND c.IsDeparted = 0
+                ),
+                LatestPerDay AS (
+                    SELECT CruiseLine, ShipName, DepartureDate, ScrapeDay, Ppd,
+                           LAG(Ppd) OVER (PARTITION BY CruiseLine, ShipName, DepartureDate ORDER BY ScrapeDay) AS PrevPpd
+                    FROM DailyPrices WHERE rn = 1
                 )
-                SELECT cur.CruiseLine, cur.Ppd AS CurrentPpd, prev.Ppd AS PreviousPpd
-                FROM RankedPrices cur
-                INNER JOIN RankedPrices prev ON prev.CruiseLine = cur.CruiseLine AND prev.ShipName = cur.ShipName AND prev.DepartureDate = cur.DepartureDate AND prev.rn = 2
-                WHERE cur.rn = 1");
+                SELECT CruiseLine, Ppd AS CurrentPpd, PrevPpd AS PreviousPpd
+                FROM LatestPerDay
+                WHERE PrevPpd IS NOT NULL
+                  AND ScrapeDay = (SELECT MAX(ScrapeDay) FROM LatestPerDay WHERE PrevPpd IS NOT NULL)");
 
             var allRows = allWithPrev.ToList();
             var totalSailings = allRows.Count;
@@ -874,14 +881,15 @@ public static class DashboardEndpoints
             // For each scrape day × sailing, get day's price vs previous day's price using LAG()
             var rows = await conn.QueryAsync<dynamic>($@"
                 WITH DailyPrices AS (
-                    SELECT CruiseLine, ShipName, DepartureDate,
-                           CAST(ScrapedAt AS DATE) AS ScrapeDay,
-                           {priceCol} AS Ppd,
-                           ROW_NUMBER() OVER (PARTITION BY CruiseLine, ShipName, DepartureDate, CAST(ScrapedAt AS DATE) ORDER BY ScrapedAt DESC) AS rn
-                    FROM PriceHistory
-                    WHERE {priceCol} > 0 AND ScrapedAt >= '{minDate}'
-                      AND CruiseLine IN ({lineFilter})
-                      AND DepartureDate >= CAST(GETDATE() AS DATE)
+                    SELECT ph.CruiseLine, ph.ShipName, ph.DepartureDate,
+                           CAST(ph.ScrapedAt AS DATE) AS ScrapeDay,
+                           ph.{priceCol} AS Ppd,
+                           ROW_NUMBER() OVER (PARTITION BY ph.CruiseLine, ph.ShipName, ph.DepartureDate, CAST(ph.ScrapedAt AS DATE) ORDER BY ph.ScrapedAt DESC) AS rn
+                    FROM PriceHistory ph
+                    INNER JOIN Cruises c ON c.CruiseLine = ph.CruiseLine AND c.ShipName = ph.ShipName AND c.DepartureDate = ph.DepartureDate
+                    WHERE ph.{priceCol} > 0 AND ph.ScrapedAt >= '{minDate}'
+                      AND ph.CruiseLine IN ({lineFilter})
+                      AND ph.DepartureDate >= CAST(GETDATE() AS DATE) AND c.IsDeparted = 0
                 ),
                 LatestPerDay AS (
                     SELECT CruiseLine, ShipName, DepartureDate, ScrapeDay, Ppd,
