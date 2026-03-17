@@ -784,6 +784,77 @@ body::before {
 /* ── Market Pulse History Chart ──────────────────────────────────── */
 .chart-pulse-history {
     height: 220px;
+    cursor: pointer;
+}
+
+/* ── Pulse History Detail Panel (click-to-expand) ────────────────── */
+.pulse-history-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+    padding: 0;
+    margin: 0;
+}
+
+.pulse-history-detail.expanded {
+    max-height: 400px;
+    padding: 12px 0 4px;
+    margin-top: 8px;
+    overflow-y: auto;
+}
+
+.pulse-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.pulse-detail-date {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.pulse-detail-close {
+    background: none;
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    transition: all 0.15s ease;
+}
+
+.pulse-detail-close:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+}
+
+.pulse-detail-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.pulse-detail-error {
+    text-align: center;
+    padding: 16px;
+    color: var(--accent-red, #ef4444);
+    font-size: 0.85rem;
+}
+
+.pulse-detail-empty {
+    text-align: center;
+    padding: 16px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-style: italic;
 }
 
 /* ── Market Pulse Card ───────────────────────────────────────────── */

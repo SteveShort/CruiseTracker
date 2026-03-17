@@ -940,5 +940,64 @@ public static class DashboardEndpoints
             return Results.Ok(result);
         });
 
+        // GET /api/market-sentiment/{date} — per-line breakdown for a specific day
+        app.MapGet("/api/market-sentiment/{date}", async (string date, string? appMode, string? priceType) =>
+        {
+            using var conn = new SqlConnection(connStr);
+            var modeLines = ShipReferenceData.LinesForMode(ships, appMode);
+            var lineFilter = string.Join(",", modeLines.Select(l => $"'{l}'"));
+            var priceCol = priceType == "suite" ? "SuitePerDay" : "BalconyPerDay";
+            var minDate = "2026-02-28";
+
+            var rows = await conn.QueryAsync<dynamic>($@"
+                WITH DailyPrices AS (
+                    SELECT ph.CruiseLine, ph.ShipName, ph.DepartureDate,
+                           CAST(ph.ScrapedAt AS DATE) AS ScrapeDay,
+                           ph.{priceCol} AS Ppd,
+                           ROW_NUMBER() OVER (PARTITION BY ph.CruiseLine, ph.ShipName, ph.DepartureDate, CAST(ph.ScrapedAt AS DATE) ORDER BY ph.ScrapedAt DESC) AS rn
+                    FROM PriceHistory ph
+                    INNER JOIN Cruises c ON c.CruiseLine = ph.CruiseLine AND c.ShipName = ph.ShipName AND c.DepartureDate = ph.DepartureDate
+                    WHERE ph.{priceCol} > 0 AND ph.ScrapedAt >= '{minDate}'
+                      AND ph.CruiseLine IN ({lineFilter})
+                      AND ph.DepartureDate >= CAST(GETDATE() AS DATE) AND c.IsDeparted = 0
+                ),
+                LatestPerDay AS (
+                    SELECT CruiseLine, ShipName, DepartureDate, ScrapeDay, Ppd,
+                           LAG(Ppd) OVER (PARTITION BY CruiseLine, ShipName, DepartureDate ORDER BY ScrapeDay) AS PrevPpd
+                    FROM DailyPrices WHERE rn = 1
+                )
+                SELECT CruiseLine, Ppd AS CurrentPpd, PrevPpd AS PreviousPpd
+                FROM LatestPerDay
+                WHERE PrevPpd IS NOT NULL
+                  AND ScrapeDay = @targetDate", new { targetDate = date });
+
+            var allRows = rows.ToList();
+            if (allRows.Count == 0) return Results.Ok(new { date, byLine = Array.Empty<object>() });
+
+            var byLine = allRows
+                .GroupBy(r => (string)r.CruiseLine)
+                .Select(g =>
+                {
+                    var lineAvgNow = (int)Math.Round(g.Average(r => (decimal)r.CurrentPpd));
+                    var lineAvgPrev = (int)Math.Round(g.Average(r => (decimal)r.PreviousPpd));
+                    var lineChangePct = lineAvgPrev > 0 ? Math.Round(((decimal)lineAvgNow - lineAvgPrev) / lineAvgPrev * 100, 1) : 0m;
+                    return new
+                    {
+                        CruiseLine = g.Key,
+                        Sailings = g.Count(),
+                        AvgPpdNow = lineAvgNow,
+                        AvgPpdPrev = lineAvgPrev,
+                        AvgChangePct = lineChangePct,
+                        DropsCount = g.Count(r => (decimal)r.CurrentPpd < (decimal)r.PreviousPpd),
+                        RisesCount = g.Count(r => (decimal)r.CurrentPpd > (decimal)r.PreviousPpd),
+                        UnchangedCount = g.Count(r => (decimal)r.CurrentPpd == (decimal)r.PreviousPpd)
+                    };
+                })
+                .OrderBy(l => l.AvgChangePct)
+                .ToList();
+
+            return Results.Ok(new { date, byLine });
+        });
+
     }
 }

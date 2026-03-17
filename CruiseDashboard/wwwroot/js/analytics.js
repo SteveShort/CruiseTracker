@@ -631,8 +631,6 @@ function renderSentimentChart(sentimentData) {
     });
 }
 
-// ── Market Pulse History (diverging bar chart) ──────────────────────
-
 function renderMarketPulseHistory(sentimentData) {
     const ctx = document.getElementById('chartPulseHistory');
     if (!ctx || !sentimentData || sentimentData.length === 0) return;
@@ -641,6 +639,10 @@ function renderMarketPulseHistory(sentimentData) {
     if (analyticsCharts.pulseHistory) {
         analyticsCharts.pulseHistory.destroy();
     }
+
+    // Clear any existing detail panel
+    const detailEl = document.getElementById('pulseHistoryDetail');
+    if (detailEl) detailEl.innerHTML = '';
 
     const dates = sentimentData.map(d => d.date);
     const dateLabels = dates.map(d => {
@@ -659,6 +661,9 @@ function renderMarketPulseHistory(sentimentData) {
         v > 0 ? '#ef4444' : '#10b981'
     );
 
+    // Track selected bar index
+    let selectedBarIndex = -1;
+
     analyticsCharts.pulseHistory = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -675,6 +680,61 @@ function renderMarketPulseHistory(sentimentData) {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            onClick: async (event, elements) => {
+                if (!elements || elements.length === 0) return;
+                const idx = elements[0].index;
+                const clickedDate = dates[idx];
+
+                // If clicking the same bar, toggle off
+                if (selectedBarIndex === idx) {
+                    selectedBarIndex = -1;
+                    // Reset all bar colors
+                    const ds = analyticsCharts.pulseHistory.data.datasets[0];
+                    ds.borderWidth = netValues.map(() => 1);
+                    ds.backgroundColor = netValues.map(v =>
+                        v > 0 ? 'rgba(239, 68, 68, 0.7)' : 'rgba(16, 185, 129, 0.7)'
+                    );
+                    ds.borderColor = netValues.map(v =>
+                        v > 0 ? '#ef4444' : '#10b981'
+                    );
+                    analyticsCharts.pulseHistory.update();
+                    if (detailEl) {
+                        detailEl.classList.remove('expanded');
+                        setTimeout(() => { detailEl.innerHTML = ''; }, 300);
+                    }
+                    return;
+                }
+
+                selectedBarIndex = idx;
+
+                // Highlight the selected bar
+                const ds = analyticsCharts.pulseHistory.data.datasets[0];
+                ds.borderWidth = netValues.map((_, i) => i === idx ? 3 : 1);
+                ds.backgroundColor = netValues.map((v, i) => {
+                    if (i === idx) return v > 0 ? 'rgba(239, 68, 68, 1)' : 'rgba(16, 185, 129, 1)';
+                    return v > 0 ? 'rgba(239, 68, 68, 0.35)' : 'rgba(16, 185, 129, 0.35)';
+                });
+                ds.borderColor = netValues.map((v, i) => {
+                    if (i === idx) return '#fff';
+                    return v > 0 ? 'rgba(239, 68, 68, 0.5)' : 'rgba(16, 185, 129, 0.5)';
+                });
+                analyticsCharts.pulseHistory.update();
+
+                // Fetch per-line breakdown for the clicked date
+                if (detailEl) {
+                    detailEl.innerHTML = '<div class="pulse-detail-loading"><div class="spinner"></div> Loading breakdown...</div>';
+                    detailEl.classList.add('expanded');
+                }
+
+                try {
+                    const appMode = getAppMode();
+                    const data = await fetch(`/api/market-sentiment/${clickedDate}?appMode=${appMode}&priceType=${analyticsPriceType}`).then(r => r.json());
+                    renderPulseHistoryDetail(clickedDate, dateLabels[idx], data.byLine);
+                } catch (err) {
+                    console.error('Failed to load pulse detail:', err);
+                    if (detailEl) detailEl.innerHTML = '<div class="pulse-detail-error">Failed to load breakdown</div>';
+                }
+            },
             plugins: {
                 legend: { display: false },
                 tooltip: {
@@ -693,7 +753,9 @@ function renderMarketPulseHistory(sentimentData) {
                             return [
                                 dir,
                                 `▼ ${d.drops} drops  ▲ ${d.rises} rises  — ${d.unchanged} flat`,
-                                `Avg PPD: $${d.avgPpd}`
+                                `Avg PPD: $${d.avgPpd}`,
+                                '',
+                                'Click for line-by-line breakdown'
                             ];
                         }
                     }
@@ -730,6 +792,42 @@ function renderMarketPulseHistory(sentimentData) {
             }
         }
     });
+}
+
+function renderPulseHistoryDetail(date, dateLabel, byLine) {
+    const el = document.getElementById('pulseHistoryDetail');
+    if (!el) return;
+
+    if (!byLine || byLine.length === 0) {
+        el.innerHTML = `<div class="pulse-detail-empty">No per-line data for ${dateLabel}</div>`;
+        el.classList.add('expanded');
+        return;
+    }
+
+    let html = `<div class="pulse-detail-header">
+        <span class="pulse-detail-date">📋 Line-by-Line for ${dateLabel}</span>
+        <button class="pulse-detail-close" onclick="document.getElementById('pulseHistoryDetail').classList.remove('expanded');setTimeout(()=>{document.getElementById('pulseHistoryDetail').innerHTML='';},300)">✕</button>
+    </div>`;
+    html += `<table class="byline-table">
+        <thead><tr><th>Line</th><th>Avg $/ppd</th><th>Change</th><th>▼ Drops</th><th>▲ Rises</th><th>Sailings</th></tr></thead>
+        <tbody>`;
+
+    byLine.forEach(l => {
+        const changeClass = l.avgChangePct < -0.5 ? 'change-drop' : l.avgChangePct > 0.5 ? 'change-rise' : 'change-flat';
+        const changePrefix = l.avgChangePct > 0 ? '+' : '';
+        html += `<tr>
+            <td class="byline-name">${l.cruiseLine}</td>
+            <td class="byline-ppd">$${l.avgPpdNow}</td>
+            <td class="byline-change ${changeClass}">${changePrefix}${l.avgChangePct}%</td>
+            <td class="byline-drops">${l.dropsCount}</td>
+            <td class="byline-rises">${l.risesCount}</td>
+            <td class="byline-count">${l.sailings}</td>
+        </tr>`;
+    });
+
+    html += '</tbody></table>';
+    el.innerHTML = html;
+    el.classList.add('expanded');
 }
 
 // ── 5. Near-Term Pricing Trend ──────────────────────────────────────

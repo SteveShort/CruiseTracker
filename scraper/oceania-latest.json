@@ -1452,17 +1452,6 @@
     "brochureFare": 6198
   },
   {
-    "shipName": "Oceania Nautica",
-    "departureDate": "2026-03-17",
-    "nights": 10,
-    "itinerary": "CARIBBEAN MELODIES",
-    "itineraryCode": "NAU260317",
-    "embarkPort": "Miami",
-    "debarkPort": "Miami",
-    "fare": 3149,
-    "brochureFare": 6298
-  },
-  {
     "shipName": "Oceania Marina",
     "departureDate": "2027-02-13",
     "nights": 10,
@@ -2109,7 +2098,7 @@
     "embarkPort": "Rome",
     "debarkPort": "Barcelona",
     "fare": 3535,
-    "brochureFare": 7198
+    "brochureFare": 7598
   },
   {
     "shipName": "Oceania Riviera",
@@ -2926,17 +2915,6 @@
     "brochureFare": 8198
   },
   {
-    "shipName": "Oceania Marina",
-    "departureDate": "2026-07-20",
-    "nights": 10,
-    "itinerary": "REGAL BALTIC SHORES",
-    "itineraryCode": "MNA260720",
-    "embarkPort": "Stockholm",
-    "debarkPort": "Copenhagen",
-    "fare": 4199,
-    "brochureFare": 8398
-  },
-  {
     "shipName": "Oceania Riviera",
     "departureDate": "2026-11-17",
     "nights": 16,
@@ -3208,6 +3186,17 @@
     "itineraryCode": "ALU260507",
     "embarkPort": "Athens",
     "debarkPort": "Istanbul",
+    "fare": 4449,
+    "brochureFare": 8898
+  },
+  {
+    "shipName": "Oceania Marina",
+    "departureDate": "2026-07-20",
+    "nights": 10,
+    "itinerary": "REGAL BALTIC SHORES",
+    "itineraryCode": "MNA260720",
+    "embarkPort": "Stockholm",
+    "debarkPort": "Copenhagen",
     "fare": 4449,
     "brochureFare": 8898
   },
@@ -4301,17 +4290,6 @@
     "brochureFare": 12298
   },
   {
-    "shipName": "Oceania Marina",
-    "departureDate": "2026-03-17",
-    "nights": 21,
-    "itinerary": "HEART OF THE AMAZON",
-    "itineraryCode": "MNA260317",
-    "embarkPort": "Rio de Janeiro",
-    "debarkPort": "Miami",
-    "fare": 5549,
-    "brochureFare": 11098
-  },
-  {
     "shipName": "Oceania Insignia",
     "departureDate": "2027-01-03",
     "nights": 21,
@@ -4686,17 +4664,6 @@
     "brochureFare": 12198
   },
   {
-    "shipName": "Oceania Allura",
-    "departureDate": "2026-09-14",
-    "nights": 12,
-    "itinerary": "ARTIFACTS & ANTIQUITIES",
-    "itineraryCode": "ALU260914",
-    "embarkPort": "Rome",
-    "debarkPort": "Istanbul",
-    "fare": 6099,
-    "brochureFare": 12198
-  },
-  {
     "shipName": "Oceania Vista",
     "departureDate": "2027-01-06",
     "nights": 15,
@@ -4860,6 +4827,17 @@
     "debarkPort": "Sydney",
     "fare": 6399,
     "brochureFare": 12798
+  },
+  {
+    "shipName": "Oceania Allura",
+    "departureDate": "2026-09-14",
+    "nights": 12,
+    "itinerary": "ARTIFACTS & ANTIQUITIES",
+    "itineraryCode": "ALU260914",
+    "embarkPort": "Rome",
+    "debarkPort": "Istanbul",
+    "fare": 6449,
+    "brochureFare": 12898
   },
   {
     "shipName": "Oceania Insignia",
@@ -5148,17 +5126,6 @@
     "brochureFare": 14098
   },
   {
-    "shipName": "Oceania Marina",
-    "departureDate": "2026-11-15",
-    "nights": 25,
-    "itinerary": "EUROPE TO THE CARIBBEAN",
-    "itineraryCode": "MNA261115A",
-    "embarkPort": "Rome",
-    "debarkPort": "Miami",
-    "fare": 7149,
-    "brochureFare": 14298
-  },
-  {
     "shipName": "Oceania Allura",
     "departureDate": "2027-09-26",
     "nights": 19,
@@ -5201,6 +5168,17 @@
     "debarkPort": "Barcelona",
     "fare": 7299,
     "brochureFare": 14598
+  },
+  {
+    "shipName": "Oceania Marina",
+    "departureDate": "2026-11-15",
+    "nights": 25,
+    "itinerary": "EUROPE TO THE CARIBBEAN",
+    "itineraryCode": "MNA261115A",
+    "embarkPort": "Rome",
+    "debarkPort": "Miami",
+    "fare": 7349,
+    "brochureFare": 14698
   },
   {
     "shipName": "Oceania Sirena",
@@ -5918,17 +5896,6 @@
     "brochureFare": 20798
   },
   {
-    "shipName": "Oceania Marina",
-    "departureDate": "2026-07-20",
-    "nights": 24,
-    "itinerary": "BALTIC & ICELAND DISCOVERY",
-    "itineraryCode": "MNA260720A",
-    "embarkPort": "Stockholm",
-    "debarkPort": "Reykjavik",
-    "fare": 10499,
-    "brochureFare": 20998
-  },
-  {
     "shipName": "Oceania Sirena",
     "departureDate": "2026-11-12",
     "nights": 39,
@@ -5938,6 +5905,17 @@
     "debarkPort": "Lisbon",
     "fare": 10499,
     "brochureFare": 20998
+  },
+  {
+    "shipName": "Oceania Marina",
+    "departureDate": "2026-07-20",
+    "nights": 24,
+    "itinerary": "BALTIC & ICELAND DISCOVERY",
+    "itineraryCode": "MNA260720A",
+    "embarkPort": "Stockholm",
+    "debarkPort": "Reykjavik",
+    "fare": 10549,
+    "brochureFare": 21098
   },
   {
     "shipName": "Oceania Vista",
