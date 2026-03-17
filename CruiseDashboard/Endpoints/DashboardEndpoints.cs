@@ -583,6 +583,7 @@ public static class DashboardEndpoints
             var minDate = "2026-02-28"; // Exclude pre-2/28 cruise.com data
             var priceCol = priceType == "suite" ? "SuitePerDay" : "BalconyPerDay";
             var singleLineFilter = !string.IsNullOrEmpty(line) ? $" AND CruiseLine = '{line.Replace("'", "''")}' " : "";
+            var singleLineFilterPh = !string.IsNullOrEmpty(line) ? $" AND ph.CruiseLine = '{line.Replace("'", "''")}' " : "";
         
             // 1. Per-line averages
             var byLine = await conn.QueryAsync<dynamic>($@"
@@ -631,7 +632,7 @@ public static class DashboardEndpoints
                 FROM PriceHistory ph
                 INNER JOIN Cruises c ON c.CruiseLine = ph.CruiseLine AND c.ShipName = ph.ShipName AND c.DepartureDate = ph.DepartureDate
                 WHERE ph.{priceCol} > 0 AND ph.ScrapedAt >= '{minDate}'
-                  AND ph.CruiseLine IN ({lineFilter}) {singleLineFilter}
+                  AND ph.CruiseLine IN ({lineFilter}) {singleLineFilterPh}
                   AND ph.DepartureDate >= '2026-01-01'
                   AND (c.Itinerary IS NULL OR c.Itinerary NOT LIKE '%transatlantic%')
                 GROUP BY
@@ -655,7 +656,7 @@ public static class DashboardEndpoints
                     FROM PriceHistory ph
                     INNER JOIN Cruises c ON c.CruiseLine = ph.CruiseLine AND c.ShipName = ph.ShipName AND c.DepartureDate = ph.DepartureDate
                     WHERE ph.{priceCol} > 0 AND ph.ScrapedAt >= '{minDate}'
-                      AND ph.CruiseLine IN ({lineFilter}) {singleLineFilter}
+                      AND ph.CruiseLine IN ({lineFilter}) {singleLineFilterPh}
                       AND ph.DepartureDate >= CAST(GETDATE() AS DATE)
                       AND (c.Itinerary IS NULL OR c.Itinerary NOT LIKE '%transatlantic%')
                 )
@@ -676,7 +677,7 @@ public static class DashboardEndpoints
                     FROM PriceHistory ph
                     INNER JOIN Cruises c ON c.CruiseLine = ph.CruiseLine AND c.ShipName = ph.ShipName AND c.DepartureDate = ph.DepartureDate
                     WHERE ph.{priceCol} > 0 AND ph.ScrapedAt >= '{minDate}'
-                      AND ph.CruiseLine IN ({lineFilter}) {singleLineFilter}
+                      AND ph.CruiseLine IN ({lineFilter}) {singleLineFilterPh}
                       AND (c.Itinerary IS NULL OR c.Itinerary NOT LIKE '%transatlantic%')
                 )
                 SELECT CruiseLine, ScrapeDate,
@@ -870,13 +871,14 @@ public static class DashboardEndpoints
         });
 
         // GET /api/market-sentiment — daily pricing momentum index (-100 to +100)
-        app.MapGet("/api/market-sentiment", async (string? appMode, string? priceType) =>
+        app.MapGet("/api/market-sentiment", async (string? appMode, string? priceType, string? line) =>
         {
             using var conn = new SqlConnection(connStr);
             var modeLines = ShipReferenceData.LinesForMode(ships, appMode);
             var lineFilter = string.Join(",", modeLines.Select(l => $"'{l}'"));
             var priceCol = priceType == "suite" ? "SuitePerDay" : "BalconyPerDay";
             var minDate = "2026-02-28";
+            var singleLineFilter = !string.IsNullOrEmpty(line) ? $" AND ph.CruiseLine = '{line.Replace("'", "''")}' " : "";
 
             // For each scrape day × sailing, get day's price vs previous day's price using LAG()
             var rows = await conn.QueryAsync<dynamic>($@"
@@ -888,7 +890,7 @@ public static class DashboardEndpoints
                     FROM PriceHistory ph
                     INNER JOIN Cruises c ON c.CruiseLine = ph.CruiseLine AND c.ShipName = ph.ShipName AND c.DepartureDate = ph.DepartureDate
                     WHERE ph.{priceCol} > 0 AND ph.ScrapedAt >= '{minDate}'
-                      AND ph.CruiseLine IN ({lineFilter})
+                      AND ph.CruiseLine IN ({lineFilter}) {singleLineFilter}
                       AND ph.DepartureDate >= CAST(GETDATE() AS DATE) AND c.IsDeparted = 0
                 ),
                 LatestPerDay AS (
@@ -941,13 +943,14 @@ public static class DashboardEndpoints
         });
 
         // GET /api/market-sentiment/{date} — per-line breakdown for a specific day
-        app.MapGet("/api/market-sentiment/{date}", async (string date, string? appMode, string? priceType) =>
+        app.MapGet("/api/market-sentiment/{date}", async (string date, string? appMode, string? priceType, string? line) =>
         {
             using var conn = new SqlConnection(connStr);
             var modeLines = ShipReferenceData.LinesForMode(ships, appMode);
             var lineFilter = string.Join(",", modeLines.Select(l => $"'{l}'"));
             var priceCol = priceType == "suite" ? "SuitePerDay" : "BalconyPerDay";
             var minDate = "2026-02-28";
+            var singleLineFilter = !string.IsNullOrEmpty(line) ? $" AND ph.CruiseLine = '{line.Replace("'", "''")}' " : "";
 
             var rows = await conn.QueryAsync<dynamic>($@"
                 WITH DailyPrices AS (
@@ -958,7 +961,7 @@ public static class DashboardEndpoints
                     FROM PriceHistory ph
                     INNER JOIN Cruises c ON c.CruiseLine = ph.CruiseLine AND c.ShipName = ph.ShipName AND c.DepartureDate = ph.DepartureDate
                     WHERE ph.{priceCol} > 0 AND ph.ScrapedAt >= '{minDate}'
-                      AND ph.CruiseLine IN ({lineFilter})
+                      AND ph.CruiseLine IN ({lineFilter}) {singleLineFilter}
                       AND ph.DepartureDate >= CAST(GETDATE() AS DATE) AND c.IsDeparted = 0
                 ),
                 LatestPerDay AS (

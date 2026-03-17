@@ -229,7 +229,7 @@ async function loadAnalytics(force) {
     try {
         const [data, sentimentData] = await Promise.all([
             fetch(`/api/analytics?appMode=${appMode}&priceType=${analyticsPriceType}${lineParam}`).then(r => r.json()),
-            fetch(`/api/market-sentiment?appMode=${appMode}&priceType=${analyticsPriceType}`).then(r => r.json())
+            fetch(`/api/market-sentiment?appMode=${appMode}&priceType=${analyticsPriceType}${lineParam}`).then(r => r.json())
         ]);
         renderByLineChart(data.byLine);
         renderDepartureChart(data.departureCurve);
@@ -728,7 +728,8 @@ function renderMarketPulseHistory(sentimentData) {
 
                 try {
                     const appMode = getAppMode();
-                    const data = await fetch(`/api/market-sentiment/${clickedDate}?appMode=${appMode}&priceType=${analyticsPriceType}`).then(r => r.json());
+                    const lineParam = analyticsLineFilter ? `&line=${encodeURIComponent(analyticsLineFilter)}` : '';
+                    const data = await fetch(`/api/market-sentiment/${clickedDate}?appMode=${appMode}&priceType=${analyticsPriceType}${lineParam}`).then(r => r.json());
                     renderPulseHistoryDetail(clickedDate, dateLabels[idx], data.byLine);
                 } catch (err) {
                     console.error('Failed to load pulse detail:', err);
