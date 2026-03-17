@@ -726,6 +726,7 @@ public static class DashboardEndpoints
             var lineFilter = string.Join(",", modeLines.Select(l => $"'{l}'"));
             var priceCol = priceType == "suite" ? "SuitePerDay" : "BalconyPerDay";
             var singleLineFilter = !string.IsNullOrEmpty(line) ? $" AND ph.CruiseLine = '{line.Replace("'", "''")}' " : "";
+            var singleLineFilterBare = !string.IsNullOrEmpty(line) ? $" AND CruiseLine = '{line.Replace("'", "''")}' " : "";
             // Find sailings where the current price is at or near its historical low
             // This surfaces genuine buying opportunities, not transient oscillations
             var changes = await conn.QueryAsync<dynamic>($@"
@@ -750,7 +751,7 @@ public static class DashboardEndpoints
                            MAX({priceCol}) AS PeakPpd, MIN({priceCol}) AS FloorPpd, COUNT(*) AS Snapshots
                     FROM PriceHistory
                     WHERE {priceCol} > 0 AND ScrapedAt >= '2026-02-28'
-                      AND CruiseLine IN ({lineFilter}) {singleLineFilter}
+                      AND CruiseLine IN ({lineFilter}) {singleLineFilterBare}
                       AND DepartureDate >= CAST(GETDATE() AS DATE)
                     GROUP BY CruiseLine, ShipName, DepartureDate
                 )
