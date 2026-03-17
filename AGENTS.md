@@ -102,7 +102,7 @@ The project uses **two different SQL auth methods** — be aware of which one to
 The `/deploy` workflow executes the following steps automatically:
 1. **Build & IIS Swap**: Triggers the `CruiseDashboardDeploy` Windows Scheduled Task, which runs `Deploy.ps1`. This builds the .NET app to a temp dir, stops IIS, kills any locked `w3wp` processes, swaps the `publish` folder, and restarts IIS. 
 2. **Health Check**: Waits and verifies the site returns HTTP 200 on `http://localhost:5050/`.
-3. **Smoke Tests**: Runs the `dotnet test` suite to ensure no regressions.
+3. **Fast API Smoke Tests**: Hits key API endpoints (`/`, `/api/cruises`, `/api/market-brief`, `/api/ships`) to verify they return 200 OK (~2 seconds). **Full Playwright tests (`dotnet test`) are OPTIONAL — only run for major releases.**
 4. **Auto-Commit & Push**: Commits changes to Git. **Important**: It uses `git add -u` instead of `git add -A` to ensure only tracked files are committed. This prevents stray temporary files (like generated CSVs or SQL scripts) from being accidentally pushed to the `origin/master` GitHub remote.
 
 **Monitor deploy status manually (if needed):**
